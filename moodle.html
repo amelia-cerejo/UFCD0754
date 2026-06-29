@@ -3,20 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UFCD 3776 | Modelos HTML para Moodle</title>
+    <title>UFCD 0753 | Modelos HTML para Moodle</title>
     <style>
       :root {
-        --azul: #1e3a8a;
-        --azul-claro: #3b6fd8;
-        --verde: #16834a;
-        --verde-suave: #e8f7ee;
-        --laranja: #f97316;
-        --laranja-suave: #fff3e7;
-        --texto: #24324b;
-        --suave: #64748b;
-        --linha: #d7e3f8;
-        --fundo: #f6f9fd;
-        --branco: #ffffff;
+        --azul-petroleo: #355C7D;
+        --azul-tecnologico: #4F86C6;
+        --azul-escuro: #1E3A56;
+        --laranja: #F59E0B;
+        --laranja-suave: #FFF7E6;
+        --texto: #374151;
+        --suave: #64748B;
+        --linha: #D7E6F3;
+        --fundo: #F4F8FC;
+        --branco: #FFFFFF;
       }
 
       * {
@@ -27,7 +26,7 @@
         margin: 0;
         color: var(--texto);
         background: var(--fundo);
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Segoe UI", Aptos, Calibri, Inter, Arial, sans-serif;
         line-height: 1.6;
       }
 
@@ -37,15 +36,19 @@
         padding: 36px 0 64px;
       }
 
-      .intro {
+      .intro,
+      .template-card {
         position: relative;
         overflow: hidden;
-        margin-bottom: 22px;
-        padding: 30px;
         border: 1px solid var(--linha);
         border-radius: 8px;
         background: var(--branco);
-        box-shadow: 0 18px 40px rgba(30, 58, 138, 0.08);
+        box-shadow: 0 18px 40px rgba(53, 92, 125, 0.08);
+      }
+
+      .intro {
+        margin-bottom: 22px;
+        padding: 30px;
       }
 
       .intro::after,
@@ -56,7 +59,7 @@
         bottom: 0;
         left: 0;
         height: 7px;
-        background: linear-gradient(90deg, var(--verde), var(--azul-claro), var(--laranja));
+        background: linear-gradient(90deg, var(--azul-petroleo), var(--azul-tecnologico), var(--laranja));
       }
 
       .eyebrow {
@@ -69,7 +72,7 @@
 
       h1 {
         margin: 0;
-        color: var(--azul);
+        color: var(--azul-petroleo);
         font-size: clamp(2rem, 4vw, 3.35rem);
         line-height: 1.06;
       }
@@ -94,15 +97,6 @@
         gap: 24px;
       }
 
-      .template-card {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid var(--linha);
-        border-radius: 8px;
-        background: var(--branco);
-        box-shadow: 0 12px 28px rgba(30, 58, 138, 0.07);
-      }
-
       .template-head {
         display: flex;
         align-items: start;
@@ -114,7 +108,7 @@
 
       .template-head h2 {
         margin: 0;
-        color: var(--azul);
+        color: var(--azul-petroleo);
         font-size: 1.22rem;
         line-height: 1.2;
       }
@@ -130,13 +124,13 @@
         border-radius: 8px;
         padding: 10px 14px;
         color: var(--branco);
-        background: var(--azul-claro);
+        background: var(--azul-tecnologico);
         font-weight: 900;
         cursor: pointer;
       }
 
       .copy-button:hover {
-        background: var(--azul);
+        background: var(--azul-petroleo);
       }
 
       .template-body {
@@ -150,12 +144,12 @@
       }
 
       .preview {
-        background: #ffffff;
+        background: #FFFFFF;
       }
 
       .code-panel {
         border-left: 1px solid var(--linha);
-        background: #0f172a;
+        background: #111827;
       }
 
       textarea {
@@ -166,7 +160,7 @@
         border: 0;
         border-radius: 8px;
         padding: 14px;
-        color: #e5e7eb;
+        color: #E5E7EB;
         background: #071022;
         font: 0.88rem/1.5 Consolas, "Courier New", monospace;
       }
@@ -192,206 +186,331 @@
   <body>
     <main class="page">
       <section class="intro">
-        <p class="eyebrow">UFCD 3776 · Moodle</p>
-        <h1>Blocos HTML para folha de cálculo e base de dados</h1>
-        <p>Modelos sem menu, prontos a copiar para o Moodle. Mantêm a identidade visual da UFCD: azul estrutural, verde para folha de cálculo e laranja para base de dados.</p>
+        <p class="eyebrow">UFCD 0753 · Moodle</p>
+        <h1>Blocos HTML para utilitários e sistema operativo</h1>
+        <p>Modelos sem menu, prontos a copiar para o Moodle. Todos os blocos usam estilos em linha com a identidade visual da UFCD 0753.</p>
       </section>
 
       <section class="note" aria-label="Nota importante">
-        <strong>Como usar:</strong> escolhe o modelo, copia o HTML e cola no editor HTML do Moodle. Os estilos estão em linha para funcionarem melhor dentro do Moodle.
+        <strong>Como usar:</strong> escolhe o modelo, copia o HTML e cola no editor HTML do Moodle. Os links dos fóruns e do glossário podem ser substituídos depois pelos links finais.
       </section>
 
       <section class="layout" id="templates" aria-label="Modelos Moodle"></section>
     </main>
 
     <script>
+      const colors = {
+        blue: "#355C7D",
+        lightBlue: "#4F86C6",
+        darkBlue: "#1E3A56",
+        orange: "#F59E0B",
+        softOrange: "#FFF7E6",
+        text: "#374151",
+        muted: "#64748B",
+        line: "#D7E6F3",
+        softBlue: "#E8EEF3",
+        white: "#FFFFFF"
+      };
+
+      const moodleLinks = {
+        glossary: "https://fad.iefp.pt/mod/glossary/view.php?id=408954",
+        forum: "https://fad.iefp.pt/mod/forum/view.php?id=408955"
+      };
+
+      const tgTasks = [
+        {
+          title: "Dia 1 - Primeiras palavras digitais",
+          words: [["Sala 1", "Computador"], ["Sala 2", "Sistema operativo"], ["Sala 3", "Programa"], ["Sala 4", "Ficheiro"], ["Sala 5", "Pasta"], ["Sala 6", "Segurança informática"]]
+        },
+        {
+          title: "Dia 2 - Sistema Operativo Windows",
+          words: [["Sala 1", "Windows"], ["Sala 2", "Ambiente de Trabalho"], ["Sala 3", "Menu Iniciar"], ["Sala 4", "Barra de Tarefas"], ["Sala 5", "Explorador de Ficheiros"], ["Sala 6", "Definições"]]
+        },
+        {
+          title: "Dia 3 - Antivírus e proteção",
+          words: [["Sala 1", "Antivírus"], ["Sala 2", "Vírus"], ["Sala 3", "Malware"], ["Sala 4", "Proteção em tempo real"], ["Sala 5", "Atualização"], ["Sala 6", "Quarentena"]]
+        },
+        {
+          title: "Dia 4 - Segurança no Windows",
+          words: [["Sala 1", "Ameaça informática"], ["Sala 2", "Segurança do Windows"], ["Sala 3", "Microsoft Defender"], ["Sala 4", "Histórico de proteção"], ["Sala 5", "Firewall"], ["Sala 6", "Phishing"]]
+        },
+        {
+          title: "Dia 5 - Compactação de ficheiros",
+          words: [["Sala 1", "Compactação"], ["Sala 2", "Descompactação"], ["Sala 3", "Ficheiro ZIP"], ["Sala 4", "Ficheiro RAR"], ["Sala 5", "Ficheiro 7Z"], ["Sala 6", "Tamanho do ficheiro"]]
+        },
+        {
+          title: "Dia 6 - Utilitários de compressão",
+          words: [["Sala 1", "Utilitário de compressão"], ["Sala 2", "7-Zip"], ["Sala 3", "WinRAR"], ["Sala 4", "Palavra-passe"], ["Sala 5", "Pasta de destino"], ["Sala 6", "Integridade dos ficheiros"]]
+        },
+        {
+          title: "Dia 7 - Evidências e encerramento",
+          words: [["Sala 1", "Evidência"], ["Sala 2", "Portefólio"], ["Sala 3", "Fórum Moodle"], ["Sala 4", "Autoavaliação"], ["Sala 5", "Reflexão final"], ["Sala 6", "Autonomia digital"]]
+        }
+      ];
+
+      const tiTasks = [
+        {
+          title: "TI 1 - As minhas expetativas",
+          day: "Dia 1 - Apresentação e diagnóstico",
+          objective: "Refletir sobre o que esperas aprender nesta UFCD.",
+          steps: [
+            "Escreve uma resposta curta, com 3 a 5 frases.",
+            "Refere o que já sabes fazer no computador.",
+            "Explica o que gostarias de aprender.",
+            "Indica como te queres envolver na formação."
+          ],
+          delivery: "Publica a resposta no Fórum do Moodle."
+        },
+        {
+          title: "TI 2 - Explorar o Windows",
+          day: "Dia 2 - Sistema Operativo Windows",
+          objective: "Identificar elementos básicos do sistema operativo Windows.",
+          steps: [
+            "Observa o computador e identifica 3 elementos do Windows.",
+            "Podes escolher Ambiente de Trabalho, Menu Iniciar, Barra de Tarefas, Explorador de Ficheiros ou Definições.",
+            "Explica, numa frase simples, para que serve cada elemento."
+          ],
+          delivery: "Publica a resposta no Fórum do Moodle."
+        },
+        {
+          title: "TI 3 - Utilitários do Windows",
+          day: "Dia 2 - Sistema Operativo e utilitários",
+          objective: "Reconhecer algumas ferramentas incluídas no Windows.",
+          steps: [
+            "Procura 3 ferramentas ou utilitários do Windows.",
+            "Podes escolher Segurança do Windows, Gestor de Tarefas, Explorador de Ficheiros, Definições ou Limpeza de Disco.",
+            "Indica o nome da ferramenta e para que serve."
+          ],
+          delivery: "Publica a resposta no Fórum do Moodle ou no espaço indicado pela formadora."
+        },
+        {
+          title: "TI 4 - Antivírus no Windows",
+          day: "Dia 3 - Antivírus e proteção",
+          objective: "Conhecer a ferramenta de proteção do Windows.",
+          steps: [
+            "Abre a Segurança do Windows.",
+            "Observa opções como proteção contra vírus e ameaças, atualizações de proteção, histórico de proteção ou opções de análise.",
+            "Regista 2 ou 3 opções que encontraste."
+          ],
+          delivery: "Publica uma breve resposta no Fórum do Moodle."
+        },
+        {
+          title: "TI 5 - Comprimir ficheiros no Windows",
+          day: "Dia 4 - Compactação de ficheiros",
+          objective: "Praticar a compactação de ficheiros no Windows.",
+          steps: [
+            "Escolhe uma pasta indicada pela formadora.",
+            "Verifica o tamanho original.",
+            "Compacta a pasta em formato ZIP.",
+            "Compara o tamanho antes e depois."
+          ],
+          delivery: "Publica uma frase com a tua conclusão no Fórum do Moodle."
+        },
+        {
+          title: "TI 6 - Explorar o 7-Zip ou WinRAR",
+          day: "Dia 5 - Utilitários de compressão",
+          objective: "Experimentar um utilitário de compressão externo.",
+          steps: [
+            "Com o 7-Zip ou WinRAR, compacta uma pasta.",
+            "Descompacta o ficheiro criado.",
+            "Testa uma opção adicional indicada pela formadora."
+          ],
+          delivery: "Regista o que fizeste no Fórum do Moodle."
+        },
+        {
+          title: "TI 7 - Reflexão final",
+          day: "Dia 7 - Encerramento da UFCD",
+          objective: "Refletir sobre o percurso realizado ao longo da UFCD.",
+          steps: [
+            "Escreve 3 a 5 frases.",
+            "Responde: O que aprendi?",
+            "Responde: O que foi mais difícil?",
+            "Responde: O que posso aplicar no dia a dia?"
+          ],
+          delivery: "Publica a reflexão final no Fórum do Moodle."
+        }
+      ];
+
+      function cardStart(accent = colors.blue) {
+        return `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: ${colors.text};">
+  <div style="position: relative; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(53, 92, 125, 0.07);">
+    <div style="border-left: 6px solid ${accent}; padding: 24px 26px 32px;">`;
+      }
+
+      function cardEnd() {
+        return `    </div>
+    <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, ${colors.blue}, ${colors.lightBlue}, ${colors.orange});"></div>
+  </div>
+</div>`;
+      }
+
+      function renderTiHtml(task, index) {
+        const accent = index < 4 ? colors.lightBlue : colors.orange;
+        return `${cardStart(accent)}
+      <p style="margin: 0 0 8px; color: ${colors.orange}; font-size: 12px; font-weight: 900; text-transform: uppercase;">${task.day}</p>
+      <h3 style="margin: 0 0 12px; color: ${colors.blue}; font-size: 24px; line-height: 1.2; font-weight: 900;">${task.title}</h3>
+      <p style="margin: 0 0 14px; line-height: 1.6;"><strong>Objetivo:</strong> ${task.objective}</p>
+      <p style="margin: 0 0 8px; font-weight: 900; color: ${colors.darkBlue};">O que fazer:</p>
+      <ul style="margin: 0 0 14px; padding-left: 22px; line-height: 1.7;">
+        ${task.steps.map((step) => `<li>${step}</li>`).join("\n        ")}
+      </ul>
+      <p style="margin: 0; padding: 12px 14px; border-radius: 8px; background: ${colors.softOrange}; border: 1px solid #FCD34D;"><strong>Entrega:</strong> ${task.delivery}</p>
+${cardEnd()}`;
+      }
+
+      function renderTgOverviewHtml() {
+        return `${cardStart(colors.orange)}
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+        <div>
+          <p style="margin: 0 0 8px; color: ${colors.orange}; font-size: 12px; font-weight: 900; text-transform: uppercase;">Tarefa de Grupo</p>
+          <h3 style="margin: 0; color: ${colors.blue}; font-size: 28px; line-height: 1.16; font-weight: 900;">Glossário colaborativo</h3>
+          <p style="margin: 12px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6;">Construir, em grupo, um glossário com os principais conceitos trabalhados ao longo da UFCD.</p>
+        </div>
+        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.softBlue}; color: ${colors.darkBlue}; font-size: 30px; font-weight: 900;">TG</div>
+      </div>
+      <div style="margin-top: 18px; padding: 16px; border: 1px solid ${colors.line}; border-radius: 8px; background: #F8FBFE;">
+        <p style="margin: 0 0 10px;"><strong>Objetivo:</strong> criar uma definição simples e um exemplo prático para a palavra atribuída à sala.</p>
+        <ol style="margin: 0; padding-left: 22px; line-height: 1.7;">
+          <li>Ler a palavra atribuída.</li>
+          <li>Conversar sobre o seu significado.</li>
+          <li>Escrever uma definição simples, com as vossas palavras.</li>
+          <li>Dar um exemplo prático, sempre que possível.</li>
+          <li>Publicar a palavra e a definição no Glossário do Moodle.</li>
+        </ol>
+      </div>
+      <p style="margin: 14px 0 0; padding: 12px 14px; border-radius: 8px; background: ${colors.softOrange}; border: 1px solid #FCD34D;"><strong>Entrega:</strong> publicação da palavra no Glossário do Moodle.</p>
+${cardEnd()}`;
+      }
+
+      function renderTgDayHtml(task) {
+        return `${cardStart(colors.lightBlue)}
+      <p style="margin: 0 0 8px; color: ${colors.orange}; font-size: 12px; font-weight: 900; text-transform: uppercase;">Tarefa de Grupo</p>
+      <h3 style="margin: 0 0 16px; color: ${colors.blue}; font-size: 24px; line-height: 1.2; font-weight: 900;">${task.title}</h3>
+      <table style="width: 100%; border-collapse: collapse; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; font-size: 15px;">
+        <thead>
+          <tr>
+            <th style="width: 28%; padding: 12px; text-align: left; color: ${colors.white}; background: ${colors.blue};">Sala</th>
+            <th style="padding: 12px; text-align: left; color: ${colors.white}; background: ${colors.blue};">Palavra / Termo</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${task.words.map(([room, word]) => `<tr><td style="padding: 12px; border-top: 1px solid ${colors.line}; background: #F8FBFE; font-weight: 900;">${room}</td><td style="padding: 12px; border-top: 1px solid ${colors.line};">${word}</td></tr>`).join("\n          ")}
+        </tbody>
+      </table>
+${cardEnd()}`;
+      }
+
       const templates = [
         {
           title: "Padlet incorporado",
-          description: "Bloco principal da secção, semelhante ao da UFCD 9950, para mostrar o Padlet dentro do Moodle.",
-          html: `<div style="max-width: 1100px; margin: 0 auto 24px; padding-left: 20px; font-family: Arial, Helvetica, sans-serif; color: #24324B;">
-  <div style="position: relative; margin-bottom: 14px; padding: 22px 24px 28px; background: #FFFFFF; border: 1px solid #D7E3F8; border-radius: 8px; color: #24324B; box-shadow: 0 10px 24px rgba(30, 58, 138, 0.07);">
-    <h3 style="margin: 0; color: #1E3A8A; font-size: 26px; line-height: 1.18; font-weight: 900;">Informática: folha de cálculo e base de dados</h3>
-    <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, #16834A, #3B6FD8, #F97316);"></div>
-  </div>
-
-  <div style="padding: 16px; background: #FFFFFF; border: 1px solid #D7E3F8; border-radius: 8px; box-shadow: 0 10px 24px rgba(30, 58, 138, 0.07);">
-    <iframe
-      style="width: 100%; height: 520px; display: block; border: 0; border-radius: 8px; background: #FFFFFF;"
-      title="Padlet - UFCD 3776"
-      src="https://padlet.com/embed/rtfi7zkz0pn3cyvj"
-      allow="camera; microphone; geolocation; display-capture; clipboard-write"
-      loading="lazy">
-    </iframe>
-
-    <div style="display: flex; justify-content: flex-end; align-items: center; margin-top: 10px;">
-      <a style="display: inline-flex; align-items: center; gap: 6px; color: #64748B; font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-decoration: none;"
-        href="https://padlet.com?ref=embed"
-        >
-        Made with Padlet
-      </a>
-    </div>
-  </div>
-</div>`
+          description: "Bloco principal para mostrar o Padlet dentro do Moodle.",
+          html: `${cardStart(colors.blue)}
+      <h3 style="margin: 0 0 14px; color: ${colors.blue}; font-size: 26px; line-height: 1.18; font-weight: 900;">UFCD 0753 · Sistemas operativos utilitários complementares</h3>
+      <iframe style="width: 100%; height: 520px; display: block; border: 0; border-radius: 8px; background: ${colors.white};" title="Padlet - UFCD 0753" src="https://padlet.com/embed/6w91ggh9dum7qhle" allow="camera; microphone; geolocation; display-capture; clipboard-write" loading="lazy"></iframe>
+${cardEnd()}`
         },
         {
           title: "Página de apoio - cartão da secção",
-          description: "Para aparecer na descrição da secção do Moodle e abrir a página de apoio da UFCD.",
-          html: `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: #24324B;">
+          description: "Cartão para abrir a página de apoio da UFCD no Moodle.",
+          html: `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: ${colors.text};">
   <a style="display: block; text-decoration: none; color: inherit;" href="https://fad.iefp.pt/mod/page/view.php?id=394695">
-    <div style="position: relative; min-height: 150px; overflow: hidden; border: 1px solid #D7E3F8; border-radius: 8px; background: #FFFFFF; box-shadow: 0 10px 24px rgba(30, 58, 138, 0.07);">
+    <div style="position: relative; min-height: 150px; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(53, 92, 125, 0.07);">
       <div style="display: flex; flex-direction: column; justify-content: center; min-height: 140px; padding: 24px 30px;">
-        <h3 style="margin: 0; max-width: 760px; color: #1E3A8A; font-size: 26px; line-height: 1.16; font-weight: 900;">Conteúdos, atividades, avaliação e recursos</h3>
+        <p style="margin: 0 0 8px; color: ${colors.orange}; font-size: 12px; font-weight: 900; text-transform: uppercase;">UFCD 0753</p>
+        <h3 style="margin: 0; max-width: 760px; color: ${colors.blue}; font-size: 26px; line-height: 1.16; font-weight: 900;">Conteúdos, atividades, avaliação e recursos</h3>
       </div>
-      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, #16834A, #3B6FD8, #F97316);"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, ${colors.blue}, ${colors.lightBlue}, ${colors.orange});"></div>
     </div>
   </a>
 </div>`
         },
         {
           title: "Página de apoio - conteúdo da página",
-          description: "Para colocar dentro do conteúdo da página Moodle, mostrando o site da UFCD em iframe.",
-          html: `<div style="width: 100%; margin: 0 auto; padding: 16px; border: 1px solid #D7E3F8; border-radius: 8px; background: #FFFFFF; box-shadow: 0 10px 24px rgba(30, 58, 138, 0.07); font-family: Arial, Helvetica, sans-serif;">
-  <iframe
-    style="width: 100%; max-width: 1500px; height: 800px; border: 0; border-radius: 8px; display: block; margin: 0 auto; background: #FFFFFF;"
-    title="UFCD 3776 - Informática: folha de cálculo e base de dados"
-    src="https://splendorous-paprenjak-ef70f0.netlify.app/"
-    allowfullscreen="allowfullscreen"
-    loading="lazy">
-  </iframe>
+          description: "Iframe para colocar dentro da página Moodle.",
+          html: `<div style="width: 100%; margin: 0 auto; padding: 16px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(53, 92, 125, 0.07); font-family: Arial, Helvetica, sans-serif;">
+  <iframe style="width: 100%; max-width: 1500px; height: 800px; border: 0; border-radius: 8px; display: block; margin: 0 auto; background: ${colors.white};" title="UFCD 0753 - Sistemas operativos utilitários complementares" src="https://ufcd0753.netlify.app/#inicio" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
 </div>`
         },
         {
-          title: "Tarefas de Grupo - glossário colaborativo",
-          description: "Bloco de secção para o glossário colaborativo das Tarefas de Grupo.",
-          html: `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: #24324B;">
-  <a style="display: block; color: inherit; text-decoration: none;" href="https://fad.iefp.pt/mod/glossary/view.php?id=394701">
-    <div style="position: relative; overflow: hidden; border: 1px solid #D7E3F8; border-radius: 8px; background: #FFFFFF; box-shadow: 0 10px 24px rgba(30, 58, 138, 0.07);">
+          title: "TG - Glossário colaborativo",
+          description: "Bloco geral para a tarefa de grupo no Glossário Moodle.",
+          html: renderTgOverviewHtml()
+        },
+        ...tgTasks.map((task) => ({
+          title: `TG - ${task.title}`,
+          description: "Tabela diária de palavras por sala/grupo.",
+          html: renderTgDayHtml(task)
+        })),
+        {
+          title: "TI - Fórum de tarefas individuais",
+          description: "Bloco geral para apresentar o fórum das tarefas individuais.",
+          html: `${cardStart(colors.orange)}
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+        <div>
+          <p style="margin: 0 0 8px; color: ${colors.orange}; font-size: 12px; font-weight: 900; text-transform: uppercase;">Tarefas Individuais</p>
+          <h3 style="margin: 0; color: ${colors.blue}; font-size: 28px; line-height: 1.16; font-weight: 900;">Fórum de atividades individuais</h3>
+          <p style="margin: 12px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6;">Cada tópico corresponde a uma tarefa individual da UFCD 0753. Lê o enunciado, realiza a tarefa e publica a resposta no Fórum do Moodle.</p>
+        </div>
+        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.softOrange}; color: ${colors.orange}; font-size: 30px; font-weight: 900;">TI</div>
+      </div>
+${cardEnd()}`
+        },
+        ...tiTasks.map((task, index) => ({
+          title: task.title,
+          description: "HTML para o tópico Moodle da tarefa individual.",
+          html: renderTiHtml(task, index)
+        }))
+      ];
+
+      templates[3].html = `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: ${colors.text};">
+  <a style="display: block; color: inherit; text-decoration: none;" href="${moodleLinks.glossary}">
+    <div style="position: relative; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(53, 92, 125, 0.07);">
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 30px 34px;">
         <div>
-          <h3 style="margin: 0; color: #1E3A8A; font-size: 28px; line-height: 1.16; font-weight: 900;">Glossário colaborativo</h3>
-          <p style="margin: 12px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6;">Todos os dias se acrescentam novos termos, definições e exemplos para construir uma base comum de vocabulário técnico.</p>
+          <h3 style="margin: 0; color: ${colors.blue}; font-size: 28px; line-height: 1.16; font-weight: 900;">Glossário colaborativo</h3>
+          <p style="margin: 12px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6;">Construir, em grupo, um glossário com os principais conceitos trabalhados ao longo da UFCD.</p>
         </div>
-        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid #D7E3F8; border-radius: 8px; background: #E8F7EE; color: #16834A; font-size: 30px; font-weight: 900;">TG</div>
+        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.softBlue}; color: ${colors.darkBlue}; font-size: 30px; font-weight: 900;">TG</div>
       </div>
-      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, #16834A, #3B6FD8, #F97316);"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, ${colors.blue}, ${colors.lightBlue}, ${colors.orange});"></div>
     </div>
   </a>
-
-  <div style="margin-top: 14px; padding: 18px 20px; border: 1px solid #D7E3F8; border-radius: 8px; background: #FFFFFF; box-shadow: 0 10px 24px rgba(30, 58, 138, 0.07); font-size: 15px;">
-    <p style="margin: 0 0 12px; line-height: 1.6;">Atividade para construir, diariamente, o glossário colaborativo da UFCD.</p>
-    <ul style="margin: 0; padding-left: 42px; line-height: 1.65;">
-      <li>Escolhe um termo relacionado com a sessão do dia.</li>
-      <li>Explica o significado por palavras tuas.</li>
-      <li>Acrescenta um pequeno exemplo sempre que fizer sentido.</li>
-      <li>Consulta os contributos do grupo e evita repetir termos já existentes.</li>
-    </ul>
+  <div style="margin-top: 14px; padding: 18px 20px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(53, 92, 125, 0.07); font-size: 15px;">
+    <p style="margin: 0 0 12px; line-height: 1.6;"><strong>Objetivo:</strong> criar uma definição simples e um exemplo prático para a palavra atribuída à sala.</p>
+    <ol style="margin: 0; padding-left: 42px; line-height: 1.65;">
+      <li>Ler a palavra atribuída.</li>
+      <li>Conversar sobre o seu significado.</li>
+      <li>Escrever uma definição simples, com as vossas palavras.</li>
+      <li>Dar um exemplo prático, sempre que possível.</li>
+      <li>Publicar a palavra e a definição no Glossário do Moodle.</li>
+    </ol>
   </div>
-</div>`
-        },
-        {
-          title: "Tarefas Individuais - fórum",
-          description: "Bloco de secção para apresentar as tarefas individuais no Moodle.",
-          html: `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: #24324B;">
-  <a style="display: block; color: inherit; text-decoration: none;" href="https://fad.iefp.pt/mod/forum/view.php?id=394698">
-    <div style="position: relative; overflow: hidden; border: 1px solid #D7E3F8; border-radius: 8px; background: #FFFFFF; box-shadow: 0 10px 24px rgba(30, 58, 138, 0.07);">
+</div>`;
+
+      templates[11].html = `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: ${colors.text};">
+  <a style="display: block; color: inherit; text-decoration: none;" href="${moodleLinks.forum}">
+    <div style="position: relative; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(53, 92, 125, 0.07);">
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 30px 34px;">
         <div>
-          <h3 style="margin: 0; color: #1E3A8A; font-size: 28px; line-height: 1.16; font-weight: 900;">Fórum de atividades</h3>
+          <h3 style="margin: 0; color: ${colors.blue}; font-size: 28px; line-height: 1.16; font-weight: 900;">Fórum de atividades</h3>
           <p style="margin: 12px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6;">Fórum dedicado às tarefas, organizado por tópicos temáticos.</p>
         </div>
-        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid #D7E3F8; border-radius: 8px; background: #FFF3E7; color: #F97316; font-size: 30px; font-weight: 900;">TI</div>
+        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.softOrange}; color: ${colors.orange}; font-size: 30px; font-weight: 900;">TI</div>
       </div>
-      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, #16834A, #3B6FD8, #F97316);"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, ${colors.blue}, ${colors.lightBlue}, ${colors.orange});"></div>
     </div>
   </a>
-
-  <div style="margin-top: 14px; padding: 18px 20px; border: 1px solid #D7E3F8; border-radius: 8px; background: #FFFFFF; box-shadow: 0 10px 24px rgba(30, 58, 138, 0.07); font-size: 15px;">
+  <div style="margin-top: 14px; padding: 18px 20px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(53, 92, 125, 0.07); font-size: 15px;">
     <p style="margin: 0 0 12px; line-height: 1.6;">Cada tópico corresponde a um tema da UFCD e inclui a respetiva atividade individual.</p>
-    <ul style="margin: 0; padding-left: 42px; line-height: 1.65;">
-      <li>Consulta o tópico correspondente ao tema em estudo.</li>
+    <ol style="margin: 0; padding-left: 42px; line-height: 1.65;">
       <li>Lê o enunciado com atenção antes de começar.</li>
       <li>Resolve a tarefa de forma autónoma.</li>
       <li>Organiza a resposta de forma clara e completa.</li>
       <li>Sempre que fizer sentido, aplica exemplos práticos relacionados com a formação.</li>
       <li>Revê o trabalho antes de submeter ou publicar a resposta no Moodle.</li>
-    </ul>
+    </ol>
   </div>
-</div>`
-        },
-        {
-          title: "TI 1 - Criar uma tabela simples",
-          description: "HTML para o tópico Moodle da primeira tarefa individual.",
-          html: `<div style="margin: 0 0 24px; padding: 28px 24px; border: 1px solid #D7E3F8; border-left: 6px solid #16834A; border-radius: 8px; background: #FFFFFF; font-family: Arial, Helvetica, sans-serif; color: #24324B;">
-  <h3 style="margin: 0 0 10px; color: #1E3A8A; font-size: 24px; line-height: 1.2; font-weight: 900;">Criar uma tabela simples na folha pessoal</h3>
-  <p style="margin: 0 0 14px; line-height: 1.6;">Reconhecer a estrutura básica de uma folha de cálculo e iniciar o trabalho individual no Google Sheets.</p>
-  <ul style="margin: 0; padding-left: 22px; line-height: 1.7;">
-    <li>Criar, no ficheiro partilhado, uma folha de cálculo com o teu nome.</li>
-    <li>Nessa folha, criar uma tabela simples relacionada com a formação.</li>
-    <li>A tabela deve ter pelo menos 3 colunas, 3 linhas preenchidas e um título.</li>
-    <li>No fórum, escrever uma frase curta sobre as tuas expectativas para a formação.</li>
-  </ul>
-</div>`
-        },
-        {
-          title: "TI 2 - Editar e formatar dados",
-          description: "HTML para o tópico Moodle da segunda tarefa individual.",
-          html: `<div style="margin: 0 0 24px; padding: 28px 24px; border: 1px solid #D7E3F8; border-left: 6px solid #16834A; border-radius: 8px; background: #FFFFFF; font-family: Arial, Helvetica, sans-serif; color: #24324B;">
-  <h3 style="margin: 0 0 10px; color: #1E3A8A; font-size: 24px; line-height: 1.2; font-weight: 900;">Editar e formatar dados no ficheiro partilhado</h3>
-  <p style="margin: 0 0 14px; line-height: 1.6;">Aplicar operações básicas de edição e formatação numa folha de cálculo.</p>
-  <ul style="margin: 0; padding-left: 22px; line-height: 1.7;">
-    <li>Criar uma nova folha na mesma tabela de cálculo.</li>
-    <li>Editar ou acrescentar informação à tabela.</li>
-    <li>Aplicar formatação simples: cabeçalho em destaque, largura das colunas ajustada, limites na tabela e alinhamento adequado.</li>
-    <li>No tópico do fórum, escrever uma breve resposta sobre o que fizeste.</li>
-  </ul>
-</div>`
-        },
-        {
-          title: "TI 3 - Representar dados através de gráfico",
-          description: "HTML para o tópico Moodle da terceira tarefa individual.",
-          html: `<div style="margin: 0 0 24px; padding: 28px 24px; border: 1px solid #D7E3F8; border-left: 6px solid #16834A; border-radius: 8px; background: #FFFFFF; font-family: Arial, Helvetica, sans-serif; color: #24324B;">
-  <h3 style="margin: 0 0 10px; color: #1E3A8A; font-size: 24px; line-height: 1.2; font-weight: 900;">Representar dados através de um gráfico simples</h3>
-  <p style="margin: 0 0 14px; line-height: 1.6;">Criar uma representação gráfica simples a partir de dados organizados.</p>
-  <ul style="margin: 0; padding-left: 22px; line-height: 1.7;">
-    <li>Adaptar ou completar a tabela criada para permitir a criação de um gráfico.</li>
-    <li>Inserir um gráfico simples com base nos dados.</li>
-    <li>Escolher um modelo adequado ao tipo de informação.</li>
-    <li>Confirmar se o gráfico tem título e é fácil de interpretar.</li>
-    <li>No fórum Moodle, escrever uma breve resposta sobre o que o gráfico permite perceber.</li>
-  </ul>
-</div>`
-        },
-        {
-          title: "TI 4 - Identificar campos e registos",
-          description: "HTML para o tópico Moodle da quarta tarefa individual.",
-          html: `<div style="margin: 0 0 24px; padding: 28px 24px; border: 1px solid #D7E3F8; border-left: 6px solid #F97316; border-radius: 8px; background: #FFFFFF; font-family: Arial, Helvetica, sans-serif; color: #24324B;">
-  <h3 style="margin: 0 0 10px; color: #1E3A8A; font-size: 24px; line-height: 1.2; font-weight: 900;">Identificar campos e registos na tabela</h3>
-  <p style="margin: 0 0 14px; line-height: 1.6;">Relacionar a estrutura de uma folha de cálculo com a organização básica de uma base de dados.</p>
-  <ul style="margin: 0; padding-left: 22px; line-height: 1.7;">
-    <li>Observar a tabela criada na tua folha de cálculo.</li>
-    <li>Identificar uma coluna que funciona como campo, uma linha que funciona como registo e um dado concreto registado numa célula.</li>
-    <li>Se tiveres Microsoft Access instalado, importar ou abrir a tabela no Access, com orientação do formador.</li>
-    <li>Se não tiveres Microsoft Access instalado, realizar a identificação diretamente na folha de cálculo.</li>
-    <li>No tópico do fórum, explicar a diferença entre campo, registo e dado.</li>
-  </ul>
-</div>`
-        },
-        {
-          title: "TI 5 - Reflexão final",
-          description: "HTML para o tópico Moodle da quinta tarefa individual.",
-          html: `<div style="margin: 0 0 24px; padding: 28px 24px; border: 1px solid #D7E3F8; border-left: 6px solid #F97316; border-radius: 8px; background: #FFFFFF; font-family: Arial, Helvetica, sans-serif; color: #24324B;">
-  <h3 style="margin: 0 0 10px; color: #1E3A8A; font-size: 24px; line-height: 1.2; font-weight: 900;">Rever a folha criada e fazer a reflexão final</h3>
-  <p style="margin: 0 0 14px; line-height: 1.6;">Consolidar o trabalho realizado ao longo da UFCD e refletir sobre a aprendizagem.</p>
-  <ul style="margin: 0; padding-left: 22px; line-height: 1.7;">
-    <li>Rever a folha de cálculo criada ao longo dos 5 dias.</li>
-    <li>Corrigir erros, melhorar a organização e verificar se a informação está clara.</li>
-    <li>Confirmar se a tabela e o gráfico estão bem apresentados.</li>
-    <li>No fórum Moodle, escrever uma reflexão final curta: o que aprendeste, o que foi mais fácil, o que foi mais difícil e como poderás aplicar estes conhecimentos.</li>
-  </ul>
-</div>`
-        }
-      ];
+</div>`;
 
       function escapeHtml(value) {
         return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

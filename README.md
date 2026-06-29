@@ -1,38 +1,36 @@
-# UFCD 3776 - Informatica: folha de calculo e base de dados
+# UFCD 0753 - Sistemas operativos utilitarios complementares
 
-Pasta de trabalho para organizar e produzir materiais da UFCD 3776.
+Pasta de trabalho para organizar e produzir materiais da UFCD 0753.
+
+Site publico: https://ufcd0753.netlify.app/#inicio
 
 ## Objetivo da UFCD
 
-Utilizar aplicacoes informaticas de folha de calculo e de base de dados.
+Instalar e configurar utilitarios complementares aos sistemas operativos, operar utilitarios de antivirus e executar tarefas de compressao e descompressao de ficheiros.
 
 ## Regra principal de producao
 
-Os materiais devem seguir rigorosamente o referencial da UFCD 3776.
+Os materiais devem seguir rigorosamente o referencial da UFCD 0753.
 
 Isto significa:
 
 - nao acrescentar temas fora dos conteudos previstos;
-- manter a separacao entre folha de calculo e base de dados;
-- usar exemplos simples, praticos e diretamente ligados aos conteudos;
+- manter o foco nos utilitarios complementares dos sistemas operativos;
+- trabalhar antivirus ao nivel de instalacao, configuracao e operacao;
+- trabalhar compactacao e descompactacao de ficheiros com tarefas praticas simples;
 - manter apenas materiais finais ou recursos diretamente uteis para a acao.
 
 ## Estrutura da pasta
 
-- `Manual` - documentos e capitulos de apoio.
+- `Manual` - documentos e manual de apoio.
 - `conteudos` - paginas finais de conteudo.
-- `atividades` - exercicios, tarefas e avaliacao.
+- `atividades` - exercicios, tarefas e propostas praticas.
+- `avaliacoes` - paginas de avaliacao.
 - `recursos` - materiais complementares autorizados.
 - `assets` - imagens, estilos e outros ficheiros visuais.
 
-## Identidade visual
-
-- Folha de calculo: verde, Excel, analise de dados.
-- Base de dados: laranja, estrutura, relacoes entre dados.
-- Estilo geral: moderno, tecnologico, profissional e claro.
-
 ## Ficheiros de controlo
 
-- `REFERENCIAL_3776.md` - conteudos oficiais a respeitar.
-- `IDENTIDADE_VISUAL_3776.md` - regras visuais da UFCD.
-- `PLANO_PRODUCAO_3776.md` - plano de organizacao e producao dos materiais.
+- `REFERENCIAL_0753.md` - conteudos oficiais a respeitar.
+- `controlo-site.html` - ficheiro de controlo do site.
+- `moodle.html` - area a rever no final.

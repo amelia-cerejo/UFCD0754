@@ -1,155 +1,59 @@
-const topics = [
+﻿const topics = [
   {
-    id: "folha-caracteristicas",
-    title: "Características da folha de cálculo",
-    menuTitle: "Características",
-    cardTitle: "Folha de cálculo: características",
-    area: "Folha de cálculo",
-    intro: "Reconhecer a folha de cálculo como ferramenta para organizar, calcular, analisar e apresentar dados.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://folha-de-calculo-066dcg6.gamma.site/",
-    url: "conteudos/folha-caracteristicas.html"
+    id: "introducao",
+    title: "Introdução",
+    menuTitle: "Introdução",
+    cardTitle: "Introdução à UFCD 0753",
+    area: "Enquadramento",
+    intro: "Apresentar a UFCD, os objetivos, a organização do percurso e o conceito-chave: configurar, proteger e produzir.",
+    image: "../assets/img/ufcd0753-hero-background-v2.png",
+    gammaUrl: "",
+    url: "conteudos/introducao.html"
   },
   {
-    id: "folha-vantagens-desvantagens",
-    title: "Vantagens e desvantagens",
-    menuTitle: "Vantagens e desvantagens",
-    cardTitle: "Vantagens e desvantagens da folha de cálculo",
-    area: "Folha de cálculo",
-    intro: "Identificar pontos fortes e limitações da folha de cálculo em diferentes contextos de utilização.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://vantagens-e-desvantagens-kq1blbj.gamma.site/",
-    url: "conteudos/folha-vantagens-desvantagens.html"
+    id: "antivirus-instalacao-configuracao",
+    title: "Antivírus: instalação e configuração",
+    menuTitle: "Antivírus",
+    cardTitle: "Antivírus: procedimentos de instalação e configuração",
+    area: "Segurança do sistema",
+    intro: "Instalar, configurar e operar utilitários de antivírus, compreendendo o papel do software de deteção de vírus.",
+    image: "../assets/img/ufcd0753-hero-background-v2.png",
+    url: "conteudos/antivirus-instalacao-configuracao.html"
   },
   {
-    id: "folha-criacao-edicao",
-    title: "Criação, gravação e edição",
-    menuTitle: "Criação e edição",
-    cardTitle: "Criar, gravar e editar uma folha de cálculo",
-    area: "Folha de cálculo",
-    intro: "Executar operações básicas de criação, gravação e edição numa folha de cálculo.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://criacao-gravacao-edicao-l9yfsfb.gamma.site/",
-    url: "conteudos/folha-criacao-edicao.html"
-  },
-  {
-    id: "folha-formatacao",
-    title: "Formatação",
-    menuTitle: "Formatação",
-    cardTitle: "Formatar uma folha de cálculo",
-    area: "Folha de cálculo",
-    intro: "Aplicar formatos para tornar os dados mais claros, organizados e fáceis de interpretar.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://formatacao-folha-calculo-kkb69ad.gamma.site/",
-    url: "conteudos/folha-formatacao.html"
-  },
-  {
-    id: "folha-graficos",
-    title: "Gráficos",
-    menuTitle: "Gráficos",
-    cardTitle: "Gráficos com modelos predefinidos",
-    area: "Folha de cálculo",
-    intro: "Criar gráficos simples com recurso a modelos predefinidos.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://graficos-modelos-pre-ug575tz.gamma.site/",
-    url: "conteudos/folha-graficos.html"
-  },
-  {
-    id: "folha-internet",
-    title: "Preparação para a Internet",
-    menuTitle: "Internet",
-    cardTitle: "Preparar conteúdos para a Internet",
-    area: "Folha de cálculo",
-    intro: "Preparar dados de uma folha de cálculo para consulta, partilha ou publicação em contexto digital.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://preparacao-conteudos-tnin64b.gamma.site/",
-    url: "conteudos/folha-internet.html"
-  },
-  {
-    id: "bd-caracteristicas",
-    title: "Características da base de dados",
-    menuTitle: "Características",
-    cardTitle: "Base de dados: características",
-    area: "Base de dados",
-    intro: "Reconhecer a base de dados como estrutura organizada para armazenar e consultar informação.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://caracteristicas-bd-85q6xh3.gamma.site/",
-    url: "conteudos/bd-caracteristicas.html"
-  },
-  {
-    id: "bd-vantagens-desvantagens",
-    title: "Vantagens e desvantagens",
-    menuTitle: "Vantagens e desvantagens",
-    cardTitle: "Vantagens e desvantagens da base de dados",
-    area: "Base de dados",
-    intro: "Identificar benefícios e limitações da utilização de bases de dados.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://vant-desvant-bd-grd4fq1.gamma.site/",
-    url: "conteudos/bd-vantagens-desvantagens.html"
-  },
-  {
-    id: "bd-funcionamento",
-    title: "Modo de funcionamento",
-    menuTitle: "Funcionamento",
-    cardTitle: "Modo de funcionamento de uma base de dados",
-    area: "Base de dados",
-    intro: "Compreender, de forma simples, como os dados são guardados, ligados e consultados.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://modo-funcionamento-bd-z57d5a7.gamma.site/",
-    url: "conteudos/bd-funcionamento.html"
-  },
-  {
-    id: "bd-componentes",
-    title: "Componentes",
-    menuTitle: "Componentes",
-    cardTitle: "Componentes de uma base de dados",
-    area: "Base de dados",
-    intro: "Identificar tabelas, registos, campos e relações simples entre dados.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://componentes-bd-tciwsxb.gamma.site/",
-    url: "conteudos/bd-componentes.html"
-  },
-  {
-    id: "bd-manutencao",
-    title: "Manutenção",
-    menuTitle: "Manutenção",
-    cardTitle: "Manutenção de bases de dados",
-    area: "Base de dados",
-    intro: "Reconhecer cuidados básicos de atualização, organização, segurança e consistência dos dados.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://manutencao-bd-eq5ecqa.gamma.site/",
-    url: "conteudos/bd-manutencao.html"
-  },
-  {
-    id: "bd-internet",
-    title: "Publicação na Internet",
-    menuTitle: "Internet",
-    cardTitle: "Publicar conteúdos para a Internet",
-    area: "Base de dados",
-    intro: "Compreender formas simples de disponibilizar conteúdos de uma base de dados em contexto digital.",
-    image: "../assets/img/ufcd3776-hero-background-v2.png",
-    gammaUrl: "https://publicacao-bd-fsf2qmd.gamma.site/",
-    url: "conteudos/bd-internet.html"
+    id: "compactacao-descompactacao-ficheiros",
+    title: "Compactação e descompressão de ficheiros",
+    menuTitle: "Compactação",
+    cardTitle: "Compactação e descompressão de ficheiros",
+    area: "Gestão de ficheiros",
+    intro: "Executar tarefas de compactação e descompactação de ficheiros com utilitários adequados.",
+    image: "../assets/img/ufcd0753-hero-background-v2.png",
+    url: "conteudos/compactacao-descompactacao-ficheiros.html"
   }
 ];
 
 const contentMenuGroups = [
   {
-    title: "Folha de cálculo",
+    title: "Introdução",
     theme: "representation",
-    children: topics.filter((topic) => topic.id.startsWith("folha-")).map((topic) => ({ topicId: topic.id }))
+    children: topics.filter((topic) => topic.id === "introducao").map((topic) => ({ topicId: topic.id }))
   },
   {
-    title: "Base de dados",
+    title: "Antivírus",
+    theme: "representation",
+    children: topics.filter((topic) => topic.id.startsWith("antivirus-")).map((topic) => ({ topicId: topic.id }))
+  },
+  {
+    title: "Compactação de ficheiros",
     theme: "database",
-    children: topics.filter((topic) => topic.id.startsWith("bd-")).map((topic) => ({ topicId: topic.id }))
+    children: topics.filter((topic) => topic.id.startsWith("compactacao-")).map((topic) => ({ topicId: topic.id }))
   }
 ];
 
 const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwTZTbLAY7RLR8RSbX3ogc6WT1J8DJZdgDRq_FUD055ByJm2eXvJ8zYzKIGSb1RYxAjaw/exec";
-const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "1-gQGEHiLdQDwOGjGQbl6chxHS1zpX8rA7uebkXlTVOY";
-const APPS_SCRIPT_WEB_APP_URL = window.UFCD3776_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
-const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD3776_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
+const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "14xWArQOzb-1fZ4QxZXjuoJK1dxhjWmbwWmF7lsK-a9o";
+const APPS_SCRIPT_WEB_APP_URL = window.UFCD0753_APPS_SCRIPT_URL || window.UFCD3776_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
+const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0753_SPREADSHEET_ID || window.UFCD3776_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
 
 const activities = [
   {
@@ -166,9 +70,9 @@ const activities = [
     url: "atividades/brainstorming.html",
     focus: "Exploração inicial",
     duration: "30 a 45 minutos",
-    product: "Mapa inicial com expectativas, dúvidas e conhecimentos prévios sobre folha de cálculo e base de dados.",
-    mentimeterUrl: "https://www.mentimeter.com/app/presentation/al7sia3yob24c2156d2jkjtohr32r1tf/embed",
-    participationUrl: "https://www.menti.com/alg8jd96qvty",
+    product: "Mapa inicial com expectativas, dúvidas e conhecimentos prévios sobre antivírus, utilitários e gestão de ficheiros.",
+    mentimeterUrl: "https://www.mentimeter.com/app/presentation/alnyn6kvrtioksb2ypkpw72hbjyy14ft/embed",
+    padletUrl: "https://padlet.com/embed/6w91ggh9dum7qhle",
     qrCode: "assets/img/mentimeter_qr_code.png",
     steps: [
       {
@@ -181,11 +85,11 @@ const activities = [
       },
       {
         title: "Conhecimentos prévios",
-        text: "Perceber experiências anteriores com folha de cálculo e bases de dados."
+        text: "Perceber experiências anteriores com antivírus, compactação de ficheiros e utilitários do sistema."
       },
       {
         title: "Mapa inicial de temas",
-        text: "Organizar contributos em torno de folha de cálculo, base de dados e publicação de conteúdos."
+        text: "Organizar contributos em torno de segurança do sistema, antivírus e compactação de ficheiros."
       },
       {
         title: "Síntese e próximos passos",
@@ -201,7 +105,7 @@ const activities = [
   {
     id: "tarefas-grupo",
     title: "Tarefas de Grupo",
-    intro: "Em cada atividade diária, a tarefa de grupo serve para aplicar conteúdos de folha de cálculo e base de dados em pequenos grupos.",
+    intro: "Em cada atividade diária, a tarefa de grupo serve para aplicar conteúdos sobre utilitários, antivírus e gestão de ficheiros em pequenos grupos.",
     url: "atividades/tarefas-grupo.html",
     focus: "Tarefa de grupo",
     duration: "A definir pelo formador",
@@ -212,12 +116,12 @@ const activities = [
         text: "Distribuir funções simples: recolha de dados, registo, revisão e apresentação."
       },
       {
-        title: "Tarefa de folha de cálculo",
-        text: "Criar, editar, formatar ou representar dados, de acordo com o conteúdo trabalhado."
+        title: "Tarefa sobre antivírus",
+        text: "Identificar procedimentos de instalação, configuração, atualização ou verificação de segurança."
       },
       {
-        title: "Tarefa de base de dados",
-        text: "Identificar componentes, organização, funcionamento ou manutenção de uma base de dados."
+        title: "Tarefa sobre ficheiros",
+        text: "Aplicar procedimentos de compactação, descompactação ou organização de ficheiros."
       },
       {
         title: "Preparação da apresentação",
@@ -241,7 +145,7 @@ const activities = [
     url: "atividades/tarefas-individuais.html",
     focus: "Tarefa individual",
     duration: "A definir pelo formador",
-    product: "Evidência individual relacionada com os conteúdos de folha de cálculo, base de dados ou publicação de conteúdos.",
+    product: "Evidência individual relacionada com antivírus, utilitários complementares ou compactação de ficheiros.",
     steps: [
       {
         title: "Leitura da tarefa",
@@ -273,10 +177,10 @@ const evaluations = [
     id: "avaliacao-diagnostica",
     title: "Avaliação Diagnóstica",
     menuTitle: "Diagnóstica",
-    intro: "Espaço preparado para avaliação inicial dos conhecimentos sobre folha de cálculo e base de dados.",
-    url: "atividades/avaliacao-diagnostica.html",
+    intro: "Espaço preparado para avaliação inicial dos conhecimentos sobre antivírus, utilitários e compactação de ficheiros.",
+    url: "avaliacoes/avaliacao-diagnostica.html",
     children: ["resultados-diagnostica"],
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-3776/00-diagnostico.html",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/00-diagnostico.html",
     embedTitle: "Avaliação Diagnóstica"
   },
   {
@@ -285,14 +189,14 @@ const evaluations = [
     title: "Resultados da Avaliação Diagnóstica",
     menuTitle: "Resultados",
     intro: "Relatório com a leitura global das respostas recolhidas na avaliação diagnóstica.",
-    url: "atividades/resultados-diagnostica.html"
+    url: "avaliacoes/resultados-diagnostica.html"
   },
   {
     id: "avaliacao-sumativa",
     title: "Avaliação Sumativa",
     menuTitle: "Sumativa",
     intro: "Espaço preparado para a avaliação final das aprendizagens da UFCD.",
-    url: "atividades/avaliacao-sumativa.html",
+    url: "avaliacoes/avaliacao-sumativa.html",
     embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-3776/01-sumativa.html",
     embedTitle: "Avaliação Sumativa"
   },
@@ -301,7 +205,7 @@ const evaluations = [
     title: "Autoavaliação Final",
     menuTitle: "Autoavaliação",
     intro: "Espaço preparado para reflexão final sobre competências adquiridas.",
-    url: "atividades/autoavaliacao-final.html",
+    url: "avaliacoes/autoavaliacao-final.html",
     embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-3776/04-autoavaliacao-final.html",
     embedTitle: "Autoavaliação Final"
   },
@@ -310,7 +214,7 @@ const evaluations = [
     title: "Avaliação Entre Pares",
     menuTitle: "Entre Pares",
     intro: "Espaço preparado para avaliação entre pares.",
-    url: "atividades/avaliacao-entre-pares.html",
+    url: "avaliacoes/avaliacao-entre-pares.html",
     embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-3776/03-entre-pares.html",
     embedTitle: "Avaliação Entre Pares"
   },
@@ -319,7 +223,7 @@ const evaluations = [
     title: "Avaliação da Formação",
     menuTitle: "Formação",
     intro: "Espaço preparado para avaliação da formação.",
-    url: "atividades/avaliacao-formacao.html",
+    url: "avaliacoes/avaliacao-formacao.html",
     embedUrl: "https://avaliacoes-formacao.netlify.app/avaliacao-formacao.html",
     embedTitle: "Avaliação da Qualidade da Formação"
   }
@@ -327,150 +231,211 @@ const evaluations = [
 
 const groupTasks = [
   {
-    title: "Características de uma folha de cálculo",
-    topic: "Folha de cálculo: características",
-    url: "conteudos/folha-caracteristicas.html",
-    intro: "Reconhecer a folha de cálculo como ferramenta de organização, cálculo, análise e apresentação de dados.",
+    title: "TG Dia 1 - Primeiras palavras digitais",
+    topic: "Apresentação e diagnóstico",
+    url: "atividades/tarefas-grupo.html",
+    intro: "Construir, em grupo, definições simples para os primeiros conceitos digitais trabalhados na UFCD.",
     words: [
-      ["Folha de cálculo", "Grupo Sala 1"],
-      ["Célula", "Grupo Sala 2"],
-      ["Linha", "Grupo Sala 3"],
-      ["Coluna", "Grupo Sala 4"],
-      ["Dados", "Grupo Sala 5"],
-      ["Fórmula", "Grupo Sala 6"]
+      ["Computador", "Sala 1"],
+      ["Sistema operativo", "Sala 2"],
+      ["Programa", "Sala 3"],
+      ["Ficheiro", "Sala 4"],
+      ["Pasta", "Sala 5"],
+      ["Segurança informática", "Sala 6"]
     ]
   },
   {
-    title: "Construir e formatar informação",
-    topic: "Criar, gravar, editar e formatar uma folha de cálculo",
-    url: "conteudos/folha-criacao-edicao.html",
-    intro: "Compreender operações básicas de criação, gravação, edição e formatação numa folha de cálculo.",
+    title: "TG Dia 2 - Sistema Operativo Windows",
+    topic: "Sistema Operativo Windows",
+    url: "atividades/tarefas-grupo.html",
+    intro: "Registar conceitos essenciais do Windows e explicar a sua função com linguagem simples.",
     words: [
-      ["Livro", "Grupo Sala 1"],
-      ["Folha", "Grupo Sala 2"],
-      ["Gravar", "Grupo Sala 3"],
-      ["Editar", "Grupo Sala 4"],
-      ["Formatação", "Grupo Sala 5"],
-      ["Formato numérico", "Grupo Sala 6"]
+      ["Windows", "Sala 1"],
+      ["Ambiente de Trabalho", "Sala 2"],
+      ["Menu Iniciar", "Sala 3"],
+      ["Barra de Tarefas", "Sala 4"],
+      ["Explorador de Ficheiros", "Sala 5"],
+      ["Definições", "Sala 6"]
     ]
   },
   {
-    title: "Interpretar dados e gráficos",
-    topic: "Vantagens, desvantagens e gráficos com modelos predefinidos",
-    url: "conteudos/folha-graficos.html",
-    intro: "Analisar dados e compreender representações gráficas simples.",
+    title: "TG Dia 3 - Antivírus e proteção",
+    topic: "Antivírus e proteção",
+    url: "atividades/tarefas-grupo.html",
+    intro: "Clarificar vocabulário associado à proteção contra vírus e outras ameaças informáticas.",
     words: [
-      ["Vantagem", "Grupo Sala 1"],
-      ["Limitação", "Grupo Sala 2"],
-      ["Erro", "Grupo Sala 3"],
-      ["Gráfico", "Grupo Sala 4"],
-      ["Legenda", "Grupo Sala 5"],
-      ["Série de dados", "Grupo Sala 6"]
+      ["Antivírus", "Sala 1"],
+      ["Vírus", "Sala 2"],
+      ["Malware", "Sala 3"],
+      ["Proteção em tempo real", "Sala 4"],
+      ["Atualização", "Sala 5"],
+      ["Quarentena", "Sala 6"]
     ]
   },
   {
-    title: "Compreender a estrutura de uma base de dados",
-    topic: "Base de dados: características, funcionamento e componentes",
-    url: "conteudos/bd-caracteristicas.html",
-    intro: "Identificar os principais elementos de organização de uma base de dados.",
+    title: "TG Dia 4 - Segurança no Windows",
+    topic: "Segurança no Windows",
+    url: "atividades/tarefas-grupo.html",
+    intro: "Construir definições práticas sobre ferramentas e riscos de segurança no Windows.",
     words: [
-      ["Base de dados", "Grupo Sala 1"],
-      ["Tabela", "Grupo Sala 2"],
-      ["Campo", "Grupo Sala 3"],
-      ["Registo", "Grupo Sala 4"],
-      ["Consulta", "Grupo Sala 5"],
-      ["Dado", "Grupo Sala 6"]
+      ["Ameaça informática", "Sala 1"],
+      ["Segurança do Windows", "Sala 2"],
+      ["Microsoft Defender", "Sala 3"],
+      ["Histórico de proteção", "Sala 4"],
+      ["Firewall", "Sala 5"],
+      ["Phishing", "Sala 6"]
     ]
   },
   {
-    title: "Organizar e manter conteúdos",
-    topic: "Organização, manutenção e publicação de conteúdos",
-    url: "conteudos/bd-manutencao.html",
-    intro: "Compreender a importância da organização, atualização e publicação de informação digital.",
+    title: "TG Dia 5 - Compactação de ficheiros",
+    topic: "Compactação de ficheiros",
+    url: "atividades/tarefas-grupo.html",
+    intro: "Definir conceitos ligados à compactação, descompactação e formatos de ficheiros comprimidos.",
     words: [
-      ["Organização", "Grupo Sala 1"],
-      ["Manutenção", "Grupo Sala 2"],
-      ["Atualização", "Grupo Sala 3"],
-      ["Consistência", "Grupo Sala 4"],
-      ["Publicação", "Grupo Sala 5"],
-      ["Partilha", "Grupo Sala 6"]
+      ["Compactação", "Sala 1"],
+      ["Descompactação", "Sala 2"],
+      ["Ficheiro ZIP", "Sala 3"],
+      ["Ficheiro RAR", "Sala 4"],
+      ["Ficheiro 7Z", "Sala 5"],
+      ["Tamanho do ficheiro", "Sala 6"]
+    ]
+  },
+  {
+    title: "TG Dia 6 - Utilitários de compressão",
+    topic: "Utilitários de compressão",
+    url: "atividades/tarefas-grupo.html",
+    intro: "Explorar termos relacionados com ferramentas externas de compressão, como 7-Zip e WinRAR.",
+    words: [
+      ["Utilitário de compressão", "Sala 1"],
+      ["7-Zip", "Sala 2"],
+      ["WinRAR", "Sala 3"],
+      ["Palavra-passe", "Sala 4"],
+      ["Pasta de destino", "Sala 5"],
+      ["Integridade dos ficheiros", "Sala 6"]
+    ]
+  },
+  {
+    title: "TG Dia 7 - Evidências e encerramento",
+    topic: "Evidências e encerramento",
+    url: "atividades/tarefas-grupo.html",
+    intro: "Fechar o glossário colaborativo com conceitos ligados à avaliação, evidências e autonomia digital.",
+    words: [
+      ["Evidência", "Sala 1"],
+      ["Portefólio", "Sala 2"],
+      ["Fórum Moodle", "Sala 3"],
+      ["Autoavaliação", "Sala 4"],
+      ["Reflexão final", "Sala 5"],
+      ["Autonomia digital", "Sala 6"]
     ]
   }
 ];
 
-const glossaryUrl = "https://fad.iefp.pt/mod/glossary/view.php?id=394701";
+const DEFAULT_GLOSSARY_URL = "https://fad.iefp.pt/mod/glossary/view.php?id=408954";
+const DEFAULT_FORUM_URL = "https://fad.iefp.pt/mod/forum/view.php?id=408955";
+const glossaryUrl = DEFAULT_GLOSSARY_URL;
 
 const individualTasks = [
   {
-    topic: "Folha de cálculo: características",
-    url: "conteudos/folha-caracteristicas.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=52665",
-    title: "Criar uma tabela simples na folha pessoal",
-    intro: "Reconhecer a estrutura básica de uma folha de cálculo e iniciar o trabalho individual no Google Sheets.",
-    evidence: "Resposta no fórum Moodle e folha pessoal criada no ficheiro partilhado.",
+    id: "tarefa-individual-1",
+    topic: "Dia 1 - Apresentação e diagnóstico",
+    url: "atividades/tarefas-individuais.html",
+    forumUrl: "",
+    title: "TI 1 - As minhas expetativas",
+    intro: "Refletir sobre o que esperas aprender nesta UFCD.",
+    evidence: "Publica a resposta no Fórum do Moodle.",
     prompts: [
-      "Criar, no ficheiro partilhado, uma folha de cálculo com o teu nome.",
-      "Nessa folha, criar uma tabela simples relacionada com a formação.",
-      "A tabela deve ter pelo menos 3 colunas, 3 linhas preenchidas e um título.",
-      "No fórum, escrever um curto parágrafo sobre as tuas expectativas para a formação."
+      "Escreve uma resposta curta, com 3 a 5 frases.",
+      "Refere o que já sabes fazer no computador.",
+      "Explica o que gostarias de aprender nesta UFCD.",
+      "Indica como te queres envolver na formação."
     ]
   },
   {
-    topic: "Criar, gravar, editar e formatar uma folha de cálculo",
-    url: "conteudos/folha-criacao-edicao.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=52666",
-    title: "Editar e formatar dados no ficheiro partilhado",
-    intro: "Aplicar operações básicas de edição e formatação numa folha de cálculo.",
-    evidence: "Resposta breve no fórum Moodle e ficheiro anexado antes de submeter.",
+    id: "tarefa-individual-2",
+    topic: "Dia 2 - Sistema Operativo Windows",
+    url: "atividades/tarefas-individuais.html",
+    forumUrl: "",
+    title: "TI 2 - Explorar o Windows",
+    intro: "Identificar elementos básicos do sistema operativo Windows.",
+    evidence: "Publica a resposta no Fórum do Moodle.",
     prompts: [
-      "Criar uma nova folha na mesma tabela de cálculo.",
-      "Editar ou acrescentar informação à tabela.",
-      "Aplicar formatação simples: cabeçalho em destaque, largura das colunas ajustada, limites na tabela e alinhamento adequado.",
-      "No tópico do fórum, escrever uma breve resposta sobre o que fizeste."
+      "Observa o computador e identifica 3 elementos do Windows.",
+      "Podes escolher, por exemplo: Ambiente de Trabalho, Menu Iniciar, Barra de Tarefas, Explorador de Ficheiros ou Definições.",
+      "Explica, numa frase simples, para que serve cada elemento."
     ]
   },
   {
-    topic: "Vantagens, desvantagens e gráficos com modelos predefinidos",
-    url: "conteudos/folha-graficos.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=52667",
-    title: "Representar dados através de um gráfico simples",
-    intro: "Criar uma representação gráfica simples a partir de dados organizados.",
-    evidence: "Resposta breve no fórum Moodle sobre o que o gráfico permite perceber.",
+    id: "tarefa-individual-3",
+    topic: "Dia 2 - Sistema Operativo e utilitários",
+    url: "atividades/tarefas-individuais.html",
+    forumUrl: "",
+    title: "TI 3 - Utilitários do Windows",
+    intro: "Reconhecer algumas ferramentas incluídas no Windows.",
+    evidence: "Publica a resposta no Fórum do Moodle ou no espaço indicado pela formadora.",
     prompts: [
-      "Adaptar ou completar a tabela criada para permitir a criação de um gráfico.",
-      "Inserir um gráfico simples com base nos dados.",
-      "Escolher um modelo adequado ao tipo de informação.",
-      "Confirmar se o gráfico tem título e é fácil de interpretar."
+      "Procura 3 ferramentas ou utilitários do Windows.",
+      "Podes escolher, por exemplo: Segurança do Windows, Gestor de Tarefas, Explorador de Ficheiros, Definições ou Limpeza de Disco.",
+      "Indica o nome de cada ferramenta.",
+      "Explica para que serve cada uma."
     ]
   },
   {
-    topic: "Base de dados: características, funcionamento e componentes",
-    url: "conteudos/bd-caracteristicas.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=52668",
-    title: "Identificar campos e registos",
-    intro: "Relacionar a estrutura de uma folha de cálculo com a organização básica de uma base de dados.",
-    evidence: "Resposta no fórum Moodle explicando a diferença entre campo, registo e dado.",
+    id: "tarefa-individual-4",
+    topic: "Dia 3 - Antivírus e proteção",
+    url: "atividades/tarefas-individuais.html",
+    forumUrl: "",
+    title: "TI 4 - Antivírus no Windows",
+    intro: "Conhecer a ferramenta de proteção do Windows.",
+    evidence: "Publica uma breve resposta no Fórum do Moodle.",
     prompts: [
-      "Observar a tabela criada na tua folha de cálculo.",
-      "Confirmar se a primeira linha da tabela apresenta nomes claros para as colunas.",
-      "Identificar uma coluna que funciona como campo, uma linha que funciona como registo e um dado concreto registado numa célula.",
-      "Se tiveres Microsoft Access instalado, importar ou abrir a tabela no Access com orientação do formador.",
-      "Se não tiveres Microsoft Access instalado, realizar a identificação diretamente na folha de cálculo.",
-      "Melhorar a organização dos dados, se necessário."
+      "Abre a Segurança do Windows.",
+      "Observa algumas opções, como proteção contra vírus e ameaças, atualizações de proteção, histórico de proteção ou opções de análise.",
+      "Regista 2 ou 3 opções que encontraste."
     ]
   },
   {
-    topic: "Organização, manutenção e publicação de conteúdos",
-    url: "conteudos/bd-manutencao.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=52669",
-    title: "Rever a folha criada e fazer a reflexão final",
-    intro: "Consolidar o trabalho realizado ao longo da UFCD e refletir sobre a aprendizagem.",
-    evidence: "Reflexão final curta no fórum Moodle.",
+    id: "tarefa-individual-5",
+    topic: "Dia 4 - Compactação de ficheiros",
+    url: "atividades/tarefas-individuais.html",
+    forumUrl: "",
+    title: "TI 5 - Comprimir ficheiros no Windows",
+    intro: "Praticar a compactação de ficheiros no Windows.",
+    evidence: "Publica uma frase com a tua conclusão no Fórum do Moodle.",
     prompts: [
-      "Rever a folha de cálculo criada ao longo dos 5 dias.",
-      "Corrigir erros, melhorar a organização e verificar se a informação está clara.",
-      "Confirmar se a tabela e o gráfico estão bem apresentados.",
-      "No fórum Moodle, escrever uma reflexão final curta: o que aprendeste, o que foi mais fácil, o que foi mais difícil e de que forma poderás aplicar estes conhecimentos."
+      "Escolhe uma pasta indicada pela formadora.",
+      "Verifica o tamanho original da pasta.",
+      "Compacta a pasta em formato ZIP.",
+      "Compara o tamanho antes e depois."
+    ]
+  },
+  {
+    id: "tarefa-individual-6",
+    topic: "Dia 5 - Utilitários de compressão",
+    url: "atividades/tarefas-individuais.html",
+    forumUrl: "",
+    title: "TI 6 - Explorar o 7-Zip ou WinRAR",
+    intro: "Experimentar um utilitário de compressão externo.",
+    evidence: "Regista o que fizeste no Fórum do Moodle.",
+    prompts: [
+      "Com o 7-Zip ou WinRAR, compacta uma pasta.",
+      "Descompacta o ficheiro criado.",
+      "Testa uma opção adicional indicada pela formadora.",
+      "Regista os passos principais que realizaste."
+    ]
+  },
+  {
+    id: "tarefa-individual-7",
+    topic: "Dia 7 - Encerramento da UFCD",
+    url: "atividades/tarefas-individuais.html",
+    forumUrl: "",
+    title: "TI 7 - Reflexão final",
+    intro: "Refletir sobre o percurso realizado ao longo da UFCD.",
+    evidence: "Publica a reflexão final no Fórum do Moodle.",
+    prompts: [
+      "Escreve 3 a 5 frases.",
+      "Responde: O que aprendi?",
+      "Responde: O que foi mais difícil?",
+      "Responde: O que posso aplicar no dia a dia?"
     ]
   }
 ];
@@ -479,99 +444,22 @@ const resources = [
   {
     id: "manual",
     title: "Manual",
-    intro: "Manual da UFCD 3776 em PDF para consulta e descarregamento.",
+    intro: "Manual da UFCD 0753 em PDF para consulta e descarregamento.",
     url: "recursos/manual.html",
-    pdfUrl: "assets/pdfs/Manual Ufcd 3776.pdf"
+    pdfUrl: "Manual/Manual Formacao Ufcd 0753.pdf"
   },
   {
-    id: "folha-calculo",
-    title: "Microsoft Excel",
-    intro: "Suporte oficial da Microsoft para aprender e consultar funcionalidades do Excel.",
-    externalUrl: "https://support.microsoft.com/pt-pt/excel",
-    url: "recursos/folha-calculo.html",
-    children: ["excel-ficheiros", "assistente-folha-calculo"]
+    id: "sistemas-operativos",
+    title: "Sistemas operativos",
+    intro: "Suporte da Microsoft para consultar procedimentos de segurança e manutenção do Windows.",
+    externalUrl: "https://support.microsoft.com/pt-pt/windows",
+    url: "recursos/sistemas-operativos.html"
   },
   {
-    id: "excel-ficheiros",
-    parentId: "folha-calculo",
-    title: "Ficheiros",
-    intro: "Ficheiros de apoio à prática com folha de cálculo, organizados pela ordem de disponibilização.",
-    url: "recursos/excel-ficheiros.html",
-    videos: [
-      {
-        id: "dominar-folha-calculo",
-        title: "Dominar a Folha de Cálculo",
-        description: "Vídeo introdutório para consolidar conceitos e procedimentos essenciais da folha de cálculo.",
-        path: "assets/videos/Dominar_a_Folha_de_Cálculo.mp4"
-      },
-      {
-        id: "desmistificar-formulas-excel",
-        title: "Desmistificar Fórmulas no Excel",
-        description: "Vídeo de apoio para rever a lógica das fórmulas e reduzir dúvidas frequentes.",
-        path: "assets/videos/Desmistificar_Fórmulas_Excel.mp4"
-      }
-    ],
-    downloadFiles: [
-      {
-        id: "bem-vindo-excel",
-        title: "Bem-vindo ao Excel",
-        description: "Ficheiro introdutório para exploração inicial da folha de cálculo.",
-        path: "assets/ficheiros/excel/Bem vindo ao Excel.xlsx"
-      },
-      {
-        id: "novo-bem-vindo-excel",
-        title: "Novo Bem-vindo ao Excel",
-        description: "Nova versão do ficheiro introdutório para exploração inicial da folha de cálculo.",
-        path: "assets/ficheiros/excel/Novo Bem-vindo ao Excel.xlsx"
-      },
-      {
-        id: "tutorial-formulas",
-        title: "Tutorial de Fórmulas",
-        description: "Apoio à utilização de fórmulas simples e operações básicas.",
-        path: "assets/ficheiros/excel/Tutorial de Fórmulas.xlsx"
-      },
-      {
-        id: "sugestoes-graficos",
-        title: "10 sugestões para gráficos",
-        description: "Exemplos para representar dados através de gráficos.",
-        path: "assets/ficheiros/excel/10 sugestões para gráficos.xlsx"
-      },
-      {
-        id: "graficos-circulares",
-        title: "Tutorial: para além dos gráficos circulares",
-        description: "Apoio à escolha e leitura de diferentes tipos de gráficos.",
-        path: "assets/ficheiros/excel/Tutorial Para além dos gráficos circulares.xlsx"
-      },
-      {
-        id: "tabela-dinamica",
-        title: "Tutorial de Tabela Dinâmica",
-        description: "Apoio à organização e análise de dados com tabela dinâmica.",
-        path: "assets/ficheiros/excel/Tutorial de Tabela Dinâmica.xlsx"
-      },
-      {
-        id: "extrato-2026-identificadores-matriculas",
-        title: ".CSV",
-        description: "Ficheiro CSV para atividade prática com dados de identificadores e matrículas alterados.",
-        path: "assets/ficheiros/excel/EXTRACTO_2026_01_identificadores_matriculas_alterados.csv"
-      }
-    ]
-  },
-  {
-    id: "assistente-folha-calculo",
-    parentId: "folha-calculo",
-    title: "Assistente GPT",
-    menuTitle: "GPT",
-    intro: "Apoio orientado para colocar dúvidas, rever procedimentos e pedir ajuda durante o estudo da folha de cálculo.",
-    url: "recursos/assistente-folha-calculo.html",
-    menuIcon: "assets/img/assistente-gpt.png",
-    gptUrl: "https://chatgpt.com/g/g-68fb60e069748191baa5d607b926b5e0-instrutor-de-folha-de-calculo"
-  },
-  {
-    id: "base-dados",
-    title: "Microsoft Access",
-    intro: "Suporte oficial da Microsoft para aprender e consultar funcionalidades do Access.",
-    externalUrl: "https://support.microsoft.com/pt-pt/access",
-    url: "recursos/base-dados.html"
+    id: "compactacao-ficheiros",
+    title: "Compactação de ficheiros",
+    intro: "Área preparada para recursos de apoio sobre compactação, descompressão e organização de ficheiros.",
+    url: "recursos/compactacao-ficheiros.html"
   }
 ];
 
@@ -587,7 +475,7 @@ const mainMenuItems = [
 
 const siteVisibility = {
   menuPrincipal: Object.fromEntries(mainMenuItems.map((item) => [item.key, true])),
-  conteudos: Object.fromEntries(topics.map((topic) => [topic.id, false])),
+  conteudos: Object.fromEntries(topics.map((topic) => [topic.id, true])),
   atividades: Object.fromEntries(activities.map((activity) => [activity.id, true])),
   avaliacao: Object.fromEntries(evaluations.map((evaluation) => [evaluation.id, true])),
   recursos: Object.fromEntries(resources.map((resource) => [resource.id, true])),
@@ -621,13 +509,37 @@ const siteVisibilitySectionMeta = {
   tarefasIndividuais: { secao: "tarefas_individuais", chave: "secao-tarefas-individuais", titulo: "Tarefas individuais", tipo: "secao", ordem: 60 }
 };
 
-const SITE_VISIBILITY_STORAGE_KEY = "ufcd3776-site-visibility-v1";
+const SITE_VISIBILITY_STORAGE_KEY = "ufcd0753-site-visibility-v1";
+const SITE_LINKS_STORAGE_KEY = "ufcd0753-site-links-v1";
+const APPS_SCRIPT_SPREADSHEET_GID = "1240441816";
 let siteVisibilityRemoteLoaded = false;
 let siteVisibilityRemoteLoading = null;
 
+const siteLinks = {
+  gammas: Object.fromEntries(topics.map((topic) => [topic.id, topic.gammaUrl || ""])),
+  glossaryUrl,
+  forums: {}
+};
+
 function getBasePath() {
   const path = window.location.pathname;
-  return path.includes("/conteudos/") || path.includes("/atividades/") || path.includes("/recursos/") ? "../" : "";
+  return path.includes("/conteudos/") || path.includes("/atividades/") || path.includes("/avaliacoes/") || path.includes("/recursos/") ? "../" : "";
+}
+
+function construirUrlEmbedAvaliacao(embedUrl) {
+  if (!embedUrl || !APPS_SCRIPT_SPREADSHEET_ID) return embedUrl;
+
+  try {
+    const url = new URL(embedUrl, window.location.href);
+    url.searchParams.set("spreadsheet_id", APPS_SCRIPT_SPREADSHEET_ID);
+    url.searchParams.set("spreadsheetId", APPS_SCRIPT_SPREADSHEET_ID);
+    url.searchParams.set("gid", APPS_SCRIPT_SPREADSHEET_GID);
+    url.searchParams.set("spreadsheet_gid", APPS_SCRIPT_SPREADSHEET_GID);
+    return url.toString();
+  } catch (error) {
+    const separator = embedUrl.includes("?") ? "&" : "?";
+    return `${embedUrl}${separator}spreadsheet_id=${encodeURIComponent(APPS_SCRIPT_SPREADSHEET_ID)}`;
+  }
 }
 
 function topicById(id) {
@@ -762,9 +674,27 @@ function setupMenu() {
   });
 
   const toggle = document.querySelector(".menu-toggle");
+  const sidebar = document.querySelector(".sidebar");
+  const fecharMenu = () => {
+    document.body.classList.remove("menu-open");
+    toggle?.setAttribute("aria-expanded", "false");
+  };
+
   toggle?.addEventListener("click", () => {
     const open = document.body.classList.toggle("menu-open");
     toggle.setAttribute("aria-expanded", String(open));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!document.body.classList.contains("menu-open")) return;
+    if (sidebar?.contains(event.target) || toggle?.contains(event.target)) return;
+    fecharMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && document.body.classList.contains("menu-open")) {
+      fecharMenu();
+    }
   });
 }
 
@@ -943,7 +873,7 @@ function renderHomeCards() {
   if (!grid) return;
 
   grid.innerHTML = topics.map((topic) => `
-    <article class="content-card ${topic.id.startsWith("bd-") ? "database-card" : "spreadsheet-card"}">
+    <article class="content-card ${topic.id.startsWith("compactacao-") ? "database-card" : "spreadsheet-card"}">
       <a href="${topic.url}">
         <span>${topic.area}</span>
         <h3>${topic.cardTitle}</h3>
@@ -1017,14 +947,14 @@ function setupModals() {
 
 function getControlState() {
   try {
-    return JSON.parse(localStorage.getItem("ufcd3776-control-state")) || {};
+    return JSON.parse(localStorage.getItem("ufcd0753-control-state")) || {};
   } catch {
     return {};
   }
 }
 
 function saveControlState(state) {
-  localStorage.setItem("ufcd3776-control-state", JSON.stringify(state));
+  localStorage.setItem("ufcd0753-control-state", JSON.stringify(state));
 }
 
 function carregarVisibilidadeDoSite() {
@@ -1126,6 +1056,47 @@ function guardarVisibilidadeDoSite() {
   }
 }
 
+function carregarLinksDoSite() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(SITE_LINKS_STORAGE_KEY) || "{}");
+    if (saved.gammas && typeof saved.gammas === "object") {
+      Object.entries(saved.gammas).forEach(([key, value]) => {
+        if (key in siteLinks.gammas) siteLinks.gammas[key] = String(value || "");
+      });
+    }
+    if (typeof saved.glossaryUrl === "string") {
+      siteLinks.glossaryUrl = saved.glossaryUrl;
+    }
+    if (saved.forums && typeof saved.forums === "object") {
+      Object.entries(saved.forums).forEach(([key, value]) => {
+        siteLinks.forums[key] = String(value || "");
+      });
+    }
+  } catch {
+    // Mantém os valores de base quando não é possível ler localStorage.
+  }
+}
+
+function guardarLinksDoSite() {
+  try {
+    localStorage.setItem(SITE_LINKS_STORAGE_KEY, JSON.stringify(siteLinks));
+  } catch {
+    // A página continua funcional mesmo que não seja possível guardar no browser.
+  }
+}
+
+function obterGammaUrl(topic) {
+  return siteLinks.gammas[topic.id] || topic.gammaUrl || "";
+}
+
+function obterGlossarioUrl() {
+  return siteLinks.glossaryUrl || glossaryUrl || "";
+}
+
+function obterForumUrl(task) {
+  return siteLinks.forums[task.id] || task.forumUrl || DEFAULT_FORUM_URL || "";
+}
+
 window.addEventListener("storage", (event) => {
   if (event.key !== SITE_VISIBILITY_STORAGE_KEY || !event.newValue) return;
 
@@ -1191,28 +1162,101 @@ async function guardarVisibilidadeRemotaDoSite() {
   }
 }
 
+async function guardarLinksRemotosDoSite() {
+  if (!APPS_SCRIPT_WEB_APP_URL) return;
+
+  try {
+    const dados = new URLSearchParams();
+    dados.set("acao", "guardar_links_site");
+    dados.set("spreadsheet_id", APPS_SCRIPT_SPREADSHEET_ID);
+    dados.set("links", JSON.stringify(siteLinks));
+
+    await fetch(APPS_SCRIPT_WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: dados
+    });
+  } catch {
+    // Mantém a versão local se a ligação remota falhar.
+  }
+}
+
 function renderSiteVisibilityControls() {
-  const renderGroup = (title, section, items) => `
+  const renderOption = (section, item) => {
+    const checked = siteVisibility[section][item.key] !== false ? "checked" : "";
+    const linkField = item.linkType ? `
+      <label class="site-control-link-field">
+        <span>${escapeHtml(item.linkLabel || "Link")}</span>
+        <input
+          type="url"
+          value="${escapeHtml(item.linkValue || "")}"
+          placeholder="${escapeHtml(item.linkPlaceholder || "https://...")}"
+          data-link-control
+          data-link-type="${escapeHtml(item.linkType)}"
+          ${item.linkKey ? `data-key="${escapeHtml(item.linkKey)}"` : ""}>
+      </label>
+    ` : "";
+
+    if (linkField) {
+      return `
+        <div class="site-control-option-container">
+          <label class="site-control-option">
+            <input type="checkbox" data-visibility-control data-section="${section}" data-key="${escapeHtml(item.key)}" ${checked}>
+            <span>${escapeHtml(item.label)}</span>
+          </label>
+          ${linkField}
+        </div>
+      `;
+    }
+
+    return `
+      <label class="site-control-option">
+        <input type="checkbox" data-visibility-control data-section="${section}" data-key="${escapeHtml(item.key)}" ${checked}>
+        <span>${escapeHtml(item.label)}</span>
+      </label>
+    `;
+  };
+
+  const renderStandaloneLink = (item) => `
+    <div class="site-control-option-container site-control-option-section">
+      <label class="site-control-option">
+        <span>${escapeHtml(item.label)}</span>
+      </label>
+      <label class="site-control-link-field">
+        <span>${escapeHtml(item.linkLabel || "Link")}</span>
+        <input
+          type="url"
+          value="${escapeHtml(item.linkValue || "")}"
+          placeholder="${escapeHtml(item.linkPlaceholder || "https://...")}"
+          data-link-control
+          data-link-type="${escapeHtml(item.linkType)}"
+          ${item.linkKey ? `data-key="${escapeHtml(item.linkKey)}"` : ""}>
+      </label>
+    </div>
+  `;
+
+  const renderGroup = (title, section, items, options = {}) => `
     <details class="site-control-group">
       <summary>
         <span>${title}</span>
         <small>${items.length} itens</small>
       </summary>
+      ${options.before ? `<div class="site-control-group-body">${options.before}</div>` : ""}
       <div class="site-control-options">
-        ${items.map((item) => {
-          const checked = siteVisibility[section][item.key] !== false ? "checked" : "";
-          return `
-            <label class="site-control-option">
-              <input type="checkbox" data-visibility-control data-section="${section}" data-key="${escapeHtml(item.key)}" ${checked}>
-              <span>${escapeHtml(item.label)}</span>
-            </label>
-          `;
-        }).join("")}
+        ${items.map((item) => renderOption(section, item)).join("")}
       </div>
     </details>
   `;
 
-  const contentItems = topics.map((topic) => ({ key: topic.id, label: topic.cardTitle }));
+  const contentItems = topics.map((topic) => ({
+    key: topic.id,
+    label: topic.cardTitle,
+    linkType: "gamma",
+    linkKey: topic.id,
+    linkLabel: "Gamma",
+    linkValue: obterGammaUrl(topic),
+    linkPlaceholder: "https://...gamma.site/..."
+  }));
   const menuItems = mainMenuItems.map((item) => ({ key: item.key, label: item.label }));
   const activityItems = activities.map((activity) => ({ key: activity.id, label: activity.menuTitle || activity.title }));
   const evaluationItems = evaluations.map((evaluation) => ({ key: evaluation.id, label: evaluation.menuTitle || evaluation.title }));
@@ -1220,17 +1264,32 @@ function renderSiteVisibilityControls() {
   const excelFileItems = resources.flatMap((resource) => [...(resource.videos || []), ...(resource.downloadFiles || [])]).map((file) => ({ key: file.id, label: file.title }));
   const gptItems = resources.filter((resource) => resource.gptUrl).map((resource) => ({ key: resource.id, label: resource.title }));
   const groupItems = groupTasks.map((task) => ({ key: task.title, label: task.title }));
-  const individualItems = individualTasks.map((task) => ({ key: task.title, label: task.title }));
+  const glossaryField = renderStandaloneLink({
+    label: "Glossário Moodle das tarefas de grupo",
+    linkType: "glossary",
+    linkLabel: "Glossário",
+    linkValue: obterGlossarioUrl(),
+    linkPlaceholder: "https://fad.iefp.pt/mod/glossary/view.php?id=..."
+  });
+  const individualItems = individualTasks.map((task) => ({
+    key: task.title,
+    label: task.title,
+    linkType: "forum",
+    linkKey: task.id,
+    linkLabel: "Fórum",
+    linkValue: obterForumUrl(task),
+    linkPlaceholder: "https://fad.iefp.pt/mod/forum/discuss.php?d=..."
+  }));
 
   return `
     <div class="card site-control-card">
       <div class="site-control-heading">
         <div>
-          <p class="eyebrow">Disponibilização gradual</p>
-          <h2>Materiais visíveis</h2>
+          <p class="eyebrow">Disponibilização e ligações</p>
+          <h2>Gestão de materiais</h2>
         </div>
         <div>
-          <p>Ativa apenas os conteúdos e tarefas que devem ficar disponíveis em cada momento da UFCD.</p>
+          <p>Ativa conteúdos/tarefas e associa os links externos usados durante a formação.</p>
           <button class="small-button" type="button" data-action="save-site-visibility">Guardar na Apps Script</button>
         </div>
       </div>
@@ -1242,7 +1301,7 @@ function renderSiteVisibilityControls() {
         ${renderGroup("Recursos", "recursos", resourceItems)}
         ${renderGroup("Ficheiros Excel", "ficheirosExcel", excelFileItems)}
         ${renderGroup("Assistentes GPT", "assistentesGpt", gptItems)}
-        ${renderGroup("Tarefas de Grupo", "tarefasGrupo", groupItems)}
+        ${renderGroup("Tarefas de Grupo", "tarefasGrupo", groupItems, { before: glossaryField })}
         ${renderGroup("Tarefas Individuais", "tarefasIndividuais", individualItems)}
       </div>
       <div class="site-control-actions">
@@ -1329,8 +1388,8 @@ function renderTeamsControl(root, options = {}) {
             <summary>
               <span class="teams-accordion-copy">
                 <span class="eyebrow">Gestão de materiais</span>
-                <strong>Controlo do Site</strong>
-                <small>Ativa ou desativa conteúdos, tarefas de grupo e tarefas individuais.</small>
+                <strong>Gestão de materiais</strong>
+                <small>Disponibiliza conteúdos, tarefas e ligações externas usadas na formação.</small>
               </span>
             </summary>
             <div class="teams-accordion-body">
@@ -1396,11 +1455,13 @@ async function setupTeamsControl(root) {
     const saveVisibilityButton = event.target.closest('[data-action="save-site-visibility"]');
     if (saveVisibilityButton) {
       const controlStatus = root.querySelector("[data-site-control-status]");
-      if (controlStatus) controlStatus.textContent = "A enviar constituição do site para a Apps Script...";
+      if (controlStatus) controlStatus.textContent = "A enviar constituição e ligações do site para a Apps Script...";
       guardarVisibilidadeDoSite();
+      guardarLinksDoSite();
       await guardarVisibilidadeRemotaDoSite();
+      await guardarLinksRemotosDoSite();
       if (controlStatus) {
-        controlStatus.textContent = `Pedido enviado para a Apps Script: ${obterConstituicaoVisibilidadeSite().length} itens. Confirma a folha Visibilidade_Site.`;
+        controlStatus.textContent = `Pedido enviado para a Apps Script: ${obterConstituicaoVisibilidadeSite().length} itens e ligações do site. Confirma as folhas de controlo.`;
       }
       return;
     }
@@ -1427,6 +1488,24 @@ async function setupTeamsControl(root) {
         const controlStatus = root.querySelector("[data-site-control-status]");
         if (controlStatus) controlStatus.textContent = "Visibilidade atualizada. As páginas abertas do site recebem a alteração; se necessário, recarrega a página para confirmar.";
       }
+    }
+
+    if (event.target.matches("[data-link-control]")) {
+      const type = event.target.dataset.linkType;
+      const key = event.target.dataset.key;
+      const value = event.target.value.trim();
+
+      if (type === "gamma" && key in siteLinks.gammas) {
+        siteLinks.gammas[key] = value;
+      } else if (type === "glossary") {
+        siteLinks.glossaryUrl = value;
+      } else if (type === "forum" && key) {
+        siteLinks.forums[key] = value;
+      }
+
+      guardarLinksDoSite();
+      const controlStatus = root.querySelector("[data-site-control-status]");
+      if (controlStatus) controlStatus.textContent = "Ligação guardada neste browser. Usa o botão Guardar para enviar para a Apps Script.";
     }
   });
 }
@@ -1654,7 +1733,7 @@ async function obterJsonAppsScript(params) {
 
 function obterJsonp(url) {
   return new Promise((resolve, reject) => {
-    const callbackName = `ufcd3776Callback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const callbackName = `ufcd0753Callback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
     const script = document.createElement("script");
     const separator = url.includes("?") ? "&" : "?";
 
@@ -1689,9 +1768,10 @@ function renderTopicPage() {
   if (!root) return;
 
   const topic = topicById(document.body.dataset.topic) || topics[0];
-  const gammaDisponivel = Boolean(topic.gammaUrl && isItemVisible("conteudos", topic.id));
+  const gammaUrl = obterGammaUrl(topic);
+  const gammaDisponivel = Boolean(gammaUrl && isItemVisible("conteudos", topic.id));
   document.body.classList.toggle("gamma-view", gammaDisponivel);
-  document.title = `UFCD 3776 | ${topic.title}`;
+  document.title = `UFCD 0753 | ${topic.title}`;
   document.querySelectorAll("#submenu-conteudos a").forEach((link) => {
     const active = link.getAttribute("href")?.endsWith(topic.url);
     link.classList.toggle("active", Boolean(active));
@@ -1700,7 +1780,7 @@ function renderTopicPage() {
   if (gammaDisponivel) {
     root.innerHTML = `
       <section class="gamma-section content-gamma-full" aria-label="${topic.cardTitle}">
-        <iframe class="gamma-frame gamma-content-frame" src="${topic.gammaUrl}" title="${topic.cardTitle}" loading="lazy" allowfullscreen="allowfullscreen"></iframe>
+        <iframe class="gamma-frame gamma-content-frame" src="${gammaUrl}" title="${topic.cardTitle}" loading="lazy" allowfullscreen="allowfullscreen"></iframe>
       </section>
     `;
     return;
@@ -1723,7 +1803,7 @@ function renderTopicPage() {
           </article>
           <article class="card">
             <h2>1. Enquadramento</h2>
-            <p>Espaço reservado para explicar o tema com linguagem simples e exemplos ligados à utilização prática de aplicações de folha de cálculo ou base de dados.</p>
+            <p>Espaço reservado para explicar o tema com linguagem simples e exemplos ligados à utilização prática de utilitários complementares do sistema operativo.</p>
           </article>
           <article class="card">
             <h2>2. Exemplo orientado</h2>
@@ -1757,7 +1837,7 @@ function renderActivityPage() {
     || evaluations.find((item) => item.id === document.body.dataset.activity)
     || activities[0];
   const isEvaluation = evaluations.some((item) => item.id === activity.id);
-  document.title = `UFCD 3776 | ${activity.title}`;
+  document.title = `UFCD 0753 | ${activity.title}`;
 
   const activeSubmenu = document.getElementById(isEvaluation ? "submenu-avaliacao" : "submenu-atividades");
   activeSubmenu?.querySelectorAll("a").forEach((link) => {
@@ -1775,7 +1855,7 @@ function renderActivityPage() {
 
   if (activity.id === "tarefas-grupo") {
     const overviewItems = [
-      "A formação está organizada em 5 dias, com 5 horas por dia.",
+      "A formação está organizada em 7 dias de trabalho.",
       "Abrir o harmónio correspondente ao tema tratado no dia.",
       "Cada sala trabalha apenas a palavra que lhe está atribuída.",
       "Explicar o significado por palavras próprias.",
@@ -1825,8 +1905,7 @@ function renderActivityPage() {
                   </div>
 
                   <div class="embed-fallback resource-action-row align-right">
-                    <a class="small-button" href="${getBasePath()}${task.url}">Ver conteúdo do dia</a>
-                    <a class="small-button orange" href="${glossaryUrl}" target="_blank" rel="noopener">Abrir glossário</a>
+                    ${obterGlossarioUrl() ? `<a class="small-button orange" href="${obterGlossarioUrl()}">Abrir glossário</a>` : ""}
                   </div>
                 </div>
               </details>
@@ -1840,7 +1919,7 @@ function renderActivityPage() {
 
   if (activity.id === "tarefas-individuais") {
     const overviewItems = [
-      "A formação está organizada em 5 dias, com 5 horas por dia.",
+      "A formação está organizada em 7 dias de trabalho.",
       "Abrir o harmónio correspondente ao tema tratado no dia.",
       "Realizar uma tarefa individual curta e prática.",
       "Partilhar uma imagem ou captura de ecrã como evidência.",
@@ -1854,12 +1933,12 @@ function renderActivityPage() {
             <summary>
               <span class="task-module-copy">
                 <strong>Tarefas Individuais</strong>
-                <small>Em cada um dos 5 dias há uma tarefa individual prática para consolidar a aprendizagem e registar evidências.</small>
+                <small>Ao longo da UFCD há tarefas individuais práticas para consolidar a aprendizagem e registar evidências.</small>
               </span>
               <span class="task-module-mark" aria-hidden="true">TI</span>
             </summary>
             <div class="task-module-body">
-              <p>Nesta área ficam organizadas as 5 tarefas individuais associadas às atividades diárias da UFCD 3776.</p>
+              <p>Nesta área ficam organizadas as tarefas individuais associadas às atividades diárias da UFCD 0753.</p>
               <ul class="moodle-like-list">
                 ${overviewItems.map((item) => `<li>${item}</li>`).join("")}
               </ul>
@@ -1888,8 +1967,7 @@ function renderActivityPage() {
                   </div>
 
                   <div class="embed-fallback resource-action-row align-right">
-                    <a class="small-button" href="${getBasePath()}${task.url}">Ver conteúdo do dia</a>
-                    ${task.forumUrl ? `<a class="small-button orange" href="${task.forumUrl}" target="_blank" rel="noopener">Abrir tarefa</a>` : ""}
+                    ${obterForumUrl(task) ? `<a class="small-button orange" href="${obterForumUrl(task)}">Abrir tarefa</a>` : ""}
                   </div>
                 </div>
               </details>
@@ -1963,7 +2041,7 @@ function renderActivityPage() {
                   allowtransparency="true"
                   frameborder="0"
                   src="${activity.mentimeterUrl}"
-                  title="Mentimeter - Brainstorming UFCD 3776"></iframe>
+                  title="Mentimeter - Brainstorming UFCD 0753"></iframe>
               </div>
               <div class="embed-fallback">
                 <a class="small-button" href="${activity.mentimeterUrl}">Abrir apresentação</a>
@@ -1983,6 +2061,24 @@ function renderActivityPage() {
               ` : ""}
             </section>
           ` : ""}
+
+          ${activity.padletUrl ? `
+            <section class="embedded-page-shell padlet-embed-block" aria-label="Padlet - ${activity.title}">
+              <div class="section-heading task-page-heading embedded-tool-heading">
+                <p class="eyebrow">Padlet</p>
+                <h2>Registo colaborativo</h2>
+                <p class="lead">Espaço para recolher contributos, ideias e sínteses da turma durante a atividade.</p>
+              </div>
+              <iframe
+                class="external-frame padlet-frame"
+                src="${activity.padletUrl}"
+                title="Padlet - Brainstorming UFCD 0753"
+                loading="lazy"></iframe>
+              <div class="embed-fallback">
+                <a class="small-button" href="${activity.padletUrl}" target="_blank" rel="noopener">Abrir Padlet</a>
+              </div>
+            </section>
+          ` : ""}
         </div>
       </section>
     `;
@@ -1991,18 +2087,22 @@ function renderActivityPage() {
 
   root.innerHTML = `
     <section class="section task-page-section">
-      <div class="section-inner">
-        <div class="section-heading task-page-heading">
-          <p class="eyebrow">${isEvaluation ? "Avaliação" : "Atividades"}</p>
-          <h1>${activity.title}</h1>
-          <p class="lead">${activity.intro}</p>
+        <div class="section-inner">
+          <div class="section-heading task-page-heading">
+          ${isEvaluation ? `
+            <h1>${activity.title}</h1>
+          ` : `
+            <p class="eyebrow">Atividades</p>
+            <h1>${activity.title}</h1>
+            <p class="lead">${activity.intro}</p>
+          `}
         </div>
         ${activity.embedUrl ? `
           <article class="card embedded-evaluation-card">
             <div class="embedded-resource">
               <iframe
                 class="external-frame evaluation-frame"
-                src="${activity.embedUrl}"
+                src="${construirUrlEmbedAvaliacao(activity.embedUrl)}"
                 width="100%"
                 height="900"
                 style="border:0;"
@@ -2027,7 +2127,7 @@ function renderResourcePage() {
   if (!root) return;
 
   const resource = resources.find((item) => item.id === document.body.dataset.resource) || resources[0];
-  document.title = `UFCD 3776 | ${resource.title}`;
+  document.title = `UFCD 0753 | ${resource.title}`;
 
   if (resource.gptUrl) {
     if (!isItemVisible("assistentesGpt", resource.id)) {
@@ -2056,7 +2156,7 @@ function renderResourcePage() {
                 <span>${resource.title}</span>
               </a>
             </h1>
-            <p class="lead">Este assistente serve para apoiar o estudo da folha de cálculo, ajudando a esclarecer dúvidas, rever procedimentos e orientar a realização das tarefas.</p>
+            <p class="lead">Este assistente serve para apoiar o estudo dos utilitários complementares, ajudando a esclarecer dúvidas, rever procedimentos e orientar a realização das tarefas.</p>
           </div>
 
           <div class="resource-list">
@@ -2096,7 +2196,7 @@ function renderResourcePage() {
     const pdfUrl = `${getBasePath()}${resource.pdfUrl}`;
     root.innerHTML = `
       <section class="pdf-reader-shell" aria-label="Leitor do manual em PDF">
-        <iframe class="pdf-frame native-pdf-frame" src="${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1" title="Manual da UFCD 3776"></iframe>
+        <iframe class="pdf-frame native-pdf-frame" src="${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1" title="Manual da UFCD 0753"></iframe>
         <div class="pdf-fallback">
           <a class="small-button" href="${pdfUrl}">Abrir PDF</a>
           <a class="small-button orange" href="${pdfUrl}" download>Descarregar PDF</a>
@@ -2186,7 +2286,7 @@ function renderResourcePage() {
         <article class="card group-task-card">
           <p class="eyebrow">A preparar</p>
           <h3>Espaço reservado</h3>
-          <p>Este espaço ficará ligado aos materiais de apoio reais da UFCD 3776.</p>
+          <p>Este espaço ficará ligado aos materiais de apoio reais da UFCD 0753.</p>
         </article>
       </div>
     </section>
@@ -2197,7 +2297,7 @@ function renderStandaloneTeamsControlPage() {
   const root = document.getElementById("teams-control-root");
   if (!root) return;
 
-  document.title = "UFCD 3776 | Partilha de ecrã";
+  document.title = "UFCD 0753 | Partilha de ecrã";
   renderTeamsControl(root, { compact: false, publicView: false });
 }
 
@@ -2214,6 +2314,7 @@ async function inicializarVisibilidadeRemotaDoSite() {
 }
 
 carregarVisibilidadeDoSite();
+carregarLinksDoSite();
 renderContentMenus();
 renderActivityMenus();
 renderEvaluationMenus();
@@ -2230,3 +2331,4 @@ setupModals();
 manterMenuAtivoAberto();
 abrirMenuPeloHashDoIndex();
 inicializarVisibilidadeRemotaDoSite();
+
