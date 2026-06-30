@@ -7,7 +7,7 @@
     area: "Enquadramento",
     intro: "Apresentar a UFCD, os objetivos, a organização do percurso e o conceito-chave: configurar, proteger e produzir.",
     image: "../assets/img/ufcd0753-hero-background-v2.png",
-    gammaUrl: "",
+    gammaUrl: "https://1-sistemas-operativos-kntf7kj.gamma.site/",
     url: "conteudos/introducao.html"
   },
   {
@@ -2027,6 +2027,30 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function getGammaEmbedUrl(url) {
+  if (!url) return "";
+  if (!url.includes("gamma.app/docs/")) return url;
+  const id = url.split("-").pop();
+  return `https://gamma.app/embed/${id}`;
+}
+
+function renderGammaContentPage(root, topic, embedUrl) {
+  const frameUrl = getGammaEmbedUrl(embedUrl);
+  document.body.classList.add("gamma-view");
+  root.innerHTML = `
+    <section class="gamma-section content-gamma-full" aria-label="${escapeHtml(topic.cardTitle || topic.title)}">
+      <iframe
+        class="external-frame full-page-frame gamma-content-frame"
+        src="${escapeHtml(frameUrl)}"
+        title="${escapeHtml(topic.cardTitle || topic.title)}"
+        loading="lazy"
+        allow="fullscreen"
+        allowfullscreen>
+      </iframe>
+    </section>
+  `;
+}
+
 function renderTopicPage() {
   const root = document.getElementById("topic-root");
   if (!root) return;
@@ -2042,11 +2066,7 @@ function renderTopicPage() {
   });
 
   if (gammaDisponivel) {
-    root.innerHTML = `
-      <section class="gamma-section content-gamma-full" aria-label="${topic.cardTitle}">
-        <iframe class="gamma-frame gamma-content-frame" src="${gammaUrl}" title="${topic.cardTitle}" loading="lazy" allowfullscreen="allowfullscreen"></iframe>
-      </section>
-    `;
+    renderGammaContentPage(root, topic, gammaUrl);
     return;
   }
 
