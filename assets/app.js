@@ -553,16 +553,18 @@ function isItemVisible(section, key) {
 }
 
 function criarItemVisibilidade(secao, chave, titulo, url, tipo, nivel, visivel, ordem, options = {}) {
+  const linkValue = options.linkValue || "";
   return {
     secao,
     chave,
     titulo,
     url: url || "",
+    gammaUrl: linkValue,
     tipo,
     nivel,
     visivel: visivel !== false,
     ordem,
-    linkValue: options.linkValue || "",
+    linkValue,
     linkLabel: options.linkLabel || "",
     linkPlaceholder: options.linkPlaceholder || ""
   };
@@ -612,7 +614,7 @@ function obterConstituicaoVisibilidadeSite() {
   }));
 
   adicionarSecao("tarefasIndividuais");
-  individualTasks.forEach((task, index) => adicionarItem("tarefasIndividuais", `tarefa-individual-${task.id}`, task.title, "atividades/tarefas-individuais.html", "tarefa_individual", 61 + index, {
+  individualTasks.forEach((task, index) => adicionarItem("tarefasIndividuais", `tarefa-individual-${task.title}`, task.title, "atividades/tarefas-individuais.html", "tarefa_individual", 61 + index, {
     linkValue: obterForumUrl(task),
     linkLabel: "Fórum",
     linkPlaceholder: "https://fad.iefp.pt/mod/forum/discuss.php?d=..."
@@ -1135,7 +1137,12 @@ function aplicarLinksDoSite(links) {
     const entrada = entradas.find(([key]) => nomesNormalizados.includes(key.toLowerCase()));
     return entrada ? entrada[1] : "";
   };
-  const obterValorLink = (item) => obterCampo(item, ["url", "link", "href", "valor", "value", "linkValue", "ligacao", "ligação"]);
+  const obterValorLink = (item) => {
+    const valorExterno = obterCampo(item, ["gammaUrl", "linkValue", "moodleUrl", "urlMoodle", "moodle", "link", "href", "valor", "value", "ligacao", "ligação"]);
+    if (valorExterno) return valorExterno;
+    const url = String(obterCampo(item, ["url"]) || "");
+    return /^https?:\/\//i.test(url) ? url : "";
+  };
   const obterChaveLink = (item) => obterCampo(item, ["key", "chave", "id", "linkKey", "titulo", "title", "tarefa"]);
   const obterTipoLink = (item) => String(obterCampo(item, ["linkType", "tipo", "tipo_link", "secao", "seção", "categoria"])).toLowerCase();
   const guardarForum = (key, value) => {
@@ -1283,10 +1290,21 @@ async function guardarVisibilidadeRemotaDoSite() {
   if (!APPS_SCRIPT_WEB_APP_URL) return;
 
   try {
+    const constituicao = obterConstituicaoVisibilidadeSite().map((item) => ({
+      secao: item.secao,
+      chave: item.chave,
+      titulo: item.titulo,
+      url: item.url || "",
+      gammaUrl: item.gammaUrl || item.linkValue || "",
+      tipo: item.tipo,
+      nivel: item.nivel,
+      visivel: item.visivel !== false,
+      ordem: item.ordem
+    }));
     const dados = new URLSearchParams();
     dados.set("acao", "guardar_visibilidade_site");
     dados.set("spreadsheet_id", APPS_SCRIPT_SPREADSHEET_ID);
-    dados.set("constituicao", JSON.stringify(obterConstituicaoVisibilidadeSite()));
+    dados.set("constituicao", JSON.stringify(constituicao));
     dados.set("visibilidade", JSON.stringify(criarMapaVisibilidadePlano()));
 
     await fetch(APPS_SCRIPT_WEB_APP_URL, {
@@ -1436,6 +1454,19 @@ function atualizarControlosVisibilidadeDoSite(root) {
     const key = input.dataset.key;
     if (siteVisibility[section] && key in siteVisibility[section]) {
       input.checked = siteVisibility[section][key] !== false;
+    }
+  });
+
+  root.querySelectorAll("[data-link-control]").forEach((input) => {
+    const type = input.dataset.linkType;
+    const key = input.dataset.key;
+    if (type === "gamma" && key in siteLinks.gammas) {
+      input.value = siteLinks.gammas[key] || "";
+    } else if (type === "glossary") {
+      input.value = siteLinks.glossaryUrl || "";
+    } else if (type === "forum" && key) {
+      const task = individualTasks.find((item) => item.id === key || item.title === key);
+      input.value = task ? obterForumUrl(task) : siteLinks.forums[key] || "";
     }
   });
 }
