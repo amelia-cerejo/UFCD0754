@@ -330,9 +330,7 @@ const groupTasks = [
   }
 ];
 
-const DEFAULT_GLOSSARY_URL = "https://fad.iefp.pt/mod/glossary/view.php?id=408954";
-const DEFAULT_FORUM_URL = "https://fad.iefp.pt/mod/forum/view.php?id=408955";
-const glossaryUrl = DEFAULT_GLOSSARY_URL;
+const glossaryUrl = "";
 
 const individualTasks = [
   {
@@ -1094,7 +1092,7 @@ function obterGlossarioUrl() {
 }
 
 function obterForumUrl(task) {
-  return siteLinks.forums[task.id] || task.forumUrl || DEFAULT_FORUM_URL || "";
+  return siteLinks.forums[task.id] || task.forumUrl || "";
 }
 
 window.addEventListener("storage", (event) => {
