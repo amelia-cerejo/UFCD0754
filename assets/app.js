@@ -552,7 +552,7 @@ function isItemVisible(section, key) {
   return isSectionVisible(section) && siteVisibility[section]?.[key] !== false;
 }
 
-function criarItemVisibilidade(secao, chave, titulo, url, tipo, nivel, visivel, ordem) {
+function criarItemVisibilidade(secao, chave, titulo, url, tipo, nivel, visivel, ordem, options = {}) {
   return {
     secao,
     chave,
@@ -561,7 +561,10 @@ function criarItemVisibilidade(secao, chave, titulo, url, tipo, nivel, visivel, 
     tipo,
     nivel,
     visivel: visivel !== false,
-    ordem
+    ordem,
+    linkValue: options.linkValue || "",
+    linkLabel: options.linkLabel || "",
+    linkPlaceholder: options.linkPlaceholder || ""
   };
 }
 
@@ -571,16 +574,20 @@ function obterConstituicaoVisibilidadeSite() {
     const meta = siteVisibilitySectionMeta[section];
     itens.push(criarItemVisibilidade(meta.secao, meta.chave, meta.titulo, "", meta.tipo, "secao", siteVisibilitySections[section], meta.ordem));
   };
-  const adicionarItem = (section, key, titulo, url, tipo, ordem) => {
+  const adicionarItem = (section, key, titulo, url, tipo, ordem, options = {}) => {
     const meta = siteVisibilitySectionMeta[section];
-    itens.push(criarItemVisibilidade(meta.secao, key, titulo, url, tipo, "item", siteVisibility[section]?.[key.replace(/^(menu|conteudo|atividade|avaliacao|recurso|ficheiro-excel|assistente-gpt|tarefa-grupo|tarefa-individual)-/, "")], ordem));
+    itens.push(criarItemVisibilidade(meta.secao, key, titulo, url, tipo, "item", siteVisibility[section]?.[key.replace(/^(menu|conteudo|atividade|avaliacao|recurso|ficheiro-excel|assistente-gpt|tarefa-grupo|tarefa-individual)-/, "")], ordem, options));
   };
 
   adicionarSecao("menuPrincipal");
   mainMenuItems.forEach((item, index) => adicionarItem("menuPrincipal", `menu-${item.key}`, item.label, item.key === "inicio" ? "index.html#inicio" : `index.html#${item.key}`, "menu", 2 + index));
 
   adicionarSecao("conteudos");
-  topics.forEach((topic, index) => adicionarItem("conteudos", `conteudo-${topic.id}`, topic.cardTitle || topic.title, topic.url, "conteudo", 11 + index));
+  topics.forEach((topic, index) => adicionarItem("conteudos", `conteudo-${topic.id}`, topic.cardTitle || topic.title, topic.url, "conteudo", 11 + index, {
+    linkValue: obterGammaUrl(topic),
+    linkLabel: "Gamma",
+    linkPlaceholder: "https://...gamma.site/..."
+  }));
 
   adicionarSecao("atividades");
   activities.forEach((activity, index) => adicionarItem("atividades", `atividade-${activity.id}`, activity.menuTitle || activity.title, activity.url, "atividade", 21 + index));
@@ -598,10 +605,18 @@ function obterConstituicaoVisibilidadeSite() {
   resources.filter((resource) => resource.gptUrl).forEach((resource, index) => adicionarItem("assistentesGpt", `assistente-gpt-${resource.id}`, resource.title, resource.gptUrl, "assistente_gpt", 48.1 + index));
 
   adicionarSecao("tarefasGrupo");
-  groupTasks.forEach((task, index) => adicionarItem("tarefasGrupo", `tarefa-grupo-${task.title}`, task.title, "atividades/tarefas-grupo.html", "tarefa_grupo", 51 + index));
+  groupTasks.forEach((task, index) => adicionarItem("tarefasGrupo", `tarefa-grupo-${task.title}`, task.title, "atividades/tarefas-grupo.html", "tarefa_grupo", 51 + index, {
+    linkValue: obterGlossarioUrl(),
+    linkLabel: "Glossário",
+    linkPlaceholder: "https://fad.iefp.pt/mod/glossary/view.php?id=..."
+  }));
 
   adicionarSecao("tarefasIndividuais");
-  individualTasks.forEach((task, index) => adicionarItem("tarefasIndividuais", `tarefa-individual-${task.title}`, task.title, "atividades/tarefas-individuais.html", "tarefa_individual", 61 + index));
+  individualTasks.forEach((task, index) => adicionarItem("tarefasIndividuais", `tarefa-individual-${task.id}`, task.title, "atividades/tarefas-individuais.html", "tarefa_individual", 61 + index, {
+    linkValue: obterForumUrl(task),
+    linkLabel: "Fórum",
+    linkPlaceholder: "https://fad.iefp.pt/mod/forum/discuss.php?d=..."
+  }));
 
   return itens;
 }
@@ -983,7 +998,48 @@ function aplicarVisibilidadeDoSite(saved) {
   });
 }
 
+function aplicarLinkItemControlo(item) {
+  if (!item || typeof item !== "object") return false;
+  const chave = String(item.chave || item.key || "");
+  const tipo = String(item.tipo || item.type || "").toLowerCase();
+  const titulo = String(item.titulo || item.title || "");
+  const valor = String(item.linkValue || item.link || item.gammaUrl || item.moodleUrl || item.urlMoodle || item.moodle || "");
+  const urlExterno = valor || (/^https?:\/\//i.test(String(item.url || "")) ? String(item.url) : "");
+  if (!urlExterno) return false;
+  let alterou = false;
+
+  if (tipo === "conteudo" || chave.startsWith("conteudo-")) {
+    const topicId = chave.replace(/^conteudo-/, "");
+    if (topicId in siteLinks.gammas && siteLinks.gammas[topicId] !== urlExterno) {
+      siteLinks.gammas[topicId] = urlExterno;
+      alterou = true;
+    }
+  }
+
+  if (tipo === "tarefa_grupo" || chave.startsWith("tarefa-grupo-") || chave === "secao-tarefas-grupo") {
+    if (siteLinks.glossaryUrl !== urlExterno) {
+      siteLinks.glossaryUrl = urlExterno;
+      alterou = true;
+    }
+  }
+
+  if (tipo === "tarefa_individual" || chave.startsWith("tarefa-individual-")) {
+    const taskKey = chave.replace(/^tarefa-individual-/, "");
+    const task = individualTasks.find((itemTask) => itemTask.id === taskKey || itemTask.title === taskKey || itemTask.title === titulo);
+    const keys = task ? [task.id, task.title] : [taskKey, titulo].filter(Boolean);
+    keys.forEach((key) => {
+      if (siteLinks.forums[key] !== urlExterno) {
+        siteLinks.forums[key] = urlExterno;
+        alterou = true;
+      }
+    });
+  }
+
+  return alterou;
+}
+
 function aplicarItemVisibilidadeRemota(item) {
+  aplicarLinkItemControlo(item);
   if (!item || typeof item.visivel !== "boolean") return;
 
   const chave = String(item.chave || "");
@@ -1016,7 +1072,12 @@ function aplicarItemVisibilidadeRemota(item) {
 
 function aplicarItensVisibilidadeRemota(itens) {
   if (!Array.isArray(itens)) return;
-  itens.forEach(aplicarItemVisibilidadeRemota);
+  let linksAlterados = false;
+  itens.forEach((item) => {
+    linksAlterados = aplicarLinkItemControlo(item) || linksAlterados;
+    aplicarItemVisibilidadeRemota(item);
+  });
+  if (linksAlterados) guardarLinksDoSite();
 }
 
 function atualizarSuperficiesVisiveisDoSite() {
