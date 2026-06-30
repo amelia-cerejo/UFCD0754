@@ -1299,51 +1299,6 @@ async function guardarVisibilidadeRemotaDoSite() {
   }
 }
 
-async function guardarLinksRemotosDoSite() {
-  if (!APPS_SCRIPT_WEB_APP_URL) return;
-
-  try {
-    const dados = new URLSearchParams();
-    dados.set("acao", "guardar_links_site");
-    dados.set("spreadsheet_id", APPS_SCRIPT_SPREADSHEET_ID);
-    dados.set("links", JSON.stringify(siteLinks));
-
-    await fetch(APPS_SCRIPT_WEB_APP_URL, {
-      method: "POST",
-      mode: "no-cors",
-      body: dados
-    });
-  } catch {
-    // Mantém a versão local se a ligação remota falhar.
-  }
-}
-
-async function carregarLinksRemotosDoSite() {
-  if (!APPS_SCRIPT_WEB_APP_URL) return false;
-
-  try {
-    const dados = await obterJsonAppsScript({ acao: "links_site" });
-    let links = dados?.links || dados?.dados || dados?.siteLinks || dados?.itens || null;
-
-    if (typeof links === "string") {
-      links = JSON.parse(links);
-    }
-
-    if (!links && (dados?.gammas || dados?.forums || dados?.glossaryUrl)) {
-      links = dados;
-    }
-
-    const alterou = aplicarLinksDoSite(links);
-    if (alterou) {
-      guardarLinksDoSite();
-    }
-
-    return alterou;
-  } catch {
-    return false;
-  }
-}
-
 function renderSiteVisibilityControls() {
   const renderOption = (section, item) => {
     const checked = siteVisibility[section][item.key] !== false ? "checked" : "";
@@ -1600,13 +1555,10 @@ async function setupTeamsControl(root) {
   }
 
   if (controlStatus) controlStatus.textContent = "A carregar visibilidade e ligações do site...";
-  const [visibilidadeRemotaOk, linksRemotosOk] = await Promise.all([
-    carregarVisibilidadeRemotaDoSite(),
-    carregarLinksRemotosDoSite()
-  ]);
+  const visibilidadeRemotaOk = await carregarVisibilidadeRemotaDoSite();
   atualizarControlosVisibilidadeDoSite(root);
   if (controlStatus) {
-    controlStatus.textContent = visibilidadeRemotaOk || linksRemotosOk
+    controlStatus.textContent = visibilidadeRemotaOk
       ? "Visibilidade e ligações carregadas da configuração central."
       : "Alterações guardadas neste browser. A configuração central ainda não respondeu.";
   }
@@ -1625,7 +1577,6 @@ async function setupTeamsControl(root) {
       guardarVisibilidadeDoSite();
       guardarLinksDoSite();
       await guardarVisibilidadeRemotaDoSite();
-      await guardarLinksRemotosDoSite();
       if (controlStatus) {
         controlStatus.textContent = `Pedido enviado para a Apps Script: ${obterConstituicaoVisibilidadeSite().length} itens e ligações do site. Confirma as folhas de controlo.`;
       }
@@ -2468,12 +2419,8 @@ function renderStandaloneTeamsControlPage() {
 }
 
 async function inicializarVisibilidadeRemotaDoSite() {
-  const [visibilidadeRemotaOk, linksRemotosOk] = await Promise.all([
-    carregarVisibilidadeRemotaDoSite(),
-    carregarLinksRemotosDoSite()
-  ]);
-
-  if (!visibilidadeRemotaOk && !linksRemotosOk) return;
+  const visibilidadeRemotaOk = await carregarVisibilidadeRemotaDoSite();
+  if (!visibilidadeRemotaOk) return;
 
   atualizarSuperficiesVisiveisDoSite();
 
