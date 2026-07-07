@@ -52,8 +52,8 @@ const contentMenuGroups = [
 
 const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwTZTbLAY7RLR8RSbX3ogc6WT1J8DJZdgDRq_FUD055ByJm2eXvJ8zYzKIGSb1RYxAjaw/exec";
 const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "14xWArQOzb-1fZ4QxZXjuoJK1dxhjWmbwWmF7lsK-a9o";
-const APPS_SCRIPT_WEB_APP_URL = window.UFCD0753_APPS_SCRIPT_URL || window.UFCD3776_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
-const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0753_SPREADSHEET_ID || window.UFCD3776_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
+const APPS_SCRIPT_WEB_APP_URL = window.UFCD0753_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
+const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0753_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
 
 const activities = [
   {
@@ -169,6 +169,44 @@ const activities = [
       "Registo das etapas realizadas",
       "Síntese curta da aprendizagem"
     ]
+  },
+  {
+    id: "projeto-final-apresentacao",
+    title: "Evidências - Projetos finais",
+    menuTitle: "Evidências - Projetos finais",
+    intro: "Área para organizar evidências e projetos finais, incluindo o Kit Digital colaborativo no Canva.",
+    url: "atividades/projeto-final-apresentacao.html",
+    focus: "Apresentação colaborativa",
+    duration: "7 a 10 minutos por grupo",
+    product: "Evidências finais organizadas e apresentação única da turma no Canva, com contributos de todos os grupos.",
+    steps: [
+      {
+        title: "Identificação do grupo",
+        text: "Indicar o nome do grupo, os elementos, a ferramenta de proteção e o utilitário de compactação atribuídos."
+      },
+      {
+        title: "Ferramenta de proteção",
+        text: "Explicar para que serve, principais funções, tipo de licença e cuidados de instalação ou utilização."
+      },
+      {
+        title: "Utilitário de compactação",
+        text: "Explicar para que serve, formatos suportados, proteção com palavra-passe e cuidados ao compactar ou descompactar."
+      },
+      {
+        title: "Exemplo prático",
+        text: "Apresentar uma utilização simples no Windows, com passos, imagens ou capturas de ecrã."
+      },
+      {
+        title: "Conclusão do grupo",
+        text: "Sintetizar vantagens, limitações, situações recomendadas e um conselho final para os colegas."
+      }
+    ],
+    evidence: [
+      "Slides preenchidos no Canva colaborativo",
+      "Exemplo prático com passos claros",
+      "Participação oral de todos os elementos",
+      "Avaliação construtiva dos trabalhos dos colegas"
+    ]
   }
 ];
 
@@ -197,7 +235,7 @@ const evaluations = [
     menuTitle: "Sumativa",
     intro: "Espaço preparado para a avaliação final das aprendizagens da UFCD.",
     url: "avaliacoes/avaliacao-sumativa.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-3776/01-sumativa.html",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/01-sumativa.html",
     embedTitle: "Avaliação Sumativa"
   },
   {
@@ -206,7 +244,7 @@ const evaluations = [
     menuTitle: "Autoavaliação",
     intro: "Espaço preparado para reflexão final sobre competências adquiridas.",
     url: "avaliacoes/autoavaliacao-final.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-3776/04-autoavaliacao-final.html",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/04-autoavaliacao-final.html",
     embedTitle: "Autoavaliação Final"
   },
   {
@@ -215,7 +253,7 @@ const evaluations = [
     menuTitle: "Entre Pares",
     intro: "Espaço preparado para avaliação entre pares.",
     url: "avaliacoes/avaliacao-entre-pares.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-3776/03-entre-pares.html",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/03-entre-pares.html",
     embedTitle: "Avaliação Entre Pares"
   },
   {
@@ -468,7 +506,8 @@ const mainMenuItems = [
   { key: "conteudos", label: "Conteúdos" },
   { key: "atividades", label: "Atividades" },
   { key: "avaliacao", label: "Avaliação" },
-  { key: "recursos", label: "Recursos" }
+  { key: "recursos", label: "Recursos" },
+  { key: "eportfolio", label: "Site dos E-Portefólios" }
 ];
 
 const siteVisibility = {
@@ -594,7 +633,10 @@ function obterConstituicaoVisibilidadeSite() {
   };
 
   adicionarSecao("menuPrincipal");
-  mainMenuItems.forEach((item, index) => adicionarItem("menuPrincipal", `menu-${item.key}`, item.label, item.key === "inicio" ? "index.html#inicio" : `index.html#${item.key}`, "menu", 2 + index));
+  mainMenuItems.forEach((item, index) => {
+    const url = item.key === "inicio" ? "index.html#inicio" : item.key === "eportfolio" ? "atividades/identidade-visual.html" : `index.html#${item.key}`;
+    adicionarItem("menuPrincipal", `menu-${item.key}`, item.label, url, "menu", 2 + index);
+  });
 
   adicionarSecao("conteudos");
   topics.forEach((topic, index) => adicionarItem("conteudos", `conteudo-${topic.id}`, topic.cardTitle || topic.title, topic.url, "conteudo", 11 + index, {
@@ -844,7 +886,7 @@ function manterMenuAtivoAberto() {
   }
 
   if (topicId) {
-    document.querySelectorAll("#submenu-conteudos .submenu-heading").forEach((button) => {
+    document.querySelectorAll("#submenu-conteudos button.submenu-heading").forEach((button) => {
       const children = button.nextElementSibling;
       const hasActiveTopic = Boolean(children?.querySelector(`a[href$="${activeUrl}"]`));
       button.setAttribute("aria-expanded", String(hasActiveTopic));
@@ -862,26 +904,38 @@ function renderContentMenus() {
     }
 
     menu.innerHTML = contentMenuGroups.map((group) => {
+      const visibleChildren = group.children
+        .map((child) => topicById(child.topicId))
+        .filter((topic) => topic && isItemVisible("conteudos", topic.id));
+
+      if (!visibleChildren.length) return "";
+
+      if (visibleChildren.length === 1) {
+        const topic = visibleChildren[0];
+        return `
+      <a class="submenu-heading submenu-heading-${group.theme}" href="${getBasePath()}${topic.url}">
+        <span>${group.title}</span>
+      </a>
+    `;
+      }
+
       return `
       <button class="submenu-heading submenu-heading-${group.theme}" type="button" aria-expanded="false">
         <span>${group.title}</span>
         <b aria-hidden="true">▾</b>
       </button>
       <div class="submenu-group-children" hidden>
-        ${group.children.map((child) => {
-          const topic = topicById(child.topicId);
-          return topic ? `<a href="${getBasePath()}${topic.url}">${topic.menuTitle || topic.title}</a>` : "";
-        }).join("")}
+        ${visibleChildren.map((topic) => `<a href="${getBasePath()}${topic.url}">${topic.menuTitle || topic.title}</a>`).join("")}
       </div>
     `;
     }).join("");
   });
 
-  document.querySelectorAll(".submenu-heading").forEach((button) => {
+  document.querySelectorAll("button.submenu-heading").forEach((button) => {
     button.addEventListener("click", () => {
       const children = button.nextElementSibling;
       const expanded = button.getAttribute("aria-expanded") === "true";
-      document.querySelectorAll(".submenu-heading").forEach((otherButton) => {
+      document.querySelectorAll("button.submenu-heading").forEach((otherButton) => {
         if (otherButton === button) return;
         otherButton.setAttribute("aria-expanded", "false");
         if (otherButton.nextElementSibling) otherButton.nextElementSibling.hidden = true;
@@ -2000,14 +2054,21 @@ function obterJsonp(url) {
     const callbackName = `ufcd0753Callback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
     const script = document.createElement("script");
     const separator = url.includes("?") ? "&" : "?";
+    const timeoutId = window.setTimeout(() => {
+      delete window[callbackName];
+      script.remove();
+      reject(new Error("Tempo excedido ao carregar dados do Apps Script."));
+    }, 3500);
 
     window[callbackName] = (dados) => {
+      window.clearTimeout(timeoutId);
       delete window[callbackName];
       script.remove();
       resolve(dados);
     };
 
     script.onerror = () => {
+      window.clearTimeout(timeoutId);
       delete window[callbackName];
       script.remove();
       reject(new Error("Não foi possível carregar dados do Apps Script."));
@@ -2134,6 +2195,189 @@ function renderActivityPage() {
       compact: document.body.dataset.depth === "embed",
       publicView: document.body.dataset.depth !== "embed"
     });
+    return;
+  }
+
+  if (activity.id === "projeto-final-apresentacao") {
+    const canvaProjectUrl = "https://canva.link/xa3t3x7nr5e2zjy";
+    const canvaPublicViewUrl = "https://www.canva.com/design/DAHOIEh8aTM/4ZHlPi_vNdMBvMpgXyrgPg/view";
+    const canvaEmbeddedPageUrl = `${getBasePath()}atividades/apresentacao-kit-digital.html`;
+    const groups = [
+      ["Grupo 1", "Microsoft Defender", "ZIP do Windows"],
+      ["Grupo 2", "Avast Free Antivirus", "7-Zip"],
+      ["Grupo 3", "Malwarebytes", "WinRAR"],
+      ["Grupo 4", "AVG AntiVirus Free", "PeaZip"]
+    ];
+
+    const parts = [
+      {
+        title: "Parte 1 - Identificação do grupo",
+        items: ["Nome do grupo", "Elementos", "Ferramenta de proteção atribuída", "Utilitário de compactação atribuído"]
+      },
+      {
+        title: "Parte 2 - Ferramenta de proteção",
+        items: ["Para que serve", "Principais funções", "Se é gratuita, paga ou tem versão gratuita", "Cuidados na instalação ou utilização"]
+      },
+      {
+        title: "Parte 3 - Utilitário de compactação",
+        items: ["Para que serve", "Formatos que permite utilizar", "Se permite proteger ficheiros com palavra-passe", "Cuidados ao compactar ou descompactar ficheiros"]
+      },
+      {
+        title: "Parte 4 - Exemplo prático",
+        items: ["Passos principais", "Imagens ou capturas de ecrã", "Cuidados importantes", "Situações em que a ferramenta pode ser útil"]
+      },
+      {
+        title: "Parte 5 - Conclusão do grupo",
+        items: ["Principais vantagens", "Possíveis limitações", "Situações em que recomendaria a utilização", "Conselho final para os colegas"]
+      }
+    ];
+
+    const peerEvaluation = [
+      "Clareza da explicação",
+      "Organização da informação",
+      "Qualidade dos exemplos apresentados",
+      "Participação dos elementos do grupo",
+      "Utilidade das conclusões",
+      "Apresentação visual dos slides"
+    ];
+
+    const recommendations = [
+      "Usar frases curtas.",
+      "Evitar copiar textos longos da Internet.",
+      "Explicar com palavras simples.",
+      "Incluir exemplos práticos.",
+      "Usar imagens, ícones ou capturas de ecrã quando fizer sentido.",
+      "Manter os slides limpos e legíveis.",
+      "Preparar a apresentação oral antes da sessão.",
+      "Respeitar o tempo definido.",
+      "Garantir que todos os elementos participam."
+    ];
+
+    root.innerHTML = `
+      <section class="section task-page-section">
+        <div class="section-inner">
+          <div class="section-heading task-page-heading">
+            <p class="eyebrow">Evidências - Projetos finais</p>
+            <h1>Kit Digital - Proteger e Organizar o Computador</h1>
+            <p class="lead">O projeto final da UFCD 0753 será desenvolvido em grupo, através de uma apresentação colaborativa no Canva.</p>
+            <div class="inline-actions">
+              <a class="small-button orange" href="${canvaProjectUrl}" target="_blank" rel="noopener">Editar no Canva</a>
+              <a class="small-button" href="${canvaPublicViewUrl}" target="_blank" rel="noopener">Ver apresentação</a>
+              <a class="small-button" href="${canvaEmbeddedPageUrl}">Apresentação incorporada</a>
+            </div>
+          </div>
+
+          <div class="activity-meta-grid">
+            <article class="card activity-meta-card">
+              <p class="eyebrow">Formato</p>
+              <h3>Apresentação única da turma</h3>
+            </article>
+            <article class="card activity-meta-card">
+              <p class="eyebrow">Tempo</p>
+              <h3>7 a 10 minutos por grupo</h3>
+            </article>
+          </div>
+
+          <article class="card activity-card">
+            <p class="eyebrow">Objetivo</p>
+            <h2>Aplicar os conteúdos trabalhados na UFCD</h2>
+            <p>Todos os grupos trabalham no mesmo ficheiro Canva. A ideia é construir um trabalho conjunto, organizado por partes, onde cada grupo contribui para os mesmos temas a partir das ferramentas que lhe foram atribuídas.</p>
+            <div class="presentation-strip">
+              <span>Windows</span>
+              <span>Segurança informática</span>
+              <span>Antivírus</span>
+              <span>Compactação</span>
+              <span>Boas práticas</span>
+            </div>
+          </article>
+
+          <div class="slide-grid two-columns">
+            ${groups.map(([group, protection, compression]) => `
+              <article class="card group-task-card">
+                <p class="eyebrow">${group}</p>
+                <h3>${protection}</h3>
+                <p>Utilitário de compactação: <strong>${compression}</strong></p>
+              </article>
+            `).join("")}
+          </div>
+
+          <details class="task-overview-card" open>
+            <summary>
+              <span class="task-module-copy">
+                <strong>Como será construída a apresentação</strong>
+                <small>Em cada parte, todos os grupos dão a sua contribuição. Cada grupo completa apenas os slides que lhe forem atribuídos.</small>
+              </span>
+              <span class="task-module-mark" aria-hidden="true">CANVA</span>
+            </summary>
+            <div class="task-module-body">
+              <p>A apresentação final deve ficar dinâmica, colaborativa e próxima de um trabalho único da turma.</p>
+              <ul class="moodle-like-list">
+                <li>A formadora partilha o ficheiro Canva colaborativo.</li>
+                <li>Cada grupo identifica os slides que lhe pertencem.</li>
+                <li>O texto deve ser curto, claro e acompanhado de exemplos práticos.</li>
+                <li>A apresentação oral será feita pela ordem dos slides no Canva.</li>
+              </ul>
+            </div>
+          </details>
+
+          <div class="task-module-list">
+            ${parts.map((part, index) => `
+              <details class="task-module-card">
+                <summary>
+                  <span class="task-module-copy">
+                    <strong>${part.title}</strong>
+                    <small>Conteúdos que cada grupo deve preparar nesta parte.</small>
+                  </span>
+                  <span class="task-module-mark" aria-hidden="true">${index + 1}</span>
+                </summary>
+                <div class="task-module-body">
+                  <ul class="clean-list task-prompt-list">
+                    ${part.items.map((item) => `<li>${item}</li>`).join("")}
+                  </ul>
+                </div>
+              </details>
+            `).join("")}
+          </div>
+
+          <div class="activity-output-grid">
+            <article class="card">
+              <p class="eyebrow">Apresentação oral</p>
+              <h3>Participação de todos</h3>
+              <p>Todos os elementos do grupo devem participar oralmente. Podem dividir a apresentação como considerarem mais adequado, mas cada elemento deve contribuir em algum momento.</p>
+            </article>
+
+            <article class="card">
+              <p class="eyebrow">Entrega</p>
+              <h3>Canva e Moodle</h3>
+              <p>O trabalho será desenvolvido no ficheiro Canva colaborativo partilhado pela formadora. Para apresentação e consulta, deve ser usado o link público de visualização.</p>
+              <div class="inline-actions">
+                <a class="small-button orange" href="${canvaProjectUrl}" target="_blank" rel="noopener">Editar no Canva</a>
+                <a class="small-button" href="${canvaPublicViewUrl}" target="_blank" rel="noopener">Abrir visualização pública</a>
+                <a class="small-button" href="${canvaEmbeddedPageUrl}">Ver incorporada</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="slide-grid two-columns">
+            <article class="card group-task-card">
+              <p class="eyebrow">Avaliação dos colegas</p>
+              <h3>Observar com atenção e respeito</h3>
+              <ul class="clean-list task-prompt-list">
+                ${peerEvaluation.map((item) => `<li>${item}</li>`).join("")}
+              </ul>
+            </article>
+
+            <article class="card group-task-card">
+              <p class="eyebrow">Recomendações</p>
+              <h3>Para melhorar os slides</h3>
+              <ul class="clean-list task-prompt-list">
+                ${recommendations.map((item) => `<li>${item}</li>`).join("")}
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+    `;
     return;
   }
 
@@ -2602,10 +2846,6 @@ async function inicializarVisibilidadeRemotaDoSite(options = {}) {
 async function inicializarSite() {
   carregarVisibilidadeDoSite();
   carregarLinksDoSite();
-  const pageNeedsRemoteFirst = Boolean(document.getElementById("activity-root") || document.getElementById("topic-root") || document.getElementById("resource-root"));
-  if (pageNeedsRemoteFirst) {
-    await inicializarVisibilidadeRemotaDoSite({ render: false });
-  }
 
   renderContentMenus();
   renderActivityMenus();
@@ -2623,9 +2863,7 @@ async function inicializarSite() {
   manterMenuAtivoAberto();
   abrirMenuPeloHashDoIndex();
 
-  if (!pageNeedsRemoteFirst) {
-    inicializarVisibilidadeRemotaDoSite();
-  }
+  inicializarVisibilidadeRemotaDoSite();
 }
 
 inicializarSite();
