@@ -3,50 +3,73 @@
     id: "introducao",
     title: "Introdução",
     menuTitle: "Introdução",
-    cardTitle: "Introdução à UFCD 0753",
+    cardTitle: "Introdução à UFCD 0693",
     area: "Enquadramento",
-    intro: "Apresentar a UFCD, os objetivos, a organização do percurso e o conceito-chave: configurar, proteger e produzir.",
-    image: "../assets/img/ufcd0753-hero-background-v2.png",
-    gammaUrl: "https://1-sistemas-operativos-kntf7kj.gamma.site/",
-    url: "conteudos/introducao.html"
+    intro: "Apresentar a UFCD, os objetivos, a organização do percurso e o conceito-chave: comunicar, pesquisar e organizar informação digital.",
+    image: "../assets/img/ufcd0693-capa-site.png",
+    url: "conteudos/introducao.html",
+    showInContents: false
   },
   {
-    id: "antivirus-instalacao-configuracao",
-    title: "Antivírus: instalação e configuração",
-    menuTitle: "Antivírus",
-    cardTitle: "Antivírus: procedimentos de instalação e configuração",
-    area: "Segurança do sistema",
-    intro: "Instalar, configurar e operar utilitários de antivírus, compreendendo o papel do software de deteção de vírus.",
-    image: "../assets/img/ufcd0753-hero-background-v2.png",
-    url: "conteudos/antivirus-instalacao-configuracao.html"
+    id: "gestao-eletronica-documentos",
+    title: "Gestão eletrónica de documentos",
+    menuTitle: "Gestão de documentos",
+    cardTitle: "Gestão eletrónica de documentos",
+    area: "Organização digital",
+    intro: "Organizar documentos digitais, agendas, pastas e critérios de indexação para facilitar o acesso à informação.",
+    image: "../assets/img/ufcd0693-capa-site.png",
+    url: "conteudos/gestao-eletronica-documentos.html",
+    items: [
+      "Agenda eletrónica",
+      "Correio eletrónico",
+      "Organização de pastas",
+      "Indexação dos documentos eletrónicos"
+    ]
   },
   {
-    id: "compactacao-descompactacao-ficheiros",
-    title: "Compactação e descompressão de ficheiros",
-    menuTitle: "Compactação",
-    cardTitle: "Compactação e descompressão de ficheiros",
-    area: "Gestão de ficheiros",
-    intro: "Executar tarefas de compactação e descompactação de ficheiros com utilitários adequados.",
-    image: "../assets/img/ufcd0753-hero-background-v2.png",
-    url: "conteudos/compactacao-descompactacao-ficheiros.html"
+    id: "mensagens-eletronicas",
+    title: "Mensagens eletrónicas",
+    menuTitle: "Mensagens eletrónicas",
+    cardTitle: "Mensagens eletrónicas",
+    area: "Comunicação digital",
+    intro: "Criar, enviar, receber, arquivar, reencaminhar e eliminar mensagens eletrónicas de forma organizada.",
+    image: "../assets/img/ufcd0693-capa-site.png",
+    url: "conteudos/mensagens-eletronicas.html",
+    items: [
+      "Criação",
+      "Envio e receção",
+      "Arquivo",
+      "Reencaminhamento",
+      "Eliminação"
+    ]
+  },
+  {
+    id: "pesquisa-avancada-web",
+    title: "Métodos e técnicas de pesquisa avançada na web",
+    menuTitle: "Pesquisa avançada",
+    cardTitle: "Métodos e técnicas de pesquisa avançada na web",
+    area: "Pesquisa de informação",
+    intro: "Pesquisar informação na web com métodos mais precisos, avaliando resultados e usando técnicas adequadas ao objetivo.",
+    image: "../assets/img/ufcd0693-capa-site.png",
+    url: "conteudos/pesquisa-avancada-web.html"
   }
 ];
 
 const contentMenuGroups = [
   {
-    title: "Introdução",
+    title: "Gestão eletrónica de documentos",
     theme: "representation",
-    children: topics.filter((topic) => topic.id === "introducao").map((topic) => ({ topicId: topic.id }))
+    children: topics.filter((topic) => topic.id === "gestao-eletronica-documentos").map((topic) => ({ topicId: topic.id }))
   },
   {
-    title: "Antivírus",
+    title: "Mensagens eletrónicas",
     theme: "representation",
-    children: topics.filter((topic) => topic.id.startsWith("antivirus-")).map((topic) => ({ topicId: topic.id }))
+    children: topics.filter((topic) => topic.id === "mensagens-eletronicas").map((topic) => ({ topicId: topic.id }))
   },
   {
-    title: "Compactação de ficheiros",
+    title: "Pesquisa avançada na web",
     theme: "database",
-    children: topics.filter((topic) => topic.id.startsWith("compactacao-")).map((topic) => ({ topicId: topic.id }))
+    children: topics.filter((topic) => topic.id === "pesquisa-avancada-web").map((topic) => ({ topicId: topic.id }))
   }
 ];
 
@@ -71,9 +94,10 @@ const activities = [
     focus: "Exploração inicial",
     duration: "30 a 45 minutos",
     product: "Mapa inicial com expectativas, dúvidas e conhecimentos prévios sobre antivírus, utilitários e gestão de ficheiros.",
-    mentimeterUrl: "https://www.mentimeter.com/app/presentation/alnyn6kvrtioksb2ypkpw72hbjyy14ft/embed",
+    mentimeterUrl: "https://www.mentimeter.com/app/presentation/alrxyowitp4y7uzqu57vfi6txose8977/embed",
+    participationUrl: "https://www.menti.com/al7y28mtmwqm",
     padletUrl: "https://padlet.com/embed/6w91ggh9dum7qhle",
-    qrCode: "assets/img/mentimeter_qr_code.png",
+    qrCode: "assets/img/mentimeter_qr_code_0693.png",
     steps: [
       {
         title: "Apresentação da UFCD",
@@ -218,7 +242,7 @@ const evaluations = [
     intro: "Espaço preparado para avaliação inicial dos conhecimentos sobre antivírus, utilitários e compactação de ficheiros.",
     url: "avaliacoes/avaliacao-diagnostica.html",
     children: ["resultados-diagnostica"],
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/00-diagnostico.html",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0651/00-diagnostico.html",
     embedTitle: "DIAG_1"
   },
   {
@@ -966,18 +990,7 @@ function renderEvaluationMenus() {
       return;
     }
 
-    const evaluationIds = {
-      diagnostica: "avaliacao-diagnostica",
-      "resultados-diagnostica": "resultados-diagnostica",
-      sumativa: "avaliacao-sumativa",
-      "entre-pares": "avaliacao-entre-pares",
-      "autoavaliacao-final": "autoavaliacao-final",
-      formacao: "avaliacao-formacao"
-    };
-    const currentEvaluation = document.body.dataset.activity
-      || evaluationIds[document.body.dataset.evaluation]
-      || document.body.dataset.evaluation
-      || "";
+    const currentEvaluation = document.body.dataset.activity || "";
     menu.innerHTML = evaluations
       .filter((evaluation) => !evaluation.parentId && isItemVisible("avaliacao", evaluation.id))
       .map((evaluation) => {
@@ -1043,7 +1056,7 @@ function renderHomeCards() {
   const grid = document.getElementById("home-content-grid");
   if (!grid) return;
 
-  grid.innerHTML = topics.map((topic) => `
+  grid.innerHTML = topics.filter((topic) => topic.showInContents !== false).map((topic) => `
     <article class="content-card ${topic.id.startsWith("compactacao-") ? "database-card" : "spreadsheet-card"}">
       <a href="${topic.url}">
         <span>${topic.area}</span>
@@ -2131,7 +2144,7 @@ function renderTopicPage() {
   const gammaUrl = obterGammaUrl(topic);
   const gammaDisponivel = Boolean(gammaUrl && isItemVisible("conteudos", topic.id));
   document.body.classList.toggle("gamma-view", gammaDisponivel);
-  document.title = `UFCD 0753 | ${topic.title}`;
+  document.title = `UFCD 0693 | ${topic.title}`;
   document.querySelectorAll("#submenu-conteudos a").forEach((link) => {
     const active = link.getAttribute("href")?.endsWith(topic.url);
     link.classList.toggle("active", Boolean(active));
@@ -2141,6 +2154,17 @@ function renderTopicPage() {
     renderGammaContentPage(root, topic, gammaUrl);
     return;
   }
+
+  const topicItems = Array.isArray(topic.items) && topic.items.length
+    ? `
+          <article class="card">
+            <h2>Subconteúdos</h2>
+            <ul class="clean-list">
+              ${topic.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+            </ul>
+          </article>
+    `
+    : "";
 
   root.innerHTML = `
     <section class="hero content-hero no-image-hero">
@@ -2157,9 +2181,10 @@ function renderTopicPage() {
             <h2>Conteúdo para disponibilização</h2>
             <p>Esta página está integrada na estrutura do site e será disponibilizada de acordo com o controlo definido pelo formador.</p>
           </article>
+          ${topicItems}
           <article class="card">
             <h2>1. Enquadramento</h2>
-            <p>Espaço reservado para explicar o tema com linguagem simples e exemplos ligados à utilização prática de utilitários complementares do sistema operativo.</p>
+            <p>Espaço reservado para explicar o tema com linguagem simples e exemplos ligados à utilização prática de correio eletrónico, documentos digitais e pesquisa na web.</p>
           </article>
           <article class="card">
             <h2>2. Exemplo orientado</h2>
@@ -2174,6 +2199,7 @@ function renderTopicPage() {
         <aside class="card aside-box">
           <h3>Nesta página</h3>
           <ul class="clean-list">
+            ${topic.items?.length ? "<li>Subconteúdos</li>" : ""}
             <li>Enquadramento</li>
             <li>Exemplo orientado</li>
             <li>Atividade</li>
@@ -2204,40 +2230,13 @@ function renderActivityPage() {
     || evaluations.find((item) => item.id === evaluationId)
     || activities[0];
   const isEvaluation = evaluations.some((item) => item.id === activity.id);
-  document.title = `UFCD 0753 | ${activity.title}`;
+  document.title = `UFCD 0693 | ${activity.title}`;
 
   const activeSubmenu = document.getElementById(isEvaluation ? "submenu-avaliacao" : "submenu-atividades");
   activeSubmenu?.querySelectorAll("a").forEach((link) => {
     const active = link.getAttribute("href")?.endsWith(activity.url);
     link.classList.toggle("active", Boolean(active));
   });
-
-  if (isEvaluation) {
-    root.innerHTML = activity.embedUrl ? `
-      <section class="embedded-page-shell evaluation-embed-section" aria-label="${activity.title}">
-        <iframe
-          class="external-frame evaluation-frame"
-          src="${construirUrlEmbedAvaliacao(activity.embedUrl)}"
-          width="100%"
-          height="900"
-          style="border:0;"
-          loading="lazy"
-          referrerpolicy="unsafe-url"
-          title="${activity.embedTitle || activity.title}"></iframe>
-      </section>
-    ` : `
-      <section class="section task-page-section">
-        <div class="section-inner">
-          <article class="card group-task-card">
-            <p class="eyebrow">A preparar</p>
-            <h1>${activity.title}</h1>
-            <p>Esta página está pronta para receber os resultados ou o conteúdo associado à avaliação.</p>
-          </article>
-        </div>
-      </section>
-    `;
-    return;
-  }
 
   if (activity.id === "controlo-teams") {
     renderTeamsControl(root, {
@@ -2618,7 +2617,7 @@ function renderActivityPage() {
                   allowtransparency="true"
                   frameborder="0"
                   src="${activity.mentimeterUrl}"
-                  title="Mentimeter - Brainstorming UFCD 0753"></iframe>
+                  title="Mentimeter - Brainstorming UFCD 0693"></iframe>
               </div>
               <div class="embed-fallback">
                 <a class="small-button" href="${activity.mentimeterUrl}">Abrir apresentação</a>
@@ -2649,7 +2648,7 @@ function renderActivityPage() {
               <iframe
                 class="external-frame padlet-frame"
                 src="${activity.padletUrl}"
-                title="Padlet - Brainstorming UFCD 0753"
+                title="Padlet - Brainstorming UFCD 0693"
                 loading="lazy"></iframe>
               <div class="embed-fallback">
                 <a class="small-button" href="${activity.padletUrl}" target="_blank" rel="noopener">Abrir Padlet</a>
@@ -2665,11 +2664,17 @@ function renderActivityPage() {
   root.innerHTML = `
     <section class="section task-page-section">
         <div class="section-inner">
-          <div class="section-heading task-page-heading">
+          ${isEvaluation && activity.embedUrl ? "" : `
+            <div class="section-heading task-page-heading">
+            ${isEvaluation ? `
+            <h1>${activity.title}</h1>
+            ` : `
             <p class="eyebrow">Atividades</p>
             <h1>${activity.title}</h1>
             <p class="lead">${activity.intro}</p>
-        </div>
+            `}
+          </div>
+          `}
         ${activity.embedUrl ? `
           <article class="card embedded-evaluation-card">
             <div class="embedded-resource">
@@ -2701,7 +2706,7 @@ function renderResourcePage() {
   if (!root) return;
 
   const resource = resources.find((item) => item.id === document.body.dataset.resource) || resources[0];
-  document.title = `UFCD 0753 | ${resource.title}`;
+  document.title = `UFCD 0693 | ${resource.title}`;
 
   if (resource.gptUrl) {
     if (!isItemVisible("assistentesGpt", resource.id)) {
@@ -2871,7 +2876,7 @@ function renderStandaloneTeamsControlPage() {
   const root = document.getElementById("teams-control-root");
   if (!root) return;
 
-  document.title = "UFCD 0753 | Partilha de ecrã";
+  document.title = "UFCD 0693 | Partilha de ecrã";
   renderTeamsControl(root, { compact: false, publicView: false });
 }
 
