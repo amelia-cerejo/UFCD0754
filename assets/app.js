@@ -219,7 +219,7 @@ const evaluations = [
     url: "avaliacoes/avaliacao-diagnostica.html",
     children: ["resultados-diagnostica"],
     embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/00-diagnostico.html",
-    embedTitle: "Avaliação Diagnóstica"
+    embedTitle: "DIAG_1"
   },
   {
     id: "resultados-diagnostica",
@@ -235,8 +235,8 @@ const evaluations = [
     menuTitle: "Sumativa",
     intro: "Espaço preparado para a avaliação final das aprendizagens da UFCD.",
     url: "avaliacoes/avaliacao-sumativa.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/01-sumativa.html",
-    embedTitle: "Avaliação Sumativa"
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/02-sumativa.html",
+    embedTitle: "SUM_1"
   },
   {
     id: "autoavaliacao-final",
@@ -245,7 +245,7 @@ const evaluations = [
     intro: "Espaço preparado para reflexão final sobre competências adquiridas.",
     url: "avaliacoes/autoavaliacao-final.html",
     embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/04-autoavaliacao-final.html",
-    embedTitle: "Autoavaliação Final"
+    embedTitle: "AUTO_1"
   },
   {
     id: "avaliacao-entre-pares",
@@ -254,7 +254,7 @@ const evaluations = [
     intro: "Espaço preparado para avaliação entre pares.",
     url: "avaliacoes/avaliacao-entre-pares.html",
     embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/03-entre-pares.html",
-    embedTitle: "Avaliação Entre Pares"
+    embedTitle: "Avaliação colaborativa"
   },
   {
     id: "avaliacao-formacao",
@@ -262,8 +262,8 @@ const evaluations = [
     menuTitle: "Formação",
     intro: "Espaço preparado para avaliação da formação.",
     url: "avaliacoes/avaliacao-formacao.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/avaliacao-formacao.html",
-    embedTitle: "Avaliação da Qualidade da Formação"
+    embedUrl: "https://avaliacoes-formacao.netlify.app/avaliacao-formacao.html?codigo_ufcd=0753",
+    embedTitle: "Avaliação final da formação"
   }
 ];
 
@@ -2175,11 +2175,22 @@ function renderTopicPage() {
 }
 
 function renderActivityPage() {
-  const root = document.getElementById("activity-root");
+  const root = document.getElementById("activity-root") || document.getElementById("evaluation-root");
   if (!root) return;
 
-  const activity = activities.find((item) => item.id === document.body.dataset.activity)
-    || evaluations.find((item) => item.id === document.body.dataset.activity)
+  const evaluationIds = {
+    diagnostica: "avaliacao-diagnostica",
+    "resultados-diagnostica": "resultados-diagnostica",
+    sumativa: "avaliacao-sumativa",
+    "entre-pares": "avaliacao-entre-pares",
+    "autoavaliacao-final": "autoavaliacao-final",
+    formacao: "avaliacao-formacao"
+  };
+  const activityId = document.body.dataset.activity;
+  const evaluationId = evaluationIds[document.body.dataset.evaluation] || document.body.dataset.evaluation;
+  const activity = activities.find((item) => item.id === activityId)
+    || evaluations.find((item) => item.id === activityId)
+    || evaluations.find((item) => item.id === evaluationId)
     || activities[0];
   const isEvaluation = evaluations.some((item) => item.id === activity.id);
   document.title = `UFCD 0753 | ${activity.title}`;
@@ -2189,6 +2200,33 @@ function renderActivityPage() {
     const active = link.getAttribute("href")?.endsWith(activity.url);
     link.classList.toggle("active", Boolean(active));
   });
+
+  if (isEvaluation) {
+    root.innerHTML = activity.embedUrl ? `
+      <section class="embedded-page-shell evaluation-embed-section" aria-label="${activity.title}">
+        <iframe
+          class="external-frame evaluation-frame"
+          src="${construirUrlEmbedAvaliacao(activity.embedUrl)}"
+          width="100%"
+          height="900"
+          style="border:0;"
+          loading="lazy"
+          referrerpolicy="unsafe-url"
+          title="${activity.embedTitle || activity.title}"></iframe>
+      </section>
+    ` : `
+      <section class="section task-page-section">
+        <div class="section-inner">
+          <article class="card group-task-card">
+            <p class="eyebrow">A preparar</p>
+            <h1>${activity.title}</h1>
+            <p>Esta página está pronta para receber os resultados ou o conteúdo associado à avaliação.</p>
+          </article>
+        </div>
+      </section>
+    `;
+    return;
+  }
 
   if (activity.id === "controlo-teams") {
     renderTeamsControl(root, {
@@ -2617,13 +2655,9 @@ function renderActivityPage() {
     <section class="section task-page-section">
         <div class="section-inner">
           <div class="section-heading task-page-heading">
-          ${isEvaluation ? `
-            <h1>${activity.title}</h1>
-          ` : `
             <p class="eyebrow">Atividades</p>
             <h1>${activity.title}</h1>
             <p class="lead">${activity.intro}</p>
-          `}
         </div>
         ${activity.embedUrl ? `
           <article class="card embedded-evaluation-card">
@@ -2635,6 +2669,7 @@ function renderActivityPage() {
                 height="900"
                 style="border:0;"
                 loading="lazy"
+                referrerpolicy="unsafe-url"
                 title="${activity.embedTitle || activity.title}"></iframe>
             </div>
           </article>

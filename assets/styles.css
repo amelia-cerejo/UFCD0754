@@ -2912,10 +2912,10 @@ body.menu-open .sidebar {
   display: block;
   width: 100%;
   min-height: 900px;
-  border: 1px solid var(--cor-linha) !important;
-  border-radius: 8px;
+  border: 0;
+  border-radius: 0;
   background: var(--cor-branco);
-  box-shadow: 0 10px 24px rgba(53, 92, 125, 0.07);
+  box-shadow: none;
 }
 
 .mentimeter-frame-wrap {
