@@ -1,4 +1,4 @@
-﻿const topics = [
+const topics = [
   {
     id: "introducao",
     title: "Introdução",
@@ -75,8 +75,8 @@ const contentMenuGroups = [
 
 const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwTZTbLAY7RLR8RSbX3ogc6WT1J8DJZdgDRq_FUD055ByJm2eXvJ8zYzKIGSb1RYxAjaw/exec";
 const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "14xWArQOzb-1fZ4QxZXjuoJK1dxhjWmbwWmF7lsK-a9o";
-const APPS_SCRIPT_WEB_APP_URL = window.UFCD0753_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
-const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0753_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
+const APPS_SCRIPT_WEB_APP_URL = window.UFCD0693_APPS_SCRIPT_URL || window.UFCD0753_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
+const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0693_SPREADSHEET_ID || window.UFCD0753_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
 
 const activities = [
   {
@@ -93,7 +93,7 @@ const activities = [
     url: "atividades/brainstorming.html",
     focus: "Exploração inicial",
     duration: "30 a 45 minutos",
-    product: "Mapa inicial com expectativas, dúvidas e conhecimentos prévios sobre antivírus, utilitários e gestão de ficheiros.",
+    product: "Mapa inicial com expectativas, dúvidas e conhecimentos prévios sobre correio eletrónico, organização digital e pesquisa na web.",
     mentimeterUrl: "https://www.mentimeter.com/app/presentation/alrxyowitp4y7uzqu57vfi6txose8977/embed",
     participationUrl: "https://www.menti.com/al7y28mtmwqm",
     padletUrl: "https://padlet.com/embed/6w91ggh9dum7qhle",
@@ -109,11 +109,11 @@ const activities = [
       },
       {
         title: "Conhecimentos prévios",
-        text: "Perceber experiências anteriores com antivírus, compactação de ficheiros e utilitários do sistema."
+        text: "Perceber experiências anteriores com correio eletrónico, agenda eletrónica, organização de documentos e pesquisa na web."
       },
       {
         title: "Mapa inicial de temas",
-        text: "Organizar contributos em torno de segurança do sistema, antivírus e compactação de ficheiros."
+        text: "Organizar contributos em torno de comunicação digital, gestão de documentos, agenda eletrónica e pesquisa online."
       },
       {
         title: "Síntese e próximos passos",
@@ -129,23 +129,23 @@ const activities = [
   {
     id: "tarefas-grupo",
     title: "Tarefas de Grupo",
-    intro: "Em cada atividade diária, a tarefa de grupo serve para aplicar conteúdos sobre utilitários, antivírus e gestão de ficheiros em pequenos grupos.",
+    intro: "Em cada atividade diária, a tarefa de grupo serve para construir vocabulário técnico no glossário colaborativo.",
     url: "atividades/tarefas-grupo.html",
     focus: "Tarefa de grupo",
     duration: "A definir pelo formador",
-    product: "Produção de grupo relacionada com organização, análise, estruturação ou apresentação de dados.",
+    product: "Definição simples e exemplo prático para a palavra atribuída à sala.",
     steps: [
       {
         title: "Organização do grupo",
         text: "Distribuir funções simples: recolha de dados, registo, revisão e apresentação."
       },
       {
-        title: "Tarefa sobre antivírus",
-        text: "Identificar procedimentos de instalação, configuração, atualização ou verificação de segurança."
+        title: "Tarefa de glossário",
+        text: "Criar uma definição simples, por palavras próprias, para o termo atribuído à sala."
       },
       {
-        title: "Tarefa sobre ficheiros",
-        text: "Aplicar procedimentos de compactação, descompactação ou organização de ficheiros."
+        title: "Exemplo prático",
+        text: "Acrescentar um exemplo simples ligado à utilização diária de ferramentas digitais."
       },
       {
         title: "Preparação da apresentação",
@@ -169,7 +169,7 @@ const activities = [
     url: "atividades/tarefas-individuais.html",
     focus: "Tarefa individual",
     duration: "A definir pelo formador",
-    product: "Evidência individual relacionada com antivírus, utilitários complementares ou compactação de ficheiros.",
+    product: "Evidência individual guardada na Drive, no Padlet ou no espaço indicado no Moodle, conforme a tarefa do dia.",
     steps: [
       {
         title: "Leitura da tarefa",
@@ -196,40 +196,44 @@ const activities = [
   },
   {
     id: "projeto-final-apresentacao",
-    title: "Evidências - Projetos finais",
-    menuTitle: "Evidências - Projetos finais",
-    intro: "Área para organizar evidências e projetos finais, incluindo o Kit Digital colaborativo no Canva.",
+    title: "E-portefólio individual",
+    menuTitle: "E-portefólio individual",
+    intro: "Área para organizar evidências individuais da UFCD 0693 no Padlet, na Drive e no Moodle.",
     url: "atividades/projeto-final-apresentacao.html",
-    focus: "Apresentação colaborativa",
-    duration: "7 a 10 minutos por grupo",
-    product: "Evidências finais organizadas e apresentação única da turma no Canva, com contributos de todos os grupos.",
+    focus: "Evidências digitais",
+    duration: "Ao longo da UFCD",
+    product: "Padlet individual organizado como e-portefólio da formação.",
     steps: [
       {
-        title: "Identificação do grupo",
-        text: "Indicar o nome do grupo, os elementos, a ferramenta de proteção e o utilitário de compactação atribuídos."
+        title: "Criar a conta Google",
+        text: "Criar ou usar uma conta Google no formato nome+numeroIEFP@gmail.com antes de criar o Padlet."
       },
       {
-        title: "Ferramenta de proteção",
-        text: "Explicar para que serve, principais funções, tipo de licença e cuidados de instalação ou utilização."
+        title: "Criar o Padlet",
+        text: "Criar um Padlet individual em formato Colunas, com título no formato E-portefólio_Sala_X_Nome."
       },
       {
-        title: "Utilitário de compactação",
-        text: "Explicar para que serve, formatos suportados, proteção com palavra-passe e cuidados ao compactar ou descompactar."
+        title: "Registar expetativas",
+        text: "Adicionar um primeiro post com 3 a 5 frases sobre o que espera aprender na UFCD."
       },
       {
-        title: "Exemplo prático",
-        text: "Apresentar uma utilização simples no Windows, com passos, imagens ou capturas de ecrã."
+        title: "Organizar evidências",
+        text: "Usar o Padlet para reunir links, reflexões e evidências relevantes das tarefas realizadas."
       },
       {
-        title: "Conclusão do grupo",
-        text: "Sintetizar vantagens, limitações, situações recomendadas e um conselho final para os colegas."
+        title: "Partilhar no Moodle",
+        text: "Publicar o link no fórum indicado, evitando anexos quando essa for a orientação da tarefa."
+      },
+      {
+        title: "Atualizar ao longo da formação",
+        text: "Manter o e-portefólio organizado com conteúdos sobre agenda, correio eletrónico, documentos e pesquisa web."
       }
     ],
     evidence: [
-      "Slides preenchidos no Canva colaborativo",
-      "Exemplo prático com passos claros",
-      "Participação oral de todos os elementos",
-      "Avaliação construtiva dos trabalhos dos colegas"
+      "Link do Padlet individual",
+      "Posts de expetativas e reflexão",
+      "Evidências das tarefas realizadas",
+      "Organização clara por colunas"
     ]
   }
 ];
@@ -239,7 +243,7 @@ const evaluations = [
     id: "avaliacao-diagnostica",
     title: "Avaliação Diagnóstica",
     menuTitle: "Diagnóstica",
-    intro: "Espaço preparado para avaliação inicial dos conhecimentos sobre antivírus, utilitários e compactação de ficheiros.",
+    intro: "Espaço preparado para avaliação inicial dos conhecimentos sobre correio eletrónico, organização digital e pesquisa na web.",
     url: "avaliacoes/avaliacao-diagnostica.html",
     children: ["resultados-diagnostica"],
     embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0651/00-diagnostico.html",
@@ -293,209 +297,206 @@ const evaluations = [
 
 const groupTasks = [
   {
-    title: "TG Dia 1 - Primeiras palavras digitais",
-    topic: "Apresentação e diagnóstico",
+    title: "TG Dia 1 - Conceitos gerais",
+    topic: "Conceitos gerais",
     url: "atividades/tarefas-grupo.html",
-    intro: "Construir, em grupo, definições simples para os primeiros conceitos digitais trabalhados na UFCD.",
+    intro: "Construir definições simples para conceitos gerais ligados à comunicação e organização digital.",
     words: [
-      ["Computador", "Sala 1"],
-      ["Sistema operativo", "Sala 2"],
-      ["Programa", "Sala 3"],
-      ["Ficheiro", "Sala 4"],
-      ["Pasta", "Sala 5"],
-      ["Segurança informática", "Sala 6"]
+      ["Pesquisa on-line", "Sala 1"],
+      ["Documento digital", "Sala 2"],
+      ["Correio eletrónico", "Sala 3"],
+      ["Agenda eletrónica", "Sala 4"]
     ]
   },
   {
-    title: "TG Dia 2 - Sistema Operativo Windows",
-    topic: "Sistema Operativo Windows",
+    title: "TG Dia 2 - Pesquisa Web",
+    topic: "Pesquisa Web",
     url: "atividades/tarefas-grupo.html",
-    intro: "Registar conceitos essenciais do Windows e explicar a sua função com linguagem simples.",
+    intro: "Clarificar vocabulário essencial para pesquisar informação na web e avaliar resultados.",
     words: [
-      ["Windows", "Sala 1"],
-      ["Ambiente de Trabalho", "Sala 2"],
-      ["Menu Iniciar", "Sala 3"],
-      ["Barra de Tarefas", "Sala 4"],
-      ["Explorador de Ficheiros", "Sala 5"],
-      ["Definições", "Sala 6"]
+      ["Motor de pesquisa", "Sala 1"],
+      ["Palavra-chave", "Sala 2"],
+      ["Fonte de informação", "Sala 3"],
+      ["Fiabilidade", "Sala 4"]
     ]
   },
   {
-    title: "TG Dia 3 - Antivírus e proteção",
-    topic: "Antivírus e proteção",
+    title: "TG Dia 3 - Organização Digital",
+    topic: "Organização Digital",
     url: "atividades/tarefas-grupo.html",
-    intro: "Clarificar vocabulário associado à proteção contra vírus e outras ameaças informáticas.",
+    intro: "Registar conceitos ligados à organização de ficheiros, pastas e arquivo digital.",
     words: [
-      ["Antivírus", "Sala 1"],
-      ["Vírus", "Sala 2"],
-      ["Malware", "Sala 3"],
-      ["Proteção em tempo real", "Sala 4"],
-      ["Atualização", "Sala 5"],
-      ["Quarentena", "Sala 6"]
+      ["Pasta", "Sala 1"],
+      ["Subpasta", "Sala 2"],
+      ["Nomeação de ficheiros", "Sala 3"],
+      ["Arquivo digital", "Sala 4"]
     ]
   },
   {
-    title: "TG Dia 4 - Segurança no Windows",
-    topic: "Segurança no Windows",
+    title: "TG Dia 4 - Agenda Eletrónica",
+    topic: "Agenda Eletrónica",
     url: "atividades/tarefas-grupo.html",
-    intro: "Construir definições práticas sobre ferramentas e riscos de segurança no Windows.",
+    intro: "Definir conceitos úteis para criar e gerir compromissos numa agenda eletrónica.",
     words: [
-      ["Ameaça informática", "Sala 1"],
-      ["Segurança do Windows", "Sala 2"],
-      ["Microsoft Defender", "Sala 3"],
-      ["Histórico de proteção", "Sala 4"],
-      ["Firewall", "Sala 5"],
-      ["Phishing", "Sala 6"]
+      ["Evento", "Sala 1"],
+      ["Lembrete", "Sala 2"],
+      ["Tarefa", "Sala 3"],
+      ["Recorrência", "Sala 4"]
     ]
   },
   {
-    title: "TG Dia 5 - Compactação de ficheiros",
-    topic: "Compactação de ficheiros",
+    title: "TG Dia 5 - Correio Eletrónico",
+    topic: "Correio Eletrónico",
     url: "atividades/tarefas-grupo.html",
-    intro: "Definir conceitos ligados à compactação, descompactação e formatos de ficheiros comprimidos.",
+    intro: "Explorar termos essenciais para criar uma mensagem de correio eletrónico corretamente.",
     words: [
-      ["Compactação", "Sala 1"],
-      ["Descompactação", "Sala 2"],
-      ["Ficheiro ZIP", "Sala 3"],
-      ["Ficheiro RAR", "Sala 4"],
-      ["Ficheiro 7Z", "Sala 5"],
-      ["Tamanho do ficheiro", "Sala 6"]
+      ["Destinatário", "Sala 1"],
+      ["Assunto", "Sala 2"],
+      ["CC", "Sala 3"],
+      ["BCC/CCO", "Sala 4"]
     ]
   },
   {
-    title: "TG Dia 6 - Utilitários de compressão",
-    topic: "Utilitários de compressão",
+    title: "TG Dia 6 - Gestão de Mensagens",
+    topic: "Gestão de Mensagens",
     url: "atividades/tarefas-grupo.html",
-    intro: "Explorar termos relacionados com ferramentas externas de compressão, como 7-Zip e WinRAR.",
+    intro: "Definir conceitos relacionados com a organização, segurança e circulação de mensagens eletrónicas.",
     words: [
-      ["Utilitário de compressão", "Sala 1"],
-      ["7-Zip", "Sala 2"],
-      ["WinRAR", "Sala 3"],
-      ["Palavra-passe", "Sala 4"],
-      ["Pasta de destino", "Sala 5"],
-      ["Integridade dos ficheiros", "Sala 6"]
+      ["Arquivar", "Sala 1"],
+      ["Reencaminhar", "Sala 2"],
+      ["Spam", "Sala 3"],
+      ["Phishing", "Sala 4"]
     ]
   },
   {
-    title: "TG Dia 7 - Evidências e encerramento",
-    topic: "Evidências e encerramento",
+    title: "TG Dia 7 - Revisão final",
+    topic: "Revisão final",
     url: "atividades/tarefas-grupo.html",
-    intro: "Fechar o glossário colaborativo com conceitos ligados à avaliação, evidências e autonomia digital.",
+    intro: "Fechar o glossário com conceitos de revisão ligados à organização, pesquisa, tempo e segurança.",
     words: [
-      ["Evidência", "Sala 1"],
-      ["Portefólio", "Sala 2"],
-      ["Fórum Moodle", "Sala 3"],
-      ["Autoavaliação", "Sala 4"],
-      ["Reflexão final", "Sala 5"],
-      ["Autonomia digital", "Sala 6"]
+      ["Organização digital", "Sala 1"],
+      ["Informação fiável", "Sala 2"],
+      ["Gestão do tempo", "Sala 3"],
+      ["Segurança da informação", "Sala 4"]
     ]
   }
 ];
 
-const glossaryUrl = "";
+const glossaryUrl = "https://fad.iefp.pt/mod/glossary/view.php?id=412744";
 
 const individualTasks = [
   {
     id: "tarefa-individual-1",
-    topic: "Dia 1 - Apresentação e diagnóstico",
+    topic: "Dia 1 - Apresentação, diagnóstico e Padlet",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "",
-    title: "TI 1 - As minhas expetativas",
-    intro: "Refletir sobre o que esperas aprender nesta UFCD.",
-    evidence: "Publica a resposta no Fórum do Moodle.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55427",
+    title: "TI 1 - Avaliação diagnóstica e Padlet individual",
+    intro: "Realizar a avaliação diagnóstica e criar um Padlet individual em formato Colunas para registar as expetativas iniciais.",
+    evidence: "Publica o link do Padlet no Fórum “Padlets individuais” do Moodle, sem anexos.",
     prompts: [
-      "Escreve uma resposta curta, com 3 a 5 frases.",
-      "Refere o que já sabes fazer no computador.",
-      "Explica o que gostarias de aprender nesta UFCD.",
-      "Indica como te queres envolver na formação."
+      "Cria ou usa uma conta Google no formato nome+numeroIEFP@gmail.com.",
+      "Realiza a avaliação diagnóstica indicada pela formadora.",
+      "Cria um Padlet individual em formato Colunas.",
+      "Dá ao Padlet um título no formato E-portefólio_Sala_X_Nome.",
+      "Cria pelo menos a coluna Expectativas.",
+      "Adiciona um primeiro post com 3 a 5 frases sobre o que esperas aprender.",
+      "Partilha o Padlet com permissão para escrever e copia o link."
     ]
   },
   {
     id: "tarefa-individual-2",
-    topic: "Dia 2 - Sistema Operativo Windows",
+    topic: "Dia 2 - Gestão eletrónica de documentos",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "",
-    title: "TI 2 - Explorar o Windows",
-    intro: "Identificar elementos básicos do sistema operativo Windows.",
-    evidence: "Publica a resposta no Fórum do Moodle.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55428",
+    title: "TI 2 - TP1: Organizar ficheiros",
+    intro: "Organizar pelo menos 10 ficheiros em pastas, usando nomes claros e uma estrutura lógica.",
+    evidence: "Guarda print e texto de cerca de 150 palavras na pasta TP1 da Drive.",
     prompts: [
-      "Observa o computador e identifica 3 elementos do Windows.",
-      "Podes escolher, por exemplo: Ambiente de Trabalho, Menu Iniciar, Barra de Tarefas, Explorador de Ficheiros ou Definições.",
-      "Explica, numa frase simples, para que serve cada elemento."
+      "Seleciona ou cria pelo menos 10 ficheiros de trabalho.",
+      "Organiza os ficheiros em pastas com nomes claros.",
+      "Aplica uma lógica de organização por tema, data, tipo de documento ou finalidade.",
+      "Faz um print da estrutura final de pastas.",
+      "Escreve cerca de 150 palavras a explicar a organização escolhida."
     ]
   },
   {
     id: "tarefa-individual-3",
-    topic: "Dia 2 - Sistema Operativo e utilitários",
+    topic: "Dia 3 - Agenda eletrónica",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "",
-    title: "TI 3 - Utilitários do Windows",
-    intro: "Reconhecer algumas ferramentas incluídas no Windows.",
-    evidence: "Publica a resposta no Fórum do Moodle ou no espaço indicado pela formadora.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55429",
+    title: "TI 3 - TP2: Agenda eletrónica",
+    intro: "Criar uma agenda eletrónica com pelo menos 5 eventos organizados.",
+    evidence: "Guarda print e texto de cerca de 150 palavras na pasta TP2 da Drive.",
     prompts: [
-      "Procura 3 ferramentas ou utilitários do Windows.",
-      "Podes escolher, por exemplo: Segurança do Windows, Gestor de Tarefas, Explorador de Ficheiros, Definições ou Limpeza de Disco.",
-      "Indica o nome de cada ferramenta.",
-      "Explica para que serve cada uma."
+      "Abre a ferramenta de agenda eletrónica indicada.",
+      "Cria pelo menos 5 eventos.",
+      "Define título, data, hora e descrição quando necessário.",
+      "Configura lembretes nos eventos mais importantes.",
+      "Faz um print da agenda e escreve cerca de 150 palavras sobre a utilidade da organização criada."
     ]
   },
   {
     id: "tarefa-individual-4",
-    topic: "Dia 3 - Antivírus e proteção",
+    topic: "Dia 4 - Continuação da agenda eletrónica",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "",
-    title: "TI 4 - Antivírus no Windows",
-    intro: "Conhecer a ferramenta de proteção do Windows.",
-    evidence: "Publica uma breve resposta no Fórum do Moodle.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55430",
+    title: "TI 4 - Atualizar eventos e lembretes",
+    intro: "Criar eventos adicionais e ajustar lembretes na agenda eletrónica.",
+    evidence: "Atualiza o print na pasta TP2 da Drive e publica uma breve nota no Fórum.",
     prompts: [
-      "Abre a Segurança do Windows.",
-      "Observa algumas opções, como proteção contra vírus e ameaças, atualizações de proteção, histórico de proteção ou opções de análise.",
-      "Regista 2 ou 3 opções que encontraste."
+      "Revê a agenda criada no TP2.",
+      "Cria eventos adicionais indicados pela formadora.",
+      "Ajusta lembretes, horários ou descrições quando necessário.",
+      "Faz um novo print da agenda atualizada.",
+      "Escreve uma breve nota no Fórum sobre o que alteraste."
     ]
   },
   {
     id: "tarefa-individual-5",
-    topic: "Dia 4 - Compactação de ficheiros",
+    topic: "Dia 5 - Mensagem profissional",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "",
-    title: "TI 5 - Comprimir ficheiros no Windows",
-    intro: "Praticar a compactação de ficheiros no Windows.",
-    evidence: "Publica uma frase com a tua conclusão no Fórum do Moodle.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55431",
+    title: "TI 5 - Simular mensagem profissional",
+    intro: "Criar uma mensagem profissional em rascunho ou envio de teste.",
+    evidence: "Guarda print na Drive, na subpasta TI_Dia5.",
     prompts: [
-      "Escolhe uma pasta indicada pela formadora.",
-      "Verifica o tamanho original da pasta.",
-      "Compacta a pasta em formato ZIP.",
-      "Compara o tamanho antes e depois."
+      "Cria uma mensagem de correio eletrónico com destinatário, assunto e corpo de texto profissional.",
+      "Usa uma saudação adequada e linguagem clara.",
+      "Inclui anexo apenas se for solicitado.",
+      "Guarda a mensagem como rascunho ou faz um envio de teste, conforme orientação da formadora.",
+      "Faz um print que comprove a tarefa realizada."
     ]
   },
   {
     id: "tarefa-individual-6",
-    topic: "Dia 5 - Utilitários de compressão",
+    topic: "Dia 6 - Organização da caixa de correio",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "",
-    title: "TI 6 - Explorar o 7-Zip ou WinRAR",
-    intro: "Experimentar um utilitário de compressão externo.",
-    evidence: "Regista o que fizeste no Fórum do Moodle.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55432",
+    title: "TI 6 - Organizar caixa de correio",
+    intro: "Organizar a caixa de correio com pastas e regras simples, integrando evidências no Padlet.",
+    evidence: "Guarda prints na Drive, na subpasta TI_Dia6, e atualiza o Padlet individual.",
     prompts: [
-      "Com o 7-Zip ou WinRAR, compacta uma pasta.",
-      "Descompacta o ficheiro criado.",
-      "Testa uma opção adicional indicada pela formadora.",
-      "Regista os passos principais que realizaste."
+      "Cria pelo menos 5 pastas na caixa de correio.",
+      "Organiza mensagens ou exemplos de mensagens pelas pastas criadas.",
+      "Cria pelo menos 2 regras automáticas simples.",
+      "Faz prints das pastas e das regras configuradas.",
+      "Integra as evidências principais no teu Padlet individual."
     ]
   },
   {
     id: "tarefa-individual-7",
-    topic: "Dia 7 - Encerramento da UFCD",
+    topic: "Dia 7 - Autoavaliação e reflexão final",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "",
-    title: "TI 7 - Reflexão final",
-    intro: "Refletir sobre o percurso realizado ao longo da UFCD.",
-    evidence: "Publica a reflexão final no Fórum do Moodle.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55433",
+    title: "TI 7 - Autoavaliação e reflexão final",
+    intro: "Realizar a autoavaliação final e escrever uma reflexão sobre o percurso realizado.",
+    evidence: "Submete o formulário/documento indicado no Moodle.",
     prompts: [
-      "Escreve 3 a 5 frases.",
-      "Responde: O que aprendi?",
-      "Responde: O que foi mais difícil?",
-      "Responde: O que posso aplicar no dia a dia?"
+      "Preenche a autoavaliação final indicada pela formadora.",
+      "Escreve uma reflexão final curta e objetiva.",
+      "Refere o que aprendeste sobre correio eletrónico, organização digital e pesquisa na web.",
+      "Indica uma dificuldade sentida e uma estratégia usada para a ultrapassar.",
+      "Explica como podes aplicar estas competências no dia a dia."
     ]
   }
 ];
@@ -504,7 +505,7 @@ const resources = [
   {
     id: "manual",
     title: "Manual",
-    intro: "Manual da UFCD 0753 em PDF para consulta e descarregamento.",
+    intro: "Manual da UFCD 0693 em PDF para consulta e descarregamento.",
     url: "recursos/manual.html",
     pdfUrl: "Manual/Manual Formacao Ufcd 0753.pdf"
   },
@@ -570,8 +571,8 @@ const siteVisibilitySectionMeta = {
   tarefasIndividuais: { secao: "tarefas_individuais", chave: "secao-tarefas-individuais", titulo: "Tarefas individuais", tipo: "secao", ordem: 60 }
 };
 
-const SITE_VISIBILITY_STORAGE_KEY = "ufcd0753-site-visibility-v1";
-const SITE_LINKS_STORAGE_KEY = "ufcd0753-site-links-v1";
+const SITE_VISIBILITY_STORAGE_KEY = "ufcd0693-site-visibility-v1";
+const SITE_LINKS_STORAGE_KEY = "ufcd0693-site-links-v1";
 const APPS_SCRIPT_SPREADSHEET_GID = "1240441816";
 let siteControlItems = [];
 let siteControlItemsBuilding = false;
@@ -1131,14 +1132,14 @@ function setupModals() {
 
 function getControlState() {
   try {
-    return JSON.parse(localStorage.getItem("ufcd0753-control-state")) || {};
+    return JSON.parse(localStorage.getItem("ufcd0693-control-state")) || {};
   } catch {
     return {};
   }
 }
 
 function saveControlState(state) {
-  localStorage.setItem("ufcd0753-control-state", JSON.stringify(state));
+  localStorage.setItem("ufcd0693-control-state", JSON.stringify(state));
 }
 
 function carregarVisibilidadeDoSite() {
@@ -2075,7 +2076,7 @@ async function obterJsonAppsScript(params) {
 
 function obterJsonp(url) {
   return new Promise((resolve, reject) => {
-    const callbackName = `ufcd0753Callback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const callbackName = `ufcd0693Callback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
     const script = document.createElement("script");
     const separator = url.includes("?") ? "&" : "?";
     const timeoutId = window.setTimeout(() => {
@@ -2247,6 +2248,80 @@ function renderActivityPage() {
   }
 
   if (activity.id === "projeto-final-apresentacao") {
+    root.innerHTML = `
+      <section class="section task-page-section">
+        <div class="section-inner">
+          <div class="section-heading task-page-heading">
+            <p class="eyebrow">Evidências digitais</p>
+            <h1>E-portefólio individual no Padlet</h1>
+            <p class="lead">O Padlet individual reúne expetativas, reflexões e evidências das tarefas da UFCD 0693.</p>
+          </div>
+
+          <div class="activity-meta-grid">
+            <article class="card activity-meta-card">
+              <p class="eyebrow">Formato</p>
+              <h3>Padlet em Colunas</h3>
+            </article>
+            <article class="card activity-meta-card">
+              <p class="eyebrow">Entrega</p>
+              <h3>Link no Moodle</h3>
+            </article>
+          </div>
+
+          <article class="card activity-card">
+            <p class="eyebrow">Objetivo</p>
+            <h2>Construir um e-portefólio simples e organizado</h2>
+            <p>Cada formando cria o seu Padlet individual, começa por registar as expetativas iniciais e vai atualizando o espaço com evidências relevantes da formação.</p>
+            <div class="presentation-strip">
+              <span>Padlet</span>
+              <span>Drive</span>
+              <span>Moodle</span>
+              <span>Correio eletrónico</span>
+              <span>Pesquisa web</span>
+            </div>
+          </article>
+
+          <div class="task-module-list">
+            ${[
+              ["Criar a conta Google", "Criar ou usar uma conta Google no formato nome+numeroIEFP@gmail.com."],
+              ["Criar o Padlet", "Usar o formato Colunas e definir o título E-portefólio_Sala_X_Nome."],
+              ["Registar expetativas", "Criar a coluna Expectativas e escrever um primeiro post com 3 a 5 frases."],
+              ["Partilhar", "Definir a visibilidade como Secreto, permitir escrita conforme orientação e copiar o link."],
+              ["Publicar no Moodle", "Colocar o link no Fórum “Padlets individuais”, sem anexos."],
+              ["Atualizar", "Acrescentar evidências ou reflexões ao longo da UFCD, mantendo a organização por temas."]
+            ].map(([title, text], index) => `
+              <details class="task-module-card" ${index === 0 ? "open" : ""}>
+                <summary>
+                  <span class="task-module-copy">
+                    <strong>${title}</strong>
+                    <small>${text}</small>
+                  </span>
+                  <span class="task-module-mark" aria-hidden="true">${index + 1}</span>
+                </summary>
+                <div class="task-module-body">
+                  <p>${text}</p>
+                </div>
+              </details>
+            `).join("")}
+          </div>
+
+          <div class="activity-output-grid">
+            <article class="card">
+              <p class="eyebrow">Evidência</p>
+              <h3>Link funcional</h3>
+              <p>O principal comprovativo desta tarefa é o link do Padlet individual publicado no espaço indicado no Moodle.</p>
+            </article>
+
+            <article class="card">
+              <p class="eyebrow">Organização</p>
+              <h3>Colunas claras</h3>
+              <p>O Padlet deve ser fácil de consultar, com colunas para expetativas, recursos, tarefas e reflexões.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    `;
+    return;
     const canvaProjectUrl = "https://canva.link/xa3t3x7nr5e2zjy";
     const canvaPublicViewUrl = "https://www.canva.com/design/DAHOIEh8aTM/4ZHlPi_vNdMBvMpgXyrgPg/view";
     const canvaEmbeddedPageUrl = `${getBasePath()}atividades/apresentacao-kit-digital.html`;
@@ -2451,7 +2526,7 @@ function renderActivityPage() {
               <span class="task-module-mark" aria-hidden="true">TG</span>
             </summary>
             <div class="task-module-body">
-              <p>Nesta atividade vamos construir, ao longo dos 5 dias da UFCD, um glossário colaborativo.</p>
+              <p>Nesta atividade vamos construir, ao longo dos 7 dias da UFCD 0693, um glossário colaborativo.</p>
               <ul class="moodle-like-list">
                 ${overviewItems.map((item) => `<li>${item}</li>`).join("")}
               </ul>
@@ -2498,8 +2573,8 @@ function renderActivityPage() {
       "A formação está organizada em 7 dias de trabalho.",
       "Abrir o harmónio correspondente ao tema tratado no dia.",
       "Realizar uma tarefa individual curta e prática.",
-      "Partilhar uma imagem ou captura de ecrã como evidência.",
-      "Registar apenas uma reflexão breve quando for pedido."
+      "Guardar prints, links ou reflexões no local indicado.",
+      "Evitar anexos no Moodle quando a tarefa pedir apenas link ou registo."
     ];
 
     root.innerHTML = `
@@ -2514,7 +2589,7 @@ function renderActivityPage() {
               <span class="task-module-mark" aria-hidden="true">TI</span>
             </summary>
             <div class="task-module-body">
-              <p>Nesta área ficam organizadas as tarefas individuais associadas às atividades diárias da UFCD 0753.</p>
+              <p>Nesta área ficam organizadas as tarefas individuais associadas às atividades diárias da UFCD 0693.</p>
               <ul class="moodle-like-list">
                 ${overviewItems.map((item) => `<li>${item}</li>`).join("")}
               </ul>
@@ -2775,7 +2850,7 @@ function renderResourcePage() {
     const pdfUrl = `${getBasePath()}${resource.pdfUrl}`;
     root.innerHTML = `
       <section class="pdf-reader-shell" aria-label="Leitor do manual em PDF">
-        <iframe class="pdf-frame native-pdf-frame" src="${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1" title="Manual da UFCD 0753"></iframe>
+        <iframe class="pdf-frame native-pdf-frame" src="${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1" title="Manual da UFCD 0693"></iframe>
         <div class="pdf-fallback">
           <a class="small-button" href="${pdfUrl}">Abrir PDF</a>
           <a class="small-button orange" href="${pdfUrl}" download>Descarregar PDF</a>
@@ -2865,7 +2940,7 @@ function renderResourcePage() {
         <article class="card group-task-card">
           <p class="eyebrow">A preparar</p>
           <h3>Espaço reservado</h3>
-          <p>Este espaço ficará ligado aos materiais de apoio reais da UFCD 0753.</p>
+          <p>Este espaço ficará ligado aos materiais de apoio reais da UFCD 0693.</p>
         </article>
       </div>
     </section>
@@ -2918,4 +2993,3 @@ async function inicializarSite() {
 }
 
 inicializarSite();
-
