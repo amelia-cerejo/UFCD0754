@@ -1,10 +1,9 @@
-<!DOCTYPE html><html class="light" lang="pt-PT" style=""><head>
+<!DOCTYPE html><html class="light" lang="pt-PT"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Academia Digital | Métodos de Pesquisa Avançada</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Source+Sans+3:wght@400;600&amp;family=Courier+Prime&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
         tailwind.config = {
@@ -109,121 +108,184 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             vertical-align: middle;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+        
         .card-shadow {
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        /* Hover Effects */
+        .interactive-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid transparent;
+        }
+        .interactive-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            border-color: var(--tw-border-opacity, #005faa);
+        }
+        .interactive-card:hover .material-symbols-outlined {
+            transform: scale(1.1);
+        }
+
+        /* Entrance Animations */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .visible .stagger-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delay Utilities */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-on-scroll, .stagger-item, .interactive-card, .material-symbols-outlined {
+                transition: none !important;
+                animation: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+
         .instructional-card {
             border-left-width: 4px;
-            transition: transform 0.2s ease;
-        }
-        .instructional-card:hover {
-            transform: translateY(-2px);
         }
     </style>
 </head>
-<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden" style="font-family: &quot;Segoe UI&quot;, Aptos, Calibri, sans-serif; color: rgb(55, 65, 81); line-height: 1.6;">
 <!-- Header / TopNavBar -->
 <header class="w-full top-0 sticky z-50 shadow-sm bg-surface">
-
 </header>
-<main class="max-w-container-max mx-auto px-6 md:px-12 py-12">
+<main class="max-w-container-max mx-auto py-7 px-[84px]">
 <!-- Hero Section -->
-<section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-section-gap transition-all duration-700 opacity-100 translate-y-0">
+<section class="reveal-on-scroll grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-section-gap py-7 px-[84px] visible mb-16" id="hero">
 <div>
-<h1 class="font-headline-lg text-headline-lg text-on-surface mb-6 leading-tight">Métodos e técnicas de pesquisa avançada na web</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                    Dominar a pesquisa avançada permite obter resultados com maior rigor, rapidez e segurança. Descubra como filtrar o ruído digital e encontrar informações confiáveis em poucos segundos.
-                </p>
-<div class="flex gap-4">
-
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-6 leading-tight stagger-item delay-100" style="font-family: Montserrat, sans-serif; font-weight: 700; color: rgb(0, 120, 212); font-size: 48px;">Métodos e técnicas de pesquisa avançada na web</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 stagger-item delay-200">
+                Dominar a pesquisa avançada permite obter resultados com maior rigor, rapidez e segurança. Descubra como filtrar o ruído digital e encontrar informações confiáveis em poucos segundos.
+            </p>
+<div class="flex gap-4 stagger-item delay-300">
+<!-- Action Buttons would go here -->
 </div>
 </div>
-<div class="relative group">
+<div class="relative group stagger-item delay-200">
 <div class="absolute -inset-4 bg-primary-container/10 rounded-3xl blur-2xl transition-all group-hover:bg-primary-container/20"></div>
-<img alt="Ilustração de pesquisa avançada com lupa e operadores" class="relative w-full h-auto rounded-2xl shadow-xl border border-outline-variant" src="https://lh3.googleusercontent.com/aida/AP1WRLs0C1ECjahDA98DQmttC8iQEEvS_keLADDIrNyVR5iXqNTk4xy7OYiChuF1a_ole6rmmed46xMaAh7q0j-289XDUbgiCwyBB8Sn3veKs-bmioi4SL1t3rTC93xC0aAkqRuHlYC_ioVstYnh6n9GLYvcD1WG26d54za25PN898KLKmDZNOp3GPaNjW47Av1th5wZ9jRvAbqXnZHn4mgBdMsdqgBRblglSTKJ5unsm8c9bdl1pOIJx02S9Mg">
+<img alt="Ilustração de pesquisa avançada com lupa e operadores" class="relative w-full h-auto rounded-2xl shadow-xl border border-outline-variant transition-transform duration-500 group-hover:scale-[1.01]" src="https://lh3.googleusercontent.com/aida/AP1WRLs0C1ECjahDA98DQmttC8iQEEvS_keLADDIrNyVR5iXqNTk4xy7OYiChuF1a_ole6rmmed46xMaAh7q0j-289XDUbgiCwyBB8Sn3veKs-bmioi4SL1t3rTC93xC0aAkqRuHlYC_ioVstYnh6n9GLYvcD1WG26d54za25PN898KLKmDZNOp3GPaNjW47Av1th5wZ9jRvAbqXnZHn4mgBdMsdqgBRblglSTKJ5unsm8c9bdl1pOIJx02S9Mg">
 </div>
 </section>
 <!-- O que é a pesquisa avançada -->
-<section class="mb-section-gap transition-all duration-700 opacity-100 translate-y-0">
-<div class="flex items-center gap-4 mb-8">
+<section class="reveal-on-scroll mb-section-gap py-7 px-[84px] visible mb-16">
+<div class="flex items-center gap-4 mb-8 stagger-item">
 <span class="material-symbols-outlined text-primary text-3xl">search_insights</span>
-<h2 class="font-headline-md text-headline-md">O que é a pesquisa avançada na web</h2>
+<h2 class="font-headline-md text-headline-md bg-primary/10 rounded-full p-2" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212); font-size: 32px;">O que é a pesquisa avançada na web</h2>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
-<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-3xl card-shadow border border-outline-variant/30">
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-3xl card-shadow border border-outline-variant/30 stagger-item delay-100 interactive-card hover:border-primary/20 rounded-[24px] bg-white shadow-sm">
 <p class="font-body-lg text-body-lg leading-relaxed mb-4">
-                        Pesquisar na web é muito mais do que simplesmente digitar palavras soltas num motor de busca. Trata-se de um processo estruturado onde definimos palavras-chave precisas e utilizamos operadores lógicos para filtrar exatamente o que precisamos.
-                    </p>
+                    Pesquisar na web é muito mais do que simplesmente digitar palavras soltas num motor de busca. Trata-se de um processo estruturado onde definimos palavras-chave precisas e utilizamos operadores lógicos para filtrar exatamente o que precisamos.
+                </p>
 <p class="font-body-lg text-body-lg leading-relaxed">
-                        Ao contrário da pesquisa básica, a avançada permite excluir termos irrelevantes, procurar em domínios específicos (como sites governamentais) e focar em tipos de ficheiro determinados.
-                    </p>
+                    Ao contrário da pesquisa básica, a avançada permite excluir termos irrelevantes, procurar em domínios específicos (como sites governamentais) e focar em tipos de ficheiro determinados.
+                </p>
 </div>
-<div class="instructional-card bg-surface-container-low p-8 rounded-3xl border-primary-container">
+<div class="instructional-card bg-surface-container-low p-8 rounded-3xl border-primary-container stagger-item delay-200 interactive-card hover:shadow-lg rounded-[24px] bg-white shadow-sm">
 <div class="flex items-center gap-2 mb-4 text-primary">
 <span class="material-symbols-outlined">verified</span>
 <span class="font-label-md uppercase tracking-wider">Boa prática</span>
 </div>
 <p class="font-body-md text-body-md italic text-on-surface">
-                        "Antes de começar a pesquisar, define claramente o que pretendes encontrar. Um objetivo claro poupa metade do tempo de filtragem."
-                    </p>
+                    "Antes de começar a pesquisar, define claramente o que pretendes encontrar. Um objetivo claro poupa metade do tempo de filtragem."
+                </p>
 </div>
 </div>
 </section>
 <!-- Definição do objetivo & Palavras-chave (Bento Grid Style) -->
-<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-section-gap transition-all duration-700 opacity-100 translate-y-0">
-<div class="bg-surface-container-lowest p-8 rounded-3xl card-shadow border-l-4 border-tertiary">
+<section class="reveal-on-scroll grid grid-cols-1 md:grid-cols-2 gap-gutter mb-section-gap py-7 px-[84px] visible mb-16">
+<div class="bg-surface-container-lowest p-8 rounded-3xl card-shadow border-l-4 border-tertiary stagger-item interactive-card hover:border-l-primary rounded-[24px] bg-white shadow-sm">
 <div class="flex items-center gap-4 mb-6">
 <span class="material-symbols-outlined text-tertiary">flag</span>
-<h3 class="font-headline-sm text-headline-sm">Definição do objetivo da pesquisa</h3>
+<h3 class="font-headline-sm text-headline-sm" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212);">Definição do objetivo da pesquisa</h3>
 </div>
 <ul class="space-y-4">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-success-green mt-1">check_circle</span>
-<span class="font-body-md text-body-md">Localizar documentos oficiais e legislação atualizada.</span>
+<li class="flex items-start gap-3 group/item cursor-default">
+<span class="material-symbols-outlined text-success-green mt-1 group-hover/item:scale-110">check_circle</span>
+<span class="font-body-md text-body-md group-hover/item:text-primary transition-colors">Localizar documentos oficiais e legislação atualizada.</span>
 </li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-success-green mt-1">check_circle</span>
-<span class="font-body-md text-body-md">Comparar características técnicas de produtos ou serviços.</span>
+<li class="flex items-start gap-3 group/item cursor-default">
+<span class="material-symbols-outlined text-success-green mt-1 group-hover/item:scale-110">check_circle</span>
+<span class="font-body-md text-body-md group-hover/item:text-primary transition-colors">Comparar características técnicas de produtos ou serviços.</span>
 </li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-success-green mt-1">check_circle</span>
-<span class="font-body-md text-body-md">Confirmar a veracidade de dados estatísticos.</span>
+<li class="flex items-start gap-3 group/item cursor-default">
+<span class="material-symbols-outlined text-success-green mt-1 group-hover/item:scale-110">check_circle</span>
+<span class="font-body-md text-body-md group-hover/item:text-primary transition-colors">Confirmar a veracidade de dados estatísticos.</span>
 </li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-success-green mt-1">check_circle</span>
-<span class="font-body-md text-body-md">Identificar fontes primárias para trabalhos académicos.</span>
+<li class="flex items-start gap-3 group/item cursor-default">
+<span class="material-symbols-outlined text-success-green mt-1 group-hover/item:scale-110">check_circle</span>
+<span class="font-body-md text-body-md group-hover/item:text-primary transition-colors">Identificar fontes primárias para trabalhos académicos.</span>
 </li>
 </ul>
 </div>
-<div class="bg-surface-container-lowest p-8 rounded-3xl card-shadow border-l-4 border-warning-amber">
+<div class="bg-surface-container-lowest p-8 rounded-3xl card-shadow border-l-4 border-warning-amber stagger-item delay-100 interactive-card rounded-[24px] bg-white shadow-sm">
 <div class="flex items-center gap-4 mb-6">
 <span class="material-symbols-outlined text-warning-amber">key</span>
-<h3 class="font-headline-sm text-headline-sm">Palavras-chave e termos de pesquisa</h3>
+<h3 class="font-headline-sm text-headline-sm" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212);">Palavras-chave e termos de pesquisa</h3>
 </div>
 <div class="space-y-6">
 <div>
 <span class="font-label-md text-text-muted block mb-2 uppercase">Termo Genérico (Menos Eficaz)</span>
-<div class="bg-background-subtle p-4 rounded-xl border border-outline-variant font-code-snippet text-on-surface-variant">
-                            formação
-                        </div>
+<div class="bg-background-subtle p-4 rounded-xl border border-outline-variant font-code-snippet text-on-surface-variant hover:border-outline transition-colors">
+                        formação
+                    </div>
 </div>
 <div>
 <span class="font-label-md text-primary block mb-2 uppercase">Termo Específico (Alta Precisão)</span>
-<div class="bg-primary-container/10 p-4 rounded-xl border border-primary/20 font-code-snippet text-primary font-bold">
-                            formação profissional online Portugal
-                        </div>
+<div class="bg-primary-container/10 p-4 rounded-xl border border-primary/20 font-code-snippet text-primary font-bold hover:bg-primary-container/20 transition-all">
+                        formação profissional online Portugal
+                    </div>
 </div>
 </div>
 </div>
 </section>
 <!-- Operadores (Table with clean UI) -->
-<section class="mb-section-gap transition-all duration-700 opacity-100 translate-y-0">
-<div class="flex items-center gap-4 mb-8">
+<section class="reveal-on-scroll mb-section-gap py-7 px-[84px] visible mb-16">
+<div class="flex items-center gap-4 mb-8 stagger-item">
 <span class="material-symbols-outlined text-primary text-3xl">function</span>
-<h2 class="font-headline-md text-headline-md">Operadores e técnicas de pesquisa avançada</h2>
+<h2 class="font-headline-md text-headline-md bg-primary/10 rounded-full p-2" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212); font-size: 32px;">Operadores e técnicas de pesquisa avançada</h2>
 </div>
-<div class="overflow-hidden rounded-2xl border border-outline-variant card-shadow bg-surface-container-lowest">
+<div class="overflow-hidden rounded-2xl border border-outline-variant card-shadow bg-surface-container-lowest stagger-item delay-100">
 <table class="w-full text-left border-collapse">
 <thead class="bg-background-subtle">
 <tr>
@@ -233,28 +295,28 @@
 </tr>
 </thead>
 <tbody class="divide-y divide-outline-variant/30">
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="p-5 font-code-snippet text-primary font-bold">"aspas"</td>
+<tr class="hover:bg-surface-container-low transition-all group">
+<td class="p-5 font-code-snippet text-primary font-bold group-hover:pl-7 transition-all">"aspas"</td>
 <td class="p-5 font-body-md">Pesquisa pela frase exata.</td>
 <td class="p-5 font-code-snippet text-on-surface-variant bg-surface-container/30">"formação avançada"</td>
 </tr>
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="p-5 font-code-snippet text-primary font-bold">- (menos)</td>
+<tr class="hover:bg-surface-container-low transition-all group">
+<td class="p-5 font-code-snippet text-primary font-bold group-hover:pl-7 transition-all">- (menos)</td>
 <td class="p-5 font-body-md">Exclui termos indesejados.</td>
 <td class="p-5 font-code-snippet text-on-surface-variant bg-surface-container/30">curso -grátis</td>
 </tr>
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="p-5 font-code-snippet text-primary font-bold">site:</td>
+<tr class="hover:bg-surface-container-low transition-all group">
+<td class="p-5 font-code-snippet text-primary font-bold group-hover:pl-7 transition-all">site:</td>
 <td class="p-5 font-body-md">Pesquisa dentro de um domínio específico.</td>
 <td class="p-5 font-code-snippet text-on-surface-variant bg-surface-container/30">site:gov.pt concursos</td>
 </tr>
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="p-5 font-code-snippet text-primary font-bold">filetype:</td>
+<tr class="hover:bg-surface-container-low transition-all group">
+<td class="p-5 font-code-snippet text-primary font-bold group-hover:pl-7 transition-all">filetype:</td>
 <td class="p-5 font-body-md">Procura formatos de ficheiro específicos.</td>
 <td class="p-5 font-code-snippet text-on-surface-variant bg-surface-container/30">estatísticas filetype:pdf</td>
 </tr>
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="p-5 font-code-snippet text-primary font-bold">AND / OR</td>
+<tr class="hover:bg-surface-container-low transition-all group">
+<td class="p-5 font-code-snippet text-primary font-bold group-hover:pl-7 transition-all">AND / OR</td>
 <td class="p-5 font-body-md">Combina termos (AND) ou oferece alternativas (OR).</td>
 <td class="p-5 font-code-snippet text-on-surface-variant bg-surface-container/30">digital OR tecnologia</td>
 </tr>
@@ -263,43 +325,43 @@
 </div>
 </section>
 <!-- Análise & Credibilidade (Grid of Cards) -->
-<section class="mb-section-gap transition-all duration-700 opacity-100 translate-y-0">
+<section class="reveal-on-scroll mb-section-gap py-7 px-[84px] visible mb-16">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-start">
 <div>
-<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-4 mb-6 stagger-item">
 <span class="material-symbols-outlined text-primary text-3xl">visibility</span>
-<h2 class="font-headline-md text-headline-md">Seleção e análise dos resultados</h2>
+<h2 class="font-headline-md text-headline-md bg-primary/10 rounded-full p-2" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212); font-size: 32px;">Seleção e análise dos resultados</h2>
 </div>
 <div class="space-y-4 mb-8">
-<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex gap-4 items-center">
-<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary font-bold">1</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex gap-4 items-center stagger-item delay-100 interactive-card rounded-[24px] bg-white shadow-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary font-bold shrink-0">1</div>
 <div>
 <p class="font-label-md text-on-surface">Título e URL</p>
 <p class="font-body-sm text-on-surface-variant">Identifica se a fonte é institucional ou comercial.</p>
 </div>
 </div>
-<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex gap-4 items-center">
-<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary font-bold">2</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex gap-4 items-center stagger-item delay-200 interactive-card rounded-[24px] bg-white shadow-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary font-bold shrink-0">2</div>
 <div>
 <p class="font-label-md text-on-surface">Data de Publicação</p>
 <p class="font-body-sm text-on-surface-variant">Fundamental para áreas tecnológicas ou legislativas.</p>
 </div>
 </div>
 </div>
-<div class="instructional-card bg-error-container/20 p-6 rounded-2xl border-error">
+<div class="instructional-card bg-error-container/20 p-6 rounded-2xl border-error stagger-item delay-300 interactive-card hover:bg-error-container/30 rounded-[24px] bg-white shadow-sm">
 <div class="flex items-center gap-2 mb-3 text-error">
 <span class="material-symbols-outlined">warning</span>
 <span class="font-label-md uppercase">Atenção</span>
 </div>
 <p class="font-body-md text-on-surface">
-                            A posição de um site nos resultados de pesquisa não garante a sua qualidade. Muitos sites utilizam técnicas de marketing (SEO) para aparecerem primeiro.
-                        </p>
+                        A posição de um site nos resultados de pesquisa não garante a sua qualidade. Muitos sites utilizam técnicas de marketing (SEO) para aparecerem primeiro.
+                    </p>
 </div>
 </div>
-<div class="bg-surface-container-lowest p-8 rounded-3xl card-shadow border border-outline-variant">
+<div class="bg-surface-container-lowest p-8 rounded-3xl card-shadow border border-outline-variant stagger-item interactive-card hover:border-primary/20 rounded-[24px] bg-white shadow-sm">
 <div class="flex items-center gap-4 mb-6">
 <span class="material-symbols-outlined text-primary text-3xl">fact_check</span>
-<h2 class="font-headline-md text-headline-md">Avaliação da credibilidade</h2>
+<h2 class="font-headline-md text-headline-md bg-primary/10 rounded-full p-2" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212); font-size: 32px;">Avaliação da credibilidade</h2>
 </div>
 <table class="w-full text-left text-body-sm border-collapse">
 <thead>
@@ -310,18 +372,18 @@
 </tr>
 </thead>
 <tbody class="divide-y divide-outline-variant/30">
-<tr>
-<td class="py-4 font-bold">Autor / Entidade</td>
+<tr class="group">
+<td class="py-4 font-bold group-hover:text-primary transition-colors">Autor / Entidade</td>
 <td class="py-4">Quem escreveu? É especialista?</td>
 <td class="py-4 text-on-surface-variant">Garante autoridade científica.</td>
 </tr>
-<tr>
-<td class="py-4 font-bold">Propósito</td>
+<tr class="group">
+<td class="py-4 font-bold group-hover:text-primary transition-colors">Propósito</td>
 <td class="py-4">É informativo ou publicitário?</td>
 <td class="py-4 text-on-surface-variant">Evita conteúdos enviesados.</td>
 </tr>
-<tr>
-<td class="py-4 font-bold">Fontes Citadas</td>
+<tr class="group">
+<td class="py-4 font-bold group-hover:text-primary transition-colors">Fontes Citadas</td>
 <td class="py-4">Há referências ou links?</td>
 <td class="py-4 text-on-surface-variant">Permite a verificação dos dados.</td>
 </tr>
@@ -331,90 +393,90 @@
 </div>
 </section>
 <!-- Contextos & Organização -->
-<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-section-gap transition-all duration-700 opacity-100 translate-y-0">
-<div class="bg-primary p-8 rounded-3xl text-on-primary card-shadow relative overflow-hidden">
-<div class="absolute -right-8 -bottom-8 opacity-10">
+<section class="reveal-on-scroll grid grid-cols-1 md:grid-cols-2 gap-gutter mb-section-gap py-7 px-[84px] visible mb-16">
+<div class="bg-primary p-8 rounded-3xl text-on-primary card-shadow relative overflow-hidden stagger-item group cursor-default">
+<div class="absolute -right-8 -bottom-8 opacity-10 transition-transform duration-700 group-hover:scale-125 group-hover:-rotate-12">
 <span class="material-symbols-outlined text-[160px]">category</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm mb-6">Pesquisa em contextos</h3>
+<h3 class="font-headline-sm text-headline-sm mb-6 stagger-item" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212);">Pesquisa em contextos</h3>
 <div class="grid grid-cols-2 gap-4">
-<div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
+<div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm hover:bg-white/20 transition-all cursor-pointer stagger-item delay-100">
 <p class="font-label-md mb-1">Académico</p>
 <p class="text-xs opacity-80">Google Scholar, Repositórios.</p>
 </div>
-<div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
+<div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm hover:bg-white/20 transition-all cursor-pointer stagger-item delay-200">
 <p class="font-label-md mb-1">Profissional</p>
 <p class="text-xs opacity-80">Relatórios de mercado, LinkedIn.</p>
 </div>
-<div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
+<div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm hover:bg-white/20 transition-all cursor-pointer stagger-item delay-300">
 <p class="font-label-md mb-1">Legislação</p>
 <p class="text-xs opacity-80">Diário da República (DRE).</p>
 </div>
-<div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
+<div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm hover:bg-white/20 transition-all cursor-pointer stagger-item delay-400">
 <p class="font-label-md mb-1">Notícias</p>
 <p class="text-xs opacity-80">Agências de notícias oficiais.</p>
 </div>
 </div>
 </div>
-<div class="bg-surface-container-high p-8 rounded-3xl card-shadow flex flex-col justify-between">
+<div class="bg-surface-container-high p-8 rounded-3xl card-shadow flex flex-col justify-between stagger-item delay-100 interactive-card rounded-[24px] bg-white shadow-sm">
 <div>
-<h3 class="font-headline-sm text-headline-sm mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined">folder_open</span>
-                        Organização da informação
-                    </h3>
+<h3 class="font-headline-sm text-headline-sm mb-6 flex items-center gap-2 group cursor-default" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212);">
+<span class="material-symbols-outlined transition-transform group-hover:rotate-12">folder_open</span>
+                    Organização da informação
+                </h3>
 <p class="font-body-md mb-6">
-                        Encontrar a informação é apenas o primeiro passo. Guardar links em favoritos (bookmarks), utilizar gestores de notas ou criar bibliotecas digitais é essencial para não perder o rasto ao conhecimento.
-                    </p>
+                    Encontrar a informação é apenas o primeiro passo. Guardar links em favoritos (bookmarks), utilizar gestores de notas ou criar bibliotecas digitais é essencial para não perder o rasto ao conhecimento.
+                </p>
 </div>
-<div class="instructional-card bg-surface-container-lowest p-6 rounded-2xl border-success-green">
+<div class="instructional-card bg-surface-container-lowest p-6 rounded-2xl border-success-green hover:shadow-md transition-shadow rounded-[24px] bg-white shadow-sm">
 <div class="flex items-center gap-2 mb-2 text-success-green">
 <span class="material-symbols-outlined">save</span>
 <span class="font-label-md uppercase">Boa prática</span>
 </div>
 <p class="font-body-sm italic">
-                        Ao encontrar uma fonte valiosa, regista imediatamente a data de acesso e o link original num documento de notas.
-                    </p>
+                    Ao encontrar uma fonte valiosa, regista imediatamente a data de acesso e o link original num documento de notas.
+                </p>
 </div>
 </div>
 </section>
 <!-- Erros Comuns & Boas Práticas -->
-<section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-section-gap transition-all duration-700 opacity-100 translate-y-0">
-<div class="bg-surface-container-lowest p-8 rounded-3xl card-shadow border border-outline-variant">
+<section class="reveal-on-scroll grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-section-gap py-7 px-[84px] visible mb-16">
+<div class="bg-surface-container-lowest p-8 rounded-3xl card-shadow border border-outline-variant stagger-item interactive-card rounded-[24px] bg-white shadow-sm">
 <div class="flex items-center gap-4 mb-6 text-error">
 <span class="material-symbols-outlined">cancel</span>
-<h2 class="font-headline-sm text-headline-sm text-on-surface">Erros comuns a evitar</h2>
+<h2 class="font-headline-sm text-headline-sm text-on-surface bg-primary/10 rounded-full p-2" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212); font-size: 32px;">Erros comuns a evitar</h2>
 </div>
 <ul class="space-y-4">
-<li class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/10 transition-colors">
-<span class="material-symbols-outlined text-error">close</span>
+<li class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/10 transition-colors group cursor-default">
+<span class="material-symbols-outlined text-error group-hover:rotate-90 transition-transform">close</span>
 <span class="font-body-md">Usar palavras demasiado genéricas ou abstratas.</span>
 </li>
-<li class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/10 transition-colors">
-<span class="material-symbols-outlined text-error">close</span>
+<li class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/10 transition-colors group cursor-default">
+<span class="material-symbols-outlined text-error group-hover:rotate-90 transition-transform">close</span>
 <span class="font-body-md">Confiar apenas no primeiro resultado da lista.</span>
 </li>
-<li class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/10 transition-colors">
-<span class="material-symbols-outlined text-error">close</span>
+<li class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/10 transition-colors group cursor-default">
+<span class="material-symbols-outlined text-error group-hover:rotate-90 transition-transform">close</span>
 <span class="font-body-md">Ignorar a data de publicação da informação.</span>
 </li>
-<li class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/10 transition-colors">
-<span class="material-symbols-outlined text-error">close</span>
+<li class="flex items-center gap-3 p-3 rounded-lg hover:bg-error-container/10 transition-colors group cursor-default">
+<span class="material-symbols-outlined text-error group-hover:rotate-90 transition-transform">close</span>
 <span class="font-body-md">Não cruzar dados com outras fontes independentes.</span>
 </li>
 </ul>
 </div>
-<div class="bg-primary/5 p-8 rounded-3xl card-shadow border border-primary/20">
+<div class="bg-primary/5 p-8 rounded-3xl card-shadow border border-primary/20 stagger-item delay-100 interactive-card rounded-[24px] bg-white shadow-sm">
 <div class="flex items-center gap-4 mb-6 text-primary">
 <span class="material-symbols-outlined">thumb_up</span>
-<h2 class="font-headline-sm text-headline-sm text-on-surface">Resumo de boas práticas</h2>
+<h2 class="font-headline-sm text-headline-sm text-on-surface bg-primary/10 rounded-full p-2" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212); font-size: 32px;">Resumo de boas práticas</h2>
 </div>
 <div class="space-y-4 mb-6">
-<p class="font-body-md">• Refina a tua pesquisa com operadores avançados.</p>
-<p class="font-body-md">• Dá prioridade a domínios institucionais (.gov, .edu).</p>
-<p class="font-body-md">• Utiliza as ferramentas de tempo dos motores de busca.</p>
+<p class="font-body-md hover:translate-x-2 transition-transform cursor-default">• Refina a tua pesquisa com operadores avançados.</p>
+<p class="font-body-md hover:translate-x-2 transition-transform cursor-default">• Dá prioridade a domínios institucionais (.gov, .edu).</p>
+<p class="font-body-md hover:translate-x-2 transition-transform cursor-default">• Utiliza as ferramentas de tempo dos motores de busca.</p>
 </div>
-<div class="bg-surface-container-lowest p-5 rounded-2xl border border-primary/30 flex gap-4">
-<div class="text-primary"><span class="material-symbols-outlined">lightbulb</span></div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-primary/30 flex gap-4 group cursor-pointer hover:border-primary transition-colors">
+<div class="text-primary"><span class="material-symbols-outlined group-hover:animate-pulse">lightbulb</span></div>
 <div>
 <p class="font-label-md text-primary">Exemplo Prático</p>
 <p class="font-body-sm font-code-snippet mt-1">site:gov.pt "segurança digital" filetype:pdf</p>
@@ -423,100 +485,103 @@
 </div>
 </section>
 <!-- Cuidados de Segurança -->
-<section class="mb-section-gap transition-all duration-700 opacity-100 translate-y-0">
-<div class="bg-inverse-surface p-10 rounded-[32px] text-on-tertiary shadow-2xl relative overflow-hidden">
-<div class="absolute top-0 right-0 p-12 opacity-10">
+<section class="reveal-on-scroll mb-section-gap py-7 px-[84px] visible mb-16">
+<div class="bg-inverse-surface p-10 rounded-[24px] text-on-tertiary shadow-2xl relative overflow-hidden stagger-item interactive-card bg-white shadow-sm">
+<div class="absolute top-0 right-0 p-12 opacity-10 transition-all duration-1000 group-hover:opacity-20">
 <span class="material-symbols-outlined text-[200px]">shield</span>
 </div>
 <div class="relative z-10 max-w-3xl">
 <div class="flex items-center gap-4 mb-6">
-<span class="material-symbols-outlined text-secondary-fixed text-4xl">security</span>
-<h2 class="font-headline-md text-headline-md text-white">Cuidados de segurança</h2>
+<span class="material-symbols-outlined text-secondary-fixed text-4xl animate-bounce" style="animation-duration: 3s;">security</span>
+<h2 class="font-headline-md text-headline-md text-white bg-primary/10 rounded-full p-2" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212); font-size: 32px;">Cuidados de Segurança</h2>
 </div>
-<p class="font-body-lg text-body-lg text-white/80 mb-8">
-                        A web pode conter armadilhas ocultas. Ao navegar em busca de informação, a segurança deve ser a tua prioridade número um para proteger os teus dados e o teu equipamento.
-                    </p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-secondary-fixed">link_off</span>
-<p class="font-body-md">Evita clicar em links de sites visualmente suspeitos ou com nomes de domínio estranhos.</p>
+<div class="mb-8 stagger-item">
+<h3 class="font-headline-sm text-headline-sm mb-4" style="font-family: Montserrat, sans-serif; color: rgb(0, 120, 212);">O Método SIFT</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-4" style="font-family: 'Segoe UI', sans-serif;">
+Para avaliar a credibilidade de qualquer informação online, utilize o método SIFT:
+</p>
+<ul class="space-y-3 font-body-md text-on-surface-variant" style="font-family: 'Segoe UI', sans-serif;">
+<li class="flex gap-2"><strong>S (Stop):</strong> Pare e verifique se conhece a fonte.</li>
+<li class="flex gap-2"><strong>I (Investigate):</strong> Investigue a fonte original da informação.</li>
+<li class="flex gap-2"><strong>F (Find):</strong> Encontre uma cobertura melhor ou mais confiável.</li>
+<li class="flex gap-2"><strong>T (Trace):</strong> Rastreie afirmações e citações até ao contexto original.</li>
+</ul>
 </div>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-secondary-fixed">lock</span>
-<p class="font-body-md">Verifica sempre se o site utiliza HTTPS, especialmente antes de descarregar ficheiros.</p>
-</div>
-</div>
-<div class="instructional-card bg-white/10 p-6 rounded-2xl border-warning-amber">
+<div class="instructional-card bg-white/10 p-6 rounded-[24px] border-warning-amber stagger-item delay-200 hover:bg-white/15 transition-colors bg-white shadow-sm">
 <div class="flex items-center gap-2 mb-2 text-warning-amber">
 <span class="material-symbols-outlined">gpp_maybe</span>
-<span class="font-label-md uppercase">Atenção</span>
+<span class="font-label-md uppercase">Segurança Digital</span>
 </div>
-<p class="font-body-md italic text-white/90">
-                            Nunca forneças dados pessoais ou credenciais de acesso em sites que encontraste casualmente durante uma pesquisa sem validar a sua autenticidade.
-                        </p>
+<p class="font-body-md italic text-on-surface" style="font-family: 'Segoe UI', sans-serif;">
+Verifique sempre o ícone do cadeado e o protocolo HTTPS. Evite URLs suspeitos ou descarregar ficheiros de fontes não validadas.
+</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Síntese Final (Modern Summary) -->
-<section class="bg-surface-container-lowest p-12 rounded-[40px] card-shadow border border-outline-variant text-center max-w-4xl mx-auto transition-all duration-700 opacity-100 translate-y-0">
-<div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
-<span class="material-symbols-outlined text-primary text-4xl">summarize</span>
+<section class="reveal-on-scroll bg-surface-container-lowest py-12 px-[84px] rounded-[24px] card-shadow border border-outline-variant text-center max-w-4xl mx-auto interactive-card visible bg-white shadow-sm">
+<div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 stagger-item group">
+<span class="material-symbols-outlined text-primary text-4xl transition-transform group-hover:scale-125">summarize</span>
 </div>
-<h2 class="font-headline-lg text-headline-lg mb-8">Síntese Final</h2>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
-<div>
-<p class="font-headline-sm text-primary mb-2">01</p>
-<p class="font-label-md uppercase tracking-tighter">Objetivo</p>
-<p class="text-xs text-on-surface-variant">Saber o que procurar</p>
+<h2 class="font-headline-lg text-headline-lg mb-8 stagger-item" style="font-family: Montserrat, sans-serif; font-weight: 600; color: rgb(0, 120, 212); font-size: 32px;">Síntese Final</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter text-center">
+<div class="stagger-item delay-100 group">
+<p class="font-headline-sm text-primary mb-2 group-hover:scale-110 transition-transform">01</p>
+<p class="font-label-md uppercase tracking-tighter">Encontrar</p>
+<p class="text-body-sm text-on-surface-variant" style="font-family: 'Segoe UI', sans-serif;">Utilizar operadores para filtrar o ruído.</p>
 </div>
-<div>
-<p class="font-headline-sm text-primary mb-2">02</p>
-<p class="font-label-md uppercase tracking-tighter">Keywords</p>
-<p class="text-xs text-on-surface-variant">Termos específicos</p>
+<div class="stagger-item delay-200 group">
+<p class="font-headline-sm text-primary mb-2 group-hover:scale-110 transition-transform">02</p>
+<p class="font-label-md uppercase tracking-tighter">Confirmar</p>
+<p class="text-body-sm text-on-surface-variant" style="font-family: 'Segoe UI', sans-serif;">Validar a autoridade e data da fonte.</p>
 </div>
-<div>
-<p class="font-headline-sm text-primary mb-2">03</p>
-<p class="font-label-md uppercase tracking-tighter">Operadores</p>
-<p class="text-xs text-on-surface-variant">Filtros técnicos</p>
+<div class="stagger-item delay-300 group">
+<p class="font-headline-sm text-primary mb-2 group-hover:scale-110 transition-transform">03</p>
+<p class="font-label-md uppercase tracking-tighter">Verificar</p>
+<p class="text-body-sm text-on-surface-variant" style="font-family: 'Segoe UI', sans-serif;">Cruzar dados com fontes independentes.</p>
 </div>
-<div>
-<p class="font-headline-sm text-primary mb-2">04</p>
-<p class="font-label-md uppercase tracking-tighter">Avaliação</p>
-<p class="text-xs text-on-surface-variant">Credibilidade total</p>
-</div>
-</div>
-<div class="mt-12">
-
 </div>
 </section>
 </main>
 <!-- Footer -->
-<footer class="w-full mt-section-gap bg-surface-container-high">
-
+<footer class="w-full mt-section-gap bg-surface-container-high py-12 px-[84px]">
 </footer>
 <script>
-        // Micro-interactions and subtle scroll effects
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                threshold: 0.1
-            };
+    document.addEventListener('DOMContentLoaded', () => {
+        // Accessibility check for motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (prefersReducedMotion) return;
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('opacity-100', 'translate-y-0');
-                        entry.target.classList.remove('opacity-0', 'translate-y-4');
-                    }
-                });
-            }, observerOptions);
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
-                observer.observe(section);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Once visible, we can unobserve if we want a one-time animation
+                    // observer.unobserve(entry.target);
+                }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+            observer.observe(section);
         });
-    </script>
+
+        // Trigger hero immediately if it's already in view
+        const hero = document.getElementById('hero');
+        if (hero && hero.getBoundingClientRect().top < window.innerHeight) {
+            hero.classList.add('visible');
+        }
+    });
+</script>
+
+
 
 
 </body></html>
