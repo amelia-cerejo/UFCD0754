@@ -246,7 +246,7 @@ const evaluations = [
     intro: "Espaço preparado para avaliação inicial dos conhecimentos sobre correio eletrónico, organização digital e pesquisa na web.",
     url: "avaliacoes/avaliacao-diagnostica.html",
     children: ["resultados-diagnostica"],
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0651/00-diagnostico.html",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0693/00-diagnostico.html",
     embedTitle: "DIAG_1"
   },
   {
@@ -263,7 +263,7 @@ const evaluations = [
     menuTitle: "Sumativa",
     intro: "Espaço preparado para a avaliação final das aprendizagens da UFCD.",
     url: "avaliacoes/avaliacao-sumativa.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/02-sumativa.html",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0693/02-sumativa.html",
     embedTitle: "SUM_1"
   },
   {
@@ -272,7 +272,7 @@ const evaluations = [
     menuTitle: "Autoavaliação",
     intro: "Espaço preparado para reflexão final sobre competências adquiridas.",
     url: "avaliacoes/autoavaliacao-final.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/04-autoavaliacao-final.html",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0693/04-autoavaliacao-final.html",
     embedTitle: "AUTO_1"
   },
   {
@@ -281,7 +281,7 @@ const evaluations = [
     menuTitle: "Entre Pares",
     intro: "Espaço preparado para avaliação entre pares.",
     url: "avaliacoes/avaliacao-entre-pares.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0753/03-entre-pares.html",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0693/03-entre-pares.html",
     embedTitle: "Avaliação colaborativa"
   },
   {
@@ -290,7 +290,7 @@ const evaluations = [
     menuTitle: "Formação",
     intro: "Espaço preparado para avaliação da formação.",
     url: "avaliacoes/avaliacao-formacao.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/avaliacao-formacao.html?codigo_ufcd=0753",
+    embedUrl: "https://avaliacoes-formacao.netlify.app/avaliacao-formacao.html?codigo_ufcd=0693",
     embedTitle: "Avaliação final da formação"
   }
 ];
