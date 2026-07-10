@@ -387,11 +387,13 @@ const glossaryUrl = "https://fad.iefp.pt/mod/glossary/view.php?id=412744";
 const individualTasks = [
   {
     id: "tarefa-individual-1",
+    day: "1",
+    number: "1",
     topic: "Dia 1 - Apresentação, diagnóstico e Padlet",
     url: "atividades/tarefas-individuais.html",
     forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55427",
     title: "TI 1 - Avaliação diagnóstica e Padlet individual",
-    intro: "Realizar a avaliação diagnóstica e criar um Padlet individual em formato Colunas para registar as expetativas iniciais.",
+    intro: "Avaliação diagnóstica + criação de Padlet individual (formato Colunas) com expetativas iniciais.",
     evidence: "Publica o link do Padlet no Fórum “Padlets individuais” do Moodle, sem anexos.",
     prompts: [
       "Cria ou usa uma conta Google no formato nome+numeroIEFP@gmail.com.",
@@ -405,15 +407,18 @@ const individualTasks = [
   },
   {
     id: "tarefa-individual-2",
-    topic: "Dia 2 - Gestão eletrónica de documentos",
+    day: "3",
+    number: "2",
+    deadline: "TP1 → Dia 3 — Sessão 5",
+    topic: "Dia 3 - Gestão eletrónica de documentos",
     url: "atividades/tarefas-individuais.html",
     forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55428",
     title: "TI 2 - TP1: Organizar ficheiros",
-    intro: "Organizar pelo menos 10 ficheiros em pastas, usando nomes claros e uma estrutura lógica.",
-    evidence: "Guarda print e texto de cerca de 150 palavras na pasta TP1 da Drive.",
+    intro: "TP1 – Organizar ficheiros (≥ 10 ficheiros, subpastas, print, texto ≈ 150 pal.).",
+    evidence: "TP1 → Dia 3 — Sessão 5.",
     prompts: [
       "Seleciona ou cria pelo menos 10 ficheiros de trabalho.",
-      "Organiza os ficheiros em pastas com nomes claros.",
+      "Organiza os ficheiros em pastas e subpastas com nomes claros.",
       "Aplica uma lógica de organização por tema, data, tipo de documento ou finalidade.",
       "Faz um print da estrutura final de pastas.",
       "Escreve cerca de 150 palavras a explicar a organização escolhida."
@@ -421,43 +426,32 @@ const individualTasks = [
   },
   {
     id: "tarefa-individual-3",
-    topic: "Dia 3 - Agenda eletrónica",
+    day: "4",
+    number: "3",
+    deadline: "TP2 → Dia 4 — Sessão 4",
+    topic: "Dia 4 - Agenda eletrónica",
     url: "atividades/tarefas-individuais.html",
     forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55429",
     title: "TI 3 - TP2: Agenda eletrónica",
-    intro: "Criar uma agenda eletrónica com pelo menos 5 eventos organizados.",
-    evidence: "Guarda print e texto de cerca de 150 palavras na pasta TP2 da Drive.",
+    intro: "TP2 – Criar agenda eletrónica (≥ 5 eventos, cores, print, texto ≈ 150 pal.).",
+    evidence: "TP2 → Dia 4 — Sessão 4.",
     prompts: [
       "Abre a ferramenta de agenda eletrónica indicada.",
       "Cria pelo menos 5 eventos.",
       "Define título, data, hora e descrição quando necessário.",
-      "Configura lembretes nos eventos mais importantes.",
+      "Aplica cores e configura lembretes nos eventos mais importantes.",
       "Faz um print da agenda e escreve cerca de 150 palavras sobre a utilidade da organização criada."
     ]
   },
   {
     id: "tarefa-individual-4",
-    topic: "Dia 4 - Continuação da agenda eletrónica",
-    url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55430",
-    title: "TI 4 - Atualizar eventos e lembretes",
-    intro: "Criar eventos adicionais e ajustar lembretes na agenda eletrónica.",
-    evidence: "Atualiza o print na pasta TP2 da Drive e publica uma breve nota no Fórum.",
-    prompts: [
-      "Revê a agenda criada no TP2.",
-      "Cria eventos adicionais indicados pela formadora.",
-      "Ajusta lembretes, horários ou descrições quando necessário.",
-      "Faz um novo print da agenda atualizada.",
-      "Escreve uma breve nota no Fórum sobre o que alteraste."
-    ]
-  },
-  {
-    id: "tarefa-individual-5",
+    day: "5",
+    number: "4",
     topic: "Dia 5 - Mensagem profissional",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55431",
-    title: "TI 5 - Simular mensagem profissional",
-    intro: "Criar uma mensagem profissional em rascunho ou envio de teste.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55430",
+    title: "TI 4 - Simular mensagem profissional",
+    intro: "Simular mensagem profissional (rascunho ou envio-teste).",
     evidence: "Guarda print na Drive, na subpasta TI_Dia5.",
     prompts: [
       "Cria uma mensagem de correio eletrónico com destinatário, assunto e corpo de texto profissional.",
@@ -468,29 +462,35 @@ const individualTasks = [
     ]
   },
   {
-    id: "tarefa-individual-6",
-    topic: "Dia 6 - Organização da caixa de correio",
+    id: "tarefa-individual-5",
+    day: "6",
+    number: "5",
+    deadline: "Caixa de correio + Pesquisa avançada → Dia 6 — Sessão 6",
+    topic: "Dia 6 - Caixa de correio e pesquisa avançada",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55432",
-    title: "TI 6 - Organizar caixa de correio",
-    intro: "Organizar a caixa de correio com pastas e regras simples, integrando evidências no Padlet.",
-    evidence: "Guarda prints na Drive, na subpasta TI_Dia6, e atualiza o Padlet individual.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55431",
+    title: "TI 5 - Caixa de correio e pesquisa avançada",
+    intro: "Organização da caixa de correio (≥ 5 pastas + 2 regras) e Exercício de pesquisa avançada (≥ 3 pesquisas com operadores/filtros, registo de expressões + fontes + fiabilidade) + integração de prints no Padlet.",
+    evidence: "Caixa de correio + Pesquisa avançada → Dia 6 — Sessão 6.",
     prompts: [
       "Cria pelo menos 5 pastas na caixa de correio.",
       "Organiza mensagens ou exemplos de mensagens pelas pastas criadas.",
       "Cria pelo menos 2 regras automáticas simples.",
-      "Faz prints das pastas e das regras configuradas.",
-      "Integra as evidências principais no teu Padlet individual."
+      "Realiza pelo menos 3 pesquisas com operadores ou filtros.",
+      "Regista expressões usadas, fontes consultadas e avaliação de fiabilidade.",
+      "Integra os prints principais no teu Padlet individual."
     ]
   },
   {
-    id: "tarefa-individual-7",
+    id: "tarefa-individual-6",
+    day: "7",
+    number: "6",
     topic: "Dia 7 - Autoavaliação e reflexão final",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55433",
-    title: "TI 7 - Autoavaliação e reflexão final",
-    intro: "Realizar a autoavaliação final e escrever uma reflexão sobre o percurso realizado.",
-    evidence: "Submete o formulário/documento indicado no Moodle.",
+    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55432",
+    title: "TI 6 - Autoavaliação e reflexão final",
+    intro: "Autoavaliação final + reflexão final no Fórum.",
+    evidence: "Submete o formulário/documento indicado no Moodle e publica a reflexão final no Fórum.",
     prompts: [
       "Preenche a autoavaliação final indicada pela formadora.",
       "Escreve uma reflexão final curta e objetiva.",
@@ -501,6 +501,17 @@ const individualTasks = [
   }
 ];
 
+const individualTaskTableRows = [
+  ...individualTasks.slice(0, 1),
+  {
+    day: "2",
+    number: "",
+    title: "Sem tarefa individual",
+    intro: "— (sem tarefa individual)",
+    isEmptyDay: true
+  },
+  ...individualTasks.slice(1)
+];
 const resources = [
   {
     id: "manual",
@@ -2571,11 +2582,13 @@ function renderActivityPage() {
   if (activity.id === "tarefas-individuais") {
     const overviewItems = [
       "A formação está organizada em 7 dias de trabalho.",
-      "Abrir o harmónio correspondente ao tema tratado no dia.",
-      "Realizar uma tarefa individual curta e prática.",
+      "O Dia 2 não tem tarefa individual atribuída.",
+      "A numeração das TI é sequencial e considera apenas os dias com tarefa individual.",
       "Guardar prints, links ou reflexões no local indicado.",
       "Evitar anexos no Moodle quando a tarefa pedir apenas link ou registo."
     ];
+    const visibleRows = individualTaskTableRows.filter((task) => task.isEmptyDay || isItemVisible("tarefasIndividuais", task.title));
+    const deadlineNotes = individualTasks.filter((task) => task.deadline).map((task) => task.deadline);
 
     root.innerHTML = `
       <section class="section task-page-section">
@@ -2596,40 +2609,35 @@ function renderActivityPage() {
             </div>
           </details>
 
-          <div class="task-module-list">
-            ${individualTasks.filter((task) => isItemVisible("tarefasIndividuais", task.title)).map((task, index) => `
-              <details class="task-module-card">
-                <summary>
-                  <span class="task-module-copy">
-                    <strong>${task.title}</strong>
-                    <small>${task.intro}</small>
-                  </span>
-                  <span class="task-module-mark" aria-hidden="true">TI ${index + 1}</span>
-                </summary>
+          <div class="individual-task-table-wrap">
+            <table class="individual-task-table">
+              <thead>
+                <tr>
+                  <th scope="col">Nº TI</th>
+                  <th scope="col">Dia</th>
+                  <th scope="col">Descrição</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${visibleRows.map((task) => `
+                  <tr${task.isEmptyDay ? ` class="is-empty-day"` : ""}>
+                    <td>${task.number || "–"}</td>
+                    <td>${task.day}</td>
+                    <td>${task.intro}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
 
-                <div class="task-module-body">
-                  <p>Tema associado: ${task.topic}.</p>
-
-                  <div class="task-block">
-                    <strong>Orientações</strong>
-                    <ul class="clean-list task-prompt-list">
-                      ${task.prompts.map((prompt) => `<li>${prompt}</li>`).join("")}
-                    </ul>
-                  </div>
-
-                  <div class="embed-fallback resource-action-row align-right">
-                    ${obterForumUrl(task) ? `<a class="small-button orange" href="${obterForumUrl(task)}" target="_top">Abrir tarefa</a>` : ""}
-                  </div>
-                </div>
-              </details>
-            `).join("")}
+          <div class="individual-task-footnotes" aria-label="Prazos das tarefas individuais">
+            ${deadlineNotes.map((note) => `<p>${note}</p>`).join("")}
           </div>
         </div>
       </section>
     `;
     return;
   }
-
   if (!isEvaluation) {
     root.innerHTML = `
       <section class="section task-page-section">
