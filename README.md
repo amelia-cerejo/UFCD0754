@@ -1,36 +1,19 @@
-# UFCD 0753 - Sistemas operativos utilitarios complementares
+# UFCD 0693 — Gestão de Correio Eletrónico e Pesquisa na Web
 
-Pasta de trabalho para organizar e produzir materiais da UFCD 0753.
+Projeto final limpo do site de apoio à formação.
 
-Site publico: https://ufcd0753.netlify.app/#inicio
+## Conteúdos integrados
+- Gestão eletrónica de documentos
+- Mensagens eletrónicas
+- Métodos e técnicas de pesquisa avançada na web
+- Configuração da Conta Google
 
-## Objetivo da UFCD
+## Estrutura
+- `index.html` — página principal
+- `conteudos/` — páginas temáticas
+- `atividades/` — atividades individuais e de grupo
+- `avaliacoes/` — instrumentos de avaliação
+- `recursos/` — manual e recursos de apoio
+- `assets/` — estilos, JavaScript e imagens
 
-Instalar e configurar utilitarios complementares aos sistemas operativos, operar utilitarios de antivirus e executar tarefas de compressao e descompressao de ficheiros.
-
-## Regra principal de producao
-
-Os materiais devem seguir rigorosamente o referencial da UFCD 0753.
-
-Isto significa:
-
-- nao acrescentar temas fora dos conteudos previstos;
-- manter o foco nos utilitarios complementares dos sistemas operativos;
-- trabalhar antivirus ao nivel de instalacao, configuracao e operacao;
-- trabalhar compactacao e descompactacao de ficheiros com tarefas praticas simples;
-- manter apenas materiais finais ou recursos diretamente uteis para a acao.
-
-## Estrutura da pasta
-
-- `Manual` - documentos e manual de apoio.
-- `conteudos` - paginas finais de conteudo.
-- `atividades` - exercicios, tarefas e propostas praticas.
-- `avaliacoes` - paginas de avaliacao.
-- `recursos` - materiais complementares autorizados.
-- `assets` - imagens, estilos e outros ficheiros visuais.
-
-## Ficheiros de controlo
-
-- `REFERENCIAL_0753.md` - conteudos oficiais a respeitar.
-- `controlo-site.html` - ficheiro de controlo do site.
-- `moodle.html` - area a rever no final.
+Os materiais herdados de outras UFCD foram removidos. As páginas de conteúdos não apresentam numeração visível nem rodapé próprio e incluem navegação interna pelas secções.

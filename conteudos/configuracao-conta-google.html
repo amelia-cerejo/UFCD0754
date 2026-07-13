@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configuração da Conta Google — UFCD 0693</title>
+<style>
+    :root {
+      --color-primary:   #0078D4;
+      --color-secondary: #38BDF8;
+      --color-accent:    #005EA2;
+      --color-light:     #F0F9FF;
+      --color-dark:      #374151;
+      --color-mid:       #6B7280;
+      --color-white:     #FFFFFF;
+      --color-bg:        #F8FAFC;
+      --radius:          18px;
+      --shadow:          0 2px 16px rgba(0,120,212,0.08);
+      --google-blue:     #4285F4;
+      --google-red:      #EA4335;
+      --google-yellow:   #FBBC05;
+      --google-green:    #34A853;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Aptos, Calibri, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-dark);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .header-nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .header-nav a {
+      color: var(--color-white);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 999px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .header-nav a:hover,
+    .header-nav a:focus {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #4285F4 0%, #1a56c4 100%);
+      color: var(--color-white);
+      padding: 56px 40px 48px;
+      text-align: center;
+    }
+    .hero .google-logo {
+      font-size: 48px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .hero .google-logo span:nth-child(1) { color: #fff; font-weight: 900; font-size: 52px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    .hero .ponto-label {
+      font-size: 13px; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; opacity: 0.8; margin-bottom: 10px;
+    }
+    .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 14px; line-height: 1.25; }
+    .hero .slogan { font-size: 15px; font-style: italic; opacity: 0.85; }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 860px; margin: 0 auto; padding: 48px 24px 64px; }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-size: 1.35rem; font-weight: 700; color: var(--color-primary);
+      margin: 48px 0 16px; padding-bottom: 8px;
+      border-bottom: 3px solid var(--color-secondary);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .subsection-title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-accent);
+      margin: 32px 0 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .subsection-title::before {
+      content: ''; display: inline-block; width: 4px; height: 18px;
+      background: var(--color-secondary); border-radius: 4px;
+    }
+    .sub-title { font-size: 0.95rem; font-weight: 700; color: var(--color-dark); margin: 20px 0 8px; }
+    p { margin-bottom: 12px; color: var(--color-dark); }
+
+    /* ── IDEIA-CHAVE ── */
+    .ideia-chave {
+      background: var(--color-light); border-left: 5px solid var(--color-primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 20px; margin: 20px 0; font-size: 14.5px;
+    }
+    .ideia-chave .label { font-weight: 700; color: var(--color-primary); margin-bottom: 4px; }
+
+    /* ── ALERTA ── */
+    .alerta {
+      background: #EFF6FF; border-left: 5px solid var(--color-accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 20px; margin: 20px 0; font-size: 14px;
+    }
+    .alerta .label { font-weight: 700; color: var(--color-accent); margin-bottom: 4px; }
+
+    /* ── TABS (PC / TELEMÓVEL) ── */
+    .tabs { display: flex; gap: 0; margin: 24px 0 0; border-radius: 12px 12px 0 0; overflow: hidden; }
+    .tab-btn {
+      flex: 1; padding: 14px 20px; border: none; cursor: pointer;
+      font-family: 'Segoe UI', sans-serif; font-size: 14px; font-weight: 600;
+      background: #E2EEF9; color: var(--color-mid);
+      transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .tab-btn.active { background: var(--color-primary); color: var(--color-white); }
+    .tab-btn:hover:not(.active) { background: #C8DFF5; color: var(--color-accent); }
+    .tab-content {
+      display: none; background: var(--color-white);
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: var(--shadow); padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+    .tab-content.active { display: block; }
+
+    /* ── STEPS ── */
+    .steps { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+    .step {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--color-light); border-radius: 12px; padding: 16px 18px;
+      border-left: 4px solid var(--color-primary);
+    }
+    .step .step-num {
+      background: var(--color-primary); color: var(--color-white);
+      font-weight: 700; font-size: 13px; min-width: 30px; height: 30px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .step .step-content { flex: 1; }
+    .step .step-title { font-weight: 700; color: var(--color-primary); font-size: 14px; margin-bottom: 4px; }
+    .step .step-text { font-size: 14px; color: var(--color-dark); }
+    .step .step-note { font-size: 12.5px; color: var(--color-mid); margin-top: 4px; font-style: italic; }
+
+    /* ── DEVICE BADGE ── */
+    .device-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--color-primary); color: var(--color-white);
+      font-size: 12px; font-weight: 700; padding: 4px 12px;
+      border-radius: 20px; margin-bottom: 16px;
+    }
+
+    /* ── SETTINGS GRID ── */
+    .settings-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px; margin: 16px 0;
+    }
+    .setting-card {
+      background: var(--color-white); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 18px 16px;
+      border-top: 4px solid var(--color-primary);
+    }
+    .setting-card .setting-icon { font-size: 28px; margin-bottom: 8px; }
+    .setting-card .setting-title { font-weight: 700; color: var(--color-primary); font-size: 14px; margin-bottom: 6px; }
+    .setting-card .setting-body { font-size: 13px; color: var(--color-mid); line-height: 1.6; }
+    .setting-card .setting-path {
+      margin-top: 8px; font-size: 12px; color: var(--color-accent);
+      background: var(--color-light); padding: 4px 8px; border-radius: 6px;
+      font-family: 'Consolas', monospace;
+    }
+
+    /* ── SECURITY GRID ── */
+    .security-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px; margin: 16px 0;
+    }
+    .security-card {
+      background: var(--color-white); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 18px 16px;
+      border-left: 5px solid var(--google-green);
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .security-card .sec-icon { font-size: 26px; }
+    .security-card .sec-title { font-weight: 700; color: #166534; font-size: 14px; }
+    .security-card .sec-body { font-size: 13px; color: var(--color-mid); }
+
+    /* ── PRIVACY ITEMS ── */
+    .privacy-list { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+    .privacy-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--color-white); border-radius: 12px;
+      box-shadow: var(--shadow); padding: 14px 16px;
+    }
+    .privacy-item .priv-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .privacy-item .priv-content { flex: 1; }
+    .privacy-item .priv-title { font-weight: 700; color: var(--color-primary); font-size: 14px; margin-bottom: 3px; }
+    .privacy-item .priv-body { font-size: 13.5px; color: var(--color-mid); }
+
+    /* ── SERVICES GRID ── */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px; margin: 16px 0;
+    }
+    .service-card {
+      background: var(--color-white); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 20px 16px; text-align: center;
+    }
+    .service-card .svc-icon { font-size: 32px; margin-bottom: 8px; }
+    .service-card .svc-name { font-weight: 700; color: var(--color-primary); font-size: 14px; margin-bottom: 4px; }
+    .service-card .svc-desc { font-size: 12.5px; color: var(--color-mid); }
+
+    /* ── LISTS ── */
+    ul.custom { padding-left: 0; list-style: none; margin: 10px 0 16px; }
+    ul.custom li {
+      padding: 6px 0 6px 28px; position: relative;
+      font-size: 14.5px; color: var(--color-dark);
+      border-bottom: 1px solid #F0F4F8;
+    }
+    ul.custom li:last-child { border-bottom: none; }
+    ul.custom li::before {
+      content: '•'; color: var(--color-primary); font-weight: 700;
+      font-size: 18px; position: absolute; left: 6px; top: 4px;
+    }
+    ul.custom li strong { color: var(--color-accent); }
+
+    /* ── TABLE ── */
+    .styled-table {
+      width: 100%; border-collapse: collapse; margin: 16px 0 24px;
+      font-size: 14px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+    }
+    .styled-table thead tr { background: var(--color-primary); color: var(--color-white); }
+    .styled-table th { padding: 12px 16px; text-align: left; font-weight: 600; font-size: 13px; }
+    .styled-table td { padding: 11px 16px; border-bottom: 1px solid #E5F0FB; vertical-align: top; }
+    .styled-table tbody tr:last-child td { border-bottom: none; }
+    .styled-table tbody tr:nth-child(even) { background: var(--color-light); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--color-accent); color: rgba(255,255,255,0.85);
+      text-align: center; padding: 20px 40px; font-size: 13px;
+    }
+    .site-footer strong { color: var(--color-white); }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.4rem; }
+      .tabs { flex-direction: column; }
+      .settings-grid, .security-grid, .services-grid { grid-template-columns: 1fr; }
+    }
+  
+/* ===== Uniformização final UFCD 0693 ===== */
+:root{--color-primary:#0b5ea8;--color-secondary:#35b8e8;--color-accent:#083f73;--color-light:#eef8ff;--color-dark:#243447;--color-mid:#64748b;--color-bg:#f6f9fc;--radius:18px;--shadow:0 8px 28px rgba(8,63,115,.10)}
+html{scroll-behavior:smooth}
+body{font-family:Aptos,'Segoe UI',Arial,sans-serif;background:var(--color-bg);color:var(--color-dark)}
+.site-header{height:62px;background:rgba(8,63,115,.96);backdrop-filter:blur(8px);padding:0 28px}
+.site-header .brand{font-size:14px}.site-header .badge{background:#fff;color:var(--color-accent);border:1px solid rgba(255,255,255,.35)}
+.hero{position:relative;overflow:hidden;padding:72px 32px 64px;background:linear-gradient(120deg,rgba(5,47,87,.94),rgba(11,94,168,.80)),var(--hero-image);background-size:cover;background-position:center}
+.hero:after{content:'';position:absolute;inset:auto -10% -95px -10%;height:150px;background:var(--color-bg);border-radius:50% 50% 0 0/35% 35% 0 0}
+.hero>*{position:relative;z-index:1}.hero h1{font-size:clamp(1.8rem,4vw,2.75rem);text-wrap:balance}.hero .slogan{font-size:1rem}.container{max-width:980px;padding:46px 24px 72px}
+.section-title{scroll-margin-top:86px;color:var(--color-accent);border-bottom-color:var(--color-secondary);margin-top:56px}
+.card,.setting-card,.security-card,.service-card,.tool-card,.sift-card,.privacy-item,.step,.val-step{box-shadow:var(--shadow);border:1px solid #deebf5}
+.media-figure{margin:26px 0 34px;background:#fff;border:1px solid #dbe8f3;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.media-figure img{display:block;width:100%;max-height:500px;object-fit:cover;background:#edf4fa}
+.media-figure.contain img{object-fit:contain;max-height:560px;padding:12px}
+.media-figure figcaption{padding:12px 16px;color:var(--color-mid);font-size:13px;border-top:1px solid #e7eef5}
+.image-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}.image-pair .media-figure{margin:0}
+.source-note{font-size:12px;color:var(--color-mid);margin-top:6px}
+.quick-nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 auto 30px;max-width:980px;padding:0 24px}.quick-nav a{background:#fff;border:1px solid #d8e7f3;color:var(--color-accent);padding:8px 12px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:650}.quick-nav a:hover{background:var(--color-light)}
+.correction-note{background:#fff8e6;border-left:5px solid #e6a700;padding:14px 18px;border-radius:0 14px 14px 0;margin:18px 0;font-size:14px}
+.site-footer{background:linear-gradient(135deg,#083f73,#0b5ea8)}
+@media(max-width:700px){.image-pair{grid-template-columns:1fr}.site-header{padding:0 14px}.site-header .brand{max-width:70%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hero{padding:58px 20px 58px}}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="site-header">
+  <nav class="header-nav" aria-label="Navegação das secções">
+    <a href="#criar-conta">Criar conta</a>
+    <a href="#configuracoes">Configurações essenciais</a>
+    <a href="#seguranca">Segurança</a>
+    <a href="#privacidade">Privacidade</a>
+    <a href="#servicos">Serviços associados</a>
+  </nav>
+</header>
+<!-- HERO -->
+<section class="hero" style="--hero-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=1800&amp;q=82')">
+<div class="google-logo">
+<span>G</span>
+</div>
+<h1>Configuração da Conta Google</h1>
+<p class="slogan">«Comunicar, pesquisar e colaborar com confiança»</p>
+</section><nav aria-label="Navegação interna" class="quick-nav"><a href="#1-criar-uma-conta-google">1 Criar uma Conta Google</a><a href="#2-configuracoes-essenciais-da-conta">2 Configurações Essenciais da Conta</a><a href="#3-seguranca-da-conta">3 Segurança da Conta</a><a href="#4-privacidade">4 Privacidade</a><a href="#5-servicos-associados-a-conta-google">5 Serviços Associados à Conta Google</a></nav>
+<!-- CONTEÚDO -->
+<div class="container">
+<p>A conta Google é uma identidade digital que dá acesso a um conjunto de serviços integrados: Gmail, Drive, YouTube, Meet, Classroom, entre outros. Criar e configurar corretamente uma conta Google é um passo fundamental para trabalhar e estudar no ambiente digital atual.</p><figure class="media-figure contain"><img alt="Página pública de início de sessão da Conta Google" loading="lazy" referrerpolicy="no-referrer" src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Faccounts.google.com%2Fsignin?w=1200"/><figcaption>Captura real da página pública de início de sessão Google. A aparência pode variar ligeiramente consoante o dispositivo, o idioma e as atualizações do serviço.</figcaption></figure>
+<div class="ideia-chave">
+<div class="label">💡 Ideia-chave</div>
+    Uma conta Google é muito mais do que um endereço de e-mail. É uma identidade digital que acompanha o utilizador em dezenas de serviços e dispositivos. Por isso, é importante criá-la com cuidado e mantê-la segura.
+  </div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 1. CRIAR CONTA -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title" id="criar-conta">Criar uma Conta Google</h2>
+<p>É possível criar uma conta Google a partir de um computador ou de um telemóvel. O processo é semelhante, mas a navegação é ligeiramente diferente. Escolha o dispositivo que está a usar:</p>
+<!-- TABS -->
+<div class="tabs">
+<button class="tab-btn active" onclick="showTab('pc', this)">🖥️ Computador</button>
+<button class="tab-btn" onclick="showTab('telemovel', this)">📱 Telemóvel</button>
+</div>
+<!-- TAB PC -->
+<div class="tab-content active" id="tab-pc">
+<div class="device-badge">🖥️ Computador — Navegador</div>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content">
+<div class="step-title">Abrir o navegador e aceder ao site</div>
+<div class="step-text">Abra o Microsoft Edge, Chrome ou outro navegador. Na barra de endereço, escreva <strong>accounts.google.com</strong> e prima Enter.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content">
+<div class="step-title">Clicar em "Criar conta"</div>
+<div class="step-text">Na página de início de sessão, clique em <strong>"Criar conta"</strong> e escolha <strong>"Para uso pessoal"</strong> (ou "Para trabalho/escola" se for o caso).</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content">
+<div class="step-title">Preencher o nome</div>
+<div class="step-text">Introduza o seu <strong>primeiro nome</strong> e <strong>apelido</strong>. Clique em "Seguinte".</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-content">
+<div class="step-title">Introduzir data de nascimento e género</div>
+<div class="step-text">Preencha a sua <strong>data de nascimento</strong> (dia, mês, ano) e selecione o género. Estes dados são necessários para verificar a elegibilidade e personalizar a conta.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">5</div>
+<div class="step-content">
+<div class="step-title">Escolher o endereço Gmail</div>
+<div class="step-text">O Google sugere endereços automáticos. Pode aceitar uma sugestão ou criar um endereço personalizado (ex.: <strong>nome.apelido@gmail.com</strong>). Em algumas contas, o endereço pode ser alterado posteriormente, mas a opção não está disponível para todos os utilizadores; escolha-o com cuidado.</div>
+<div class="step-note">💡 Escolha um endereço profissional — evite números aleatórios ou alcunhas.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">6</div>
+<div class="step-content">
+<div class="step-title">Criar uma palavra-passe segura</div>
+<div class="step-text">Crie uma palavra-passe com pelo menos <strong>12 caracteres</strong>, combinando letras maiúsculas, minúsculas, números e símbolos. Confirme a palavra-passe no campo seguinte.</div>
+<div class="step-note">🔒 Nunca use datas de nascimento, nomes ou sequências simples como "123456".</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">7</div>
+<div class="step-content">
+<div class="step-title">Adicionar número de telemóvel (opcional mas recomendado)</div>
+<div class="step-text">O Google pode pedir um número de telemóvel para verificar a criação da conta ou para recuperação. Em alguns casos é possível avançar sem o indicar; noutros, a verificação pode ser obrigatória.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">8</div>
+<div class="step-content">
+<div class="step-title">Rever e aceitar os termos</div>
+<div class="step-text">Leia o resumo das condições de privacidade e termos de serviço. Clique em <strong>"Concordo"</strong> para concluir a criação da conta.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">9</div>
+<div class="step-content">
+<div class="step-title">Conta criada!</div>
+<div class="step-text">Será redirecionado para a página inicial da conta Google. Pode agora aceder ao Gmail, Drive e todos os outros serviços com este endereço.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB TELEMÓVEL -->
+<div class="tab-content" id="tab-telemovel">
+<div class="device-badge">📱 Telemóvel — Android / iOS</div>
+<p style="margin-bottom:16px; font-size:14px; color:var(--color-mid);">O processo é semelhante no Android e no iPhone. As diferenças são indicadas em cada passo.</p>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content">
+<div class="step-title">Abrir as Definições do telemóvel</div>
+<div class="step-text">
+<strong>Android:</strong> Abra as <em>Definições</em> → toque em <strong>"Google"</strong> → <strong>"Adicionar conta"</strong>.<br/>
+<strong>iPhone (iOS):</strong> Abra as <em>Definições</em> → <strong>"Mail"</strong> → <strong>"Contas"</strong> → <strong>"Adicionar conta"</strong> → <strong>"Google"</strong>.
+          </div>
+<div class="step-note">💡 Em alternativa, pode criar a conta diretamente na app Gmail ou no navegador do telemóvel em accounts.google.com.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content">
+<div class="step-title">Tocar em "Criar conta"</div>
+<div class="step-text">Na página de início de sessão Google, toque em <strong>"Criar conta"</strong> e selecione <strong>"Para mim"</strong> (uso pessoal).</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content">
+<div class="step-title">Preencher o nome</div>
+<div class="step-text">Introduza o <strong>primeiro nome</strong> e o <strong>apelido</strong> usando o teclado do ecrã. Toque em "Seguinte".</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-content">
+<div class="step-title">Introduzir data de nascimento e género</div>
+<div class="step-text">Use os seletores deslizantes para escolher o <strong>dia, mês e ano</strong> de nascimento. Selecione o género e toque em "Seguinte".</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">5</div>
+<div class="step-content">
+<div class="step-title">Escolher o endereço Gmail</div>
+<div class="step-text">Selecione uma das sugestões ou toque em <strong>"Criar o seu próprio endereço Gmail"</strong> para personalizar. O endereço termina sempre em <strong>@gmail.com</strong>.</div>
+<div class="step-note">💡 Escolha um endereço que possa usar profissionalmente.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">6</div>
+<div class="step-content">
+<div class="step-title">Criar uma palavra-passe segura</div>
+<div class="step-text">Escreva uma palavra-passe forte com pelo menos <strong>12 caracteres</strong>. Toque no ícone do olho 👁️ para ver o que está a escrever e confirmar que não há erros.</div>
+<div class="step-note">🔒 Guarde a palavra-passe num local seguro — não a escreva em papéis visíveis.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">7</div>
+<div class="step-content">
+<div class="step-title">Verificar o número de telemóvel</div>
+<div class="step-text">O Google pode pedir para verificar o número de telemóvel enviando um <strong>código SMS</strong>. Introduza o código recebido para confirmar.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">8</div>
+<div class="step-content">
+<div class="step-title">Aceitar os termos e concluir</div>
+<div class="step-text">Leia o resumo das condições. Toque em <strong>"Concordo"</strong> para criar a conta. A conta ficará automaticamente associada ao telemóvel.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">9</div>
+<div class="step-content">
+<div class="step-title">Conta criada e sincronizada!</div>
+<div class="step-text">A conta Google fica associada ao telemóvel. Os contactos, calendário e e-mails serão sincronizados automaticamente. Pode aceder ao Gmail, Drive e outros serviços pelas respetivas apps.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="alerta">
+<div class="label">⚠️ Atenção</div>
+    O endereço Gmail deve ser escolhido com cuidado. Atualmente, algumas contas permitem alterar o endereço principal, mas esta opção pode não estar disponível para todos os utilizadores e tem limitações.
+  </div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 2. CONFIGURAÇÕES ESSENCIAIS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title" id="configuracoes">Configurações Essenciais da Conta</h2>
+<p>Após criar a conta, é importante configurar os elementos essenciais para que a conta fique completa, reconhecível e funcional.</p><figure class="media-figure contain"><img alt="Página oficial sobre segurança da Conta Google" loading="lazy" referrerpolicy="no-referrer" src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fsupport.google.com%2Faccounts%2Fanswer%2F46526?w=1200"/><figcaption>Página oficial de apoio sobre as opções de segurança da Conta Google. Use-a como referência e confirme sempre os nomes atuais dos menus.</figcaption></figure>
+<p>Para aceder às configurações: em <strong>accounts.google.com</strong> ou clicando na foto/inicial no canto superior direito de qualquer serviço Google → <strong>"Gerir a sua Conta Google"</strong>.</p>
+<div class="settings-grid">
+<div class="setting-card">
+<div class="setting-icon">🖼️</div>
+<div class="setting-title">Foto de Perfil</div>
+<div class="setting-body">Adicione uma foto para que os outros o reconheçam em e-mails e serviços Google. Deve ser uma imagem clara e adequada ao contexto.</div>
+<div class="setting-path">Informações pessoais → Foto</div>
+</div>
+<div class="setting-card">
+<div class="setting-icon">✏️</div>
+<div class="setting-title">Nome e Apelido</div>
+<div class="setting-body">Verifique se o nome está correto. Este nome aparece nos e-mails enviados e nos documentos partilhados.</div>
+<div class="setting-path">Informações pessoais → Nome</div>
+</div>
+<div class="setting-card">
+<div class="setting-icon">🌍</div>
+<div class="setting-title">Idioma</div>
+<div class="setting-body">Defina o idioma preferido para a interface dos serviços Google. Recomenda-se Português (Portugal) para contexto nacional.</div>
+<div class="setting-path">Dados e privacidade → Idioma</div>
+</div>
+<div class="setting-card">
+<div class="setting-icon">📧</div>
+<div class="setting-title">E-mail de Recuperação</div>
+<div class="setting-body">Adicione um e-mail alternativo para recuperar o acesso à conta caso se esqueça da palavra-passe ou perca o acesso.</div>
+<div class="setting-path">Segurança → E-mail de recuperação</div>
+</div>
+<div class="setting-card">
+<div class="setting-icon">📱</div>
+<div class="setting-title">Número de Recuperação</div>
+<div class="setting-body">Confirme ou adicione o número de telemóvel para recuperação de conta e verificação em dois passos.</div>
+<div class="setting-path">Segurança → Número de recuperação</div>
+</div>
+<div class="setting-card">
+<div class="setting-icon">🕐</div>
+<div class="setting-title">Fuso Horário</div>
+<div class="setting-body">Defina o fuso horário correto para que os eventos do Google Calendar apareçam nas horas certas.</div>
+<div class="setting-path">Dados e privacidade → Fuso horário</div>
+</div>
+</div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 3. SEGURANÇA -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title" id="seguranca">Segurança da Conta</h2>
+<p>A segurança da conta Google é fundamental. Uma conta comprometida pode dar acesso a e-mails, documentos, fotografias e outros dados pessoais.</p><figure class="media-figure contain"><img alt="Página oficial de verificação em dois passos" loading="lazy" referrerpolicy="no-referrer" src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fsupport.google.com%2Faccounts%2Fanswer%2F185839?w=1200"/><figcaption>Página oficial de apoio para ativar a verificação em dois passos. O Google recomenda um segundo método de autenticação para reforçar a segurança.</figcaption></figure>
+<div class="security-grid">
+<div class="security-card">
+<div class="sec-icon">🔑</div>
+<div class="sec-title">Palavra-passe forte</div>
+<div class="sec-body">Use pelo menos 12 caracteres com maiúsculas, minúsculas, números e símbolos. Não reutilize palavras-passe de outros serviços.</div>
+</div>
+<div class="security-card">
+<div class="sec-icon">🛡️</div>
+<div class="sec-title">Verificação em 2 Passos (2FA)</div>
+<div class="sec-body">Ative a verificação em dois passos em <strong>Segurança → Verificação em dois passos</strong>. Adiciona uma camada extra de proteção.</div>
+</div>
+<div class="security-card">
+<div class="sec-icon">📋</div>
+<div class="sec-title">Atividade recente</div>
+<div class="sec-body">Verifique regularmente os dispositivos e localizações onde a conta está ativa em <strong>Segurança → Os seus dispositivos</strong>.</div>
+</div>
+<div class="security-card">
+<div class="sec-icon">🔍</div>
+<div class="sec-title">Verificação de segurança</div>
+<div class="sec-body">O Google oferece uma verificação guiada em <strong>Segurança → Verificação de segurança</strong> que identifica problemas e sugere melhorias.</div>
+</div>
+<div class="security-card">
+<div class="sec-icon">🚪</div>
+<div class="sec-title">Terminar sessão remotamente</div>
+<div class="sec-body">Se acedeu à conta num computador partilhado, pode terminar a sessão remotamente em <strong>Segurança → Os seus dispositivos</strong>.</div>
+</div>
+<div class="security-card">
+<div class="sec-icon">⚠️</div>
+<div class="sec-title">Alertas de segurança</div>
+<div class="sec-body">O Google envia alertas por e-mail quando deteta acessos suspeitos. Não ignore estes alertas — verifique sempre.</div>
+</div>
+</div>
+<div class="alerta">
+<div class="label">🔒 Boas práticas de segurança</div>
+    Nunca partilhe a sua palavra-passe com ninguém, incluindo colegas ou familiares. O Google nunca pede a palavra-passe por e-mail ou telefone. Se receber esse tipo de pedido, é uma tentativa de <em>phishing</em>.
+  </div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 4. PRIVACIDADE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title" id="privacidade">Privacidade</h2>
+<p>A conta Google recolhe dados sobre a atividade do utilizador para personalizar os serviços. É importante conhecer estas definições e ajustá-las de acordo com as suas preferências.</p>
+<div class="privacy-list">
+<div class="privacy-item">
+<div class="priv-icon">🕐</div>
+<div class="priv-content">
+<div class="priv-title">Histórico de pesquisa e atividade na web</div>
+<div class="priv-body">O Google guarda as pesquisas realizadas para personalizar resultados. Pode pausar ou eliminar este histórico em <strong>Dados e privacidade → Histórico de pesquisa na Web e em apps</strong>.</div>
+</div>
+</div>
+<div class="privacy-item">
+<div class="priv-icon">📍</div>
+<div class="priv-content">
+<div class="priv-title">Dados de localização</div>
+<div class="priv-body">O Google Maps e outros serviços podem guardar o histórico de localizações. Pode gerir ou desativar em <strong>Dados e privacidade → Histórico de localizações</strong>.</div>
+</div>
+</div>
+<div class="privacy-item">
+<div class="priv-icon">🎯</div>
+<div class="priv-content">
+<div class="priv-title">Personalização de anúncios</div>
+<div class="priv-body">O Google usa dados de atividade para mostrar anúncios personalizados. Pode desativar esta personalização em <strong>Dados e privacidade → Definições de anúncios</strong>.</div>
+</div>
+</div>
+<div class="privacy-item">
+<div class="priv-icon">📥</div>
+<div class="priv-content">
+<div class="priv-title">Transferir os seus dados</div>
+<div class="priv-body">Pode exportar uma cópia de todos os seus dados Google (e-mails, fotos, documentos) através do serviço <strong>Google Takeout</strong> em <strong>Dados e privacidade → Transferir os seus dados</strong>.</div>
+</div>
+</div>
+<div class="privacy-item">
+<div class="priv-icon">🗑️</div>
+<div class="priv-content">
+<div class="priv-title">Eliminar a conta</div>
+<div class="priv-body">Se desejar eliminar a conta Google, pode fazê-lo em <strong>Dados e privacidade → Eliminar a sua Conta Google</strong>. Esta ação é irreversível e elimina todos os dados associados.</div>
+</div>
+</div>
+</div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 5. SERVIÇOS ASSOCIADOS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 class="section-title" id="servicos">Serviços Associados à Conta Google</h2>
+<p>Com uma única conta Google, tem acesso a um conjunto alargado de serviços integrados. Todos partilham o mesmo endereço e palavra-passe.</p><figure class="media-figure contain"><img alt="Página pública do Google Drive" loading="lazy" referrerpolicy="no-referrer" src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fdrive.google.com?w=1200"/><figcaption>Captura real da página pública do Google Drive. Depois de iniciar sessão, a área apresenta os ficheiros e pastas da conta.</figcaption></figure>
+<div class="services-grid">
+<div class="service-card">
+<div class="svc-icon">📧</div>
+<div class="svc-name">Gmail</div>
+<div class="svc-desc">Correio eletrónico com 15 GB de armazenamento gratuito.</div>
+</div>
+<div class="service-card">
+<div class="svc-icon">📁</div>
+<div class="svc-name">Google Drive</div>
+<div class="svc-desc">Armazenamento e partilha de ficheiros na cloud.</div>
+</div>
+<div class="service-card">
+<div class="svc-icon">📄</div>
+<div class="svc-name">Google Docs</div>
+<div class="svc-desc">Editor de texto colaborativo online.</div>
+</div>
+<div class="service-card">
+<div class="svc-icon">📊</div>
+<div class="svc-name">Google Sheets</div>
+<div class="svc-desc">Folhas de cálculo online e colaborativas.</div>
+</div>
+<div class="service-card">
+<div class="svc-icon">📅</div>
+<div class="svc-name">Google Calendar</div>
+<div class="svc-desc">Agenda eletrónica sincronizada em todos os dispositivos.</div>
+</div>
+<div class="service-card">
+<div class="svc-icon">🎥</div>
+<div class="svc-name">Google Meet</div>
+<div class="svc-desc">Videoconferências e reuniões online.</div>
+</div>
+<div class="service-card">
+<div class="svc-icon">🎓</div>
+<div class="svc-name">Google Classroom</div>
+<div class="svc-desc">Plataforma de aprendizagem e gestão de turmas.</div>
+</div>
+<div class="service-card">
+<div class="svc-icon">▶️</div>
+<div class="svc-name">YouTube</div>
+<div class="svc-desc">Plataforma de vídeo — subscrições e histórico sincronizados.</div>
+</div>
+<div class="service-card">
+<div class="svc-icon">🗺️</div>
+<div class="svc-name">Google Maps</div>
+<div class="svc-desc">Mapas, navegação e pesquisa de locais.</div>
+</div>
+</div>
+<div class="ideia-chave">
+<div class="label">💡 Para recordar</div>
+    Todos os serviços Google partilham o mesmo armazenamento de 15 GB (Gmail + Drive + Fotos). Quando este espaço estiver cheio, não será possível receber novos e-mails nem guardar ficheiros. Verifique o espaço disponível regularmente em <strong>one.google.com/storage</strong>.
+  </div>
+<!-- TABELA RESUMO -->
+<h3 class="subsection-title">Resumo — O que fazer após criar a conta</h3>
+<table class="styled-table">
+<thead>
+<tr><th>Ação</th><th>Onde fazer</th><th>Prioridade</th></tr>
+</thead>
+<tbody>
+<tr><td>Adicionar foto de perfil</td><td>Informações pessoais → Foto</td><td>⭐ Recomendado</td></tr>
+<tr><td>Confirmar nome e apelido</td><td>Informações pessoais → Nome</td><td>⭐ Recomendado</td></tr>
+<tr><td>Ativar verificação em 2 passos</td><td>Segurança → Verificação em dois passos</td><td>🔒 Essencial</td></tr>
+<tr><td>Adicionar e-mail de recuperação</td><td>Segurança → E-mail de recuperação</td><td>🔒 Essencial</td></tr>
+<tr><td>Confirmar número de telemóvel</td><td>Segurança → Número de recuperação</td><td>🔒 Essencial</td></tr>
+<tr><td>Definir idioma (Português PT)</td><td>Dados e privacidade → Idioma</td><td>⭐ Recomendado</td></tr>
+<tr><td>Rever histórico de atividade</td><td>Dados e privacidade → Histórico</td><td>📋 Opcional</td></tr>
+<tr><td>Verificar espaço de armazenamento</td><td>one.google.com/storage</td><td>📋 Opcional</td></tr>
+</tbody>
+</table>
+</div><!-- /container -->
+<div class="container"><div class="correction-note"><strong>Nota de atualização:</strong> Os nomes e a localização das opções Google podem mudar. As instruções foram revistas em julho de 2026 e devem ser confirmadas na Ajuda oficial quando a interface apresentar diferenças.</div></div>
+<script>function showTab(tab, btn){document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));document.getElementById('tab-'+tab).classList.add('active');(btn||window.event?.currentTarget)?.classList.add('active');}</script>
+</body>
+</html>

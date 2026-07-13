@@ -1,47 +1,443 @@
-﻿<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-PT">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UFCD 0693 | Mensagens eletrónicas</title>
-    <link rel="stylesheet" href="../assets/styles.css">
-  </head>
-  <body data-topic="mensagens-eletronicas" class="gamma-view">
-    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <aside class="sidebar" aria-label="Menu principal">
-      <a class="brand" href="../index.html#inicio"><span class="brand-mark">0693</span><span><strong>Correio Eletrónico e Pesquisa na Web</strong></span></a>
-      <nav class="side-nav">
-        <a href="../index.html#inicio">Início</a>
-        <a href="../index.html#objetivos">Objetivos</a>
-        <a href="../index.html#metodologia">Metodologia</a>
-        <button class="nav-parent" type="button" aria-expanded="true" aria-controls="submenu-conteudos">Conteúdos <span aria-hidden="true">▾</span></button>
-        <div class="submenu open" id="submenu-conteudos"></div>
-        <button class="nav-parent" type="button" aria-expanded="false" aria-controls="submenu-atividades">Atividades <span aria-hidden="true">▾</span></button>
-        <div class="submenu activity-submenu" id="submenu-atividades"></div>
-        <button class="nav-parent" type="button" aria-expanded="false" aria-controls="submenu-avaliacao">Avaliação <span aria-hidden="true">▾</span></button>
-        <div class="submenu evaluation-submenu" id="submenu-avaliacao"></div>
-        <button class="nav-parent" type="button" aria-expanded="false" aria-controls="submenu-recursos">Recursos <span aria-hidden="true">▾</span></button>
-        <div class="submenu resource-submenu" id="submenu-recursos"></div>
-        <a class="portfolio-site-link" href="../atividades/identidade-visual.html">Site dos E-Portefólios</a>
-      </nav>
-    </aside>
-    <main class="page-shell">
-      <section class="gamma-section content-gamma-full" aria-label="UFCD 0693 | Mensagens eletrónicas">
-        <iframe
-          class="external-frame full-page-frame gamma-content-frame"
-          src="para_conteudos/mensagens_eletr_nicas_detalhe_completo/code.html"
-          title="UFCD 0693 | Mensagens eletrónicas"
-          loading="eager"
-          allowfullscreen>
-        </iframe>
-      </section>
-    </main>
-    <div class="floating-actions" aria-label="Ações rápidas">
-      <a href="../index.html#inicio" aria-label="Página inicial" title="Página inicial"><span class="float-icon icon-home" aria-hidden="true"></span></a>
-      <button type="button" data-action="top" aria-label="Voltar ao topo" title="Voltar ao topo"><span class="float-icon icon-top" aria-hidden="true"></span></button>
-      <button type="button" data-action="print" aria-label="Imprimir" title="Imprimir"><span class="float-icon icon-print" aria-hidden="true"></span></button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensagens Eletrónicas</title>
+  <style>
+    :root{
+      --primary:#0078D4;
+      --secondary:#38BDF8;
+      --accent:#005EA2;
+      --light:#F0F9FF;
+      --dark:#374151;
+      --mid:#6B7280;
+      --white:#FFFFFF;
+      --bg:#F8FAFC;
+      --radius:18px;
+      --shadow:0 8px 26px rgba(0,120,212,.10);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:78px}
+    body{
+      font-family:"Segoe UI",Aptos,Calibri,sans-serif;
+      background:var(--bg);
+      color:var(--dark);
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .site-header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(0,94,162,.97);
+      box-shadow:0 3px 12px rgba(0,0,0,.18);
+      padding:0 20px;
+    }
+    .site-header nav{
+      max-width:1220px;margin:auto;
+      min-height:60px;
+      display:flex;align-items:center;justify-content:center;
+      gap:7px;flex-wrap:wrap;
+    }
+    .site-header a{
+      color:#fff;text-decoration:none;
+      font-size:13px;font-weight:650;
+      padding:8px 12px;border-radius:999px;
+      transition:.2s ease;white-space:nowrap;
+    }
+    .site-header a:hover,.site-header a:focus{
+      background:rgba(255,255,255,.17);outline:none;
+    }
+
+    .hero{
+      min-height:430px;display:flex;align-items:center;
+      position:relative;overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(0,56,105,.94) 0%,rgba(0,94,162,.82) 48%,rgba(0,120,212,.45) 100%),
+        url("https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=1800&q=85") center/cover no-repeat;
+      color:#fff;
+    }
+    .hero::after{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(circle at 78% 30%,rgba(56,189,248,.30),transparent 34%);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;z-index:1;
+      width:min(1040px,calc(100% - 42px));
+      margin:auto;padding:70px 0;
+    }
+    .eyebrow{
+      display:inline-block;font-size:12px;font-weight:750;
+      letter-spacing:2px;text-transform:uppercase;
+      padding:5px 13px;border:1px solid rgba(255,255,255,.45);
+      border-radius:999px;background:rgba(255,255,255,.10);
+      margin-bottom:18px;
+    }
+    .hero h1{
+      max-width:760px;font-size:clamp(2rem,5vw,3.6rem);
+      line-height:1.08;margin-bottom:18px;
+    }
+    .hero p{max-width:690px;font-size:17px;color:rgba(255,255,255,.92)}
+    .hero .slogan{margin-top:18px;font-style:italic;font-size:15px;opacity:.9}
+
+    .container{max-width:980px;margin:auto;padding:54px 24px 76px}
+    .intro{
+      font-size:16px;background:#fff;border-radius:var(--radius);
+      padding:24px 26px;box-shadow:var(--shadow);
+      margin-top:-88px;position:relative;z-index:5;
+      border-top:5px solid var(--secondary);
+    }
+    .section{padding-top:34px;margin-top:26px}
+    .section-title{
+      color:var(--primary);font-size:1.55rem;line-height:1.25;
+      margin-bottom:16px;padding-bottom:9px;
+      border-bottom:3px solid var(--secondary);
+    }
+    .subsection-title{
+      color:var(--accent);font-size:1.06rem;
+      margin:26px 0 10px;display:flex;gap:9px;align-items:center;
+    }
+    .subsection-title::before{
+      content:"";width:5px;height:20px;border-radius:4px;background:var(--secondary);
+    }
+    p{margin-bottom:12px}
+
+    .ideia-chave,.alerta,.seguranca{
+      border-radius:0 var(--radius) var(--radius) 0;
+      padding:16px 20px;margin:20px 0;font-size:14.5px;
+    }
+    .ideia-chave{background:var(--light);border-left:5px solid var(--primary)}
+    .alerta{background:#FFF7ED;border-left:5px solid #F59E0B}
+    .seguranca{background:#ECFDF5;border-left:5px solid #10B981}
+    .label{font-weight:750;margin-bottom:4px}
+    .ideia-chave .label{color:var(--primary)}
+    .alerta .label{color:#9A5200}
+    .seguranca .label{color:#047857}
+
+    .photo{
+      width:100%;height:300px;object-fit:cover;
+      border-radius:var(--radius);box-shadow:var(--shadow);
+      margin:20px 0 26px;
+    }
+    .photo-caption{
+      margin-top:-20px;margin-bottom:24px;
+      font-size:12.5px;color:var(--mid);text-align:center;
+    }
+
+    .cards-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:15px;margin:18px 0;
+    }
+    .card{
+      background:#fff;border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:20px 18px;
+      border-top:4px solid var(--primary);
+    }
+    .card-icon{font-size:28px;margin-bottom:8px}
+    .card-title{font-weight:750;color:var(--primary);margin-bottom:5px}
+    .card-body{font-size:13.5px;color:var(--mid)}
+
+    .steps{display:grid;gap:11px;margin:16px 0}
+    .step{
+      display:flex;gap:14px;align-items:flex-start;
+      background:#fff;border-radius:14px;padding:15px 17px;
+      box-shadow:0 3px 15px rgba(0,120,212,.07);
+    }
+    .step-icon{
+      min-width:32px;height:32px;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--primary);color:#fff;font-size:14px;font-weight:800;
+    }
+    .step strong{color:var(--accent)}
+
+    ul.custom{list-style:none;margin:10px 0 18px}
+    ul.custom li{
+      position:relative;padding:7px 0 7px 29px;
+      border-bottom:1px solid #EAF1F6;
+    }
+    ul.custom li::before{
+      content:"✓";position:absolute;left:4px;top:6px;
+      color:var(--primary);font-weight:900;
+    }
+
+    .styled-table{
+      width:100%;border-collapse:collapse;margin:16px 0 24px;
+      overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);
+      background:#fff;font-size:14px;
+    }
+    .styled-table th{
+      background:var(--primary);color:#fff;text-align:left;padding:12px 15px;
+    }
+    .styled-table td{
+      padding:12px 15px;border-bottom:1px solid #E5F0FB;vertical-align:top;
+    }
+    .styled-table tr:nth-child(even) td{background:var(--light)}
+
+    .checklist{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:12px;margin:16px 0;
+    }
+    .check-item{
+      background:#fff;border-radius:12px;padding:13px 15px;
+      box-shadow:0 3px 15px rgba(0,120,212,.07);
+      display:flex;gap:10px;align-items:flex-start;
+    }
+    .check-item span{color:var(--primary);font-weight:900}
+
+    @media(max-width:760px){
+      .site-header nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:8px 0}
+      .site-header a{font-size:12px}
+      .hero{min-height:390px}
+      .intro{margin-top:-55px}
+      .photo{height:220px}
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav aria-label="Navegação pelas secções">
+    <a href="#criacao">Criação de mensagens</a>
+    <a href="#envio">Envio</a>
+    <a href="#rececao">Receção e caixa de entrada</a>
+    <a href="#arquivo">Arquivo</a>
+    <a href="#reencaminhamento">Reencaminhamento</a>
+    <a href="#eliminacao">Eliminação</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Comunicação profissional digital</span>
+    <h1>Mensagens Eletrónicas</h1>
+    <p>Criar, enviar, receber e organizar mensagens com clareza, responsabilidade e segurança.</p>
+    <p class="slogan">«Uma boa mensagem facilita a compreensão e evita erros.»</p>
+  </div>
+</section>
+
+<main class="container">
+  <div class="intro">
+    As mensagens eletrónicas fazem parte do trabalho diário em praticamente todas as organizações. Uma comunicação bem estruturada ajuda a transmitir pedidos, decisões, documentos e informações de forma clara e profissional.
+  </div>
+
+  <section class="section" id="criacao">
+    <h2 class="section-title">Criação de mensagens</h2>
+    <p>Antes de começar a escrever, deve ficar claro qual é o objetivo da mensagem: informar, pedir, confirmar, enviar documentação ou solicitar uma decisão.</p>
+
+    <div class="ideia-chave">
+      <div class="label">💡 Ideia-chave</div>
+      Uma mensagem profissional deve permitir ao destinatário perceber rapidamente quem escreve, qual é o assunto e o que se espera dele.
     </div>
-    <script src="../assets/config.js"></script>
-    <script src="../assets/app.js"></script>
-  </body>
+
+    <img class="photo"
+      src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=85"
+      alt="Pessoa a preparar uma mensagem num computador portátil">
+    <div class="photo-caption">A preparação da mensagem começa pela definição do objetivo e pela organização da informação.</div>
+
+    <h3 class="subsection-title">Estrutura recomendada</h3>
+    <table class="styled-table">
+      <thead>
+        <tr><th>Elemento</th><th>Função</th><th>Exemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Para</td><td>Destinatário principal, responsável por agir ou responder.</td><td>colega@empresa.pt</td></tr>
+        <tr><td>CC</td><td>Pessoa que deve ser informada, sem necessidade de resposta.</td><td>coordenação@empresa.pt</td></tr>
+        <tr><td>CCO</td><td>Destinatários que não ficam visíveis entre si.</td><td>Envio para vários contactos externos</td></tr>
+        <tr><td>Assunto</td><td>Resumo claro e específico do conteúdo.</td><td>Pedido de documentação — Projeto Formação</td></tr>
+        <tr><td>Cumprimento</td><td>Saudação adequada ao contexto.</td><td>Bom dia, Ana,</td></tr>
+        <tr><td>Corpo</td><td>Contexto, informação principal, pedido e prazo.</td><td>Solicito o envio do documento até sexta-feira.</td></tr>
+        <tr><td>Despedida</td><td>Encerramento cordial e profissional.</td><td>Com os melhores cumprimentos,</td></tr>
+        <tr><td>Assinatura</td><td>Identificação e contacto.</td><td>Nome, função e organização</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">Como escrever</h3>
+    <div class="steps">
+      <div class="step"><span class="step-icon">1</span><div><strong>Definir o objetivo:</strong> identificar o que se pretende comunicar ou solicitar.</div></div>
+      <div class="step"><span class="step-icon">2</span><div><strong>Escolher os destinatários:</strong> decidir quem fica em Para, CC ou CCO.</div></div>
+      <div class="step"><span class="step-icon">3</span><div><strong>Escrever o assunto:</strong> usar uma frase curta, clara e informativa.</div></div>
+      <div class="step"><span class="step-icon">4</span><div><strong>Organizar o texto:</strong> usar parágrafos curtos e uma ideia por parágrafo.</div></div>
+      <div class="step"><span class="step-icon">5</span><div><strong>Rever:</strong> confirmar o tom, a clareza, os prazos e os anexos.</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="envio">
+    <h2 class="section-title">Envio de mensagens</h2>
+    <p>O envio é um momento de responsabilidade. Depois de enviada, a mensagem fica registada e pode ser reencaminhada para outras pessoas.</p>
+
+    <h3 class="subsection-title">Lista de verificação antes de enviar</h3>
+    <div class="checklist">
+      <div class="check-item"><span>✓</span><div>O assunto está preenchido e é específico.</div></div>
+      <div class="check-item"><span>✓</span><div>Os destinatários estão corretos.</div></div>
+      <div class="check-item"><span>✓</span><div>O texto está claro e organizado.</div></div>
+      <div class="check-item"><span>✓</span><div>Os anexos foram incluídos e são os corretos.</div></div>
+      <div class="check-item"><span>✓</span><div>O tom é adequado ao contexto profissional.</div></div>
+      <div class="check-item"><span>✓</span><div>A assinatura está completa.</div></div>
+    </div>
+
+    <div class="alerta">
+      <div class="label">⚠️ Erros comuns</div>
+      Enviar para o destinatário errado, usar “Responder a todos” sem necessidade, esquecer anexos, incluir dados confidenciais em CC visível ou enviar uma mensagem com um assunto demasiado genérico.
+    </div>
+
+    <div class="seguranca">
+      <div class="label">🔒 Segurança</div>
+      Não envie ficheiros suspeitos, executáveis ou documentos obtidos de fontes desconhecidas. Confirme também se as ligações e permissões de acesso estão corretas.
+    </div>
+  </section>
+
+  <section class="section" id="rececao">
+    <h2 class="section-title">Receção e gestão da caixa de entrada</h2>
+    <p>Uma caixa de entrada desorganizada aumenta o risco de perder mensagens importantes, atrasar respostas e acumular informação desnecessária.</p>
+
+    <img class="photo"
+      src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=85"
+      alt="Espaço de trabalho com computador e ambiente profissional">
+    <div class="photo-caption">Uma rotina simples de tratamento ajuda a manter a caixa de entrada controlada.</div>
+
+    <h3 class="subsection-title">As ações principais</h3>
+    <div class="cards-grid">
+      <article class="card">
+        <div class="card-icon">✉️</div>
+        <div class="card-title">Responder</div>
+        <div class="card-body">Quando a mensagem exige uma resposta da sua parte.</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">📁</div>
+        <div class="card-title">Arquivar</div>
+        <div class="card-body">Quando o assunto está tratado e deve ficar guardado.</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">↪️</div>
+        <div class="card-title">Reencaminhar</div>
+        <div class="card-body">Quando outra pessoa é responsável pelo assunto.</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">🗑️</div>
+        <div class="card-title">Eliminar</div>
+        <div class="card-body">Quando a mensagem não tem utilidade nem valor de arquivo.</div>
+      </article>
+    </div>
+
+    <h3 class="subsection-title">Rotina recomendada</h3>
+    <div class="steps">
+      <div class="step"><span class="step-icon">1</span><div>Consultar a caixa de entrada em momentos definidos do dia.</div></div>
+      <div class="step"><span class="step-icon">2</span><div>Ler o remetente e o assunto antes de abrir.</div></div>
+      <div class="step"><span class="step-icon">3</span><div>Decidir imediatamente a ação necessária.</div></div>
+      <div class="step"><span class="step-icon">4</span><div>Executar a ação e retirar a mensagem da caixa de entrada.</div></div>
+    </div>
+
+    <div class="ideia-chave">
+      <div class="label">💡 Boa prática</div>
+      A caixa de entrada não deve funcionar como lista permanente de tarefas. Use marcadores, categorias ou uma ferramenta de tarefas para acompanhar assuntos pendentes.
+    </div>
+  </section>
+
+  <section class="section" id="arquivo">
+    <h2 class="section-title">Arquivo de mensagens</h2>
+    <p>Arquivar significa guardar mensagens de forma organizada para que possam ser recuperadas quando necessário. O arquivo deve seguir uma lógica simples e estável.</p>
+
+    <h3 class="subsection-title">Estrutura sugerida</h3>
+    <div class="cards-grid">
+      <article class="card">
+        <div class="card-icon">📂</div>
+        <div class="card-title">Projetos</div>
+        <div class="card-body">Uma subpasta por projeto ativo.</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">🏢</div>
+        <div class="card-title">Clientes ou entidades</div>
+        <div class="card-body">Mensagens agrupadas por organização ou contacto.</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">👥</div>
+        <div class="card-title">Interno</div>
+        <div class="card-body">Comunicações internas da organização.</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">📰</div>
+        <div class="card-title">Informação</div>
+        <div class="card-body">Newsletters e mensagens informativas sem ação necessária.</div>
+      </article>
+    </div>
+
+    <ul class="custom">
+      <li>Arquivar mensagens logo após o tratamento.</li>
+      <li>Usar a pesquisa interna para recuperar mensagens e anexos.</li>
+      <li>Não guardar tudo indiscriminadamente.</li>
+      <li>Rever periodicamente as pastas e eliminar o que perdeu utilidade.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="reencaminhamento">
+    <h2 class="section-title">Reencaminhamento</h2>
+    <p>Reencaminhar significa enviar uma mensagem recebida para outra pessoa, mantendo o conteúdo original. Deve ser feito com critério e atenção à privacidade.</p>
+
+    <h3 class="subsection-title">Quando faz sentido</h3>
+    <ul class="custom">
+      <li>A mensagem foi enviada para a pessoa errada.</li>
+      <li>Outra pessoa é responsável pelo assunto.</li>
+      <li>É necessário partilhar informação com alguém que não estava incluído.</li>
+    </ul>
+
+    <h3 class="subsection-title">Boas práticas</h3>
+    <div class="steps">
+      <div class="step"><span class="step-icon">1</span><div>Adicionar uma nota de contexto antes da mensagem original.</div></div>
+      <div class="step"><span class="step-icon">2</span><div>Verificar se o conteúdo pode ser partilhado.</div></div>
+      <div class="step"><span class="step-icon">3</span><div>Remover informação desnecessária da cadeia de mensagens, quando adequado.</div></div>
+      <div class="step"><span class="step-icon">4</span><div>Informar o remetente original, quando relevante.</div></div>
+    </div>
+
+    <div class="seguranca">
+      <div class="label">🔒 Privacidade e RGPD</div>
+      Antes de reencaminhar, confirme se a mensagem contém dados pessoais, informação confidencial, contactos de terceiros ou anexos que não devem ser divulgados.
+    </div>
+  </section>
+
+  <section class="section" id="eliminacao">
+    <h2 class="section-title">Eliminação de mensagens</h2>
+    <p>Eliminar mensagens ajuda a reduzir ruído, libertar espaço e melhorar a pesquisa. No entanto, nem todas as mensagens devem ser apagadas.</p>
+
+    <h3 class="subsection-title">O que pode ser eliminado</h3>
+    <ul class="custom">
+      <li>Publicidade e newsletters não solicitadas.</li>
+      <li>Notificações automáticas sem valor informativo.</li>
+      <li>Mensagens duplicadas.</li>
+      <li>Versões antigas de conversas já encerradas.</li>
+      <li>Mensagens sem valor de registo ou prova.</li>
+    </ul>
+
+    <h3 class="subsection-title">Cuidados a ter</h3>
+    <div class="cards-grid">
+      <article class="card">
+        <div class="card-icon">📎</div>
+        <div class="card-title">Verificar anexos</div>
+        <div class="card-body">Confirmar se não existe documentação importante antes de eliminar.</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">⚖️</div>
+        <div class="card-title">Preservar registos</div>
+        <div class="card-body">Não apagar mensagens que possam ser necessárias como prova ou registo profissional.</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">🚫</div>
+        <div class="card-title">Cancelar subscrições</div>
+        <div class="card-body">Anular newsletters que não são lidas em vez de as apagar repetidamente.</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">🧹</div>
+        <div class="card-title">Esvaziar o lixo</div>
+        <div class="card-body">Rever e esvaziar a pasta de lixo regularmente.</div>
+      </article>
+    </div>
+
+    <div class="alerta">
+      <div class="label">⚠️ Antes de eliminar</div>
+      Confirme se a mensagem já foi tratada, se não contém anexos importantes e se não está sujeita a regras de conservação documental da organização.
+    </div>
+  </section>
+</main>
+
+</body>
 </html>

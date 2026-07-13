@@ -3,9 +3,9 @@ const topics = [
     id: "introducao",
     title: "Introdução",
     menuTitle: "Introdução",
-    cardTitle: "Introdução à UFCD 0693",
+    cardTitle: "Introdução",
     area: "Enquadramento",
-    intro: "Apresentar a UFCD, os objetivos, a organização do percurso e o conceito-chave: comunicar, pesquisar e organizar informação digital.",
+    intro: "Apresentação do percurso, objetivos e organização da aprendizagem.",
     image: "../assets/img/ufcd0693-capa-site.png",
     url: "conteudos/introducao.html",
     showInContents: false
@@ -16,15 +16,10 @@ const topics = [
     menuTitle: "Gestão de documentos",
     cardTitle: "Gestão eletrónica de documentos",
     area: "Organização digital",
-    intro: "Organizar documentos digitais, agendas, pastas e critérios de indexação para facilitar o acesso à informação.",
+    intro: "Organizar documentos, agendas, pastas e critérios de indexação.",
     image: "../assets/img/ufcd0693-capa-site.png",
     url: "conteudos/gestao-eletronica-documentos.html",
-    items: [
-      "Agenda eletrónica",
-      "Correio eletrónico",
-      "Organização de pastas",
-      "Indexação dos documentos eletrónicos"
-    ]
+    items: ["Agenda eletrónica", "Correio eletrónico", "Organização de pastas", "Indexação"]
   },
   {
     id: "mensagens-eletronicas",
@@ -32,51 +27,43 @@ const topics = [
     menuTitle: "Mensagens eletrónicas",
     cardTitle: "Mensagens eletrónicas",
     area: "Comunicação digital",
-    intro: "Criar, enviar, receber, arquivar, reencaminhar e eliminar mensagens eletrónicas de forma organizada.",
+    intro: "Criar, enviar, receber, arquivar, reencaminhar e eliminar mensagens.",
     image: "../assets/img/ufcd0693-capa-site.png",
-    url: "conteudos/mensagens-eletronicas.html",
-    items: [
-      "Criação",
-      "Envio e receção",
-      "Arquivo",
-      "Reencaminhamento",
-      "Eliminação"
-    ]
+    url: "conteudos/mensagens-eletronicas.html"
   },
   {
     id: "pesquisa-avancada-web",
     title: "Métodos e técnicas de pesquisa avançada na web",
     menuTitle: "Pesquisa avançada",
-    cardTitle: "Métodos e técnicas de pesquisa avançada na web",
-    area: "Pesquisa de informação",
-    intro: "Pesquisar informação na web com métodos mais precisos, avaliando resultados e usando técnicas adequadas ao objetivo.",
+    cardTitle: "Pesquisa avançada na web",
+    area: "Pesquisa e validação",
+    intro: "Pesquisar com operadores, avaliar fontes e validar informação online.",
     image: "../assets/img/ufcd0693-capa-site.png",
     url: "conteudos/pesquisa-avancada-web.html"
+  },
+  {
+    id: "configuracao-conta-google",
+    title: "Configuração da Conta Google",
+    menuTitle: "Conta Google",
+    cardTitle: "Configuração da Conta Google",
+    area: "Identidade digital",
+    intro: "Criar, configurar e proteger uma Conta Google e os serviços associados.",
+    image: "../assets/img/ufcd0693-capa-site.png",
+    url: "conteudos/configuracao-conta-google.html"
   }
 ];
 
 const contentMenuGroups = [
-  {
-    title: "Gestão eletrónica de documentos",
-    theme: "representation",
-    children: topics.filter((topic) => topic.id === "gestao-eletronica-documentos").map((topic) => ({ topicId: topic.id }))
-  },
-  {
-    title: "Mensagens eletrónicas",
-    theme: "representation",
-    children: topics.filter((topic) => topic.id === "mensagens-eletronicas").map((topic) => ({ topicId: topic.id }))
-  },
-  {
-    title: "Pesquisa avançada na web",
-    theme: "database",
-    children: topics.filter((topic) => topic.id === "pesquisa-avancada-web").map((topic) => ({ topicId: topic.id }))
-  }
+  { title: "Gestão eletrónica de documentos", theme: "representation", children: [{ topicId: "gestao-eletronica-documentos" }] },
+  { title: "Mensagens eletrónicas", theme: "representation", children: [{ topicId: "mensagens-eletronicas" }] },
+  { title: "Pesquisa avançada na web", theme: "database", children: [{ topicId: "pesquisa-avancada-web" }] },
+  { title: "Configuração da Conta Google", theme: "database", children: [{ topicId: "configuracao-conta-google" }] }
 ];
 
 const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwTZTbLAY7RLR8RSbX3ogc6WT1J8DJZdgDRq_FUD055ByJm2eXvJ8zYzKIGSb1RYxAjaw/exec";
 const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "14xWArQOzb-1fZ4QxZXjuoJK1dxhjWmbwWmF7lsK-a9o";
-const APPS_SCRIPT_WEB_APP_URL = window.UFCD0693_APPS_SCRIPT_URL || window.UFCD0753_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
-const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0693_SPREADSHEET_ID || window.UFCD0753_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
+const APPS_SCRIPT_WEB_APP_URL = window.UFCD0693_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
+const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0693_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
 
 const activities = [
   {
@@ -196,8 +183,8 @@ const activities = [
   },
   {
     id: "projeto-final-apresentacao",
-    title: "E-portefólio individual",
-    menuTitle: "E-portefólio individual",
+    title: "Do Click ao Guardar",
+    menuTitle: "Do Click ao Guardar",
     intro: "Área para organizar evidências individuais da UFCD 0693 no Padlet, na Drive e no Moodle.",
     url: "atividades/projeto-final-apresentacao.html",
     focus: "Evidências digitais",
@@ -210,7 +197,7 @@ const activities = [
       },
       {
         title: "Criar o Padlet",
-        text: "Criar um Padlet individual em formato Colunas, com título no formato E-portefólio_Sala_X_Nome."
+        text: "Criar um Padlet individual em formato Colunas, com título no formato nomeNºIefp."
       },
       {
         title: "Registar expetativas",
@@ -387,9 +374,6 @@ const glossaryUrl = "https://fad.iefp.pt/mod/glossary/view.php?id=412744";
 const individualTasks = [
   {
     id: "tarefa-individual-1",
-    day: "1",
-    number: "1",
-    topic: "Dia 1 - Apresentação, diagnóstico e Padlet",
     url: "atividades/tarefas-individuais.html",
     forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55427",
     title: "TI 1 - Avaliação diagnóstica e Padlet individual",
@@ -399,7 +383,7 @@ const individualTasks = [
       "Cria ou usa uma conta Google no formato nome+numeroIEFP@gmail.com.",
       "Realiza a avaliação diagnóstica indicada pela formadora.",
       "Cria um Padlet individual em formato Colunas.",
-      "Dá ao Padlet um título no formato E-portefólio_Sala_X_Nome.",
+      "Dá ao Padlet um título no formato nomeNºIefp.",
       "Cria pelo menos a coluna Expectativas.",
       "Adiciona um primeiro post com 3 a 5 frases sobre o que esperas aprender.",
       "Partilha o Padlet com permissão para escrever e copia o link."
@@ -407,52 +391,26 @@ const individualTasks = [
   },
   {
     id: "tarefa-individual-2",
-    day: "3",
-    number: "2",
-    deadline: "TP1 → Dia 3 — Sessão 5",
-    topic: "Dia 3 - Gestão eletrónica de documentos",
-    url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55428",
-    title: "TI 2 - TP1: Organizar ficheiros",
-    intro: "TP1 – Organizar ficheiros (≥ 10 ficheiros, subpastas, print, texto ≈ 150 pal.).",
-    evidence: "TP1 → Dia 3 — Sessão 5.",
-    prompts: [
-      "Seleciona ou cria pelo menos 10 ficheiros de trabalho.",
-      "Organiza os ficheiros em pastas e subpastas com nomes claros.",
-      "Aplica uma lógica de organização por tema, data, tipo de documento ou finalidade.",
-      "Faz um print da estrutura final de pastas.",
-      "Escreve cerca de 150 palavras a explicar a organização escolhida."
-    ]
-  },
-  {
-    id: "tarefa-individual-3",
-    day: "4",
-    number: "3",
-    deadline: "TP2 → Dia 4 — Sessão 4",
-    topic: "Dia 4 - Agenda eletrónica",
     url: "atividades/tarefas-individuais.html",
     forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55429",
-    title: "TI 3 - TP2: Agenda eletrónica",
-    intro: "TP2 – Criar agenda eletrónica (≥ 5 eventos, cores, print, texto ≈ 150 pal.).",
-    evidence: "TP2 → Dia 4 — Sessão 4.",
+    title: "TI 2 - Agenda eletrónica",
+    intro: "Criar uma agenda eletrónica com pelo menos 5 eventos, usando cores, print e um texto breve de reflexão.",
+    evidence: "Guarda print e texto breve de reflexão no local indicado.",
     prompts: [
       "Abre a ferramenta de agenda eletrónica indicada.",
       "Cria pelo menos 5 eventos.",
       "Define título, data, hora e descrição quando necessário.",
       "Aplica cores e configura lembretes nos eventos mais importantes.",
-      "Faz um print da agenda e escreve cerca de 150 palavras sobre a utilidade da organização criada."
+      "Faz um print da agenda e escreve um texto breve sobre a utilidade da organização criada."
     ]
   },
   {
-    id: "tarefa-individual-4",
-    day: "5",
-    number: "4",
-    topic: "Dia 5 - Mensagem profissional",
+    id: "tarefa-individual-3",
     url: "atividades/tarefas-individuais.html",
     forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55430",
-    title: "TI 4 - Simular mensagem profissional",
-    intro: "Simular mensagem profissional (rascunho ou envio-teste).",
-    evidence: "Guarda print na Drive, na subpasta TI_Dia5.",
+    title: "TI 3 - Simular mensagem profissional",
+    intro: "Simular uma mensagem profissional em rascunho ou envio-teste.",
+    evidence: "Guarda print no local indicado.",
     prompts: [
       "Cria uma mensagem de correio eletrónico com destinatário, assunto e corpo de texto profissional.",
       "Usa uma saudação adequada e linguagem clara.",
@@ -462,16 +420,12 @@ const individualTasks = [
     ]
   },
   {
-    id: "tarefa-individual-5",
-    day: "6",
-    number: "5",
-    deadline: "Caixa de correio + Pesquisa avançada → Dia 6 — Sessão 6",
-    topic: "Dia 6 - Caixa de correio e pesquisa avançada",
+    id: "tarefa-individual-4",
     url: "atividades/tarefas-individuais.html",
     forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55431",
-    title: "TI 5 - Caixa de correio e pesquisa avançada",
-    intro: "Organização da caixa de correio (≥ 5 pastas + 2 regras) e Exercício de pesquisa avançada (≥ 3 pesquisas com operadores/filtros, registo de expressões + fontes + fiabilidade) + integração de prints no Padlet.",
-    evidence: "Caixa de correio + Pesquisa avançada → Dia 6 — Sessão 6.",
+    title: "TI 4 - Caixa de correio e pesquisa avançada",
+    intro: "Organizar a caixa de correio e realizar um exercício de pesquisa avançada, integrando os prints no Padlet.",
+    evidence: "Integra os prints principais no Padlet individual.",
     prompts: [
       "Cria pelo menos 5 pastas na caixa de correio.",
       "Organiza mensagens ou exemplos de mensagens pelas pastas criadas.",
@@ -482,14 +436,11 @@ const individualTasks = [
     ]
   },
   {
-    id: "tarefa-individual-6",
-    day: "7",
-    number: "6",
-    topic: "Dia 7 - Autoavaliação e reflexão final",
+    id: "tarefa-individual-5",
     url: "atividades/tarefas-individuais.html",
     forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55432",
-    title: "TI 6 - Autoavaliação e reflexão final",
-    intro: "Autoavaliação final + reflexão final no Fórum.",
+    title: "TI 5 - Autoavaliação e reflexão final",
+    intro: "Realizar a autoavaliação final e publicar a reflexão final no Fórum.",
     evidence: "Submete o formulário/documento indicado no Moodle e publica a reflexão final no Fórum.",
     prompts: [
       "Preenche a autoavaliação final indicada pela formadora.",
@@ -500,38 +451,13 @@ const individualTasks = [
     ]
   }
 ];
-
-const individualTaskTableRows = [
-  ...individualTasks.slice(0, 1),
-  {
-    day: "2",
-    number: "",
-    title: "Sem tarefa individual",
-    intro: "— (sem tarefa individual)",
-    isEmptyDay: true
-  },
-  ...individualTasks.slice(1)
-];
 const resources = [
   {
     id: "manual",
-    title: "Manual",
-    intro: "Manual da UFCD 0693 em PDF para consulta e descarregamento.",
+    title: "Manual de formação",
+    intro: "Manual da UFCD 0693 para consulta e descarregamento.",
     url: "recursos/manual.html",
-    pdfUrl: "Manual/Manual Formacao Ufcd 0753.pdf"
-  },
-  {
-    id: "sistemas-operativos",
-    title: "Sistemas operativos",
-    intro: "Suporte da Microsoft para consultar procedimentos de segurança e manutenção do Windows.",
-    externalUrl: "https://support.microsoft.com/pt-pt/windows",
-    url: "recursos/sistemas-operativos.html"
-  },
-  {
-    id: "compactacao-ficheiros",
-    title: "Compactação de ficheiros",
-    intro: "Área preparada para recursos de apoio sobre compactação, descompressão e organização de ficheiros.",
-    url: "recursos/compactacao-ficheiros.html"
+    pdfUrl: "Manual/Manual_Formacao_UFCD_0693.pdf"
   }
 ];
 
@@ -1069,7 +995,7 @@ function renderHomeCards() {
   if (!grid) return;
 
   grid.innerHTML = topics.filter((topic) => topic.showInContents !== false).map((topic) => `
-    <article class="content-card ${topic.id.startsWith("compactacao-") ? "database-card" : "spreadsheet-card"}">
+    <article class="content-card ${topic.id === "pesquisa-avancada-web" ? "database-card" : "spreadsheet-card"}">
       <a href="${topic.url}">
         <span>${topic.area}</span>
         <h3>${topic.cardTitle}</h3>
@@ -2264,7 +2190,7 @@ function renderActivityPage() {
         <div class="section-inner">
           <div class="section-heading task-page-heading">
             <p class="eyebrow">Evidências digitais</p>
-            <h1>E-portefólio individual no Padlet</h1>
+            <h1>Padlet Final: Do Click ao Guardar</h1>
             <p class="lead">O Padlet individual reúne expetativas, reflexões e evidências das tarefas da UFCD 0693.</p>
           </div>
 
@@ -2295,7 +2221,7 @@ function renderActivityPage() {
           <div class="task-module-list">
             ${[
               ["Criar a conta Google", "Criar ou usar uma conta Google no formato nome+numeroIEFP@gmail.com."],
-              ["Criar o Padlet", "Usar o formato Colunas e definir o título E-portefólio_Sala_X_Nome."],
+              ["Criar o Padlet", "Usar o formato Colunas e definir o título nomeNºIefp."],
               ["Registar expetativas", "Criar a coluna Expectativas e escrever um primeiro post com 3 a 5 frases."],
               ["Partilhar", "Definir a visibilidade como Secreto, permitir escrita conforme orientação e copiar o link."],
               ["Publicar no Moodle", "Colocar o link no Fórum “Padlets individuais”, sem anexos."],
@@ -2346,15 +2272,15 @@ function renderActivityPage() {
     const parts = [
       {
         title: "Parte 1 - Identificação do grupo",
-        items: ["Nome do grupo", "Elementos", "Ferramenta de proteção atribuída", "Utilitário de compactação atribuído"]
+        items: ["Nome do grupo", "Elementos", "Ferramenta de proteção atribuída", "Ferramenta digital atribuído"]
       },
       {
         title: "Parte 2 - Ferramenta de proteção",
         items: ["Para que serve", "Principais funções", "Se é gratuita, paga ou tem versão gratuita", "Cuidados na instalação ou utilização"]
       },
       {
-        title: "Parte 3 - Utilitário de compactação",
-        items: ["Para que serve", "Formatos que permite utilizar", "Se permite proteger ficheiros com palavra-passe", "Cuidados ao compactar ou descompactar ficheiros"]
+        title: "Parte 3 - Ferramenta digital",
+        items: ["Para que serve", "Formatos que permite utilizar", "Se permite proteger ficheiros com palavra-passe", "Cuidados ao organizar e partilhar informação"]
       },
       {
         title: "Parte 4 - Exemplo prático",
@@ -2393,7 +2319,7 @@ function renderActivityPage() {
           <div class="section-heading task-page-heading">
             <p class="eyebrow">Evidências - Projetos finais</p>
             <h1>Kit Digital - Proteger e Organizar o Computador</h1>
-            <p class="lead">O projeto final da UFCD 0753 será desenvolvido em grupo, através de uma apresentação colaborativa no Canva.</p>
+            <p class="lead">O projeto final da UFCD 0693 será desenvolvido em grupo, através de uma apresentação colaborativa no Canva.</p>
             <div class="inline-actions">
               <a class="small-button orange" href="${canvaProjectUrl}" target="_blank" rel="noopener">Editar no Canva</a>
               <a class="small-button" href="${canvaPublicViewUrl}" target="_blank" rel="noopener">Ver apresentação</a>
@@ -2430,7 +2356,7 @@ function renderActivityPage() {
               <article class="card group-task-card">
                 <p class="eyebrow">${group}</p>
                 <h3>${protection}</h3>
-                <p>Utilitário de compactação: <strong>${compression}</strong></p>
+                <p>Ferramenta digital: <strong>${compression}</strong></p>
               </article>
             `).join("")}
           </div>
@@ -2581,14 +2507,10 @@ function renderActivityPage() {
 
   if (activity.id === "tarefas-individuais") {
     const overviewItems = [
-      "A formação está organizada em 7 dias de trabalho.",
-      "O Dia 2 não tem tarefa individual atribuída.",
-      "A numeração das TI é sequencial e considera apenas os dias com tarefa individual.",
+      "Realizar apenas as tarefas individuais indicadas pela formadora.",
       "Guardar prints, links ou reflexões no local indicado.",
       "Evitar anexos no Moodle quando a tarefa pedir apenas link ou registo."
     ];
-    const visibleRows = individualTaskTableRows.filter((task) => task.isEmptyDay || isItemVisible("tarefasIndividuais", task.title));
-    const deadlineNotes = individualTasks.filter((task) => task.deadline).map((task) => task.deadline);
 
     root.innerHTML = `
       <section class="section task-page-section">
@@ -2609,29 +2531,31 @@ function renderActivityPage() {
             </div>
           </details>
 
-          <div class="individual-task-table-wrap">
-            <table class="individual-task-table">
-              <thead>
-                <tr>
-                  <th scope="col">Nº TI</th>
-                  <th scope="col">Dia</th>
-                  <th scope="col">Descrição</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${visibleRows.map((task) => `
-                  <tr${task.isEmptyDay ? ` class="is-empty-day"` : ""}>
-                    <td>${task.number || "–"}</td>
-                    <td>${task.day}</td>
-                    <td>${task.intro}</td>
-                  </tr>
-                `).join("")}
-              </tbody>
-            </table>
-          </div>
+          <div class="task-module-list">
+            ${individualTasks.filter((task) => isItemVisible("tarefasIndividuais", task.title)).map((task, index) => `
+              <details class="task-module-card">
+                <summary>
+                  <span class="task-module-copy">
+                    <strong>${task.title}</strong>
+                    <small>${task.intro}</small>
+                  </span>
+                  <span class="task-module-mark" aria-hidden="true">TI ${index + 1}</span>
+                </summary>
 
-          <div class="individual-task-footnotes" aria-label="Prazos das tarefas individuais">
-            ${deadlineNotes.map((note) => `<p>${note}</p>`).join("")}
+                <div class="task-module-body">
+                  <div class="task-block">
+                    <strong>Orientações</strong>
+                    <ul class="clean-list task-prompt-list">
+                      ${task.prompts.map((prompt) => `<li>${prompt}</li>`).join("")}
+                    </ul>
+                  </div>
+
+                  <div class="embed-fallback resource-action-row align-right">
+                    ${obterForumUrl(task) ? `<a class="small-button orange" href="${obterForumUrl(task)}" target="_top">Abrir tarefa</a>` : ""}
+                  </div>
+                </div>
+              </details>
+            `).join("")}
           </div>
         </div>
       </section>

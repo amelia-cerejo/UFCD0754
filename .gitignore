@@ -1,23 +1,5 @@
-tmp/
 .DS_Store
 Thumbs.db
-desktop.ini
-avaliacao/
-
-# Local Netlify folder
-.netlify
-
-# Materiais herdados da UFCD 3776 mantidos apenas como referencia local
-IDENTIDADE_VISUAL_3776.md
-NOTAS_TRABALHO_3776.md
-PLANO_PRODUCAO_3776.md
-REFERENCIAL_3776.md
-assets/ficheiros/
-assets/videos/
-assets/img/ufcd3776-hero-background-v2.png
-conteudos/bd-*.html
-conteudos/folha-*.html
-recursos/assistente-folha-calculo.html
-recursos/base-dados.html
-recursos/excel-ficheiros.html
-recursos/folha-calculo.html
+*.tmp
+*.bak
+.netlify/
