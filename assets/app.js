@@ -189,13 +189,13 @@ const activities = [
   },
   {
     id: "projeto-final-apresentacao",
-    title: "Do Click ao Guardar",
-    menuTitle: "Do Click ao Guardar",
-    intro: "Área para organizar evidências individuais da UFCD 0693 no Padlet, na Drive e no Moodle.",
+    title: "Projeto Final — Do Click ao Guardar",
+    menuTitle: "Projeto Final",
+    intro: "Construção progressiva de um Padlet individual com as evidências e reflexões das Tarefas Individuais.",
     url: "atividades/projeto-final-apresentacao.html",
-    focus: "Evidências digitais",
+    focus: "Projeto Final em Padlet",
     duration: "Ao longo da UFCD",
-    product: "Padlet individual organizado como e-portefólio da formação.",
+    product: "Padlet individual em formato Colunas, organizado como Projeto Final da UFCD 0693.",
     steps: [
       {
         title: "Criar a conta Google",
@@ -211,7 +211,7 @@ const activities = [
       },
       {
         title: "Organizar evidências",
-        text: "Usar o Padlet para reunir links, reflexões e evidências relevantes das tarefas realizadas."
+        text: "Criar uma coluna por tarefa e publicar as respetivas evidências, explicações e reflexões."
       },
       {
         title: "Partilhar no Moodle",
@@ -219,7 +219,7 @@ const activities = [
       },
       {
         title: "Atualizar ao longo da formação",
-        text: "Manter o e-portefólio organizado com conteúdos sobre agenda, correio eletrónico, documentos e pesquisa web."
+        text: "Atualizar o Projeto Final ao longo da UFCD e verificar, no final, a organização e o funcionamento das ligações."
       }
     ],
     evidence: [
@@ -380,11 +380,13 @@ const glossaryUrl = "https://fad.iefp.pt/mod/glossary/view.php?id=412744";
 const individualTasks = [
   {
     id: "tarefa-individual-1",
+    pdfUrl: "assets/pdfs/TI1.pdf",
     url: "atividades/tarefas-individuais.html",
     forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55427",
     title: "TI 1 - Avaliação diagnóstica e Padlet individual",
     intro: "Avaliação diagnóstica + criação de Padlet individual (formato Colunas) com expetativas iniciais.",
     evidence: "Publica o link do Padlet no Fórum “Padlets individuais” do Moodle, sem anexos.",
+    locked: true,
     prompts: [
       "Cria ou usa uma conta Google no formato nome+numeroIEFP@gmail.com.",
       "Realiza a avaliação diagnóstica indicada pela formadora.",
@@ -397,66 +399,141 @@ const individualTasks = [
   },
   {
     id: "tarefa-individual-2",
+    pdfUrl: "assets/pdfs/TI2.pdf",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55429",
-    title: "TI 2 - Agenda eletrónica",
-    intro: "Criar uma agenda eletrónica com pelo menos 5 eventos, usando cores, print e um texto breve de reflexão.",
-    evidence: "Guarda print e texto breve de reflexão no local indicado.",
-    prompts: [
-      "Abre a ferramenta de agenda eletrónica indicada.",
-      "Cria pelo menos 5 eventos.",
-      "Define título, data, hora e descrição quando necessário.",
-      "Aplica cores e configura lembretes nos eventos mais importantes.",
-      "Faz um print da agenda e escreve um texto breve sobre a utilidade da organização criada."
-    ]
+    title: "TI 2 - Organização digital da ação na Google Drive",
+    intro: "Completar a estrutura de pastas da ação 26109, guardá-la na Google Drive e registar a organização no Padlet e no Moodle.",
+    context: [
+      "Ao longo da ação serão produzidos documentos, atividades e evidências associados a diferentes UFCD. Para evitar ficheiros dispersos ou difíceis de localizar, será utilizada uma estrutura comum de pastas.",
+      "A numeração permite manter as UFCD pela ordem em que são realizadas. A Google Drive permite guardar a estrutura na conta da formação, aceder-lhe a partir de diferentes equipamentos e continuar a mesma lógica nas UFCD seguintes."
+    ],
+    objective: "Criar e completar uma estrutura de pastas para organizar os documentos da ação 26109 e guardá-la na Google Drive pessoal.",
+    tools: ["Conta Google criada na sessão anterior", "Explorador de ficheiros", "Google Drive", "Padlet individual", "Moodle"],
+    steps: [
+      { title: "Confirmar a estrutura na Google Drive", items: ["Inicia sessão na conta Google da formação e abre a Google Drive.", "Confirma que a pasta 26109 está disponível em “O meu disco”.", "Verifica se contém 01-0753, 02-0693 e 03-0754.", "Se alguma pasta estiver em falta, cria-a antes de continuar."], code: ["26109", "├── 01-0753", "├── 02-0693", "└── 03-0754"] },
+      { title: "Organizar a pasta da UFCD atual", text: "Dentro de 02-0693, cria as subpastas abaixo. Conteúdos destina-se aos materiais disponibilizados; Atividades aos ficheiros em desenvolvimento; Evidências às versões finais e capturas.", code: ["02-0693", "├── 01-Conteúdos", "├── 02-Atividades", "└── 03-Evidências"] },
+      { title: "Acrescentar um ficheiro", items: ["Escolhe um ficheiro relacionado com a formação.", "Confirma se o nome identifica o conteúdo e, se necessário, renomeia-o.", "Coloca-o na subpasta adequada e confirma que abre corretamente na Google Drive."] }
+    ],
+    expected: ["Pasta 26109 disponível na conta Google correta.", "Pastas 01-0753, 02-0693 e 03-0754.", "Subpastas Conteúdos, Atividades e Evidências dentro de 02-0693.", "Pelo menos um ficheiro colocado na subpasta adequada."],
+    files: ["Faz uma captura da pasta 26109 e outra do interior de 02-0693.", "Oculta ficheiros pessoais ou outros dados privados.", "Guarda em 26109/02-0693/03-Evidências.", "Nomes sugeridos: TI2_Estrutura_Acao_Nome.png e TI2_Pasta_0693_Nome.png."],
+    padlet: { column: "TI 2 — Organização digital da ação", post: "Organização da minha Google Drive", items: ["Inclui uma ou duas capturas.", "Explica a lógica de organização e a utilidade da numeração.", "Indica a vantagem de guardar a pasta na Drive.", "Refere como poderás continuar a estrutura nas próximas UFCD.", "Escreve aproximadamente 100 a 150 palavras."] },
+    moodle: "No Fórum da TI 2, confirma a realização e indica que estrutura criaste, que subpastas acrescentaste, onde guardaste a pasta, qual foi a principal vantagem e se sentiste alguma dificuldade. Termina com a ligação para o Padlet. Não anexes ficheiros.",
+    checklist: ["A pasta 26109 está na conta Google correta.", "As três pastas das UFCD estão criadas.", "02-0693 contém as três subpastas.", "Existe pelo menos um ficheiro na subpasta adequada.", "As capturas estão guardadas em 03-Evidências.", "A coluna e o post da TI 2 estão no Padlet.", "A resposta foi publicada no Moodle e a ligação funciona."]
   },
   {
     id: "tarefa-individual-3",
+    pdfUrl: "assets/pdfs/TI3.pdf",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55430",
-    title: "TI 3 - Simular mensagem profissional",
-    intro: "Simular uma mensagem profissional em rascunho ou envio-teste.",
-    evidence: "Guarda print no local indicado.",
-    prompts: [
-      "Cria uma mensagem de correio eletrónico com destinatário, assunto e corpo de texto profissional.",
-      "Usa uma saudação adequada e linguagem clara.",
-      "Inclui anexo apenas se for solicitado.",
-      "Guarda a mensagem como rascunho ou faz um envio de teste, conforme orientação da formadora.",
-      "Faz um print que comprove a tarefa realizada."
-    ]
+    title: "TI 3 - Organização da formação no Google Calendar",
+    intro: "Criar um calendário para a ação, registar eventos e tarefas, configurar notificações e associar um ficheiro da Google Drive.",
+    context: ["Uma agenda eletrónica permite reunir compromissos, tarefas, prazos e documentos num único espaço. Nesta tarefa, o Google Calendar será utilizado para organizar a formação e será ligado à estrutura criada na Google Drive."],
+    objective: "Criar um calendário para a ação 26109, registar eventos e tarefas, configurar notificações e associar um ficheiro da Google Drive a um evento.",
+    tools: ["Conta Google da formação", "Google Calendar", "Google Drive com a pasta 26109/02-0693", "Padlet individual", "Moodle"],
+    preparation: ["Confirma que estás na conta Google correta.", "Verifica se existe pelo menos um ficheiro em 26109/02-0693.", "Evita utilizar compromissos pessoais reais nas capturas."],
+    steps: [
+      { title: "Criar o calendário", items: ["Cria um novo calendário com o nome Ação 26109.", "Adiciona uma descrição relacionada com as sessões, tarefas e compromissos da ação.", "Escolhe uma cor para identificar os eventos da formação."] },
+      { title: "Criar os eventos", text: "Cria pelo menos cinco eventos relacionados com a formação: sessão, realização de uma TI, revisão de conteúdos, organização de evidências ou verificação do Moodle.", items: ["Preenche título, data, hora e descrição.", "Indica “On-line” quando adequado.", "Aplica a cor do calendário da ação.", "Configura uma notificação em pelo menos dois eventos."] },
+      { title: "Explorar funcionalidades", items: ["Cria um evento recorrente, se o horário o permitir.", "Edita um evento depois de o guardar e altera a data ou a hora.", "Cria uma tarefa com prazo e experimenta marcá-la como concluída."] },
+      { title: "Associar um ficheiro da Drive", items: ["Abre um evento e seleciona Editar ou Mais opções.", "Na área da descrição, adiciona um anexo da Google Drive.", "Abre 26109/02-0693, seleciona um ficheiro e guarda o evento.", "Confirma que o ficheiro abre a partir do Calendar."] }
+    ],
+    note: "Se o evento não tiver convidados, o ficheiro mantém-se privado. Antes de publicar capturas, oculta eventos pessoais, endereços e outros dados privados.",
+    expected: ["Calendário Ação 26109 criado e identificado por uma cor.", "Pelo menos cinco eventos.", "Notificações configuradas.", "Um evento recorrente e uma tarefa.", "Um ficheiro da Drive associado a um evento."],
+    files: ["Captura 1: vista do calendário com os eventos.", "Captura 2: detalhe de um evento com descrição, notificação e ficheiro associado.", "Guarda em 26109/02-0693/03-Evidências com nomes TI3_Calendario_Nome.png e TI3_Evento_Drive_Nome.png."],
+    padlet: { column: "TI 3 — Agenda eletrónica", post: "Organização da formação no Google Calendar", items: ["Inclui as duas capturas.", "Explica como organizaste os eventos.", "Refere a utilidade das cores e notificações.", "Distingue evento de tarefa.", "Explica a vantagem de associar um ficheiro da Drive.", "Escreve aproximadamente 100 a 150 palavras."] },
+    moodle: "Confirma que criaste o calendário, os eventos, as notificações, a tarefa e a associação à Drive. Indica a funcionalidade mais útil e acrescenta a ligação para o Padlet. Não anexes ficheiros.",
+    checklist: ["O calendário Ação 26109 foi criado.", "Existem pelo menos cinco eventos.", "Foram configuradas notificações.", "Existe um evento recorrente e uma tarefa.", "Um ficheiro da Drive está associado a um evento.", "As capturas não mostram dados privados.", "A coluna da TI 3 e o registo no Moodle estão completos."]
   },
   {
     id: "tarefa-individual-4",
+    pdfUrl: "assets/pdfs/TI4.pdf",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55431",
-    title: "TI 4 - Caixa de correio e pesquisa avançada",
-    intro: "Organizar a caixa de correio e realizar um exercício de pesquisa avançada, integrando os prints no Padlet.",
-    evidence: "Integra os prints principais no Padlet individual.",
-    prompts: [
-      "Cria pelo menos 5 pastas na caixa de correio.",
-      "Organiza mensagens ou exemplos de mensagens pelas pastas criadas.",
-      "Cria pelo menos 2 regras automáticas simples.",
-      "Realiza pelo menos 3 pesquisas com operadores ou filtros.",
-      "Regista expressões usadas, fontes consultadas e avaliação de fiabilidade.",
-      "Integra os prints principais no teu Padlet individual."
-    ]
+    title: "TI 4 - Comunicação profissional através do Gmail",
+    intro: "Enviar uma mensagem profissional a um/a colega do grupo, partilhar um ficheiro da Drive, receber uma mensagem e responder.",
+    context: ["O correio eletrónico é uma ferramenta de comunicação profissional. Cada formando/a envia uma mensagem a um/a colega do grupo, recebe uma mensagem de outro/a colega e responde a confirmar a receção."],
+    objective: "Criar, enviar, receber e responder a uma mensagem profissional, confirmando o destinatário, o assunto, o conteúdo e o acesso ao ficheiro partilhado.",
+    tools: ["Gmail da conta Google da formação", "Google Drive", "Ficheiro em 26109/02-0693/03-Evidências", "Padlet individual", "Moodle"],
+    preparation: ["A formadora organiza o envio em cadeia dentro de cada grupo, garantindo que todos enviam e recebem uma mensagem.", "Confirma o endereço do/a colega antes de escrever.", "Seleciona uma evidência da TI 2 ou TI 3 e verifica se não contém dados pessoais visíveis."],
+    steps: [
+      { title: "Criar a mensagem", items: ["No Gmail, escolhe Compor e introduz o endereço confirmado do/a colega.", "Usa o assunto: Ação 26109 | TI 4 — Partilha de evidência.", "Inclui saudação, enquadramento, indicação do ficheiro, pedido de confirmação, despedida e nome."] },
+      { title: "Inserir o ficheiro da Google Drive", items: ["Seleciona Inserir ficheiros com o Drive.", "Abre 26109/02-0693/03-Evidências e escolhe o ficheiro.", "Insere como ligação da Drive ou anexo, conforme a opção disponível.", "Confirma as permissões, se surgir um aviso."] },
+      { title: "Verificar e enviar", items: ["Confirma o endereço, o assunto, a clareza da mensagem, o nome do ficheiro e a presença do anexo ou ligação.", "Envia e verifica a mensagem na pasta Enviados."] },
+      { title: "Receber e responder", items: ["Abre a mensagem recebida de outro/a colega do grupo.", "Confirma se o ficheiro pode ser aberto.", "Responde a confirmar a receção e o acesso ao ficheiro."] },
+      { title: "Conhecer CC e CCO", text: "A formadora demonstra a diferença entre CC e CCO. A exploração pode ser feita numa mensagem guardada como rascunho, sem necessidade de enviar endereços adicionais." }
+    ],
+    note: "Modelo orientador: “Olá, [nome]. No âmbito da TI 4 da ação 26109, envio uma evidência de uma atividade realizada na UFCD 0693. Agradeço que confirmes a receção e indiques se conseguiste abrir o ficheiro. Com os melhores cumprimentos, [nome].” O texto deve ser adaptado.",
+    files: ["Captura da mensagem na pasta Enviados.", "Captura da resposta recebida.", "Oculta endereços e outros dados pessoais.", "Guarda em 26109/02-0693/03-Evidências."],
+    padlet: { column: "TI 4 — Comunicação profissional", post: "Envio e receção de uma mensagem profissional", items: ["Inclui as capturas tratadas.", "Explica os cuidados aplicados antes do envio.", "Refere a diferença entre anexo e ligação da Drive.", "Indica a utilidade do assunto e da confirmação da receção.", "Regista a principal aprendizagem ou dificuldade."] },
+    moodle: "Confirma que enviaste, recebeste e respondeste a uma mensagem profissional e que partilhaste um ficheiro da Drive. Acrescenta uma breve aprendizagem e a ligação para o Padlet, sem anexos.",
+    checklist: ["O destinatário pertence ao grupo e foi confirmado.", "A mensagem tem assunto e estrutura profissional.", "O ficheiro foi inserido a partir da Drive.", "A mensagem aparece em Enviados.", "A mensagem recebida e o ficheiro foram verificados.", "Foi enviada uma resposta de confirmação.", "Os dados pessoais foram ocultados nas capturas.", "Padlet e Moodle estão atualizados."]
   },
   {
     id: "tarefa-individual-5",
+    pdfUrl: "assets/pdfs/TI5.pdf",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55432",
-    title: "TI 5 - Autoavaliação e reflexão final",
-    intro: "Realizar a autoavaliação final e publicar a reflexão final no Fórum.",
-    evidence: "Submete o formulário/documento indicado no Moodle e publica a reflexão final no Fórum.",
-    prompts: [
-      "Preenche a autoavaliação final indicada pela formadora.",
-      "Escreve uma reflexão final curta e objetiva.",
-      "Refere o que aprendeste sobre correio eletrónico, organização digital e pesquisa na web.",
-      "Indica uma dificuldade sentida e uma estratégia usada para a ultrapassar.",
-      "Explica como podes aplicar estas competências no dia a dia."
-    ]
+    title: "TI 5 - Gestão da caixa de correio no Gmail",
+    intro: "Organizar e gerir as mensagens da TI 4 com etiquetas, filtro, arquivo, reencaminhamento, eliminação e recuperação.",
+    context: ["Depois de criar, enviar e receber mensagens, é necessário organizar a caixa de correio. As mensagens da TI 4 serão utilizadas para experimentar as principais operações de gestão."],
+    objective: "Aplicar procedimentos de organização e gestão de mensagens no Gmail, utilizando exemplos produzidos durante a formação.",
+    tools: ["Gmail da conta da formação", "Mensagens da TI 4", "Google Drive", "Padlet individual", "Moodle"],
+    steps: [
+      { title: "Criar etiquetas", items: ["Cria a etiqueta principal 26109.", "Dentro dela, cria a etiqueta subordinada 02-0693.", "Aplica 02-0693 às mensagens enviadas e recebidas na TI 4."], code: ["26109", "└── 02-0693"] },
+      { title: "Destacar uma mensagem", items: ["Seleciona uma mensagem da TI 4.", "Marca-a com estrela e confirma que aparece em Com estrela."] },
+      { title: "Criar um filtro", items: ["Cria um filtro pelo assunto Ação 26109 ou TI 4, ou pelo endereço de um/a colega do grupo.", "Configura-o para aplicar automaticamente a etiqueta 02-0693.", "Seleciona Nunca marcar como spam, se a opção estiver disponível."] },
+      { title: "Arquivar e localizar", items: ["Arquiva uma mensagem da TI 4.", "Confirma que sai da caixa de entrada.", "Localiza-a através da etiqueta ou pesquisa e volta a colocá-la na caixa de entrada."] },
+      { title: "Reencaminhar", text: "Reencaminha uma mensagem da TI 4 para outro/a colega do grupo. Antes do conteúdo reencaminhado, explica que se trata de uma demonstração da TI 5 e que não é necessária ação adicional." },
+      { title: "Eliminar e recuperar", items: ["Cria ou utiliza uma mensagem de teste sem informação importante.", "Envia-a para o Lixo.", "Abre o Lixo, recupera a mensagem e confirma onde ficou disponível.", "Se adequado, elimina-a definitivamente no final."] }
+    ],
+    note: "Não utilizes mensagens pessoais, importantes ou com informação confidencial para demonstrar eliminação e recuperação.",
+    expected: ["Etiquetas 26109 e 02-0693.", "Mensagens classificadas.", "Um filtro automático.", "Uma mensagem destacada.", "Procedimentos de arquivo, localização, reencaminhamento, eliminação e recuperação realizados."],
+    files: ["Captura das etiquetas e mensagens organizadas.", "Captura das condições e ações do filtro, sem expor endereços.", "Breve registo dos procedimentos realizados.", "Guarda em 26109/02-0693/03-Evidências."],
+    padlet: { column: "TI 5 — Gestão da caixa de correio", post: "Organização da minha caixa de correio", items: ["Inclui as capturas necessárias.", "Explica a utilidade das etiquetas e do filtro.", "Descreve como localizaste uma mensagem arquivada.", "Indica os cuidados antes de eliminar ou reencaminhar mensagens."] },
+    moodle: "Confirma que criaste etiquetas e filtro e que praticaste arquivo, reencaminhamento, eliminação e recuperação. Indica a funcionalidade mais útil e acrescenta a ligação para o Padlet, sem anexos.",
+    checklist: ["As etiquetas estão criadas e aplicadas.", "O filtro tem critérios e ações corretos.", "Uma mensagem foi marcada com estrela.", "O arquivo e a localização foram testados.", "O reencaminhamento inclui contexto.", "A eliminação foi feita apenas com mensagem de teste.", "As capturas protegem os dados pessoais.", "Padlet e Moodle estão atualizados."]
+  },
+  {
+    id: "tarefa-individual-6",
+    pdfUrl: "assets/pdfs/TI6.pdf",
+    url: "atividades/tarefas-individuais.html",
+    title: "TI 6 - Pesquisa avançada e validação da informação",
+    intro: "Realizar pesquisas avançadas, comparar resultados, selecionar fontes e justificar a avaliação da sua fiabilidade.",
+    context: ["Pesquisar não é apenas escrever palavras num motor de pesquisa. É necessário formular expressões adequadas, usar operadores, comparar resultados e avaliar se as fontes são atuais, pertinentes e fiáveis."],
+    objective: "Realizar pesquisas avançadas, registar as estratégias utilizadas, selecionar fontes relevantes e justificar a avaliação da sua fiabilidade.",
+    tools: ["Conta Google da formação", "Motor de pesquisa Google", "Google Docs", "Google Drive", "Padlet individual", "Moodle"],
+    steps: [
+      { title: "Criar o documento de trabalho", items: ["Abre 26109/02-0693/02-Atividades.", "Cria um Documento Google com o nome TI6_Pesquisa_Avancada_Nome.", "Inclui tema, expressões, fontes, avaliação da fiabilidade e conclusão."] },
+      { title: "Escolher um tema", text: "Escolhe um tema relacionado com segurança no correio eletrónico, phishing, organização digital, armazenamento na nuvem, proteção de dados ou utilização profissional da Google Drive." },
+      { title: "Realizar as pesquisas", text: "Realiza pelo menos três pesquisas, usando operadores ou estratégias diferentes, e compara uma pesquisa simples com outra mais restrita.", code: ["“identificar phishing”", "“identificar phishing” site:cncs.gov.pt", "phishing filetype:pdf"] },
+      { title: "Registar e avaliar as fontes", text: "Para cada pesquisa, regista expressão, título e ligação, entidade ou autor, data, informação relevante e motivo pelo qual a fonte parece fiável ou pouco fiável.", items: ["Autoria ou entidade responsável.", "Atualidade da informação.", "Objetivo e possível intenção da página.", "Existência de referências.", "Coerência com outras fontes credíveis.", "Pertinência para o tema."] },
+      { title: "Escrever a conclusão", text: "Escreve 100 a 150 palavras sobre a pesquisa mais útil, o operador que mais ajudou, os critérios de fiabilidade e os cuidados antes de utilizar ou partilhar informação." },
+      { title: "Guardar a evidência", items: ["Confirma que o Documento Google está em 26109/02-0693/02-Atividades.", "Transfere ou guarda uma cópia em PDF.", "Coloca o PDF em 26109/02-0693/03-Evidências com o nome TI6_Pesquisa_Avancada_Nome.pdf."] }
+    ],
+    padlet: { column: "TI 6 — Pesquisa avançada", post: "Pesquisa e validação da informação", items: ["Inclui uma captura do Documento Google.", "Regista as três expressões.", "Apresenta as fontes selecionadas e uma breve avaliação.", "Inclui a conclusão.", "Adiciona a ligação para o documento apenas se as permissões estiverem corretas."] },
+    moodle: "Indica o tema, as estratégias utilizadas, a principal diferença entre pesquisa simples e avançada e o critério de fiabilidade mais importante. Acrescenta a ligação para o Padlet, sem anexos.",
+    checklist: ["O Documento Google está em 02-Atividades.", "Foram realizadas pelo menos três pesquisas.", "As expressões e fontes estão registadas.", "A fiabilidade foi justificada.", "A conclusão tem 100 a 150 palavras.", "O PDF está em 03-Evidências.", "As permissões foram verificadas.", "Padlet e Moodle estão atualizados."]
+  },
+  {
+    id: "tarefa-individual-7",
+    pdfUrl: "assets/pdfs/TI7.pdf",
+    url: "atividades/tarefas-individuais.html",
+    title: "TI 7 - Autoavaliação, reflexão final e organização das evidências",
+    intro: "Rever o percurso, concluir o Projeto Final, realizar as avaliações finais e refletir sobre as aprendizagens.",
+    context: ["A última tarefa permite rever o percurso, avaliar as aprendizagens e concluir o Projeto Final. Antes da reflexão, é necessário confirmar que a Google Drive e o Padlet estão organizados e que as evidências podem ser consultadas."],
+    objective: "Realizar a autoavaliação, organizar as evidências finais e refletir sobre as competências desenvolvidas e a sua aplicação no dia a dia.",
+    tools: ["Google Drive", "Padlet individual", "Moodle", "Instrumento de autoavaliação final", "Avaliação da formação"],
+    steps: [
+      { title: "Rever a Google Drive", items: ["Abre 26109/02-0693.", "Confirma as subpastas Conteúdos, Atividades e Evidências.", "Verifica os nomes dos ficheiros e elimina duplicações desnecessárias.", "Confirma que os ficheiros finais abrem."] },
+      { title: "Rever o Padlet", items: ["Confirma que existe uma coluna para cada TI.", "Verifica se cada coluna contém evidência, explicação e reflexão.", "Corrige títulos, imagens ilegíveis, ligações e dados pessoais visíveis.", "Ordena as colunas pela sequência das tarefas."] },
+      { title: "Realizar as avaliações finais", items: ["Preenche a autoavaliação final indicada pela formadora.", "Preenche a avaliação da formação.", "Confirma a submissão antes de fechar cada formulário."] },
+      { title: "Escrever a reflexão final", text: "Escreve uma reflexão curta, clara e pessoal.", items: ["O que aprendeste sobre organização digital, agenda, correio eletrónico e pesquisa?", "Que tarefa foi mais útil e porquê?", "Que dificuldade sentiste e como a ultrapassaste?", "Como aplicarás estas competências?", "Que competência gostarias de continuar a desenvolver?"] },
+      { title: "Concluir e verificar a partilha", items: ["Publica a reflexão na coluna TI 7.", "Confirma que a ligação geral do Padlet funciona numa janela privada ou noutro navegador.", "Mantém o Padlet disponível para futura partilha no e-portefólio da ação."] }
+    ],
+    expected: ["Padlet completo e organizado.", "Reflexão final publicada.", "Autoavaliação e avaliação da formação submetidas.", "Ligação funcional registada no Moodle."],
+    padlet: { column: "TI 7 — Autoavaliação e reflexão final", post: "Reflexão final", items: ["Inclui a reflexão final.", "Confirma a organização das restantes colunas.", "Verifica imagens, textos, ligações e proteção de dados pessoais."] },
+    moodle: "Publica a reflexão final no Fórum indicado ou, se existir um espaço específico, confirma a conclusão e acrescenta a ligação para o Padlet. Não anexes novamente as evidências já organizadas no Projeto Final.",
+    checklist: ["A pasta 02-0693 está organizada.", "Todos os ficheiros finais abrem.", "Existe uma coluna do Padlet para cada TI.", "As evidências estão legíveis e sem dados pessoais.", "As reflexões estão completas.", "A autoavaliação foi submetida.", "A avaliação da formação foi submetida.", "A reflexão final foi publicada.", "A ligação para o Padlet funciona."]
   }
 ];
+
 const resources = [
   {
     id: "manual",
@@ -1049,22 +1126,21 @@ function setupModals() {
     document.body.classList.remove("modal-open");
   };
 
-  document.querySelectorAll("[data-modal-open]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const modal = document.getElementById(button.dataset.modalOpen);
+  document.addEventListener("click", (event) => {
+    const opener = event.target.closest("[data-modal-open]");
+    if (opener) {
+      const modal = document.getElementById(opener.dataset.modalOpen);
       if (!modal) return;
       modal.hidden = false;
       document.body.classList.add("modal-open");
       modal.querySelector("[data-modal-close]")?.focus();
-    });
-  });
+      return;
+    }
 
-  document.querySelectorAll(".modal-backdrop").forEach((modal) => {
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal || event.target.closest("[data-modal-close]")) {
-        closeModal(modal);
-      }
-    });
+    const modal = event.target.closest(".modal-backdrop");
+    if (modal && (event.target === modal || event.target.closest("[data-modal-close]"))) {
+      closeModal(modal);
+    }
   });
 
   document.addEventListener("keydown", (event) => {
@@ -2191,13 +2267,23 @@ function renderActivityPage() {
   }
 
   if (activity.id === "projeto-final-apresentacao") {
+    const projectColumns = [
+      ["TI 1 — Apresentação e expetativas", "Criação do Padlet, apresentação inicial e expetativas em relação à formação."],
+      ["TI 2 — Organização digital da ação", "Estrutura de pastas criada na Google Drive e reflexão sobre os critérios de organização."],
+      ["TI 3 — Agenda eletrónica", "Eventos, tarefas, notificações e ligação entre o Google Calendar e a Google Drive."],
+      ["TI 4 — Comunicação profissional", "Envio, receção e resposta a uma mensagem profissional através do Gmail."],
+      ["TI 5 — Gestão da caixa de correio", "Etiquetas, filtro, arquivo, reencaminhamento, eliminação e recuperação de mensagens."],
+      ["TI 6 — Pesquisa avançada", "Expressões de pesquisa, fontes consultadas e avaliação da fiabilidade da informação."],
+      ["TI 7 — Autoavaliação e reflexão final", "Autoavaliação, síntese das aprendizagens, dificuldades, estratégias e aplicação das competências."]
+    ];
+
     root.innerHTML = `
       <section class="section task-page-section">
         <div class="section-inner">
           <div class="section-heading task-page-heading">
-            <p class="eyebrow">Evidências digitais</p>
-            <h1>Padlet Final: Do Click ao Guardar</h1>
-            <p class="lead">O Padlet individual reúne expetativas, reflexões e evidências das tarefas da UFCD 0693.</p>
+            <p class="eyebrow">Projeto Final</p>
+            <h1>Do Click ao Guardar</h1>
+            <p class="lead">O Projeto Final consiste na construção progressiva de um Padlet individual com as evidências e reflexões das Tarefas Individuais realizadas ao longo da UFCD 0693.</p>
           </div>
 
           <div class="activity-meta-grid">
@@ -2206,33 +2292,45 @@ function renderActivityPage() {
               <h3>Padlet em Colunas</h3>
             </article>
             <article class="card activity-meta-card">
-              <p class="eyebrow">Entrega</p>
-              <h3>Link no Moodle</h3>
+              <p class="eyebrow">Desenvolvimento</p>
+              <h3>Ao longo da UFCD</h3>
+            </article>
+            <article class="card activity-meta-card">
+              <p class="eyebrow">Registo</p>
+              <h3>Ligação no Moodle</h3>
             </article>
           </div>
 
           <article class="card activity-card">
             <p class="eyebrow">Objetivo</p>
-            <h2>Construir um e-portefólio simples e organizado</h2>
-            <p>Cada formando cria o seu Padlet individual, começa por registar as expetativas iniciais e vai atualizando o espaço com evidências relevantes da formação.</p>
+            <h2>Construir um registo digital organizado das atividades realizadas</h2>
+            <p>Cada Tarefa Individual corresponde a uma coluna do Padlet. Nessa coluna devem ser publicadas as evidências solicitadas, uma breve explicação do trabalho e uma reflexão sobre a aprendizagem realizada.</p>
+            <p>O Padlet completo constitui o Projeto Final da UFCD 0693.</p>
             <div class="presentation-strip">
-              <span>Padlet</span>
-              <span>Drive</span>
-              <span>Moodle</span>
-              <span>Correio eletrónico</span>
+              <span>Google Drive</span>
+              <span>Google Calendar</span>
+              <span>Gmail</span>
               <span>Pesquisa web</span>
+              <span>Padlet</span>
+              <span>Moodle</span>
             </div>
           </article>
 
+          <details class="task-overview-card" open>
+            <summary>
+              <span class="task-module-copy">
+                <strong>Estrutura do Padlet</strong>
+                <small>Uma coluna própria para cada Tarefa Individual.</small>
+              </span>
+              <span class="task-module-mark" aria-hidden="true">PADLET</span>
+            </summary>
+            <div class="task-module-body">
+              <p>O Padlet deve ter uma coluna identificada para cada Tarefa Individual, da TI 1 à TI 7. A primeira coluna reúne a apresentação inicial e as expetativas; a última reúne a autoavaliação e a reflexão final.</p>
+            </div>
+          </details>
+
           <div class="task-module-list">
-            ${[
-              ["Criar a conta Google", "Criar ou usar uma conta Google no formato nome+numeroIEFP@gmail.com."],
-              ["Criar o Padlet", "Usar o formato Colunas e definir o título nomeNºIefp."],
-              ["Registar expetativas", "Criar a coluna Expectativas e escrever um primeiro post com 3 a 5 frases."],
-              ["Partilhar", "Definir a visibilidade como Secreto, permitir escrita conforme orientação e copiar o link."],
-              ["Publicar no Moodle", "Colocar o link no Fórum “Padlets individuais”, sem anexos."],
-              ["Atualizar", "Acrescentar evidências ou reflexões ao longo da UFCD, mantendo a organização por temas."]
-            ].map(([title, text], index) => `
+            ${projectColumns.map(([title, text], index) => `
               <details class="task-module-card" ${index === 0 ? "open" : ""}>
                 <summary>
                   <span class="task-module-copy">
@@ -2250,197 +2348,51 @@ function renderActivityPage() {
 
           <div class="activity-output-grid">
             <article class="card">
-              <p class="eyebrow">Evidência</p>
-              <h3>Link funcional</h3>
-              <p>O principal comprovativo desta tarefa é o link do Padlet individual publicado no espaço indicado no Moodle.</p>
+              <p class="eyebrow">Em cada coluna</p>
+              <h3>Evidência, explicação e reflexão</h3>
+              <ul class="clean-list task-prompt-list">
+                <li>Título da tarefa.</li>
+                <li>Breve explicação do trabalho realizado.</li>
+                <li>Capturas de ecrã ou outras evidências solicitadas.</li>
+                <li>Ferramentas utilizadas.</li>
+                <li>Principal aprendizagem e dificuldade sentida, quando aplicável.</li>
+                <li>Proteção dos dados pessoais antes da publicação.</li>
+              </ul>
             </article>
 
             <article class="card">
-              <p class="eyebrow">Organização</p>
-              <h3>Colunas claras</h3>
-              <p>O Padlet deve ser fácil de consultar, com colunas para expetativas, recursos, tarefas e reflexões.</p>
+              <p class="eyebrow">Google Drive</p>
+              <h3>Organização dos ficheiros</h3>
+              <p>Os ficheiros da UFCD devem ser guardados em <strong>26109/02-0693</strong>, usando as subpastas Conteúdos, Atividades e Evidências.</p>
+              <p>A Google Drive guarda os ficheiros; o Padlet apresenta as evidências selecionadas e as respetivas reflexões.</p>
             </article>
-          </div>
-        </div>
-      </section>
-    `;
-    return;
-    const canvaProjectUrl = "https://canva.link/xa3t3x7nr5e2zjy";
-    const canvaPublicViewUrl = "https://www.canva.com/design/DAHOIEh8aTM/4ZHlPi_vNdMBvMpgXyrgPg/view";
-    const canvaEmbeddedPageUrl = `${getBasePath()}atividades/apresentacao-kit-digital.html`;
-    const groups = [
-      ["Grupo 1", "Microsoft Defender", "ZIP do Windows"],
-      ["Grupo 2", "Avast Free Antivirus", "7-Zip"],
-      ["Grupo 3", "Malwarebytes", "WinRAR"],
-      ["Grupo 4", "AVG AntiVirus Free", "PeaZip"]
-    ];
 
-    const parts = [
-      {
-        title: "Parte 1 - Identificação do grupo",
-        items: ["Nome do grupo", "Elementos", "Ferramenta de proteção atribuída", "Ferramenta digital atribuído"]
-      },
-      {
-        title: "Parte 2 - Ferramenta de proteção",
-        items: ["Para que serve", "Principais funções", "Se é gratuita, paga ou tem versão gratuita", "Cuidados na instalação ou utilização"]
-      },
-      {
-        title: "Parte 3 - Ferramenta digital",
-        items: ["Para que serve", "Formatos que permite utilizar", "Se permite proteger ficheiros com palavra-passe", "Cuidados ao organizar e partilhar informação"]
-      },
-      {
-        title: "Parte 4 - Exemplo prático",
-        items: ["Passos principais", "Imagens ou capturas de ecrã", "Cuidados importantes", "Situações em que a ferramenta pode ser útil"]
-      },
-      {
-        title: "Parte 5 - Conclusão do grupo",
-        items: ["Principais vantagens", "Possíveis limitações", "Situações em que recomendaria a utilização", "Conselho final para os colegas"]
-      }
-    ];
-
-    const peerEvaluation = [
-      "Clareza da explicação",
-      "Organização da informação",
-      "Qualidade dos exemplos apresentados",
-      "Participação dos elementos do grupo",
-      "Utilidade das conclusões",
-      "Apresentação visual dos slides"
-    ];
-
-    const recommendations = [
-      "Usar frases curtas.",
-      "Evitar copiar textos longos da Internet.",
-      "Explicar com palavras simples.",
-      "Incluir exemplos práticos.",
-      "Usar imagens, ícones ou capturas de ecrã quando fizer sentido.",
-      "Manter os slides limpos e legíveis.",
-      "Preparar a apresentação oral antes da sessão.",
-      "Respeitar o tempo definido.",
-      "Garantir que todos os elementos participam."
-    ];
-
-    root.innerHTML = `
-      <section class="section task-page-section">
-        <div class="section-inner">
-          <div class="section-heading task-page-heading">
-            <p class="eyebrow">Evidências - Projetos finais</p>
-            <h1>Kit Digital - Proteger e Organizar o Computador</h1>
-            <p class="lead">O projeto final da UFCD 0693 será desenvolvido em grupo, através de uma apresentação colaborativa no Canva.</p>
-            <div class="inline-actions">
-              <a class="small-button orange" href="${canvaProjectUrl}" target="_blank" rel="noopener">Editar no Canva</a>
-              <a class="small-button" href="${canvaPublicViewUrl}" target="_blank" rel="noopener">Ver apresentação</a>
-              <a class="small-button" href="${canvaEmbeddedPageUrl}">Apresentação incorporada</a>
-            </div>
-          </div>
-
-          <div class="activity-meta-grid">
-            <article class="card activity-meta-card">
-              <p class="eyebrow">Formato</p>
-              <h3>Apresentação única da turma</h3>
-            </article>
-            <article class="card activity-meta-card">
-              <p class="eyebrow">Tempo</p>
-              <h3>7 a 10 minutos por grupo</h3>
+            <article class="card">
+              <p class="eyebrow">Moodle</p>
+              <h3>Registo de cada tarefa</h3>
+              <p>Depois de cada TI, publicar no Fórum correspondente uma confirmação da realização, uma breve síntese, a principal aprendizagem e a ligação para o Padlet, sem anexos.</p>
             </article>
           </div>
 
           <article class="card activity-card">
-            <p class="eyebrow">Objetivo</p>
-            <h2>Aplicar os conteúdos trabalhados na UFCD</h2>
-            <p>Todos os grupos trabalham no mesmo ficheiro Canva. A ideia é construir um trabalho conjunto, organizado por partes, onde cada grupo contribui para os mesmos temas a partir das ferramentas que lhe foram atribuídas.</p>
-            <div class="presentation-strip">
-              <span>Windows</span>
-              <span>Segurança informática</span>
-              <span>Antivírus</span>
-              <span>Compactação</span>
-              <span>Boas práticas</span>
-            </div>
+            <p class="eyebrow">Verificação final</p>
+            <h2>Confirmar antes de concluir</h2>
+            <ul class="clean-list task-prompt-list">
+              <li>Todas as colunas previstas estão criadas.</li>
+              <li>As evidências estão organizadas na coluna correta.</li>
+              <li>As imagens e os textos são legíveis.</li>
+              <li>Não existem dados pessoais visíveis.</li>
+              <li>As reflexões estão completas.</li>
+              <li>A ligação publicada no Moodle funciona.</li>
+              <li>O Padlet apresenta uma organização visual coerente.</li>
+            </ul>
           </article>
 
-          <div class="slide-grid two-columns">
-            ${groups.map(([group, protection, compression]) => `
-              <article class="card group-task-card">
-                <p class="eyebrow">${group}</p>
-                <h3>${protection}</h3>
-                <p>Ferramenta digital: <strong>${compression}</strong></p>
-              </article>
-            `).join("")}
-          </div>
-
-          <details class="task-overview-card" open>
-            <summary>
-              <span class="task-module-copy">
-                <strong>Como será construída a apresentação</strong>
-                <small>Em cada parte, todos os grupos dão a sua contribuição. Cada grupo completa apenas os slides que lhe forem atribuídos.</small>
-              </span>
-              <span class="task-module-mark" aria-hidden="true">CANVA</span>
-            </summary>
-            <div class="task-module-body">
-              <p>A apresentação final deve ficar dinâmica, colaborativa e próxima de um trabalho único da turma.</p>
-              <ul class="moodle-like-list">
-                <li>A formadora partilha o ficheiro Canva colaborativo.</li>
-                <li>Cada grupo identifica os slides que lhe pertencem.</li>
-                <li>O texto deve ser curto, claro e acompanhado de exemplos práticos.</li>
-                <li>A apresentação oral será feita pela ordem dos slides no Canva.</li>
-              </ul>
-            </div>
-          </details>
-
-          <div class="task-module-list">
-            ${parts.map((part, index) => `
-              <details class="task-module-card">
-                <summary>
-                  <span class="task-module-copy">
-                    <strong>${part.title}</strong>
-                    <small>Conteúdos que cada grupo deve preparar nesta parte.</small>
-                  </span>
-                  <span class="task-module-mark" aria-hidden="true">${index + 1}</span>
-                </summary>
-                <div class="task-module-body">
-                  <ul class="clean-list task-prompt-list">
-                    ${part.items.map((item) => `<li>${item}</li>`).join("")}
-                  </ul>
-                </div>
-              </details>
-            `).join("")}
-          </div>
-
-          <div class="activity-output-grid">
-            <article class="card">
-              <p class="eyebrow">Apresentação oral</p>
-              <h3>Participação de todos</h3>
-              <p>Todos os elementos do grupo devem participar oralmente. Podem dividir a apresentação como considerarem mais adequado, mas cada elemento deve contribuir em algum momento.</p>
-            </article>
-
-            <article class="card">
-              <p class="eyebrow">Entrega</p>
-              <h3>Canva e Moodle</h3>
-              <p>O trabalho será desenvolvido no ficheiro Canva colaborativo partilhado pela formadora. Para apresentação e consulta, deve ser usado o link público de visualização.</p>
-              <div class="inline-actions">
-                <a class="small-button orange" href="${canvaProjectUrl}" target="_blank" rel="noopener">Editar no Canva</a>
-                <a class="small-button" href="${canvaPublicViewUrl}" target="_blank" rel="noopener">Abrir visualização pública</a>
-                <a class="small-button" href="${canvaEmbeddedPageUrl}">Ver incorporada</a>
-              </div>
-            </article>
-          </div>
-
-          <div class="slide-grid two-columns">
-            <article class="card group-task-card">
-              <p class="eyebrow">Avaliação dos colegas</p>
-              <h3>Observar com atenção e respeito</h3>
-              <ul class="clean-list task-prompt-list">
-                ${peerEvaluation.map((item) => `<li>${item}</li>`).join("")}
-              </ul>
-            </article>
-
-            <article class="card group-task-card">
-              <p class="eyebrow">Recomendações</p>
-              <h3>Para melhorar os slides</h3>
-              <ul class="clean-list task-prompt-list">
-                ${recommendations.map((item) => `<li>${item}</li>`).join("")}
-              </ul>
-            </article>
-          </div>
+          <article class="card">
+            <p class="eyebrow">Partilha posterior</p>
+            <h3>Ligação ao e-portefólio</h3>
+            <p>Depois de concluído, o Projeto Final poderá ser partilhado no e-portefólio da ação como evidência do trabalho desenvolvido na UFCD 0693.</p>
+          </article>
         </div>
       </section>
     `;
@@ -2512,34 +2464,111 @@ function renderActivityPage() {
   }
 
   if (activity.id === "tarefas-individuais") {
+    const renderList = (items = [], className = "clean-list task-prompt-list") =>
+      items.length ? `<ul class="${className}">${items.map((item) => `<li>${item}</li>`).join("")}</ul>` : "";
+
+    const getEssentialSteps = (task) => (task.steps || []).map((part) => {
+      const instruction = part.text || part.items?.[0] || "Realiza o procedimento indicado no PDF da tarefa.";
+      return `<strong>${part.title}:</strong> ${instruction}`;
+    });
+    const getTaskPdfUrl = (task) => task.pdfUrl ? `${getBasePath()}${task.pdfUrl}` : "";
+
+    const renderTaskPdfButton = (task) => task.pdfUrl
+      ? `<button class="small-button" type="button" data-modal-open="pdf-${task.id}">Abrir PDF da TI</button>`
+      : "";
+
+    const renderTaskPdfModal = (task) => {
+      const pdfUrl = getTaskPdfUrl(task);
+      return pdfUrl ? `
+        <div class="modal-backdrop task-pdf-modal-backdrop" id="pdf-${task.id}" hidden>
+          <div class="modal task-pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdf-${task.id}-title">
+            <div class="task-pdf-modal-header">
+              <h2 id="pdf-${task.id}-title">${task.title}</h2>
+              <button class="modal-close task-pdf-close" type="button" data-modal-close aria-label="Fechar janela">&times;</button>
+            </div>
+            <iframe class="pdf-frame task-pdf-frame" src="${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1" title="PDF - ${task.title}"></iframe>
+            <div class="modal-actions">
+              <a class="small-button orange" href="${pdfUrl}" target="_blank" rel="noopener">Abrir numa nova aba</a>
+            </div>
+          </div>
+        </div>
+      ` : "";
+    };
+
+    const renderSimplifiedTask = (task) => `
+      <div class="detailed-task-content simplified-task-content">
+        <div class="task-block">
+          <strong>Objetivo</strong>
+          <p>${task.objective}</p>
+        </div>
+
+        <div class="task-block">
+          <strong>O que fazer</strong>
+          ${renderList(getEssentialSteps(task))}
+        </div>
+
+        ${task.padlet ? `
+          <div class="task-block">
+            <strong>Padlet — ${task.padlet.column}</strong>
+            <p>Cria o post <strong>“${task.padlet.post}”</strong> e publica as evidências e a breve reflexão solicitadas no PDF da tarefa.</p>
+          </div>
+        ` : ""}
+
+        <div class="task-block">
+          <strong>Moodle</strong>
+          <p>${task.moodle}</p>
+        </div>
+
+        <aside class="task-note-box">
+          <strong>Instruções completas</strong>
+          <p>Consulta o PDF da tarefa para veres todos os passos, exemplos, ficheiros e critérios de verificação.</p>
+        </aside>
+
+        <div class="embed-fallback resource-action-row align-right">
+          ${renderTaskPdfButton(task)}
+          ${obterForumUrl(task) ? `<a class="small-button orange" href="${obterForumUrl(task)}" target="_top">Abrir tarefa no Moodle</a>` : `<span class="task-link-pending">Ligação a confirmar pela formadora.</span>`}
+        </div>
+
+        ${renderTaskPdfModal(task)}
+
+      </div>
+    `;
+
     const overviewItems = [
-      "Realizar apenas as tarefas individuais indicadas pela formadora.",
-      "Guardar prints, links ou reflexões no local indicado.",
-      "Evitar anexos no Moodle quando a tarefa pedir apenas link ou registo."
+      "Utilizar a conta Google criada para a formação.",
+      "Guardar os ficheiros nas pastas adequadas da Google Drive.",
+      "Criar uma coluna própria no Padlet para cada Tarefa Individual.",
+      "Publicar no Moodle uma breve síntese e a ligação para o Padlet, sem anexos.",
+      "Ocultar dados pessoais antes de publicar capturas de ecrã."
     ];
 
     root.innerHTML = `
       <section class="section task-page-section">
         <div class="section-inner">
-          <details class="task-overview-card">
+          <div class="section-heading task-page-heading">
+            <p class="eyebrow">Atividades</p>
+            <h1>Tarefas Individuais</h1>
+            <p class="lead">Atividades práticas desenvolvidas com a conta Google, organizadas na Google Drive e registadas no Padlet e no Moodle.</p>
+          </div>
+
+          <details class="task-overview-card" open>
             <summary>
               <span class="task-module-copy">
-                <strong>Tarefas Individuais</strong>
-                <small>Ao longo da UFCD há tarefas individuais práticas para consolidar a aprendizagem e registar evidências.</small>
+                <strong>Como realizar as Tarefas Individuais</strong>
+                <small>Cada tarefa produz evidências para uma coluna própria do Projeto Final em Padlet.</small>
               </span>
               <span class="task-module-mark" aria-hidden="true">TI</span>
             </summary>
             <div class="task-module-body">
-              <p>Nesta área ficam organizadas as tarefas individuais associadas às atividades diárias da UFCD 0693.</p>
               <ul class="moodle-like-list">
                 ${overviewItems.map((item) => `<li>${item}</li>`).join("")}
               </ul>
             </div>
           </details>
 
-          <div class="task-module-list">
+          <div class="task-module-list individual-task-list">
             ${individualTasks.filter((task) => isItemVisible("tarefasIndividuais", task.title)).map((task, index) => `
-              <details class="task-module-card">
+              <details class="task-module-card individual-task-card" ${index === 0 ? "" : ""}>
                 <summary>
                   <span class="task-module-copy">
                     <strong>${task.title}</strong>
@@ -2549,16 +2578,25 @@ function renderActivityPage() {
                 </summary>
 
                 <div class="task-module-body">
-                  <div class="task-block">
-                    <strong>Orientações</strong>
-                    <ul class="clean-list task-prompt-list">
-                      ${task.prompts.map((prompt) => `<li>${prompt}</li>`).join("")}
-                    </ul>
-                  </div>
-
-                  <div class="embed-fallback resource-action-row align-right">
-                    ${obterForumUrl(task) ? `<a class="small-button orange" href="${obterForumUrl(task)}" target="_top">Abrir tarefa</a>` : ""}
-                  </div>
+                  ${task.locked ? `
+                    <aside class="task-note-box locked-task-note">
+                      <strong>Tarefa já realizada</strong>
+                      <p>O conteúdo da TI 1 foi preservado e não deve ser alterado.</p>
+                    </aside>
+                    <div class="task-block">
+                      <strong>Orientações</strong>
+                      ${renderList(task.prompts)}
+                    </div>
+                    <div class="task-block">
+                      <strong>Evidência</strong>
+                      <p>${task.evidence}</p>
+                    </div>
+                    <div class="embed-fallback resource-action-row align-right">
+                      ${renderTaskPdfButton(task)}
+                      ${obterForumUrl(task) ? `<a class="small-button orange" href="${obterForumUrl(task)}" target="_top">Abrir tarefa no Moodle</a>` : ""}
+                    </div>
+                    ${renderTaskPdfModal(task)}
+                  ` : renderSimplifiedTask(task)}
                 </div>
               </details>
             `).join("")}
@@ -2568,6 +2606,7 @@ function renderActivityPage() {
     `;
     return;
   }
+
   if (!isEvaluation) {
     root.innerHTML = `
       <section class="section task-page-section">
