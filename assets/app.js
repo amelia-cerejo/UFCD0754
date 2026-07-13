@@ -54,10 +54,16 @@ const topics = [
 ];
 
 const contentMenuGroups = [
-  { title: "Gestão eletrónica de documentos", theme: "representation", children: [{ topicId: "gestao-eletronica-documentos" }] },
+  {
+    title: "Gestão eletrónica de documentos",
+    theme: "representation",
+    children: [
+      { topicId: "gestao-eletronica-documentos" },
+      { topicId: "configuracao-conta-google" }
+    ]
+  },
   { title: "Mensagens eletrónicas", theme: "representation", children: [{ topicId: "mensagens-eletronicas" }] },
-  { title: "Pesquisa avançada na web", theme: "database", children: [{ topicId: "pesquisa-avancada-web" }] },
-  { title: "Configuração da Conta Google", theme: "database", children: [{ topicId: "configuracao-conta-google" }] }
+  { title: "Pesquisa avançada na web", theme: "database", children: [{ topicId: "pesquisa-avancada-web" }] }
 ];
 
 const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwTZTbLAY7RLR8RSbX3ogc6WT1J8DJZdgDRq_FUD055ByJm2eXvJ8zYzKIGSb1RYxAjaw/exec";
@@ -766,20 +772,20 @@ function setupMenu() {
   document.querySelectorAll(".nav-parent").forEach((button) => {
     button.addEventListener("click", () => {
       const submenuId = button.getAttribute("aria-controls");
+      const sectionId = homeSectionBySubmenu[submenuId];
 
-      if (document.body.dataset.page !== "home" && homeSectionBySubmenu[submenuId]) {
-        window.location.href = `${getBasePath()}index.html#${homeSectionBySubmenu[submenuId]}`;
+      if (submenuId) abrirSubmenuPrincipal(submenuId);
+
+      if (!sectionId) return;
+
+      if (document.body.dataset.page !== "home") {
+        window.location.href = `${getBasePath()}index.html#${sectionId}`;
         return;
       }
 
-      const submenu = document.getElementById(submenuId);
-      if (submenu) abrirSubmenuPrincipal(submenuId);
-
-      if (document.body.dataset.page === "home" && homeSectionBySubmenu[submenuId]) {
-        const section = document.getElementById(homeSectionBySubmenu[submenuId]);
-        section?.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.replaceState(null, "", `#${homeSectionBySubmenu[submenuId]}`);
-      }
+      const section = document.getElementById(sectionId);
+      section?.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${sectionId}`);
     });
   });
 

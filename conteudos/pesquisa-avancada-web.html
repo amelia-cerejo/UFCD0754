@@ -5,7 +5,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Pesquisa Avançada na Web — UFCD 0693</title>
-<style>
+<link rel="stylesheet" href="../assets/styles.css">
+  <style>
     :root {
       --color-primary:   #0078D4;
       --color-secondary: #38BDF8;
@@ -468,7 +469,24 @@ body{font-family:Aptos,'Segoe UI',Arial,sans-serif;background:var(--color-bg);co
 @media(max-width:700px){.image-pair{grid-template-columns:1fr}.site-header{padding:0 14px}.site-header .brand{max-width:70%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hero{padding:58px 20px 58px}}
 </style>
 </head>
-<body>
+<body data-topic="pesquisa-avancada-web">
+<button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<aside class="sidebar" aria-label="Menu principal">
+  <a class="brand" href="../index.html#inicio"><span class="brand-mark">0693</span><span><strong>Correio Eletr&oacute;nico e Pesquisa na Web</strong></span></a>
+  <nav class="side-nav">
+    <a href="../index.html#inicio">In&iacute;cio</a>
+    <a href="../index.html#objetivos">Objetivos</a>
+    <a href="../index.html#metodologia">Metodologia</a>
+    <button class="nav-parent" type="button" aria-expanded="false" aria-controls="submenu-conteudos">Conte&uacute;dos <span class="nav-parent-arrow" aria-hidden="true">▾</span></button>
+    <div class="submenu content-submenu" id="submenu-conteudos"></div>
+    <button class="nav-parent" type="button" aria-expanded="false" aria-controls="submenu-atividades">Atividades <span class="nav-parent-arrow" aria-hidden="true">▾</span></button>
+    <div class="submenu activity-submenu" id="submenu-atividades"></div>
+    <button class="nav-parent" type="button" aria-expanded="false" aria-controls="submenu-avaliacao">Avalia&ccedil;&atilde;o <span class="nav-parent-arrow" aria-hidden="true">▾</span></button>
+    <div class="submenu evaluation-submenu" id="submenu-avaliacao"></div>
+    <button class="nav-parent" type="button" aria-expanded="false" aria-controls="submenu-recursos">Recursos <span class="nav-parent-arrow" aria-hidden="true">▾</span></button>
+    <div class="submenu resource-submenu" id="submenu-recursos"></div>
+  </nav>
+</aside>
 <!-- HEADER -->
 <header class="site-header">
   <nav class="header-nav" aria-label="Navegação das secções">
@@ -659,5 +677,8 @@ body{font-family:Aptos,'Segoe UI',Arial,sans-serif;background:var(--color-bg);co
 </div>
 </div><!-- /container -->
 <div class="container"><div class="correction-note"><strong>Nota pedagógica:</strong> Os operadores não funcionam exatamente da mesma forma em todos os motores de busca e podem mudar. Teste sempre a expressão e observe os resultados obtidos.</div></div>
+<div class="floating-actions" aria-label="A&ccedil;&otilde;es r&aacute;pidas"><a href="../index.html#inicio" aria-label="P&aacute;gina inicial" title="P&aacute;gina inicial"><span class="float-icon icon-home" aria-hidden="true"></span></a><button type="button" data-action="top" aria-label="Voltar ao topo" title="Voltar ao topo"><span class="float-icon icon-top" aria-hidden="true"></span></button><button type="button" data-action="print" aria-label="Imprimir" title="Imprimir"><span class="float-icon icon-print" aria-hidden="true"></span></button></div>
+<script src="../assets/config.js"></script>
+<script src="../assets/app.js?v=20260710-ti"></script>
 </body>
 </html>
