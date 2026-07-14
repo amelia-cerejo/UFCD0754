@@ -57,8 +57,8 @@ const contentMenuGroups = [
   {
     title: "Gestão eletrónica de documentos",
     theme: "representation",
+    parentTopicId: "gestao-eletronica-documentos",
     children: [
-      { topicId: "gestao-eletronica-documentos" },
       { topicId: "configuracao-conta-google" }
     ]
   },
@@ -684,7 +684,7 @@ function obterConstituicaoVisibilidadeSite() {
   });
 
   adicionarSecao("conteudos");
-  topics.forEach((topic, index) => adicionarItem("conteudos", `conteudo-${topic.id}`, topic.cardTitle || topic.title, topic.url, "conteudo", 11 + index, {
+  topics.filter((topic) => topic.showInContents !== false).forEach((topic, index) => adicionarItem("conteudos", `conteudo-${topic.id}`, topic.cardTitle || topic.title, topic.url, "conteudo", 11 + index, {
     linkValue: obterGammaUrl(topic),
     linkLabel: "Gamma",
     linkPlaceholder: "https://...gamma.site/..."
@@ -953,6 +953,20 @@ function renderContentMenus() {
         .map((child) => topicById(child.topicId))
         .filter((topic) => topic && isItemVisible("conteudos", topic.id));
 
+      const parentTopic = group.parentTopicId ? topicById(group.parentTopicId) : null;
+      const parentVisible = parentTopic && isItemVisible("conteudos", parentTopic.id);
+
+      if (parentTopic) {
+        if (!parentVisible && !visibleChildren.length) return "";
+        return `
+      ${parentVisible ? `<a class="submenu-heading submenu-heading-${group.theme}" href="${getBasePath()}${parentTopic.url}">
+        <span>${group.title}</span>
+      </a>` : ""}
+      ${visibleChildren.length ? `<div class="submenu-group-children content-child-links">
+        ${visibleChildren.map((topic) => `<a href="${getBasePath()}${topic.url}">${topic.menuTitle || topic.title}</a>`).join("")}
+      </div>` : ""}
+    `;
+      }
       if (!visibleChildren.length) return "";
 
       if (visibleChildren.length === 1) {
@@ -1587,7 +1601,7 @@ function renderSiteVisibilityControls() {
     </details>
   `;
 
-  const contentItems = topics.map((topic) => ({
+  const contentItems = topics.filter((topic) => topic.showInContents !== false).map((topic) => ({
     key: topic.id,
     label: topic.cardTitle,
     linkType: "gamma",
@@ -2488,7 +2502,7 @@ function renderActivityPage() {
             </div>
             <iframe class="pdf-frame task-pdf-frame" src="${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1" title="PDF - ${task.title}"></iframe>
             <div class="modal-actions">
-              <a class="small-button orange" href="${pdfUrl}" target="_blank" rel="noopener">Abrir numa nova aba</a>
+              <a class="small-button orange" href="${pdfUrl}">Abrir PDF</a>
             </div>
           </div>
         </div>
@@ -2703,7 +2717,7 @@ function renderActivityPage() {
                 title="Padlet - Brainstorming UFCD 0693"
                 loading="lazy"></iframe>
               <div class="embed-fallback">
-                <a class="small-button" href="${activity.padletUrl}" target="_blank" rel="noopener">Abrir Padlet</a>
+                <a class="small-button" href="${activity.padletUrl}">Abrir Padlet</a>
               </div>
             </section>
           ` : ""}
@@ -2782,7 +2796,7 @@ function renderResourcePage() {
           <div class="section-heading task-page-heading">
             <p class="eyebrow">Recursos</p>
             <h1 class="resource-title-with-icon">
-              <a href="${resource.gptUrl}" target="_blank" rel="noopener">
+              <a href="${resource.gptUrl}">
                 ${resource.menuIcon ? `<img src="${getBasePath()}${resource.menuIcon}" alt="" aria-hidden="true">` : ""}
                 <span>${resource.title}</span>
               </a>
@@ -2813,7 +2827,7 @@ function renderResourcePage() {
               <h3>Abrir assistente</h3>
               <p>O assistente abre numa nova aba do navegador. Poderá ser necessário iniciar sessão no ChatGPT.</p>
               <div class="embed-fallback resource-action-row align-right">
-                <a class="small-button" href="${resource.gptUrl}" target="_blank" rel="noopener">Abrir assistente</a>
+                <a class="small-button" href="${resource.gptUrl}">Abrir assistente</a>
               </div>
             </article>
           </div>

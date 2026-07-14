@@ -24,7 +24,7 @@
       font-family:"Segoe UI",Aptos,Calibri,sans-serif;
       background:var(--bg);
       color:var(--dark);
-      font-size:15px;
+      font-size:16px;
       line-height:1.7;
     }
 
@@ -80,11 +80,11 @@
       line-height:1.08;margin-bottom:18px;
     }
     .hero p{max-width:690px;font-size:17px;color:rgba(255,255,255,.92)}
-    .hero .slogan{margin-top:18px;font-style:italic;font-size:15px;opacity:.9}
+    .hero .slogan{margin-top:18px;font-style:italic;font-size:16px;opacity:.9}
 
     .container{max-width:980px;margin:auto;padding:54px 24px 76px}
     .intro{
-      font-size:16px;background:#fff;border-radius:var(--radius);
+      font-size:18px;line-height:1.65;background:#fff;border-radius:var(--radius);
       padding:24px 26px;box-shadow:var(--shadow);
       margin-top:-88px;position:relative;z-index:5;
       border-top:5px solid var(--secondary);
@@ -193,7 +193,10 @@
       .intro{margin-top:-55px}
       .photo{height:220px}
     }
-  </style>
+  /* Leitura confortável em páginas de conteúdo */
+.container > p,.section > p,.ideia-chave,.note,.warning{font-size:17px;line-height:1.7}
+.container li,.section li{line-height:1.65}
+</style>
 </head>
 <body data-topic="mensagens-eletronicas">
 <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>

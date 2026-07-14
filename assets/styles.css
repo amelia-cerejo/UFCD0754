@@ -287,6 +287,16 @@ body.menu-open .sidebar {
   gap: 3px;
 }
 
+
+.content-child-links {
+  margin: -2px 0 6px 14px;
+  padding-left: 10px;
+  border-left: 3px solid var(--cor-folha);
+}
+
+.content-child-links a {
+  padding-left: 10px;
+}
 .resource-child-links {
   margin: -2px 0 4px 12px;
   padding-left: 10px;
@@ -4297,4 +4307,15 @@ body.menu-open .menu-toggle {
     min-height: 14000px;
     overflow: visible;
   }
+}
+
+/* Leitura confortável nos conteúdos dinâmicos */
+#topic-root .card p,
+#topic-root .clean-list li {
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+#topic-root .card h2 {
+  font-size: clamp(1.35rem, 2vw, 1.72rem);
 }

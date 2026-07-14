@@ -364,7 +364,7 @@
       <ul style="margin: 0 0 14px; padding-left: 22px; line-height: 1.7;">
         ${task.steps.map((step) => `<li>${step}</li>`).join("\n        ")}
       </ul>
-      <p style="margin: 0; padding: 12px 14px; border-radius: 8px; background: ${colors.softOrange}; border: 1px solid #BAE6FD;"><strong>Entrega:</strong> ${task.delivery}${task.forumUrl ? ` <a style="display: inline-block; margin-left: 8px; color: #0078D4; font-weight: 900;" href="${task.forumUrl}" target="_blank" rel="noopener">Abrir fórum</a>` : ""}</p>
+      <p style="margin: 0; padding: 12px 14px; border-radius: 8px; background: ${colors.softOrange}; border: 1px solid #BAE6FD;"><strong>Entrega:</strong> ${task.delivery}${task.forumUrl ? ` <a style="display: inline-block; margin-left: 8px; color: #0078D4; font-weight: 900;" href="${task.forumUrl}">Abrir fórum</a>` : ""}</p>
 ${cardEnd()}`;
       }
 
@@ -425,8 +425,8 @@ ${cardEnd()}`;
       <h4 style="margin: 0 0 14px 0; color: #0078d4; font-size: 18px;">Configuração mínima</h4>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px;">
         <div style="border-left: 4px solid #38bdf8; background-color: #f8fbfe; padding: 12px;"><strong>Formato</strong><br>Colunas</div>
-        <div style="border-left: 4px solid #38bdf8; background-color: #f8fbfe; padding: 12px;"><strong>Título</strong><br>nomeNºIefp</div>
-        <div style="border-left: 4px solid #38bdf8; background-color: #f8fbfe; padding: 12px;"><strong>Visibilidade</strong><br>Secreto</div>
+        <div style="border-left: 4px solid #38bdf8; background-color: #f8fbfe; padding: 12px;"><strong>Título</strong><br>Do Click ao Guardar do(a) nome</div>
+        <div style="border-left: 4px solid #38bdf8; background-color: #f8fbfe; padding: 12px;"><strong>Visibilidade</strong><br>Público</div>
       </div>
 
       <h4 style="margin: 0 0 14px 0; color: #0078d4; font-size: 18px;">Passos de criação</h4>
@@ -447,7 +447,7 @@ ${cardEnd()}`;
         </ul>
       </div>
 
-      <a style="display: block; text-decoration: none; color: inherit;" href="https://ufcd0693.netlify.app/atividades/tarefas-individuais.html" target="_blank" rel="noopener">
+      <a style="display: block; text-decoration: none; color: inherit;" href="atividades/tarefas-individuais.html">
         <div style="background-color: #e0f2fe; border-left: 4px solid #38bdf8; padding: 16px; border-radius: 4px; cursor: pointer;">
           <h4 style="margin: 0 0 10px 0; color: #0078d4; font-size: 18px;">Página de apoio às tarefas individuais</h4>
           <p style="font-size: 14px; line-height: 1.6; margin: 0; color: #1f2933;">Abrir a página com as tarefas individuais da UFCD 0693 e respetivas evidências.</p>
@@ -540,7 +540,7 @@ ${cardEnd()}`
           title: "Página de apoio - conteúdo da página",
           description: "Iframe para colocar dentro da página Moodle.",
           html: `<div style="width: 100%; margin: 0 auto; padding: 16px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07); font-family: Arial, Helvetica, sans-serif;">
-  <iframe style="width: 100%; max-width: 1500px; height: 800px; border: 0; border-radius: 8px; display: block; margin: 0 auto; background: ${colors.white};" title="UFCD 0693 - Correio Eletrónico e Pesquisa na Web" src="https://ufcd0693.netlify.app/#inicio" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
+  <iframe style="width: 100%; max-width: 1500px; height: 800px; border: 0; border-radius: 8px; display: block; margin: 0 auto; background: ${colors.white};" title="UFCD 0693 - Correio Eletrónico e Pesquisa na Web" src="index.html#inicio" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
 </div>`
         },
         {
