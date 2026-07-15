@@ -3795,7 +3795,7 @@ body[data-page="manual"] .floating-actions button {
 
 .task-pdf-modal {
   width: min(1180px, calc(100vw - 28px));
-  height: min(92vh, 940px);
+  max-height: min(92vh, 940px);
   padding: 18px;
   display: flex;
   flex-direction: column;
@@ -3835,6 +3835,31 @@ body[data-page="manual"] .floating-actions button {
   background: var(--cor-principal);
 }
 
+
+.task-pdf-fallback,
+.pdf-open-card {
+  display: grid;
+  gap: 10px;
+  padding: clamp(22px, 4vw, 42px);
+  border: 1px solid var(--cor-linha);
+  border-radius: 8px;
+  background: var(--cor-fundo-suave);
+  color: var(--cor-texto);
+}
+
+.task-pdf-fallback strong,
+.pdf-open-card strong {
+  color: var(--cor-principal);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.task-pdf-fallback p,
+.pdf-open-card p {
+  max-width: 760px;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+}
 .task-pdf-frame {
   display: block;
   flex: 1 1 auto;

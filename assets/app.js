@@ -1489,11 +1489,9 @@ async function carregarVisibilidadeRemotaDoSite() {
         siteVisibilityRemoteLoaded = true;
         return true;
       }
-      siteVisibilityRemoteLoaded = true;
       return false;
     })
     .catch(() => {
-      siteVisibilityRemoteLoaded = true;
       return false;
     })
     .finally(() => {
@@ -1849,9 +1847,8 @@ async function setupTeamsControl(root) {
       if (siteVisibility[section] && key in siteVisibility[section]) {
         siteVisibility[section][key] = event.target.checked;
         guardarVisibilidadeDoSite();
-        guardarVisibilidadeRemotaDoSite();
         const controlStatus = root.querySelector("[data-site-control-status]");
-        if (controlStatus) controlStatus.textContent = "Visibilidade atualizada. As páginas abertas do site recebem a alteração; se necessário, recarrega a página para confirmar.";
+        if (controlStatus) controlStatus.textContent = "Visibilidade alterada neste ecrã. Usa Guardar na Apps Script para atualizar a configuração central.";
       }
     }
 
@@ -2500,9 +2497,12 @@ function renderActivityPage() {
               <h2 id="pdf-${task.id}-title">${task.title}</h2>
               <button class="modal-close task-pdf-close" type="button" data-modal-close aria-label="Fechar janela">&times;</button>
             </div>
-            <iframe class="pdf-frame task-pdf-frame" src="${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1" title="PDF - ${task.title}"></iframe>
+            <div class="task-pdf-fallback" role="note">
+              <strong>PDF da tarefa</strong>
+              <p>Alguns browsers bloqueiam leitores PDF embutidos quando o site está dentro do Google Sites. Usa o botão abaixo para abrir o ficheiro na mesma janela.</p>
+            </div>
             <div class="modal-actions">
-              <a class="small-button orange" href="${pdfUrl}">Abrir PDF</a>
+              <a class="small-button orange" href="${pdfUrl}" target="_top">Abrir PDF</a>
             </div>
           </div>
         </div>
@@ -2841,9 +2841,9 @@ function renderResourcePage() {
     const pdfUrl = `${getBasePath()}${resource.pdfUrl}`;
     root.innerHTML = `
       <section class="pdf-reader-shell" aria-label="Leitor do manual em PDF">
-        <iframe class="pdf-frame native-pdf-frame" src="${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1" title="Manual da UFCD 0693"></iframe>
+        <div class="pdf-open-card"><strong>Manual em PDF</strong><p>Se o leitor PDF for bloqueado pelo browser, abre o ficheiro diretamente na mesma janela.</p></div>
         <div class="pdf-fallback">
-          <a class="small-button" href="${pdfUrl}">Abrir PDF</a>
+          <a class="small-button" href="${pdfUrl}" target="_top">Abrir PDF</a>
           <a class="small-button orange" href="${pdfUrl}" download>Descarregar PDF</a>
         </div>
       </section>
@@ -2961,8 +2961,12 @@ async function inicializarVisibilidadeRemotaDoSite(options = {}) {
 }
 
 async function inicializarSite() {
-  carregarVisibilidadeDoSite();
-  carregarLinksDoSite();
+  const visibilidadeRemotaOk = await carregarVisibilidadeRemotaDoSite();
+
+  if (!visibilidadeRemotaOk) {
+    carregarVisibilidadeDoSite();
+    carregarLinksDoSite();
+  }
 
   renderContentMenus();
   renderActivityMenus();
@@ -2979,8 +2983,6 @@ async function inicializarSite() {
   setupModals();
   manterMenuAtivoAberto();
   abrirMenuPeloHashDoIndex();
-
-  inicializarVisibilidadeRemotaDoSite();
 }
 
 inicializarSite();
