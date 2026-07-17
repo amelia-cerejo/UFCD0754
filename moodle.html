@@ -3,687 +3,445 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UFCD 0693 | Modelos HTML para Moodle</title>
+    <title>UFCD 0754 | Modelos HTML para Moodle</title>
     <style>
-      :root {
-        --azul-petroleo: #0078D4;
-        --azul-tecnologico: #38BDF8;
-        --azul-escuro: #005EA2;
-        --laranja: #005EA2;
-        --laranja-suave: #E0F2FE;
-        --texto: #374151;
-        --suave: #6B7280;
-        --linha: #BFDBFE;
-        --fundo: #F0F9FF;
-        --branco: #FFFFFF;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        color: var(--texto);
-        background: var(--fundo);
-        font-family: "Segoe UI", Aptos, Calibri, Inter, Arial, sans-serif;
-        line-height: 1.6;
-      }
-
-      .page {
-        width: min(1180px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 36px 0 64px;
-      }
-
-      .intro,
-      .template-card {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid var(--linha);
-        border-radius: 8px;
-        background: var(--branco);
-        box-shadow: 0 18px 40px rgba(0, 120, 212, 0.08);
-      }
-
-      .intro {
-        margin-bottom: 22px;
-        padding: 30px;
-      }
-
-      .intro::after,
-      .template-card::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 7px;
-        background: linear-gradient(90deg, var(--azul-tecnologico), var(--azul-petroleo), var(--azul-escuro));
-      }
-
-      .eyebrow {
-        margin: 0 0 8px;
-        color: var(--laranja);
-        font-size: 0.82rem;
-        font-weight: 900;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        margin: 0;
-        color: var(--azul-petroleo);
-        font-size: clamp(2rem, 4vw, 3.35rem);
-        line-height: 1.06;
-      }
-
-      .intro p:last-child {
-        max-width: 860px;
-        margin: 14px 0 0;
-        color: var(--texto);
-        font-size: 1.04rem;
-      }
-
-      .note {
-        margin-bottom: 26px;
-        border-left: 6px solid var(--laranja);
-        border-radius: 8px;
-        padding: 16px 18px;
-        background: var(--laranja-suave);
-      }
-
-      .layout {
-        display: grid;
-        gap: 24px;
-      }
-
-      .template-head {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-        gap: 18px;
-        border-bottom: 1px solid var(--linha);
-        padding: 18px;
-      }
-
-      .template-head h2 {
-        margin: 0;
-        color: var(--azul-petroleo);
-        font-size: 1.22rem;
-        line-height: 1.2;
-      }
-
-      .template-head p {
-        margin: 6px 0 0;
-        color: var(--suave);
-      }
-
-      .copy-button {
-        min-width: 118px;
-        border: 0;
-        border-radius: 8px;
-        padding: 10px 14px;
-        color: var(--branco);
-        background: var(--azul-tecnologico);
-        font-weight: 900;
-        cursor: pointer;
-      }
-
-      .copy-button:hover {
-        background: var(--azul-petroleo);
-      }
-
-      .template-body {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
-      }
-
-      .preview,
-      .code-panel {
-        padding: 18px;
-      }
-
-      .preview {
-        background: #FFFFFF;
-      }
-
-      .code-panel {
-        border-left: 1px solid var(--linha);
-        background: #111827;
-      }
-
-      textarea {
-        display: block;
-        width: 100%;
-        min-height: 260px;
-        resize: vertical;
-        border: 0;
-        border-radius: 8px;
-        padding: 14px;
-        color: #E5E7EB;
-        background: #071022;
-        font: 0.88rem/1.5 Consolas, "Courier New", monospace;
-      }
-
-      @media (max-width: 860px) {
-        .template-head,
-        .template-body {
-          display: grid;
-          grid-template-columns: 1fr;
-        }
-
-        .code-panel {
-          border-top: 1px solid var(--linha);
-          border-left: 0;
-        }
-
-        .copy-button {
-          width: 100%;
-        }
-      }
+      :root { --blue:#2B579A; --lightBlue:#4F8EF7; --darkBlue:#1C3F73; --softBlue:#F5F9FF; --text:#374151; --muted:#6B7280; --line:#D1D5DB; --white:#FFFFFF; }
+      *{box-sizing:border-box} body{margin:0;color:var(--text);background:var(--softBlue);font-family:"Segoe UI",Aptos,Calibri,Arial,sans-serif;line-height:1.6}.page{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:36px 0 64px}.intro,.note,.template-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:8px;background:var(--white);box-shadow:0 10px 24px rgba(43,87,154,.07)}.intro{margin-bottom:22px;padding:30px}.intro:after,.template-card:after{content:"";position:absolute;right:0;bottom:0;left:0;height:7px;background:linear-gradient(90deg,var(--lightBlue),var(--blue),var(--darkBlue))}.eyebrow{margin:0 0 8px;color:var(--blue);font-size:.82rem;font-weight:900;text-transform:uppercase}h1{margin:0;color:var(--darkBlue);font-size:clamp(2rem,4vw,3.35rem);line-height:1.06}.intro p:last-child{max-width:860px;margin:14px 0 0;font-size:1.04rem}.note{margin-bottom:26px;border-left:6px solid var(--blue);border-radius:8px;padding:16px 18px;background:#fff}.layout{display:grid;gap:24px}.template-head{display:flex;align-items:start;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);padding:18px}.template-head h2{margin:0;color:var(--blue);font-size:1.22rem;line-height:1.2}.template-head p{margin:6px 0 0;color:var(--muted)}.copy-button{min-width:118px;border:0;border-radius:8px;padding:10px 14px;color:#fff;background:var(--blue);font-weight:900;cursor:pointer}.copy-button:hover{background:var(--darkBlue)}.template-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.95fr)}.preview,.code-panel{padding:18px}.preview{background:#fff}.code-panel{border-left:1px solid var(--line);background:#111827}textarea{display:block;width:100%;min-height:260px;resize:vertical;border:0;border-radius:8px;padding:14px;color:#e5e7eb;background:#071022;font:.88rem/1.5 Consolas,"Courier New",monospace}@media(max-width:860px){.template-head,.template-body{display:grid;grid-template-columns:1fr}.code-panel{border-top:1px solid var(--line);border-left:0}.copy-button{width:100%}}
     </style>
   </head>
   <body>
     <main class="page">
-      <section class="intro">
-        <p class="eyebrow">UFCD 0693 · Moodle</p>
-        <h1>Blocos HTML para correio eletrónico e pesquisa web</h1>
-        <p>Modelos sem menu, prontos a copiar para o Moodle. Todos os blocos usam estilos em linha com a identidade visual da UFCD 0693.</p>
-      </section>
-
-      <section class="note" aria-label="Nota importante">
-        <strong>Como usar:</strong> escolhe o modelo, copia o HTML e cola no editor HTML do Moodle. Os links dos fóruns e do glossário podem ser substituídos depois pelos links finais.
-      </section>
-
+      <section class="intro"><p class="eyebrow">UFCD 0754 &middot; Moodle</p><h1>Blocos HTML para Processador de Texto</h1><p>Modelos sem menu, prontos a copiar para o Moodle, com a identidade visual da UFCD 0754.</p></section>
+      <section class="note"><strong>Como usar:</strong> escolhe o modelo, copia o HTML e cola no editor HTML do Moodle.</section>
       <section class="layout" id="templates" aria-label="Modelos Moodle"></section>
     </main>
-
     <script>
-      const colors = {
-        blue: "#0078D4",
-        lightBlue: "#38BDF8",
-        darkBlue: "#005EA2",
-        orange: "#005EA2",
-        softOrange: "#E0F2FE",
-        text: "#374151",
-        muted: "#6B7280",
-        line: "#BFDBFE",
-        softBlue: "#F0F9FF",
-        white: "#FFFFFF"
-      };
-
-      const moodleLinks = {
-        glossary: "https://fad.iefp.pt/mod/glossary/view.php?id=412744",
-        forum: "https://fad.iefp.pt/mod/forum/discuss.php?d=55427"
-      };
-
-      const tgTasks = [
+      const colors={blue:'#2B579A',lightBlue:'#4F8EF7',darkBlue:'#1C3F73',orange:'#1C3F73',softOrange:'#EAF2FF',text:'#374151',muted:'#6B7280',line:'#D1D5DB',softBlue:'#F5F9FF',white:'#FFFFFF'};
+      const moodleLinks={site:'https://ufcd0754.netlify.app/',padlet:'https://padlet.com/embed/ct3l4ks1gculo1o',mentimeter:'https://www.menti.com/ald495rdgkt3',mentimeterEmbed:'https://www.mentimeter.com/app/presentation/alfbbg1d39wqoma1jbvcvpbirv9hyatr/embed',glossary:'https://fad.iefp.pt/mod/glossary/view.php?id=415691',forum1:'https://fad.iefp.pt/mod/forum/discuss.php?d=55782',forum2:'https://fad.iefp.pt/mod/forum/discuss.php?d=55793'};
+      const tgTasks=[
         {
-          title: "Dia 1 - Conceitos gerais",
-          words: [["Sala 1", "Pesquisa on-line"], ["Sala 2", "Documento digital"], ["Sala 3", "Correio eletrónico"], ["Sala 4", "Agenda eletrónica"]]
+                "title": "TG01 - Ambiente do processador de texto",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Faixa de op&ccedil;&otilde;es"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Documento"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Modelo"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Guardar como"
+                        ]
+                ]
         },
         {
-          title: "Dia 2 - Pesquisa Web",
-          words: [["Sala 1", "Motor de pesquisa"], ["Sala 2", "Palavra-chave"], ["Sala 3", "Fonte de informação"], ["Sala 4", "Fiabilidade"]]
+                "title": "TG02 - Edi&ccedil;&atilde;o de texto",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Selecionar"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Copiar"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Substituir"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Anular"
+                        ]
+                ]
         },
         {
-          title: "Dia 3 - Organização Digital",
-          words: [["Sala 1", "Pasta"], ["Sala 2", "Subpasta"], ["Sala 3", "Nomeação de ficheiros"], ["Sala 4", "Arquivo digital"]]
+                "title": "TG03 - Formata&ccedil;&atilde;o de texto",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Tipo de letra"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Alinhamento"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Espa&ccedil;amento"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Lista"
+                        ]
+                ]
         },
         {
-          title: "Dia 4 - Agenda Eletrónica",
-          words: [["Sala 1", "Evento"], ["Sala 2", "Lembrete"], ["Sala 3", "Tarefa"], ["Sala 4", "Recorrência"]]
+                "title": "TG04 - Estilos e estrutura",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Estilo"
+                        ],
+                        [
+                                "Grupo 2",
+                                "T&iacute;tulo"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Cabe&ccedil;alho"
+                        ],
+                        [
+                                "Grupo 4",
+                                "&Iacute;ndice autom&aacute;tico"
+                        ]
+                ]
         },
         {
-          title: "Dia 5 - Correio Eletrónico",
-          words: [["Sala 1", "Destinatário"], ["Sala 2", "Assunto"], ["Sala 3", "CC"], ["Sala 4", "BCC/CCO"]]
+                "title": "TG05 - Tabelas",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Tabela"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Linha"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Coluna"
+                        ],
+                        [
+                                "Grupo 4",
+                                "C&eacute;lula"
+                        ]
+                ]
         },
         {
-          title: "Dia 6 - Gestão de Mensagens",
-          words: [["Sala 1", "Arquivar"], ["Sala 2", "Reencaminhar"], ["Sala 3", "Spam"], ["Sala 4", "Phishing"]]
+                "title": "TG06 - Imagens e objetos",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Imagem"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Legenda"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Disposi&ccedil;&atilde;o do texto"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Caixa de texto"
+                        ]
+                ]
         },
         {
-          title: "Dia 7 - Revisão final",
-          words: [["Sala 1", "Organização digital"], ["Sala 2", "Informação fiável"], ["Sala 3", "Gestão do tempo"], ["Sala 4", "Segurança da informação"]]
+                "title": "TG07 - Revis&atilde;o",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Corretor ortogr&aacute;fico"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Coment&aacute;rio"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Controlar altera&ccedil;&otilde;es"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Comparar documentos"
+                        ]
+                ]
+        },
+        {
+                "title": "TG08 - Pagina&ccedil;&atilde;o",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Margem"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Orienta&ccedil;&atilde;o"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Quebra de p&aacute;gina"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Numera&ccedil;&atilde;o"
+                        ]
+                ]
+        },
+        {
+                "title": "TG09 - Exporta&ccedil;&atilde;o",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "PDF"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Impress&atilde;o"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Compatibilidade"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Partilha"
+                        ]
+                ]
+        },
+        {
+                "title": "TG10 - Qualidade visual",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Consist&ecirc;ncia"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Legibilidade"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Hierarquia visual"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Alinhamento"
+                        ]
+                ]
+        },
+        {
+                "title": "TG11 - Prepara&ccedil;&atilde;o da apresenta&ccedil;&atilde;o final",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "S&iacute;ntese"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Evid&ecirc;ncia"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Vers&atilde;o final"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Reflex&atilde;o"
+                        ]
+                ]
+        },
+        {
+                "title": "TG12 - Auditoria de qualidade ao projeto",
+                "words": [
+                        [
+                                "Grupo 1",
+                                "Organiza&ccedil;&atilde;o"
+                        ],
+                        [
+                                "Grupo 2",
+                                "Corre&ccedil;&atilde;o"
+                        ],
+                        [
+                                "Grupo 3",
+                                "Qualidade visual"
+                        ],
+                        [
+                                "Grupo 4",
+                                "Cumprimento dos requisitos"
+                        ]
+                ]
         }
-      ];
-
-      const tiTasks = [
+];
+      const tiTasks=[
         {
-          title: "TI 1 - Avaliação diagnóstica e Padlet individual",
-          forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55427",
-          objective: "Avaliação diagnóstica + criação de Padlet individual (formato Colunas) com expetativas iniciais.",
-          steps: [
-            "Cria ou usa uma conta Google no formato nome+numeroIEFP@gmail.com.",
-            "Realiza a avaliação diagnóstica indicada pela formadora.",
-            "Cria um Padlet individual em formato Colunas.",
-            "Dá ao Padlet um título no formato nomeNºIefp.",
-            "Cria pelo menos a coluna Expectativas.",
-            "Adiciona um primeiro post com 3 a 5 frases sobre o que esperas aprender.",
-            "Partilha o Padlet com permissão para escrever e copia o link."
-          ],
-          delivery: "Publica o link do Padlet no Fórum “Padlets individuais” do Moodle, sem anexos."
+                "title": "TI1 - Registar as expetativas iniciais",
+                "objective": "Identificar as expetativas, os conhecimentos pr&eacute;vios e as metas pessoais para a aprendizagem do processador de texto.",
+                "steps": [
+                        "Criar uma publica&ccedil;&atilde;o na primeira coluna do Padlet individual.",
+                        "Indicar o nome e escrever o t&iacute;tulo &laquo;As minhas expetativas&raquo;.",
+                        "Responder, num texto entre 80 e 120 palavras, ao que j&aacute; sabe fazer no Word, ao que quer aprender, onde pretende usar as aprendizagens e qual poder&aacute; ser a principal dificuldade.",
+                        "Rever o texto antes de publicar, corrigindo ortografia e pontua&ccedil;&atilde;o.",
+                        "Confirmar que a publica&ccedil;&atilde;o ficou vis&iacute;vel no Padlet."
+                ],
+                "delivery": "Publica&ccedil;&atilde;o &laquo;As minhas expetativas&raquo; no Padlet individual."
         },
         {
-          title: "TI 2 - Organização digital da ação na Google Drive",
-          objective: "Completar a estrutura de pastas da ação 26109, guardá-la na Google Drive e documentar a organização no Padlet e no Moodle.",
-          steps: [
-            "Confirma na Drive pessoal a pasta 26109 e as pastas 01-0753, 02-0693 e 03-0754.",
-            "Dentro de 02-0693, cria 01-Documentos, 02-Atividades e 03-Evidências.",
-            "Guarda pelo menos um ficheiro na subpasta adequada e cria uma ou duas capturas sem dados pessoais.",
-            "Na coluna TI 2 do Padlet, publica as capturas e uma explicação de 100 a 150 palavras.",
-            "No Moodle, confirma o trabalho realizado, resume a organização e acrescenta a ligação para o Padlet."
-          ],
-          delivery: "Publica uma breve confirmação e a ligação para o Padlet, sem anexar novamente os ficheiros."
+                "title": "TI2 - Bem-vindo ao Word - opera&ccedil;&otilde;es b&aacute;sicas",
+                "objective": "Explorar a interface do Word e executar as opera&ccedil;&otilde;es b&aacute;sicas no ficheiro fornecido, aproximando o resultado do modelo em PDF.",
+                "steps": [
+                        "Abrir na Drive o ficheiro-base &laquo;Bem-vindo ao Word.docx&raquo; e consultar o PDF com o mesmo nome.",
+                        "Usar &laquo;Guardar como&raquo; para criar a c&oacute;pia &laquo;2026-07_01_Bem-vindo ao Word.docx&raquo;.",
+                        "Identificar friso, separadores, barra de ferramentas de acesso r&aacute;pido, barra de estado e controlos de visualiza&ccedil;&atilde;o.",
+                        "Selecionar e copiar texto; cortar e colar uma parte do texto; testar Anular e Repetir.",
+                        "Guardar as altera&ccedil;&otilde;es e comparar com o PDF de refer&ecirc;ncia."
+                ],
+                "delivery": "Captura do documento aberto no Word e frase com as opera&ccedil;&otilde;es b&aacute;sicas utilizadas."
         },
         {
-          title: "TI 3 - Organização da formação no Google Calendar",
-          objective: "Criar um calendário para a ação, organizar eventos e tarefas, configurar notificações e associar um ficheiro da Google Drive.",
-          steps: [
-            "Cria no Google Calendar o calendário Ação 26109.",
-            "Cria pelo menos cinco eventos relacionados com a formação e configura notificações em dois deles.",
-            "Cria um evento recorrente e uma tarefa com prazo.",
-            "Associa a um evento um ficheiro existente na pasta 26109/02-0693 da Google Drive.",
-            "Publica duas capturas e uma reflexão de 100 a 150 palavras na coluna TI 3 do Padlet.",
-            "No Moodle, confirma as funcionalidades utilizadas e acrescenta a ligação para o Padlet."
-          ],
-          delivery: "Publica uma breve confirmação e a ligação para o Padlet, sem anexos."
+                "title": "TI3 - Bem-vindo ao Word - formata&ccedil;&atilde;o do texto",
+                "objective": "Formatar o documento de acordo com o modelo, utilizando tipos de letra, alinhamentos, realce e estilos do Word.",
+                "steps": [
+                        "Criar a c&oacute;pia &laquo;2026-07_02_Bem-vindo ao Word.docx&raquo;.",
+                        "Formatar corpo de texto com tipo e tamanho de letra, alinhamento, avan&ccedil;os, espa&ccedil;amento e entrelinha.",
+                        "Aplicar negrito, it&aacute;lico, sublinhado e realce nos locais correspondentes ao PDF.",
+                        "Aplicar os estilos T&iacute;tulo 1 e T&iacute;tulo 2.",
+                        "Usar o Pincel de Formata&ccedil;&atilde;o quando existirem elementos com formata&ccedil;&atilde;o igual."
+                ],
+                "delivery": "Captura com um t&iacute;tulo, um subt&iacute;tulo e um par&aacute;grafo formatado, explicando duas op&ccedil;&otilde;es aplicadas."
         },
         {
-          title: "TI 4 - Comunicação profissional através do Gmail",
-          objective: "Enviar, receber e responder a uma mensagem profissional, partilhando uma evidência através da Google Drive.",
-          steps: [
-            "Trabalha em cadeia com colegas do mesmo grupo, usando os endereços confirmados pela formadora.",
-            "Envia uma mensagem com assunto e estrutura profissional a um/a colega do grupo.",
-            "Insere a partir da Drive uma evidência da TI 2 ou TI 3 e confirma as permissões de acesso.",
-            "O/A colega abre o ficheiro e responde a confirmar a receção.",
-            "Guarda capturas com os dados pessoais ocultados e publica-as na coluna TI 4 do Padlet.",
-            "No Moodle, confirma o envio, a receção e a resposta e acrescenta a ligação para o Padlet."
-          ],
-          delivery: "Publica uma breve confirmação e a ligação para o Padlet, sem anexos."
+                "title": "TI4 - Bem-vindo ao Word - listas, edi&ccedil;&atilde;o e revis&atilde;o",
+                "objective": "Organizar os conte&uacute;dos com listas e melhorar o texto atrav&eacute;s das ferramentas de edi&ccedil;&atilde;o e revis&atilde;o.",
+                "steps": [
+                        "Criar a c&oacute;pia &laquo;2026-07_03_Bem-vindo ao Word.docx&raquo;.",
+                        "Reproduzir listas com marcas e listas numeradas existentes no PDF.",
+                        "Criar uma lista numerada hier&aacute;rquica ou de m&uacute;ltiplos n&iacute;veis.",
+                        "Usar Localizar e Localizar e substituir.",
+                        "Executar a verifica&ccedil;&atilde;o ortogr&aacute;fica e gramatical, consultar sin&oacute;nimos e inserir um coment&aacute;rio."
+                ],
+                "delivery": "Captura das listas e indica&ccedil;&atilde;o das ferramentas de revis&atilde;o utilizadas."
         },
         {
-          title: "TI 5 - Gestão da caixa de correio no Gmail",
-          objective: "Organizar as mensagens da TI 4 através de etiquetas, filtro, estrela, arquivo, reencaminhamento, eliminação e recuperação.",
-          steps: [
-            "Cria as etiquetas 26109 e 02-0693 e aplica-as às mensagens da TI 4.",
-            "Marca uma mensagem com estrela e cria um filtro que aplique automaticamente a etiqueta.",
-            "Arquiva uma mensagem, localiza-a novamente e volta a colocá-la na caixa de entrada.",
-            "Reencaminha uma mensagem com contexto e testa a eliminação e recuperação apenas com mensagem de teste.",
-            "Publica no Padlet as capturas necessárias e explica as funcionalidades utilizadas.",
-            "No Moodle, confirma as operações realizadas e acrescenta a ligação para o Padlet."
-          ],
-          delivery: "Publica uma breve confirmação e a ligação para o Padlet, sem anexos."
+                "title": "TI5 - Preparar o documento para impress&atilde;o",
+                "objective": "Configurar a p&aacute;gina e verificar o documento antes da impress&atilde;o ou exporta&ccedil;&atilde;o.",
+                "steps": [
+                        "Criar a c&oacute;pia &laquo;2026-07_04_Bem-vindo ao Word.docx&raquo;.",
+                        "Confirmar tamanho do papel, orienta&ccedil;&atilde;o e margens.",
+                        "Inserir quebras de p&aacute;gina onde forem necess&aacute;rias.",
+                        "Abrir a pr&eacute;-visualiza&ccedil;&atilde;o de impress&atilde;o e verificar elementos cortados, p&aacute;ginas em branco ou altera&ccedil;&otilde;es de pagina&ccedil;&atilde;o.",
+                        "Explorar op&ccedil;&otilde;es de impress&atilde;o sem imprimir e guardar o ficheiro."
+                ],
+                "delivery": "Captura da pr&eacute;-visualiza&ccedil;&atilde;o com tamanho do papel, orienta&ccedil;&atilde;o e margens utilizados."
         },
         {
-          title: "TI 6 - Pesquisa avançada e validação da informação",
-          objective: "Aplicar técnicas de pesquisa avançada, selecionar fontes fiáveis e organizar os resultados num Documento Google.",
-          steps: [
-            "Escolhe um tema relacionado com a utilização segura e eficiente das tecnologias digitais.",
-            "Realiza pelo menos três pesquisas, usando aspas e operadores como site:, filetype: ou exclusão com hífen.",
-            "Regista as expressões, seleciona fontes e justifica a sua fiabilidade.",
-            "Cria um Documento Google em 26109/02-0693/02-Atividades e escreve uma conclusão de 100 a 150 palavras.",
-            "Exporta uma cópia em PDF para 03-Evidências e publica a síntese na coluna TI 6 do Padlet.",
-            "No Moodle, identifica o tema, as estratégias e o principal critério de fiabilidade e acrescenta a ligação para o Padlet."
-          ],
-          delivery: "Publica uma breve síntese e a ligação para o Padlet, sem anexos."
+                "title": "TI6 - Organizar informa&ccedil;&atilde;o com tabula&ccedil;&otilde;es",
+                "objective": "Utilizar diferentes tipos de tabula&ccedil;&atilde;o para alinhar informa&ccedil;&atilde;o sem recorrer a espa&ccedil;os consecutivos.",
+                "steps": [
+                        "Criar a c&oacute;pia &laquo;2026-07_05_Bem-vindo ao Word.docx&raquo;.",
+                        "Ativar a r&eacute;gua e as marcas de formata&ccedil;&atilde;o.",
+                        "Acrescentar uma sec&ccedil;&atilde;o com pelo menos oito atalhos do Word e a respetiva fun&ccedil;&atilde;o.",
+                        "Usar tabula&ccedil;&otilde;es &agrave; esquerda e &agrave; direita.",
+                        "Criar um exemplo com tabula&ccedil;&atilde;o decimal e outro com car&aacute;ter de preenchimento.",
+                        "Confirmar que n&atilde;o foram usados espa&ccedil;os consecutivos."
+                ],
+                "delivery": "Captura da listagem alinhada e explica&ccedil;&atilde;o sobre a vantagem das tabula&ccedil;&otilde;es face aos espa&ccedil;os."
         },
         {
-          title: "TI 7 - Autoavaliação, reflexão final e organização das evidências",
-          objective: "Rever a Google Drive e o Padlet, realizar a autoavaliação e concluir o Projeto Final da UFCD 0693.",
-          steps: [
-            "Revê a pasta 02-0693 e confirma que os ficheiros finais estão organizados e abrem corretamente.",
-            "Revê as sete colunas do Padlet e corrige títulos, imagens, ligações e eventuais dados pessoais.",
-            "Preenche a autoavaliação final e a avaliação da formação indicadas pela formadora.",
-            "Escreve uma reflexão final sobre aprendizagens, dificuldades, estratégias e aplicação futura.",
-            "Publica a reflexão na coluna TI 7 e testa a ligação geral do Padlet numa janela privada.",
-            "No Moodle, publica a reflexão ou confirma a conclusão e acrescenta a ligação para o Padlet."
-          ],
-          delivery: "Conclui os instrumentos de avaliação e publica a reflexão ou confirmação final com a ligação para o Padlet."
+                "title": "TI7 - Bem-vindo ao Word - tabelas",
+                "objective": "Inserir e formatar as tabelas do exerc&iacute;cio, respeitando a estrutura e melhorando a legibilidade.",
+                "steps": [
+                        "Criar a c&oacute;pia &laquo;2026-07_06_Bem-vindo ao Word.docx&raquo;.",
+                        "Inserir ou completar as tabelas apresentadas no PDF &laquo;Bem-vindo ao Word&raquo;.",
+                        "Adicionar informa&ccedil;&atilde;o relativa &agrave;s principais diferen&ccedil;as entre Word Web e Word Desktop, quando disponibilizada.",
+                        "Adicionar e eliminar linha ou coluna para praticar altera&ccedil;&atilde;o da estrutura.",
+                        "Unir c&eacute;lulas quando necess&aacute;rio e ajustar larguras, alinhamentos e margens internas.",
+                        "Aplicar estilo de tabela adequado e confirmar que o texto n&atilde;o fica cortado."
+                ],
+                "delivery": "Captura da tabela final e indica&ccedil;&atilde;o de tr&ecirc;s decis&otilde;es de estrutura ou formata&ccedil;&atilde;o."
+        },
+        {
+                "title": "TI8 - Organizar texto em colunas",
+                "objective": "Aplicar colunas e quebras apenas a uma parte do documento, preservando a organiza&ccedil;&atilde;o das restantes p&aacute;ginas.",
+                "steps": [
+                        "Criar a c&oacute;pia &laquo;2026-07_07_Bem-vindo ao Word.docx&raquo;.",
+                        "Selecionar uma sec&ccedil;&atilde;o adequada e apresent&aacute;-la em duas colunas.",
+                        "Usar uma quebra de sec&ccedil;&atilde;o antes e depois do texto.",
+                        "Inserir uma quebra de coluna.",
+                        "Ajustar o espa&ccedil;o entre colunas e confirmar a ordem de leitura."
+                ],
+                "delivery": "Captura da p&aacute;gina e explica&ccedil;&atilde;o da fun&ccedil;&atilde;o da quebra de sec&ccedil;&atilde;o e da quebra de coluna."
+        },
+        {
+                "title": "TI9 - Bem-vindo ao Word - melhorar o aspeto visual",
+                "objective": "Ajustar imagens e outros elementos visuais, mantendo a fidelidade ao modelo e a clareza do documento.",
+                "steps": [
+                        "Criar a c&oacute;pia &laquo;2026-07_08_Bem-vindo ao Word.docx&raquo;.",
+                        "Inserir ou ajustar imagens de acordo com o modelo em PDF.",
+                        "Redimensionar e recortar imagens, preservando propor&ccedil;&otilde;es.",
+                        "Testar Em linha com o texto e Moldar texto - Quadrado.",
+                        "Acrescentar uma caixa de texto, forma ou &iacute;cone com fun&ccedil;&atilde;o informativa.",
+                        "Alinhar ou agrupar elementos relacionados e verificar contraste e equil&iacute;brio visual."
+                ],
+                "delivery": "Captura antes e depois da melhoria visual e identifica&ccedil;&atilde;o dos recursos utilizados."
+        },
+        {
+                "title": "TI10 - Estruturar um documento longo",
+                "objective": "Preparar o documento para funcionar como um documento longo, com estrutura uniforme e elementos autom&aacute;ticos.",
+                "steps": [
+                        "Criar a c&oacute;pia &laquo;2026-07_09_Bem-vindo ao Word.docx&raquo;.",
+                        "Rever t&iacute;tulos e aplicar T&iacute;tulo 1, T&iacute;tulo 2 e, quando necess&aacute;rio, T&iacute;tulo 3.",
+                        "Criar ou ajustar lista numerada hier&aacute;rquica associada aos n&iacute;veis de t&iacute;tulo.",
+                        "Usar quebras de p&aacute;gina para iniciar sec&ccedil;&otilde;es principais.",
+                        "Inserir cabe&ccedil;alho discreto e rodap&eacute; com nome e numera&ccedil;&atilde;o autom&aacute;tica.",
+                        "Configurar primeira p&aacute;gina diferente e verificar o Painel de Navega&ccedil;&atilde;o."
+                ],
+                "delivery": "Capturas dos estilos/Painel de Navega&ccedil;&atilde;o e do cabe&ccedil;alho, rodap&eacute; ou numera&ccedil;&atilde;o."
+        },
+        {
+                "title": "TI11 - Inserir e atualizar o primeiro &iacute;ndice",
+                "objective": "Executar o tutorial do &iacute;ndice e aplicar ao documento ferramentas que permitem navegar rapidamente.",
+                "steps": [
+                        "Abrir o tutorial &laquo;Inserir o seu primeiro &iacute;ndice&raquo; e realizar as experi&ecirc;ncias propostas.",
+                        "Criar a c&oacute;pia &laquo;2026-07_10_Bem-vindo ao Word.docx&raquo;.",
+                        "Inserir uma p&aacute;gina para o &iacute;ndice ap&oacute;s a capa e criar um &iacute;ndice autom&aacute;tico baseado nos estilos.",
+                        "Atualizar todo o &iacute;ndice e confirmar t&iacute;tulos, n&iacute;veis e n&uacute;meros de p&aacute;gina.",
+                        "Usar Painel de Navega&ccedil;&atilde;o, pesquisa e Ir para.",
+                        "Criar marcador e hiperliga&ccedil;&atilde;o interna ou refer&ecirc;ncia cruzada; testar liga&ccedil;&otilde;es."
+                ],
+                "delivery": "Captura do &iacute;ndice e do Painel de Navega&ccedil;&atilde;o, explicando a diferen&ccedil;a entre atualizar n&uacute;meros de p&aacute;gina e atualizar todo o &iacute;ndice."
+        },
+        {
+                "title": "TI12 - Concluir, partilhar e refletir",
+                "objective": "Concluir o projeto, disponibilizar o PDF com permiss&otilde;es de leitura e refletir sobre a evolu&ccedil;&atilde;o das aprendizagens.",
+                "steps": [
+                        "Criar a &uacute;ltima vers&atilde;o edit&aacute;vel &laquo;2026-07_11_Bem-vindo ao Word.docx&raquo;.",
+                        "Ler o feedback recebido na avalia&ccedil;&atilde;o entre pares e aplicar corre&ccedil;&otilde;es pertinentes.",
+                        "Executar revis&atilde;o ortogr&aacute;fica e gramatical, atualizar o &iacute;ndice e verificar pagina&ccedil;&atilde;o e pr&eacute;-visualiza&ccedil;&atilde;o de impress&atilde;o.",
+                        "Exportar a vers&atilde;o final para PDF com o nome &laquo;2026-07_12_Bem-vindo ao Word.pdf&raquo;.",
+                        "Definir permiss&atilde;o Qualquer pessoa com a liga&ccedil;&atilde;o - Leitor e testar a liga&ccedil;&atilde;o.",
+                        "Publicar no Padlet a capa e liga&ccedil;&atilde;o para o PDF.",
+                        "Escrever reflex&atilde;o final entre 150 e 200 palavras."
+                ],
+                "delivery": "Liga&ccedil;&atilde;o de leitura para o PDF final e reflex&atilde;o final no Padlet."
         }
-      ];
-      function cardStart(accent = colors.blue) {
-        return `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: ${colors.text};">
-  <div style="position: relative; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07);">
-    <div style="border-left: 6px solid ${accent}; padding: 24px 26px 32px;">`;
-      }
-
-      function cardEnd() {
-        return `    </div>
-    <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, ${colors.blue}, ${colors.lightBlue}, ${colors.orange});"></div>
-  </div>
-</div>`;
-      }
-
-      function renderTiHtml(task, index) {
-        const accent = index < 4 ? colors.lightBlue : colors.orange;
-        return `${cardStart(accent)}
-      <h3 style="margin: 0 0 12px; color: ${colors.blue}; font-size: 24px; line-height: 1.2; font-weight: 900;">${task.title}</h3>
-      <p style="margin: 0 0 14px; line-height: 1.6;"><strong>Objetivo:</strong> ${task.objective}</p>
-      <p style="margin: 0 0 8px; font-weight: 900; color: ${colors.darkBlue};">O que fazer:</p>
-      <ul style="margin: 0 0 14px; padding-left: 22px; line-height: 1.7;">
-        ${task.steps.map((step) => `<li>${step}</li>`).join("\n        ")}
-      </ul>
-      <p style="margin: 0; padding: 12px 14px; border-radius: 8px; background: ${colors.softOrange}; border: 1px solid #BAE6FD;"><strong>Entrega:</strong> ${task.delivery}${task.forumUrl ? ` <a style="display: inline-block; margin-left: 8px; color: #0078D4; font-weight: 900;" href="${task.forumUrl}">Abrir fórum</a>` : ""}</p>
-${cardEnd()}`;
-      }
-
-      function renderTgOverviewHtml() {
-        return `${cardStart(colors.orange)}
-      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
-        <div>
-          <p style="margin: 0 0 8px; color: ${colors.orange}; font-size: 12px; font-weight: 900; text-transform: uppercase;">Tarefa de Grupo</p>
-          <h3 style="margin: 0; color: ${colors.blue}; font-size: 28px; line-height: 1.16; font-weight: 900;">Glossário colaborativo</h3>
-          <p style="margin: 12px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6;">Construir, em grupo, um glossário com os principais conceitos trabalhados ao longo da UFCD.</p>
-        </div>
-        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.softBlue}; color: ${colors.darkBlue}; font-size: 30px; font-weight: 900;">TG</div>
-      </div>
-      <div style="margin-top: 18px; padding: 16px; border: 1px solid ${colors.line}; border-radius: 8px; background: #F8FBFE;">
-        <p style="margin: 0 0 10px;"><strong>Objetivo:</strong> criar uma definição simples e um exemplo prático para a palavra atribuída à sala.</p>
-        <ol style="margin: 0; padding-left: 22px; line-height: 1.7;">
-          <li>Ler a palavra atribuída.</li>
-          <li>Conversar sobre o seu significado.</li>
-          <li>Escrever uma definição simples, com as vossas palavras.</li>
-          <li>Dar um exemplo prático, sempre que possível.</li>
-          <li>Publicar a palavra e a definição no Glossário do Moodle.</li>
-        </ol>
-      </div>
-      <p style="margin: 14px 0 0; padding: 12px 14px; border-radius: 8px; background: ${colors.softOrange}; border: 1px solid #BAE6FD;"><strong>Entrega:</strong> publicação da palavra no Glossário do Moodle.</p>
-${cardEnd()}`;
-      }
-
-      function renderTgDayHtml(task) {
-        return `${cardStart(colors.lightBlue)}
-      <p style="margin: 0 0 8px; color: ${colors.orange}; font-size: 12px; font-weight: 900; text-transform: uppercase;">Tarefa de Grupo</p>
-      <h3 style="margin: 0 0 16px; color: ${colors.blue}; font-size: 24px; line-height: 1.2; font-weight: 900;">${task.title}</h3>
-      <table style="width: 100%; border-collapse: collapse; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; font-size: 15px;">
-        <thead>
-          <tr>
-            <th style="width: 28%; padding: 12px; text-align: left; color: ${colors.white}; background: ${colors.blue};">Sala</th>
-            <th style="padding: 12px; text-align: left; color: ${colors.white}; background: ${colors.blue};">Palavra / Termo</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${task.words.map(([room, word]) => `<tr><td style="padding: 12px; border-top: 1px solid ${colors.line}; background: #F8FBFE; font-weight: 900;">${room}</td><td style="padding: 12px; border-top: 1px solid ${colors.line};">${word}</td></tr>`).join("\n          ")}
-        </tbody>
-      </table>
-${cardEnd()}`;
-      }
-
-      function renderProjetoFinalMoodleHtml() {
-        return `<div style="font-family: Arial, sans-serif; color: #1f2933; max-width: 1100px; margin: 0 auto 24px auto;">
-  <div style="background-color: #ffffff; border: 1px solid #bfdbfe; border-radius: 8px; overflow: hidden; margin-bottom: 18px; box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07);">
-    <div style="padding: 18px 22px 14px 22px; border-bottom: 4px solid #38bdf8;">
-      <h3 style="margin: 0; color: #0078d4; font-size: 24px; font-weight: bold;">Padlet Final: Do Click ao Guardar</h3>
-      <p style="margin: 8px 0 0 0; font-size: 14px; line-height: 1.5; color: #4b5563;">Tarefa inicial da UFCD 0693 para organizar evidências, expetativas e reflexões ao longo da formação.</p>
-    </div>
-    <div style="padding: 20px 22px; border-top: 4px solid #0078d4;">
-      <h4 style="margin: 0 0 10px 0; color: #0078d4; font-size: 18px;">Objetivo</h4>
-      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 18px;">Cada formando constrói um <strong>Padlet individual em formato Colunas</strong>, que constitui o Projeto Final da UFCD 0693.</p>
-      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 22px;">O Padlet reúne uma coluna por Tarefa Individual, da TI 1 à TI 7, com as evidências selecionadas, a explicação do trabalho e a reflexão sobre a aprendizagem.</p>
-
-      <h4 style="margin: 0 0 14px 0; color: #0078d4; font-size: 18px;">Configuração mínima</h4>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px;">
-        <div style="border-left: 4px solid #38bdf8; background-color: #f8fbfe; padding: 12px;"><strong>Formato</strong><br>Colunas</div>
-        <div style="border-left: 4px solid #38bdf8; background-color: #f8fbfe; padding: 12px;"><strong>Título</strong><br>Do Click ao Guardar do(a) nome</div>
-        <div style="border-left: 4px solid #38bdf8; background-color: #f8fbfe; padding: 12px;"><strong>Visibilidade</strong><br>Público</div>
-      </div>
-
-      <h4 style="margin: 0 0 14px 0; color: #0078d4; font-size: 18px;">Passos de criação</h4>
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 22px;">
-        <div style="border-left: 4px solid #0078d4; background-color: #f8fbfe; padding: 12px;"><strong>1. Conta</strong><br>Criar ou usar uma conta Google no formato nome+numeroIEFP@gmail.com.</div>
-        <div style="border-left: 4px solid #0078d4; background-color: #f8fbfe; padding: 12px;"><strong>2. Estrutura</strong><br>Criar pelo menos as colunas Expectativas e Recursos Futuramente.</div>
-        <div style="border-left: 4px solid #0078d4; background-color: #f8fbfe; padding: 12px;"><strong>3. Primeiro post</strong><br>Escrever 3 a 5 frases sobre o que espera aprender.</div>
-        <div style="border-left: 4px solid #0078d4; background-color: #f8fbfe; padding: 12px;"><strong>4. Partilha</strong><br>Definir permissão Pode escrever e copiar o link.</div>
-      </div>
-
-      <div style="background-color: #f0f9ff; border-left: 4px solid #0078d4; padding: 16px; border-radius: 4px; margin-bottom: 18px;">
-        <h4 style="margin: 0 0 10px 0; color: #0078d4; font-size: 18px;">Entrega no Moodle</h4>
-        <ul style="font-size: 14px; line-height: 1.7; margin: 0; padding-left: 20px;">
-          <li>Publicar apenas o link do Padlet no Fórum “Padlets individuais”.</li>
-          <li>Não anexar ficheiros nesta tarefa.</li>
-          <li>Confirmar que a permissão permite acesso e escrita, conforme orientação da formadora.</li>
-          <li>Manter o Padlet organizado como Projeto Final e disponível para futura partilha no e-portefólio.</li>
-        </ul>
-      </div>
-
-      <a style="display: block; text-decoration: none; color: inherit;" href="atividades/tarefas-individuais.html">
-        <div style="background-color: #e0f2fe; border-left: 4px solid #38bdf8; padding: 16px; border-radius: 4px; cursor: pointer;">
-          <h4 style="margin: 0 0 10px 0; color: #0078d4; font-size: 18px;">Página de apoio às tarefas individuais</h4>
-          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: #1f2933;">Abrir a página com as tarefas individuais da UFCD 0693 e respetivas evidências.</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>`;
-      }
-
-      function renderEPortfoliosMoodleHtml() {
-        return `<div style="max-width: 1200px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: #24143D;">
-  <div style="position: relative; overflow: hidden; border: 1px solid #DDD6FE; border-radius: 8px; background: linear-gradient(135deg, #FFFFFF 0%, #F5F3FF 58%, #EDE9FE 100%); box-shadow: 0 14px 34px rgba(76, 29, 149, 0.10);">
-    <div style="padding: 26px 28px 34px;">
-      <p style="margin: 0 0 8px; color: #7C3AED; font-size: 12px; font-weight: 900; text-transform: uppercase;">Ação 26109</p>
-      <h3 style="margin: 0; color: #4C1D95; font-size: 30px; line-height: 1.12; font-weight: 900;">E-Portefólios da turma</h3>
-      <p style="margin: 12px 0 0; max-width: 860px; font-size: 15px; line-height: 1.6;">Neste espaço serão publicados os e-portefólios digitais dos formandos. Consulta os trabalhos dos colegas com atenção e deixa sugestões de melhoria através das respostas deste fórum.</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
-        <span style="border-radius: 8px; padding: 8px 10px; color: #FFFFFF; background: #4C1D95; font-size: 13px; font-weight: 900;">Produzir</span>
-        <span style="border-radius: 8px; padding: 8px 10px; color: #FFFFFF; background: #6D28D9; font-size: 13px; font-weight: 900;">Colaborar</span>
-        <span style="border-radius: 8px; padding: 8px 10px; color: #FFFFFF; background: #7C3AED; font-size: 13px; font-weight: 900;">Partilhar</span>
-        <span style="border-radius: 8px; padding: 8px 10px; color: #FFFFFF; background: #8B5CF6; font-size: 13px; font-weight: 900;">Inovar</span>
-      </div>
-    </div>
-    <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, #4C1D95, #7C3AED, #C4B5FD);"></div>
-  </div>
-
-  <div style="margin-top: 16px; padding: 18px 20px; border: 1px solid #DDD6FE; border-left: 6px solid #7C3AED; border-radius: 8px; background: #FFFFFF;">
-    <h4 style="margin: 0 0 10px; color: #4C1D95; font-size: 19px;">Como comentar os e-portefólios</h4>
-    <ol style="margin: 0; padding-left: 22px; font-size: 15px; line-height: 1.7;">
-      <li>Escolhe um e-portefólio para consultar.</li>
-      <li>Observa a organização, clareza, evidências e apresentação visual.</li>
-      <li>Clica em <strong>Responder</strong> no tópico do fórum.</li>
-      <li>Escreve uma sugestão concreta, respeitosa e útil para melhorar o trabalho.</li>
-    </ol>
-  </div>
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 18px;">
-    <div style="overflow: hidden; border: 1px solid #DDD6FE; border-radius: 8px; background: #FFFFFF;">
-      <div style="padding: 14px 16px; border-bottom: 1px solid #DDD6FE; background: #F5F3FF;">
-        <h4 style="margin: 0; color: #4C1D95; font-size: 18px;">Nome do/a formando/a</h4>
-        <p style="margin: 4px 0 0; color: #64748B; font-size: 13px;">E-Portefólio Digital - Ação 26109</p>
-      </div>
-      <div style="position: relative; width: 100%; height: 0; padding-top: 62.5%; background: #F8FAFC;">
-        <iframe style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;" src="COLOCAR_AQUI_O_LINK_DE_INCORPORACAO_DO_PORTFOLIO" title="E-Portefólio - Nome do/a formando/a" loading="lazy" allowfullscreen="allowfullscreen"></iframe>
-      </div>
-      <div style="padding: 12px 16px;">
-        <p style="margin: 0; font-size: 14px; line-height: 1.55;"><strong>Sugestão:</strong> duplica este cartão para cada formando/a e substitui o nome e o link do iframe.</p>
-      </div>
-    </div>
-
-    <div style="overflow: hidden; border: 1px dashed #C4B5FD; border-radius: 8px; background: #FAF9FF;">
-      <div style="padding: 14px 16px; border-bottom: 1px dashed #C4B5FD;">
-        <h4 style="margin: 0; color: #4C1D95; font-size: 18px;">Próximo e-portefólio</h4>
-        <p style="margin: 4px 0 0; color: #64748B; font-size: 13px;">Espaço reservado</p>
-      </div>
-      <div style="display: grid; place-items: center; min-height: 220px; padding: 24px; color: #6D28D9; text-align: center;">
-        <p style="margin: 0; font-size: 15px; line-height: 1.6;">Duplicar o cartão anterior e substituir pelo iframe do próximo e-portefólio.</p>
-      </div>
-    </div>
-  </div>
-</div>`;
-      }
-
-      const templates = [
-        {
-          title: "Padlet incorporado",
-          description: "Bloco principal para mostrar o Padlet dentro do Moodle.",
-          html: `${cardStart(colors.blue)}
-      <h3 style="margin: 0 0 14px; color: ${colors.blue}; font-size: 26px; line-height: 1.18; font-weight: 900;">UFCD 0693 · Correio Eletrónico e Pesquisa na Web</h3>
-      <iframe style="width: 100%; height: 520px; display: block; border: 0; border-radius: 8px; background: ${colors.white};" title="Padlet - UFCD 0693" src="https://padlet.com/embed/6w91ggh9dum7qhle" allow="camera; microphone; geolocation; display-capture; clipboard-write" loading="lazy"></iframe>
-${cardEnd()}`
-        },
-        {
-          title: "Página de apoio - cartão da secção",
-          description: "Cartão para abrir a página de apoio da UFCD no Moodle.",
-          html: `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: ${colors.text};">
-  <a style="display: block; text-decoration: none; color: inherit;" href="https://fad.iefp.pt/mod/page/view.php?id=394695">
-    <div style="position: relative; min-height: 150px; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07);">
-      <div style="display: flex; flex-direction: column; justify-content: center; min-height: 140px; padding: 24px 30px;">
-        <p style="margin: 0 0 8px; color: ${colors.orange}; font-size: 12px; font-weight: 900; text-transform: uppercase;">UFCD 0693</p>
-        <h3 style="margin: 0; max-width: 760px; color: ${colors.blue}; font-size: 26px; line-height: 1.16; font-weight: 900;">Conteúdos, atividades, avaliação e recursos</h3>
-      </div>
-      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, ${colors.blue}, ${colors.lightBlue}, ${colors.orange});"></div>
-    </div>
-  </a>
-</div>`
-        },
-        {
-          title: "Página de apoio - conteúdo da página",
-          description: "Iframe para colocar dentro da página Moodle.",
-          html: `<div style="width: 100%; margin: 0 auto; padding: 16px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07); font-family: Arial, Helvetica, sans-serif;">
-  <iframe style="width: 100%; max-width: 1500px; height: 800px; border: 0; border-radius: 8px; display: block; margin: 0 auto; background: ${colors.white};" title="UFCD 0693 - Correio Eletrónico e Pesquisa na Web" src="index.html#inicio" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
-</div>`
-        },
-        {
-          title: "Padlet Final: Do Click ao Guardar",
-          description: "Bloco Moodle com orientações para criar e partilhar o Padlet individual.",
-          html: renderProjetoFinalMoodleHtml()
-        },
-        {
-          title: "E-Portefólios - separador com iframes",
-          description: "Separador para publicar os e-portefólios em iframe e recolher sugestões de melhoria no fórum.",
-          html: renderEPortfoliosMoodleHtml()
-        },
-        {
-          title: "TG - Glossário colaborativo",
-          description: "Bloco geral para a tarefa de grupo no Glossário Moodle.",
-          html: renderTgOverviewHtml()
-        },
-        ...tgTasks.map((task) => ({
-          title: `TG - ${task.title}`,
-          description: "Tabela diária de palavras por sala/grupo.",
-          html: renderTgDayHtml(task)
-        })),
-        {
-          title: "TI - Fórum de tarefas individuais",
-          description: "Bloco geral para apresentar o fórum das tarefas individuais.",
-          html: `${cardStart(colors.orange)}
-      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
-        <div>
-          <p style="margin: 0 0 8px; color: ${colors.orange}; font-size: 12px; font-weight: 900; text-transform: uppercase;">Tarefas Individuais</p>
-          <h3 style="margin: 0; color: ${colors.blue}; font-size: 28px; line-height: 1.16; font-weight: 900;">Fórum de atividades individuais</h3>
-          <p style="margin: 12px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6;">Cada tópico corresponde a uma tarefa individual da UFCD 0693. Lê o enunciado, realiza a tarefa e publica a resposta ou evidência no local indicado.</p>
-        </div>
-        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.softOrange}; color: ${colors.orange}; font-size: 30px; font-weight: 900;">TI</div>
-      </div>
-${cardEnd()}`
-        },
-        ...tiTasks.map((task, index) => ({
-          title: task.title,
-          description: "HTML para o tópico Moodle da tarefa individual.",
-          html: renderTiHtml(task, index)
-        }))
-      ];
-
-      const tgOverviewTemplate = templates.find((template) => template.title === "TG - Glossário colaborativo");
-      if (tgOverviewTemplate) tgOverviewTemplate.html = `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: ${colors.text};">
-  <a style="display: block; color: inherit; text-decoration: none;" href="${moodleLinks.glossary}">
-    <div style="position: relative; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07);">
-      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 30px 34px;">
-        <div>
-          <h3 style="margin: 0; color: ${colors.blue}; font-size: 28px; line-height: 1.16; font-weight: 900;">Glossário colaborativo</h3>
-          <p style="margin: 12px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6;">Construir, em grupo, um glossário com os principais conceitos trabalhados ao longo da UFCD.</p>
-        </div>
-        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.softBlue}; color: ${colors.darkBlue}; font-size: 30px; font-weight: 900;">TG</div>
-      </div>
-      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, ${colors.blue}, ${colors.lightBlue}, ${colors.orange});"></div>
-    </div>
-  </a>
-  <div style="margin-top: 14px; padding: 18px 20px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07); font-size: 15px;">
-    <p style="margin: 0 0 12px; line-height: 1.6;"><strong>Objetivo:</strong> criar uma definição simples e um exemplo prático para a palavra atribuída à sala.</p>
-    <ol style="margin: 0; padding-left: 42px; line-height: 1.65;">
-      <li>Ler a palavra atribuída.</li>
-      <li>Conversar sobre o seu significado.</li>
-      <li>Escrever uma definição simples, com as vossas palavras.</li>
-      <li>Dar um exemplo prático, sempre que possível.</li>
-      <li>Publicar a palavra e a definição no Glossário do Moodle.</li>
-    </ol>
-  </div>
-</div>`;
-
-      const tiOverviewTemplate = templates.find((template) => template.title === "TI - Fórum de tarefas individuais");
-      if (tiOverviewTemplate) tiOverviewTemplate.html = `<div style="max-width: 1100px; margin: 0 auto 24px; font-family: Arial, Helvetica, sans-serif; color: ${colors.text};">
-  <a style="display: block; color: inherit; text-decoration: none;" href="${moodleLinks.forum}">
-    <div style="position: relative; overflow: hidden; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07);">
-      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 30px 34px;">
-        <div>
-          <h3 style="margin: 0; color: ${colors.blue}; font-size: 28px; line-height: 1.16; font-weight: 900;">Fórum de atividades</h3>
-          <p style="margin: 12px 0 0; max-width: 760px; font-size: 15px; line-height: 1.6;">Fórum dedicado às tarefas, organizado por tópicos temáticos.</p>
-        </div>
-        <div style="display: grid; place-items: center; width: 64px; min-width: 64px; height: 64px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.softOrange}; color: ${colors.orange}; font-size: 30px; font-weight: 900;">TI</div>
-      </div>
-      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(90deg, ${colors.blue}, ${colors.lightBlue}, ${colors.orange});"></div>
-    </div>
-  </a>
-  <div style="margin-top: 14px; padding: 18px 20px; border: 1px solid ${colors.line}; border-radius: 8px; background: ${colors.white}; box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07); font-size: 15px;">
-    <p style="margin: 0 0 12px; line-height: 1.6;">Cada tópico corresponde a um tema da UFCD e inclui a respetiva atividade individual.</p>
-    <ol style="margin: 0; padding-left: 42px; line-height: 1.65;">
-      <li>Lê o enunciado com atenção antes de começar.</li>
-      <li>Resolve a tarefa de forma autónoma.</li>
-      <li>Organiza a resposta de forma clara e completa.</li>
-      <li>Sempre que fizer sentido, aplica exemplos práticos relacionados com a formação.</li>
-      <li>Revê o trabalho antes de submeter ou publicar a resposta no Moodle.</li>
-    </ol>
-  </div>
-</div>`;
-
-      function escapeHtml(value) {
-        return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      }
-
-      function renderTemplates() {
-        const root = document.getElementById("templates");
-        root.innerHTML = templates.map((template, index) => `
-          <article class="template-card">
-            <div class="template-head">
-              <div>
-                <h2>${index + 1}. ${template.title}</h2>
-                <p>${template.description}</p>
-              </div>
-              <button class="copy-button" type="button" data-copy="${index}">Copiar HTML</button>
-            </div>
-            <div class="template-body">
-              <div class="preview" aria-label="Pré-visualização">${template.html}</div>
-              <div class="code-panel">
-                <textarea spellcheck="false" aria-label="Código HTML do modelo ${template.title}">${escapeHtml(template.html)}</textarea>
-              </div>
-            </div>
-          </article>
-        `).join("");
-      }
-
-      async function copyTemplate(index, button) {
-        const html = templates[index].html;
-        try {
-          await navigator.clipboard.writeText(html);
-          button.textContent = "Copiado";
-          setTimeout(() => {
-            button.textContent = "Copiar HTML";
-          }, 1600);
-        } catch (error) {
-          const textarea = button.closest(".template-card").querySelector("textarea");
-          textarea.focus();
-          textarea.select();
-          button.textContent = "Selecionado";
-        }
-      }
-
-      renderTemplates();
-
-      document.addEventListener("click", (event) => {
-        const button = event.target.closest("[data-copy]");
-        if (!button) return;
-        copyTemplate(Number(button.dataset.copy), button);
-      });
+];
+      function cardStart(accent=colors.blue){return '<div style="max-width:1100px;margin:0 auto 24px;font-family:Segoe UI,Aptos,Calibri,sans-serif;color:'+colors.text+';"><div style="position:relative;overflow:hidden;border:1px solid '+colors.line+';border-radius:8px;background:'+colors.white+';box-shadow:0 10px 24px rgba(43,87,154,.07);"><div style="padding:24px 28px 30px;border-left:6px solid '+accent+';">'}
+      function cardEnd(){return '</div><div style="position:absolute;left:0;right:0;bottom:0;height:7px;background:linear-gradient(90deg,'+colors.lightBlue+','+colors.blue+','+colors.darkBlue+');"></div></div></div>'}
+      function renderPadletHtml(){return '<div style="max-width:1100px;margin:0 auto 24px;font-family:Segoe UI,Aptos,Calibri,sans-serif;color:'+colors.text+';"><iframe style="width:100%;height:520px;display:block;border:0;border-radius:8px;background:'+colors.white+';" title="Padlet - UFCD 0754" src="'+moodleLinks.padlet+'" allow="camera;microphone;geolocation;display-capture;clipboard-write" loading="lazy"></iframe></div>'}
+      function renderPageCardHtml(){return '<div style="max-width:1100px;margin:0 auto 24px;font-family:Segoe UI,Aptos,Calibri,sans-serif;color:'+colors.text+';"><a style="display:block;text-decoration:none;color:inherit;" href="'+moodleLinks.site+'"><div style="position:relative;min-height:150px;overflow:hidden;border:1px solid '+colors.line+';border-radius:8px;background:'+colors.white+';box-shadow:0 10px 24px rgba(43,87,154,.07);"><div style="display:flex;flex-direction:column;justify-content:center;min-height:140px;padding:24px 30px;"><p style="margin:0 0 8px;color:'+colors.darkBlue+';font-size:12px;font-weight:900;text-transform:uppercase;">UFCD 0754</p><h3 style="margin:0;max-width:760px;color:'+colors.blue+';font-size:26px;line-height:1.16;font-weight:900;">Conte&uacute;dos, atividades, avalia&ccedil;&atilde;o e recursos</h3></div><div style="position:absolute;left:0;right:0;bottom:0;height:7px;background:linear-gradient(90deg,'+colors.blue+','+colors.lightBlue+','+colors.darkBlue+');"></div></div></a></div>'}
+      function renderPageIframeHtml(){return '<div style="width:100%;margin:0 auto;padding:16px;border:1px solid '+colors.line+';border-radius:8px;background:'+colors.white+';box-shadow:0 10px 24px rgba(43,87,154,.07);font-family:Segoe UI,Aptos,Calibri,sans-serif;"><iframe style="width:100%;max-width:1500px;height:800px;border:0;border-radius:8px;display:block;margin:0 auto;background:'+colors.white+';" title="UFCD 0754 - Processador de Texto" src="'+moodleLinks.site+'" allowfullscreen="allowfullscreen" loading="lazy"></iframe></div>'}
+      function renderMentimeterHtml(){return '<div style="position:relative;padding-bottom:56.25%;padding-top:35px;height:0;overflow:hidden;"><iframe sandbox="allow-popups allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="'+moodleLinks.mentimeterEmbed+'" style="position:absolute;top:0;left:0;width:100%;height:100%;" width="420"></iframe></div>'}
+      function renderProjetoFinalMoodleHtml(){return cardStart(colors.lightBlue)+'<p style="margin:0 0 8px;color:'+colors.darkBlue+';font-size:12px;font-weight:900;text-transform:uppercase;">Tarefas Individuais</p><h3 style="margin:0;color:'+colors.blue+';font-size:28px;line-height:1.16;font-weight:900;">Percurso pr&aacute;tico - Bem-vindo ao Word</h3><p style="margin:12px 0 0;max-width:820px;font-size:15px;line-height:1.6;">A partir da TI2, cada tarefa parte do ficheiro anterior e origina uma nova vers&atilde;o do exerc&iacute;cio &laquo;Bem-vindo ao Word&raquo;. As vers&otilde;es ficam guardadas na Drive e as evid&ecirc;ncias s&atilde;o publicadas no Padlet individual.</p><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;"><div style="border-left:4px solid '+colors.blue+';background:'+colors.softBlue+';padding:12px;"><strong>Ficheiros</strong><br>Vers&otilde;es na Drive</div><div style="border-left:4px solid '+colors.blue+';background:'+colors.softBlue+';padding:12px;"><strong>Nomenclatura</strong><br>2026-07_01, 2026-07_02...</div><div style="border-left:4px solid '+colors.blue+';background:'+colors.softBlue+';padding:12px;"><strong>Resultado final</strong><br>PDF com permiss&atilde;o de leitura</div></div>'+cardEnd()}
+      function renderEPortfoliosMoodleHtml(){return cardStart(colors.darkBlue)+'<p style="margin:0 0 8px;color:'+colors.darkBlue+';font-size:12px;font-weight:900;text-transform:uppercase;">A&ccedil;&atilde;o 26109</p><h3 style="margin:0;color:'+colors.blue+';font-size:28px;line-height:1.16;font-weight:900;">E-Portef&oacute;lios da turma</h3><p style="margin:12px 0 0;max-width:820px;font-size:15px;line-height:1.6;">Espa&ccedil;o para publicar as liga&ccedil;&otilde;es finais dos trabalhos/e-portef&oacute;lios dos formandos, quando estiverem dispon&iacute;veis.</p><div style="margin-top:16px;padding:16px;border:1px dashed '+colors.line+';border-radius:8px;background:'+colors.softBlue+';">Substituir este bloco pelos iframes ou liga&ccedil;&otilde;es finais de cada formando/a.</div>'+cardEnd()}
+      function renderTgOverviewHtml(){return '<div style="max-width:1100px;margin:0 auto 24px;font-family:Segoe UI,Aptos,Calibri,sans-serif;color:'+colors.text+';"><a style="display:block;color:inherit;text-decoration:none;" href="'+moodleLinks.glossary+'"><div style="position:relative;overflow:hidden;border:1px solid '+colors.line+';border-radius:8px;background:'+colors.white+';box-shadow:0 10px 24px rgba(43,87,154,.07);"><div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:28px 30px 34px;"><div><h3 style="margin:0;color:'+colors.blue+';font-size:28px;line-height:1.16;font-weight:900;">Gloss&aacute;rio colaborativo</h3><p style="margin:12px 0 0;max-width:760px;font-size:15px;line-height:1.6;">Construir, em grupo, um gloss&aacute;rio com os principais conceitos trabalhados ao longo da UFCD.</p></div><div style="display:grid;place-items:center;width:64px;min-width:64px;height:64px;border:1px solid '+colors.line+';border-radius:8px;background:'+colors.softBlue+';color:'+colors.darkBlue+';font-size:30px;font-weight:900;">TG</div></div><div style="position:absolute;left:0;right:0;bottom:0;height:7px;background:linear-gradient(90deg,'+colors.blue+','+colors.lightBlue+','+colors.darkBlue+');"></div></div></a><div style="margin-top:14px;padding:18px 20px;border:1px solid '+colors.line+';border-radius:8px;background:'+colors.white+';box-shadow:0 10px 24px rgba(43,87,154,.07);font-size:15px;"><p style="margin:0 0 12px;line-height:1.6;"><strong>Objetivo:</strong> criar uma defini&ccedil;&atilde;o simples e um exemplo pr&aacute;tico para a palavra atribu&iacute;da &agrave; sala.</p><ol style="margin:0;padding-left:42px;line-height:1.65;"><li>Ler a palavra atribu&iacute;da.</li><li>Conversar sobre o seu significado.</li><li>Escrever uma defini&ccedil;&atilde;o simples, com as vossas palavras.</li><li>Dar um exemplo pr&aacute;tico, sempre que poss&iacute;vel.</li><li>Publicar a palavra e a defini&ccedil;&atilde;o no Gloss&aacute;rio do Moodle.</li></ol></div></div>'}
+      function renderTgDayHtml(task){return cardStart(colors.lightBlue)+'<p style="margin:0 0 8px;color:'+colors.darkBlue+';font-size:12px;font-weight:900;text-transform:uppercase;">Tarefa de Grupo</p><h3 style="margin:0 0 16px;color:'+colors.blue+';font-size:24px;line-height:1.2;font-weight:900;">'+task.title+'</h3><table style="width:100%;border-collapse:collapse;overflow:hidden;border:1px solid '+colors.line+';border-radius:8px;font-size:15px;"><thead><tr><th style="width:28%;padding:12px;text-align:left;color:#fff;background:'+colors.blue+';">Grupo</th><th style="padding:12px;text-align:left;color:#fff;background:'+colors.blue+';">Palavra / Termo</th></tr></thead><tbody>'+task.words.map(([room,word])=>'<tr><td style="padding:12px;border-top:1px solid '+colors.line+';background:'+colors.softBlue+';font-weight:900;">'+room+'</td><td style="padding:12px;border-top:1px solid '+colors.line+';">'+word+'</td></tr>').join('')+'</tbody></table>'+cardEnd()}
+      function renderTiOverviewHtml(){return '<div style="max-width:1100px;margin:0 auto 24px;font-family:Segoe UI,Aptos,Calibri,sans-serif;color:'+colors.text+';"><a style="display:block;color:inherit;text-decoration:none;" href="'+moodleLinks.forum1+'"><div style="position:relative;overflow:hidden;border:1px solid '+colors.line+';border-radius:8px;background:'+colors.white+';box-shadow:0 10px 24px rgba(43,87,154,.07);"><div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:28px 30px 34px;"><div><h3 style="margin:0;color:'+colors.blue+';font-size:28px;line-height:1.16;font-weight:900;">F&oacute;rum de atividades</h3><p style="margin:12px 0 0;max-width:760px;font-size:15px;line-height:1.6;">F&oacute;rum dedicado &agrave;s tarefas, organizado por t&oacute;picos tem&aacute;ticos.</p></div><div style="display:grid;place-items:center;width:64px;min-width:64px;height:64px;border:1px solid '+colors.line+';border-radius:8px;background:'+colors.softOrange+';color:'+colors.darkBlue+';font-size:30px;font-weight:900;">TI</div></div><div style="position:absolute;left:0;right:0;bottom:0;height:7px;background:linear-gradient(90deg,'+colors.blue+','+colors.lightBlue+','+colors.darkBlue+');"></div></div></a><div style="margin-top:14px;padding:18px 20px;border:1px solid '+colors.line+';border-radius:8px;background:'+colors.white+';box-shadow:0 10px 24px rgba(43,87,154,.07);font-size:15px;"><p style="margin:0 0 12px;line-height:1.6;">Cada t&oacute;pico corresponde a um tema da UFCD e inclui a respetiva atividade individual.</p><ol style="margin:0;padding-left:42px;line-height:1.65;"><li>L&ecirc; o enunciado com aten&ccedil;&atilde;o antes de come&ccedil;ar.</li><li>Resolve a tarefa de forma aut&oacute;noma.</li><li>Organiza a resposta de forma clara e completa.</li><li>Sempre que fizer sentido, aplica exemplos pr&aacute;ticos relacionados com a forma&ccedil;&atilde;o.</li><li>Rev&ecirc; o trabalho antes de submeter ou publicar a resposta no Moodle.</li></ol></div></div>'}
+      function renderTiHtml(task,index){const accent=index<6?colors.lightBlue:colors.darkBlue;return cardStart(accent)+'<h3 style="margin:0 0 12px;color:'+colors.blue+';font-size:24px;line-height:1.2;font-weight:900;">'+task.title+'</h3><p style="margin:0 0 14px;line-height:1.6;"><strong>Objetivo:</strong> '+task.objective+'</p><p style="margin:0 0 8px;font-weight:900;color:'+colors.darkBlue+';">O que fazer:</p><ul style="margin:0 0 14px;padding-left:22px;line-height:1.7;">'+task.steps.map(step=>'<li>'+step+'</li>').join('')+'</ul><p style="margin:0;padding:12px 14px;border-radius:8px;background:'+colors.softOrange+';border:1px solid '+colors.line+';"><strong>Entrega:</strong> '+task.delivery+'</p>'+cardEnd()}
+      function escapeHtml(value){return value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+      const templates=[{title:'Padlet incorporado',description:'Bloco principal para mostrar o Padlet dentro do Moodle.',html:renderPadletHtml()},{title:'P&aacute;gina de apoio - cart&atilde;o da sec&ccedil;&atilde;o',description:'Cart&atilde;o para abrir a p&aacute;gina de apoio da UFCD no Moodle.',html:renderPageCardHtml()},{title:'P&aacute;gina de apoio - conte&uacute;do da p&aacute;gina',description:'Iframe para colocar dentro da p&aacute;gina Moodle.',html:renderPageIframeHtml()},{title:'Brainstorming - Mentimeter incorporado',description:'Iframe do Mentimeter fornecido.',html:renderMentimeterHtml()},{title:'Padlet Final: Bem-vindo ao Word',description:'Bloco Moodle com orienta&ccedil;&otilde;es do percurso pr&aacute;tico das TIs.',html:renderProjetoFinalMoodleHtml()},{title:'E-Portef&oacute;lios - separador com iframes',description:'Separador para publicar liga&ccedil;&otilde;es finais quando existirem.',html:renderEPortfoliosMoodleHtml()},{title:'TG - Gloss&aacute;rio colaborativo',description:'Bloco geral para a tarefa de grupo no Gloss&aacute;rio Moodle.',html:renderTgOverviewHtml()},...tgTasks.map(task=>({title:'TG - '+task.title,description:'Tabela de palavras por grupo.',html:renderTgDayHtml(task)})),{title:'TI - F&oacute;rum de tarefas individuais',description:'Bloco geral para apresentar o f&oacute;rum das tarefas individuais.',html:renderTiOverviewHtml()},...tiTasks.map((task,index)=>({title:task.title,description:'HTML para o t&oacute;pico Moodle da tarefa individual.',html:renderTiHtml(task,index)}))];
+      function renderTemplates(){const root=document.getElementById('templates');root.innerHTML=templates.map((template,index)=>'<article class="template-card"><div class="template-head"><div><h2>'+(index+1)+'. '+template.title+'</h2><p>'+template.description+'</p></div><button class="copy-button" type="button" data-copy="'+index+'">Copiar HTML</button></div><div class="template-body"><div class="preview" aria-label="Pr&eacute;-visualiza&ccedil;&atilde;o">'+template.html+'</div><div class="code-panel"><textarea spellcheck="false" aria-label="C&oacute;digo HTML do modelo '+template.title+'">'+escapeHtml(template.html)+'</textarea></div></div></article>').join('')}
+      async function copyTemplate(index,button){const html=templates[index].html;try{await navigator.clipboard.writeText(html);button.textContent='Copiado';setTimeout(()=>{button.textContent='Copiar HTML'},1600)}catch(error){const textarea=button.closest('.template-card').querySelector('textarea');textarea.focus();textarea.select();button.textContent='Selecionado'}}
+      renderTemplates();document.addEventListener('click',event=>{const button=event.target.closest('[data-copy]');if(!button)return;copyTemplate(Number(button.dataset.copy),button)});
     </script>
   </body>
 </html>

@@ -1,549 +1,452 @@
+const UFCD = {
+  code: "0754",
+  title: "Processador de Texto",
+  hours: "50 horas",
+  action: "26109",
+  driveFolder: "26109/03-0754"
+};
+
+const pendingLinks = {
+  appsScriptUrl: window.UFCD0754_PENDING_LINKS?.appsScriptUrl || "PENDENTE_UFCD0754_APPS_SCRIPT_URL",
+  spreadsheetId: window.UFCD0754_PENDING_LINKS?.spreadsheetId || "PENDENTE_UFCD0754_SPREADSHEET_ID",
+  mentimeterEmbedUrl: "https://www.mentimeter.com/app/presentation/alfbbg1d39wqoma1jbvcvpbirv9hyatr/embed",
+  mentimeterParticipationUrl: "https://www.menti.com/ald495rdgkt3",
+  padletEmbedUrl: "https://padlet.com/embed/ct3l4ks1gculo1o",
+  glossaryUrl: /^https?:\/\//i.test(window.UFCD0754_PENDING_LINKS?.glossaryUrl || "") ? window.UFCD0754_PENDING_LINKS.glossaryUrl : "",
+  individualTaskForumUrls: Array.isArray(window.UFCD0754_PENDING_LINKS?.individualTaskForumUrls)
+    ? window.UFCD0754_PENDING_LINKS.individualTaskForumUrls.filter((url) => /^https?:\/\//i.test(url))
+    : [],
+  manualPdf: window.UFCD0754_PENDING_LINKS?.manualPdf || ""
+};
+
 const topics = [
-  {
-    id: "introducao",
-    title: "Introdução",
-    menuTitle: "Introdução",
-    cardTitle: "Introdução",
-    area: "Enquadramento",
-    intro: "Apresentação do percurso, objetivos e organização da aprendizagem.",
-    image: "../assets/img/ufcd0693-capa-site.png",
-    url: "conteudos/introducao.html",
-    showInContents: false
-  },
-  {
-    id: "gestao-eletronica-documentos",
-    title: "Gestão eletrónica de documentos",
-    menuTitle: "Gestão de documentos",
-    cardTitle: "Gestão eletrónica de documentos",
-    area: "Organização digital",
-    intro: "Organizar documentos, agendas, pastas e critérios de indexação.",
-    image: "../assets/img/ufcd0693-capa-site.png",
-    url: "conteudos/gestao-eletronica-documentos.html",
-    items: ["Agenda eletrónica", "Correio eletrónico", "Organização de pastas", "Indexação"]
-  },
-  {
-    id: "mensagens-eletronicas",
-    title: "Mensagens eletrónicas",
-    menuTitle: "Mensagens eletrónicas",
-    cardTitle: "Mensagens eletrónicas",
-    area: "Comunicação digital",
-    intro: "Criar, enviar, receber, arquivar, reencaminhar e eliminar mensagens.",
-    image: "../assets/img/ufcd0693-capa-site.png",
-    url: "conteudos/mensagens-eletronicas.html"
-  },
-  {
-    id: "pesquisa-avancada-web",
-    title: "Métodos e técnicas de pesquisa avançada na web",
-    menuTitle: "Pesquisa avançada",
-    cardTitle: "Pesquisa avançada na web",
-    area: "Pesquisa e validação",
-    intro: "Pesquisar com operadores, avaliar fontes e validar informação online.",
-    image: "../assets/img/ufcd0693-capa-site.png",
-    url: "conteudos/pesquisa-avancada-web.html"
-  },
-  {
-    id: "configuracao-conta-google",
-    title: "Configuração da Conta Google",
-    menuTitle: "Conta Google",
-    cardTitle: "Configuração da Conta Google",
-    area: "Identidade digital",
-    intro: "Criar, configurar e proteger uma Conta Google e os serviços associados.",
-    image: "../assets/img/ufcd0693-capa-site.png",
-    url: "conteudos/configuracao-conta-google.html"
-  }
+  { id: "introducao", title: "Introdução", menuTitle: "Introdução", cardTitle: "Introdução ao processador de texto", area: "Enquadramento", intro: "Organização da UFCD, objetivos, metodologia e forma de construir o documento final.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/introducao.html", showInContents: false },
+  { id: "ambiente-trabalho", title: "Ambiente de trabalho e gestão de documentos", menuTitle: "Ambiente e ficheiros", cardTitle: "Ambiente de trabalho", intro: "Abrir, guardar, organizar, recuperar e proteger documentos de texto.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/ambiente-trabalho.html", items: ["Interface", "Guardar", "Modelos", "Compatibilidade"] },
+  { id: "edicao-texto", title: "Edição e revisão de texto", menuTitle: "Edição de texto", cardTitle: "Edição e revisão", intro: "Escrever, selecionar, mover, copiar, procurar, substituir e rever texto com rigor.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/edicao-texto.html" },
+  { id: "formatacao-caracteres-paragrafos", title: "Formatação de caracteres e parágrafos", menuTitle: "Formatação", cardTitle: "Caracteres e parágrafos", intro: "Aplicar tipos de letra, espaçamento, alinhamentos, listas, avanço e destaques de forma consistente.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/formatacao-caracteres-paragrafos.html" },
+  { id: "estruturacao-documentos", title: "Estruturação de documentos longos", menuTitle: "Estrutura", cardTitle: "Documentos longos", intro: "Usar estilos, títulos, quebras, cabeçalhos, rodapés, numeração e índices para organizar documentos profissionais.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/estruturacao-documentos.html" },
+  { id: "tabelas-colunas", title: "Tabelas, colunas e organização visual", menuTitle: "Tabelas e colunas", cardTitle: "Tabelas e colunas", intro: "Criar tabelas, ajustar linhas e colunas, distribuir informação e usar colunas de texto quando adequado.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/tabelas-colunas.html" },
+  { id: "imagens-objetos", title: "Imagens, objetos e elementos gráficos", menuTitle: "Imagens e objetos", cardTitle: "Imagens e objetos", intro: "Inserir imagens, formas e caixas de texto, ajustar disposição e garantir legibilidade.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/imagens-objetos.html" },
+  { id: "ferramentas-revisao", title: "Ferramentas de revisão e colaboração", menuTitle: "Revisão", cardTitle: "Revisão e colaboração", intro: "Utilizar corretor, comentários, controlo de alterações, comparação e procedimentos de revisão final.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/ferramentas-revisao.html" },
+  { id: "impressao-exportacao", title: "Impressão, exportação e partilha", menuTitle: "Exportar e partilhar", cardTitle: "Impressão e exportação", intro: "Preparar o documento para imprimir, exportar para PDF, verificar acessibilidade e partilhar corretamente.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/impressao-exportacao.html" },
+  { id: "boas-praticas", title: "Boas práticas para documentos profissionais", menuTitle: "Boas práticas", cardTitle: "Boas práticas", intro: "Aplicar critérios de clareza, coerência visual, normalização, privacidade e revisão antes da entrega final.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/boas-praticas.html" }
 ];
 
-const contentMenuGroups = [
-  {
-    title: "Gestão eletrónica de documentos",
+const contentMenuGroups = topics
+  .filter((topic) => topic.showInContents !== false)
+  .map((topic) => ({
+    title: topic.title,
     theme: "representation",
-    parentTopicId: "gestao-eletronica-documentos",
-    children: [
-      { topicId: "configuracao-conta-google" }
-    ]
-  },
-  { title: "Mensagens eletrónicas", theme: "representation", children: [{ topicId: "mensagens-eletronicas" }] },
-  { title: "Pesquisa avançada na web", theme: "database", children: [{ topicId: "pesquisa-avancada-web" }] }
-];
+    children: [{ topicId: topic.id }]
+  }));
 
-const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwTZTbLAY7RLR8RSbX3ogc6WT1J8DJZdgDRq_FUD055ByJm2eXvJ8zYzKIGSb1RYxAjaw/exec";
-const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "14xWArQOzb-1fZ4QxZXjuoJK1dxhjWmbwWmF7lsK-a9o";
-const APPS_SCRIPT_WEB_APP_URL = window.UFCD0693_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
-const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0693_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
+const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "";
+const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "";
+const APPS_SCRIPT_WEB_APP_URL = window.UFCD0754_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
+const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0754_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
 
 const activities = [
-  {
-    id: "controlo-teams",
-    title: "Partilha de ecrã",
-    menuTitle: "Partilha de ecrã",
-    intro: "Tabela simples para acompanhar quantas vezes cada formando já partilhou o ecrã nas reuniões Teams.",
-    url: "atividades/controlo-teams.html"
-  },
-  {
-    id: "brainstorming",
-    title: "Brainstorming",
-    intro: "Atividade inicial para recolher ideias, expectativas e conhecimentos prévios antes de aprofundar os conteúdos.",
-    url: "atividades/brainstorming.html",
-    focus: "Exploração inicial",
-    duration: "30 a 45 minutos",
-    product: "Mapa inicial com expectativas, dúvidas e conhecimentos prévios sobre correio eletrónico, organização digital e pesquisa na web.",
-    mentimeterUrl: "https://www.mentimeter.com/app/presentation/alrxyowitp4y7uzqu57vfi6txose8977/embed",
-    participationUrl: "https://www.menti.com/al7y28mtmwqm",
-    padletUrl: "https://padlet.com/embed/6w91ggh9dum7qhle",
-    qrCode: "assets/img/mentimeter_qr_code_0693.png",
-    steps: [
-      {
-        title: "Apresentação da UFCD",
-        text: "Identificar o objetivo, a duração e a organização geral da formação."
-      },
-      {
-        title: "Expectativas dos formandos",
-        text: "Recolher ideias sobre o que cada pessoa espera aprender ou melhorar."
-      },
-      {
-        title: "Conhecimentos prévios",
-        text: "Perceber experiências anteriores com correio eletrónico, agenda eletrónica, organização de documentos e pesquisa na web."
-      },
-      {
-        title: "Mapa inicial de temas",
-        text: "Organizar contributos em torno de comunicação digital, gestão de documentos, agenda eletrónica e pesquisa online."
-      },
-      {
-        title: "Síntese e próximos passos",
-        text: "Registar conclusões iniciais e preparar a passagem para os primeiros conteúdos."
-      }
-    ],
-    evidence: [
-      "Lista de ideias recolhidas",
-      "Dúvidas iniciais identificadas",
-      "Temas que exigem maior acompanhamento"
-    ]
-  },
-  {
-    id: "tarefas-grupo",
-    title: "Tarefas de Grupo",
-    intro: "Em cada atividade diária, a tarefa de grupo serve para construir vocabulário técnico no glossário colaborativo.",
-    url: "atividades/tarefas-grupo.html",
-    focus: "Tarefa de grupo",
-    duration: "A definir pelo formador",
-    product: "Definição simples e exemplo prático para a palavra atribuída à sala.",
-    steps: [
-      {
-        title: "Organização do grupo",
-        text: "Distribuir funções simples: recolha de dados, registo, revisão e apresentação."
-      },
-      {
-        title: "Tarefa de glossário",
-        text: "Criar uma definição simples, por palavras próprias, para o termo atribuído à sala."
-      },
-      {
-        title: "Exemplo prático",
-        text: "Acrescentar um exemplo simples ligado à utilização diária de ferramentas digitais."
-      },
-      {
-        title: "Preparação da apresentação",
-        text: "Organizar a explicação do processo seguido e das decisões tomadas pelo grupo."
-      },
-      {
-        title: "Partilha e revisão",
-        text: "Apresentar a tarefa realizada, ouvir comentários e ajustar o produto final quando necessário."
-      }
-    ],
-    evidence: [
-      "Ficheiro ou registo produzido pelo grupo",
-      "Breve síntese das decisões tomadas",
-      "Participação dos elementos do grupo"
-    ]
-  },
-  {
-    id: "tarefas-individuais",
-    title: "Tarefas Individuais",
-    intro: "Em cada atividade diária, a tarefa individual serve para consolidar a aprendizagem e produzir evidências da tarefa realizada.",
-    url: "atividades/tarefas-individuais.html",
-    focus: "Tarefa individual",
-    duration: "A definir pelo formador",
-    product: "Evidência individual guardada na Drive, no Padlet ou no espaço indicado no Moodle, conforme a tarefa do dia.",
-    steps: [
-      {
-        title: "Leitura da tarefa",
-        text: "Confirmar o objetivo, os dados a utilizar e o resultado esperado."
-      },
-      {
-        title: "Execução prática",
-        text: "Aplicar procedimentos de criação, edição, formatação, organização ou manutenção de dados."
-      },
-      {
-        title: "Verificação",
-        text: "Rever se o ficheiro, registo ou resposta cumpre o pedido da tarefa."
-      },
-      {
-        title: "Síntese individual",
-        text: "Registar dificuldades, soluções encontradas e aspetos a melhorar."
-      }
-    ],
-    evidence: [
-      "Ficheiro ou resposta individual",
-      "Registo das etapas realizadas",
-      "Síntese curta da aprendizagem"
-    ]
-  },
-  {
-    id: "projeto-final-apresentacao",
-    title: "Projeto Final — Do Click ao Guardar",
-    menuTitle: "Projeto Final",
-    intro: "Construção progressiva de um Padlet individual com as evidências e reflexões das Tarefas Individuais.",
-    url: "atividades/projeto-final-apresentacao.html",
-    focus: "Projeto Final em Padlet",
-    duration: "Ao longo da UFCD",
-    product: "Padlet individual em formato Colunas, organizado como Projeto Final da UFCD 0693.",
-    steps: [
-      {
-        title: "Criar a conta Google",
-        text: "Criar ou usar uma conta Google no formato nome+numeroIEFP@gmail.com antes de criar o Padlet."
-      },
-      {
-        title: "Criar o Padlet",
-        text: "Criar um Padlet individual em formato Colunas, com título no formato nomeNºIefp."
-      },
-      {
-        title: "Registar expetativas",
-        text: "Adicionar um primeiro post com 3 a 5 frases sobre o que espera aprender na UFCD."
-      },
-      {
-        title: "Organizar evidências",
-        text: "Criar uma coluna por tarefa e publicar as respetivas evidências, explicações e reflexões."
-      },
-      {
-        title: "Partilhar no Moodle",
-        text: "Publicar o link no fórum indicado, evitando anexos quando essa for a orientação da tarefa."
-      },
-      {
-        title: "Atualizar ao longo da formação",
-        text: "Atualizar o Projeto Final ao longo da UFCD e verificar, no final, a organização e o funcionamento das ligações."
-      }
-    ],
-    evidence: [
-      "Link do Padlet individual",
-      "Posts de expetativas e reflexão",
-      "Evidências das tarefas realizadas",
-      "Organização clara por colunas"
-    ]
-  }
+  { id: "controlo-teams", title: "Partilha de ecrã", menuTitle: "Partilha de ecrã", intro: "Tabela simples para acompanhar a participação prática nas sessões síncronas.", url: "atividades/controlo-teams.html" },
+  { id: "mentimeter-inicial", title: "Escreve 3 palavras", menuTitle: "Brainstorming", intro: "Quando pensas num processador de texto, que três palavras te vêm à cabeça?", url: "atividades/mentimeter-inicial.html", focus: "Nuvem de palavras inicial", duration: "", product: "Resposta no Mentimeter: três palavras associadas a processador de texto.", mentimeterUrl: pendingLinks.mentimeterEmbedUrl, participationUrl: pendingLinks.mentimeterParticipationUrl, padletUrl: "", qrCode: "assets/img/mentimeter_qr_code_0754.png", steps: [{ title: "Pergunta", text: "Quando pensas num processador de texto, que três palavras te vêm à cabeça?" }], evidence: ["Nuvem de palavras inicial"] },
+  { id: "tarefas-grupo", title: "Glossário - Tarefas de Grupo", menuTitle: "Tarefas de Grupo", intro: "Tarefas de grupo para construir vocabulário técnico no glossário do Moodle.", url: "atividades/tarefas-grupo.html", focus: "Glossário colaborativo", duration: "A partir do segundo dia", product: "Definição curta, exemplo prático e aplicação ao documento final.", steps: [{ title: "Distribuir funções", text: "Cada grupo recolhe, escreve, revê e publica a sua entrada." }, { title: "Definir o conceito", text: "A definição deve ser simples, correta e aplicada ao processador de texto." }, { title: "Publicar no Moodle", text: "A entrada fica registada no glossário indicado pela formadora." }], evidence: ["Entrada no glossário", "Exemplo prático", "Revisão pelos colegas"] },
+  { id: "tarefas-individuais", title: "Tarefas Individuais", intro: "Tarefas resumidas no site, com ligação ao PDF completo quando estiver disponível.", url: "atividades/tarefas-individuais.html", focus: "Trabalho individual", duration: "A partir do segundo dia", product: "Documento final melhorado progressivamente e evidências no Padlet/Moodle.", steps: [{ title: "Ler o enunciado", text: "Confirmar objetivo, evidência e local de registo." }, { title: "Melhorar o documento", text: "Acrescentar ou corrigir uma parte do projeto final." }, { title: "Registar evidência", text: "Publicar no Padlet e deixar a síntese no Moodle." }], evidence: ["Documento atualizado", "Evidência no Padlet", "Registo no Moodle"] },
+  { id: "projeto-final-apresentacao", title: "Projeto Final - Documento profissional", menuTitle: "Projeto Final", intro: "Construção progressiva de um documento profissional individual, desenvolvido e revisto ao longo da UFCD.", url: "atividades/projeto-final-apresentacao.html", focus: "Projeto individual", duration: "Ao longo da UFCD", product: "Documento final formatado, revisto, exportado e acompanhado por evidências de evolução.", steps: [{ title: "Criar o documento base", text: "Definir tema, estrutura inicial e local de trabalho na pasta 26109/03-0754." }, { title: "Acrescentar conteúdos", text: "Integrar texto, estilos, tabelas, imagens e elementos de organização." }, { title: "Rever e auditar", text: "Aplicar lista de verificação e receber auditoria de um colega." }, { title: "Finalizar", text: "Exportar para PDF e preparar a partilha final." }], evidence: ["Documento editável", "PDF final", "Evidências no Padlet", "Reflexão no Moodle"] }
 ];
 
 const evaluations = [
-  {
-    id: "avaliacao-diagnostica",
-    title: "Avaliação Diagnóstica",
-    menuTitle: "Diagnóstica",
-    intro: "Espaço preparado para avaliação inicial dos conhecimentos sobre correio eletrónico, organização digital e pesquisa na web.",
-    url: "avaliacoes/avaliacao-diagnostica.html",
-    children: ["resultados-diagnostica"],
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0693/00-diagnostico.html",
-    embedTitle: "DIAG_1"
-  },
-  {
-    id: "resultados-diagnostica",
-    parentId: "avaliacao-diagnostica",
-    title: "Resultados da Avaliação Diagnóstica",
-    menuTitle: "Resultados",
-    intro: "Relatório com a leitura global das respostas recolhidas na avaliação diagnóstica.",
-    url: "avaliacoes/resultados-diagnostica.html"
-  },
-  {
-    id: "avaliacao-sumativa",
-    title: "Avaliação Sumativa",
-    menuTitle: "Sumativa",
-    intro: "Espaço preparado para a avaliação final das aprendizagens da UFCD.",
-    url: "avaliacoes/avaliacao-sumativa.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0693/02-sumativa.html",
-    embedTitle: "SUM_1"
-  },
-  {
-    id: "autoavaliacao-final",
-    title: "Autoavaliação Final",
-    menuTitle: "Autoavaliação",
-    intro: "Espaço preparado para reflexão final sobre competências adquiridas.",
-    url: "avaliacoes/autoavaliacao-final.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0693/04-autoavaliacao-final.html",
-    embedTitle: "AUTO_1"
-  },
-  {
-    id: "avaliacao-entre-pares",
-    title: "Avaliação Entre Pares",
-    menuTitle: "Entre Pares",
-    intro: "Espaço preparado para avaliação entre pares.",
-    url: "avaliacoes/avaliacao-entre-pares.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0693/03-entre-pares.html",
-    embedTitle: "Avaliação colaborativa"
-  },
-  {
-    id: "avaliacao-formacao",
-    title: "Avaliação da Formação",
-    menuTitle: "Formação",
-    intro: "Espaço preparado para avaliação da formação.",
-    url: "avaliacoes/avaliacao-formacao.html",
-    embedUrl: "https://avaliacoes-formacao.netlify.app/avaliacao-formacao.html?codigo_ufcd=0693",
-    embedTitle: "Avaliação final da formação"
-  }
+  { id: "avaliacao-diagnostica", title: "Avaliação Diagnóstica", menuTitle: "Diagnóstica", intro: "Avaliação inicial dos conhecimentos sobre processador de texto e documentos profissionais.", url: "avaliacoes/avaliacao-diagnostica.html", children: ["resultados-diagnostica"], embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0754/00-diagnostico.html", embedTitle: "DIAG_1" },
+  { id: "resultados-diagnostica", parentId: "avaliacao-diagnostica", title: "Resultados da Avaliação Diagnóstica", menuTitle: "Resultados", intro: "Leitura global das respostas recolhidas na avaliação diagnóstica.", url: "avaliacoes/resultados-diagnostica.html" },
+  { id: "avaliacao-sumativa", title: "Avaliação Sumativa", menuTitle: "Sumativa", intro: "Avaliação final das aprendizagens da UFCD 0754.", url: "avaliacoes/avaliacao-sumativa.html", embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0754/02-sumativa.html", embedTitle: "SUM_1" },
+  { id: "autoavaliacao-final", title: "Autoavaliação Final", menuTitle: "Autoavaliação", intro: "Reflexão final sobre as competências desenvolvidas, comparável com a avaliação diagnóstica.", url: "avaliacoes/autoavaliacao-final.html", embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0754/04-autoavaliacao-final.html", embedTitle: "AUTO_1" },
+  { id: "avaliacao-entre-pares", title: "Avaliação Entre Pares - Auditoria", menuTitle: "Entre pares", intro: "Auditoria de qualidade ao projeto final de um colega.", url: "avaliacoes/avaliacao-entre-pares.html", embedUrl: "https://avaliacoes-formacao.netlify.app/ufcd-0754/03-entre-pares.html", embedTitle: "Auditoria de qualidade" },
+  { id: "avaliacao-formacao", title: "Avaliação da Formação", menuTitle: "Formação", intro: "Feedback sobre a qualidade da formação, separado da autoavaliação das aprendizagens.", url: "avaliacoes/avaliacao-formacao.html", embedUrl: "https://avaliacoes-formacao.netlify.app/avaliacao-formacao.html?codigo_ufcd=0754", embedTitle: "Avaliação da formação" }
 ];
 
 const groupTasks = [
-  {
-    title: "TG Dia 1 - Conceitos gerais",
-    topic: "Conceitos gerais",
-    url: "atividades/tarefas-grupo.html",
-    intro: "Construir definições simples para conceitos gerais ligados à comunicação e organização digital.",
-    words: [
-      ["Pesquisa on-line", "Sala 1"],
-      ["Documento digital", "Sala 2"],
-      ["Correio eletrónico", "Sala 3"],
-      ["Agenda eletrónica", "Sala 4"]
-    ]
-  },
-  {
-    title: "TG Dia 2 - Pesquisa Web",
-    topic: "Pesquisa Web",
-    url: "atividades/tarefas-grupo.html",
-    intro: "Clarificar vocabulário essencial para pesquisar informação na web e avaliar resultados.",
-    words: [
-      ["Motor de pesquisa", "Sala 1"],
-      ["Palavra-chave", "Sala 2"],
-      ["Fonte de informação", "Sala 3"],
-      ["Fiabilidade", "Sala 4"]
-    ]
-  },
-  {
-    title: "TG Dia 3 - Organização Digital",
-    topic: "Organização Digital",
-    url: "atividades/tarefas-grupo.html",
-    intro: "Registar conceitos ligados à organização de ficheiros, pastas e arquivo digital.",
-    words: [
-      ["Pasta", "Sala 1"],
-      ["Subpasta", "Sala 2"],
-      ["Nomeação de ficheiros", "Sala 3"],
-      ["Arquivo digital", "Sala 4"]
-    ]
-  },
-  {
-    title: "TG Dia 4 - Agenda Eletrónica",
-    topic: "Agenda Eletrónica",
-    url: "atividades/tarefas-grupo.html",
-    intro: "Definir conceitos úteis para criar e gerir compromissos numa agenda eletrónica.",
-    words: [
-      ["Evento", "Sala 1"],
-      ["Lembrete", "Sala 2"],
-      ["Tarefa", "Sala 3"],
-      ["Recorrência", "Sala 4"]
-    ]
-  },
-  {
-    title: "TG Dia 5 - Correio Eletrónico",
-    topic: "Correio Eletrónico",
-    url: "atividades/tarefas-grupo.html",
-    intro: "Explorar termos essenciais para criar uma mensagem de correio eletrónico corretamente.",
-    words: [
-      ["Destinatário", "Sala 1"],
-      ["Assunto", "Sala 2"],
-      ["CC", "Sala 3"],
-      ["BCC/CCO", "Sala 4"]
-    ]
-  },
-  {
-    title: "TG Dia 6 - Gestão de Mensagens",
-    topic: "Gestão de Mensagens",
-    url: "atividades/tarefas-grupo.html",
-    intro: "Definir conceitos relacionados com a organização, segurança e circulação de mensagens eletrónicas.",
-    words: [
-      ["Arquivar", "Sala 1"],
-      ["Reencaminhar", "Sala 2"],
-      ["Spam", "Sala 3"],
-      ["Phishing", "Sala 4"]
-    ]
-  },
-  {
-    title: "TG Dia 7 - Revisão final",
-    topic: "Revisão final",
-    url: "atividades/tarefas-grupo.html",
-    intro: "Fechar o glossário com conceitos de revisão ligados à organização, pesquisa, tempo e segurança.",
-    words: [
-      ["Organização digital", "Sala 1"],
-      ["Informação fiável", "Sala 2"],
-      ["Gestão do tempo", "Sala 3"],
-      ["Segurança da informação", "Sala 4"]
-    ]
-  }
+  { title: "TG01 - Ambiente do processador de texto", topic: "Ambiente", url: "atividades/tarefas-grupo.html", intro: "Definir conceitos essenciais da interface e da gestão inicial de documentos.", words: [["Faixa de opções", "Grupo 1"], ["Documento", "Grupo 2"], ["Modelo", "Grupo 3"], ["Guardar como", "Grupo 4"]] },
+  { title: "TG02 - Edição de texto", topic: "Edição", url: "atividades/tarefas-grupo.html", intro: "Clarificar ações de edição usadas na produção de texto.", words: [["Selecionar", "Grupo 1"], ["Copiar", "Grupo 2"], ["Substituir", "Grupo 3"], ["Anular", "Grupo 4"]] },
+  { title: "TG03 - Formatação de texto", topic: "Formatação", url: "atividades/tarefas-grupo.html", intro: "Construir definições sobre formatação de caracteres e parágrafos.", words: [["Tipo de letra", "Grupo 1"], ["Alinhamento", "Grupo 2"], ["Espaçamento", "Grupo 3"], ["Lista", "Grupo 4"]] },
+  { title: "TG04 - Estilos e estrutura", topic: "Estrutura", url: "atividades/tarefas-grupo.html", intro: "Relacionar estilos com documentos organizados e fáceis de atualizar.", words: [["Estilo", "Grupo 1"], ["Título", "Grupo 2"], ["Cabeçalho", "Grupo 3"], ["Índice automático", "Grupo 4"]] },
+  { title: "TG05 - Tabelas", topic: "Tabelas", url: "atividades/tarefas-grupo.html", intro: "Definir termos usados na criação e formatação de tabelas.", words: [["Tabela", "Grupo 1"], ["Linha", "Grupo 2"], ["Coluna", "Grupo 3"], ["Célula", "Grupo 4"]] },
+  { title: "TG06 - Imagens e objetos", topic: "Objetos", url: "atividades/tarefas-grupo.html", intro: "Explorar elementos gráficos e respetiva integração no texto.", words: [["Imagem", "Grupo 1"], ["Legenda", "Grupo 2"], ["Disposição do texto", "Grupo 3"], ["Caixa de texto", "Grupo 4"]] },
+  { title: "TG07 - Revisão", topic: "Revisão", url: "atividades/tarefas-grupo.html", intro: "Definir ferramentas de revisão e correção de documentos.", words: [["Corretor ortográfico", "Grupo 1"], ["Comentário", "Grupo 2"], ["Controlar alterações", "Grupo 3"], ["Comparar documentos", "Grupo 4"]] },
+  { title: "TG08 - Paginação", topic: "Paginação", url: "atividades/tarefas-grupo.html", intro: "Organizar conceitos ligados à apresentação por páginas.", words: [["Margem", "Grupo 1"], ["Orientação", "Grupo 2"], ["Quebra de página", "Grupo 3"], ["Numeração", "Grupo 4"]] },
+  { title: "TG09 - Exportação", topic: "Exportação", url: "atividades/tarefas-grupo.html", intro: "Clarificar formatos e cuidados antes da partilha.", words: [["PDF", "Grupo 1"], ["Impressão", "Grupo 2"], ["Compatibilidade", "Grupo 3"], ["Partilha", "Grupo 4"]] },
+  { title: "TG10 - Qualidade visual", topic: "Qualidade", url: "atividades/tarefas-grupo.html", intro: "Identificar critérios de clareza e coerência visual.", words: [["Consistência", "Grupo 1"], ["Legibilidade", "Grupo 2"], ["Hierarquia visual", "Grupo 3"], ["Alinhamento", "Grupo 4"]] },
+  { title: "TG11 - Preparação da apresentação final", topic: "Apresentação", url: "atividades/tarefas-grupo.html", intro: "Preparar a explicação do processo seguido no projeto final.", words: [["Síntese", "Grupo 1"], ["Evidência", "Grupo 2"], ["Versão final", "Grupo 3"], ["Reflexão", "Grupo 4"]] },
+  { title: "TG12 - Auditoria de qualidade ao projeto", topic: "Auditoria", url: "atividades/tarefas-grupo.html", intro: "Cada elemento avalia o projeto de um colega, verificando organização, correção, qualidade visual, funcionamento, conteúdo e cumprimento dos requisitos.", words: [["Organização", "Grupo 1"], ["Correção", "Grupo 2"], ["Qualidade visual", "Grupo 3"], ["Cumprimento dos requisitos", "Grupo 4"]] }
 ];
 
-const glossaryUrl = "https://fad.iefp.pt/mod/glossary/view.php?id=412744";
+const glossaryUrl = pendingLinks.glossaryUrl;
+const individualTaskForumUrls = pendingLinks.individualTaskForumUrls;
 
 const individualTasks = [
   {
     id: "tarefa-individual-1",
-    pdfUrl: "assets/pdfs/TI1.pdf",
+    pdfUrl: "",
     url: "atividades/tarefas-individuais.html",
-    forumUrl: "https://fad.iefp.pt/mod/forum/discuss.php?d=55427",
-    title: "TI 1 - Avaliação diagnóstica e Padlet individual",
-    intro: "Avaliação diagnóstica + criação de Padlet individual (formato Colunas) com expetativas iniciais.",
-    evidence: "Publica o link do Padlet no Fórum “Padlets individuais” do Moodle, sem anexos.",
-    locked: true,
-    prompts: [
-      "Cria ou usa uma conta Google no formato nome+numeroIEFP@gmail.com.",
-      "Realiza a avaliação diagnóstica indicada pela formadora.",
-      "Cria um Padlet individual em formato Colunas.",
-      "Dá ao Padlet um título no formato nomeNºIefp.",
-      "Cria pelo menos a coluna Expectativas.",
-      "Adiciona um primeiro post com 3 a 5 frases sobre o que esperas aprender.",
-      "Partilha o Padlet com permissão para escrever e copia o link."
-    ]
+    title: "TI1 - Registar as expetativas iniciais",
+    intro: "Publica??o inicial no Padlet individual sobre conhecimentos pr?vios, metas e dificuldades esperadas.",
+    objective: "Identificar as expetativas, os conhecimentos pr?vios e as metas pessoais para a aprendizagem do processador de texto.",
+    steps: [
+        {
+            "title": "Preparar",
+            "text": "Criar uma publica??o na primeira coluna do Padlet individual com o t?tulo ?As minhas expetativas?."
+        },
+        {
+            "title": "Executar",
+            "text": "Escrever entre 80 e 120 palavras sobre o que j? sabe fazer no Word, o que quer aprender e onde pretende usar estas aprendizagens."
+        },
+        {
+            "title": "Rever",
+            "text": "Rever ortografia e pontua??o antes de publicar."
+        },
+        {
+            "title": "Concluir",
+            "text": "Confirmar se a publica??o ficou vis?vel no Padlet."
+        }
+    ],
+    evidence: "Publica??o ?As minhas expetativas? no Padlet individual.",
+    padlet: { column: "Primeira coluna do Padlet individual", post: "As minhas expetativas" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-2",
-    pdfUrl: "assets/pdfs/TI2.pdf",
+    pdfUrl: "",
     url: "atividades/tarefas-individuais.html",
-    title: "TI 2 - Organização digital da ação na Google Drive",
-    intro: "Completar a estrutura de pastas da ação 26109, guardá-la na Google Drive e registar a organização no Padlet e no Moodle.",
-    context: [
-      "Ao longo da ação serão produzidos documentos, atividades e evidências associados a diferentes UFCD. Para evitar ficheiros dispersos ou difíceis de localizar, será utilizada uma estrutura comum de pastas.",
-      "A numeração permite manter as UFCD pela ordem em que são realizadas. A Google Drive permite guardar a estrutura na conta da formação, aceder-lhe a partir de diferentes equipamentos e continuar a mesma lógica nas UFCD seguintes."
-    ],
-    objective: "Criar e completar uma estrutura de pastas para organizar os documentos da ação 26109 e guardá-la na Google Drive pessoal.",
-    tools: ["Conta Google criada na sessão anterior", "Explorador de ficheiros", "Google Drive", "Padlet individual", "Moodle"],
+    title: "TI2 - Bem-vindo ao Word - opera??es b?sicas",
+    intro: "Criar a primeira c?pia do ficheiro-base e praticar opera??es b?sicas no Word.",
+    objective: "Explorar a interface do Word e executar opera??es b?sicas no ficheiro fornecido, aproximando o resultado do modelo em PDF.",
     steps: [
-      { title: "Confirmar a estrutura na Google Drive", items: ["Inicia sessão na conta Google da formação e abre a Google Drive.", "Confirma que a pasta 26109 está disponível em “O meu disco”.", "Verifica se contém 01-0753, 02-0693 e 03-0754.", "Se alguma pasta estiver em falta, cria-a antes de continuar."], code: ["26109", "├── 01-0753", "├── 02-0693", "└── 03-0754"] },
-      { title: "Organizar a pasta da UFCD atual", text: "Dentro de 02-0693, cria as subpastas abaixo. Conteúdos destina-se aos materiais disponibilizados; Atividades aos ficheiros em desenvolvimento; Evidências às versões finais e capturas.", code: ["02-0693", "├── 01-Conteúdos", "├── 02-Atividades", "└── 03-Evidências"] },
-      { title: "Acrescentar um ficheiro", items: ["Escolhe um ficheiro relacionado com a formação.", "Confirma se o nome identifica o conteúdo e, se necessário, renomeia-o.", "Coloca-o na subpasta adequada e confirma que abre corretamente na Google Drive."] }
+        {
+            "title": "Preparar",
+            "text": "Abrir o ficheiro-base ?Bem-vindo ao Word.docx? e guardar como ?2026-07_01_Bem-vindo ao Word.docx?."
+        },
+        {
+            "title": "Executar",
+            "text": "Identificar friso, separadores, barra de ferramentas, barra de estado e controlos de visualiza??o."
+        },
+        {
+            "title": "Rever",
+            "text": "Selecionar, copiar, cortar, colar, anular e repetir."
+        },
+        {
+            "title": "Concluir",
+            "text": "Guardar na Drive e comparar com o PDF de refer?ncia."
+        }
     ],
-    expected: ["Pasta 26109 disponível na conta Google correta.", "Pastas 01-0753, 02-0693 e 03-0754.", "Subpastas Conteúdos, Atividades e Evidências dentro de 02-0693.", "Pelo menos um ficheiro colocado na subpasta adequada."],
-    files: ["Faz uma captura da pasta 26109 e outra do interior de 02-0693.", "Oculta ficheiros pessoais ou outros dados privados.", "Guarda em 26109/02-0693/03-Evidências.", "Nomes sugeridos: TI2_Estrutura_Acao_Nome.png e TI2_Pasta_0693_Nome.png."],
-    padlet: { column: "TI 2 — Organização digital da ação", post: "Organização da minha Google Drive", items: ["Inclui uma ou duas capturas.", "Explica a lógica de organização e a utilidade da numeração.", "Indica a vantagem de guardar a pasta na Drive.", "Refere como poderás continuar a estrutura nas próximas UFCD.", "Escreve aproximadamente 100 a 150 palavras."] },
-    moodle: "No Fórum da TI 2, confirma a realização e indica que estrutura criaste, que subpastas acrescentaste, onde guardaste a pasta, qual foi a principal vantagem e se sentiste alguma dificuldade. Termina com a ligação para o Padlet. Não anexes ficheiros.",
-    checklist: ["A pasta 26109 está na conta Google correta.", "As três pastas das UFCD estão criadas.", "02-0693 contém as três subpastas.", "Existe pelo menos um ficheiro na subpasta adequada.", "As capturas estão guardadas em 03-Evidências.", "A coluna e o post da TI 2 estão no Padlet.", "A resposta foi publicada no Moodle e a ligação funciona."]
+    evidence: "Captura do documento aberto no Word e frase com as opera??es utilizadas.",
+    padlet: { column: "Padlet individual", post: "Opera??es b?sicas" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-3",
-    pdfUrl: "assets/pdfs/TI3.pdf",
+    pdfUrl: "",
     url: "atividades/tarefas-individuais.html",
-    title: "TI 3 - Organização da formação no Google Calendar",
-    intro: "Criar um calendário para a ação, registar eventos e tarefas, configurar notificações e associar um ficheiro da Google Drive.",
-    context: ["Uma agenda eletrónica permite reunir compromissos, tarefas, prazos e documentos num único espaço. Nesta tarefa, o Google Calendar será utilizado para organizar a formação e será ligado à estrutura criada na Google Drive."],
-    objective: "Criar um calendário para a ação 26109, registar eventos e tarefas, configurar notificações e associar um ficheiro da Google Drive a um evento.",
-    tools: ["Conta Google da formação", "Google Calendar", "Google Drive com a pasta 26109/02-0693", "Padlet individual", "Moodle"],
-    preparation: ["Confirma que estás na conta Google correta.", "Verifica se existe pelo menos um ficheiro em 26109/02-0693.", "Evita utilizar compromissos pessoais reais nas capturas."],
+    title: "TI3 - Bem-vindo ao Word - formata??o do texto",
+    intro: "Criar nova vers?o e aplicar formata??o de texto, par?grafos, realce e estilos.",
+    objective: "Formatar o documento de acordo com o modelo, utilizando tipos de letra, alinhamentos, realce e estilos do Word.",
     steps: [
-      { title: "Criar o calendário", items: ["Cria um novo calendário com o nome Ação 26109.", "Adiciona uma descrição relacionada com as sessões, tarefas e compromissos da ação.", "Escolhe uma cor para identificar os eventos da formação."] },
-      { title: "Criar os eventos", text: "Cria pelo menos cinco eventos relacionados com a formação: sessão, realização de uma TI, revisão de conteúdos, organização de evidências ou verificação do Moodle.", items: ["Preenche título, data, hora e descrição.", "Indica “On-line” quando adequado.", "Aplica a cor do calendário da ação.", "Configura uma notificação em pelo menos dois eventos."] },
-      { title: "Explorar funcionalidades", items: ["Cria um evento recorrente, se o horário o permitir.", "Edita um evento depois de o guardar e altera a data ou a hora.", "Cria uma tarefa com prazo e experimenta marcá-la como concluída."] },
-      { title: "Associar um ficheiro da Drive", items: ["Abre um evento e seleciona Editar ou Mais opções.", "Na área da descrição, adiciona um anexo da Google Drive.", "Abre 26109/02-0693, seleciona um ficheiro e guarda o evento.", "Confirma que o ficheiro abre a partir do Calendar."] }
+        {
+            "title": "Preparar",
+            "text": "Guardar a c?pia ?2026-07_02_Bem-vindo ao Word.docx? a partir da tarefa anterior."
+        },
+        {
+            "title": "Executar",
+            "text": "Ajustar letra, alinhamento, avan?os, espa?amento e entrelinha."
+        },
+        {
+            "title": "Rever",
+            "text": "Aplicar T?tulo 1 e T?tulo 2 nos t?tulos e subt?tulos."
+        },
+        {
+            "title": "Concluir",
+            "text": "Comparar com o PDF e guardar na Drive."
+        }
     ],
-    note: "Se o evento não tiver convidados, o ficheiro mantém-se privado. Antes de publicar capturas, oculta eventos pessoais, endereços e outros dados privados.",
-    expected: ["Calendário Ação 26109 criado e identificado por uma cor.", "Pelo menos cinco eventos.", "Notificações configuradas.", "Um evento recorrente e uma tarefa.", "Um ficheiro da Drive associado a um evento."],
-    files: ["Captura 1: vista do calendário com os eventos.", "Captura 2: detalhe de um evento com descrição, notificação e ficheiro associado.", "Guarda em 26109/02-0693/03-Evidências com nomes TI3_Calendario_Nome.png e TI3_Evento_Drive_Nome.png."],
-    padlet: { column: "TI 3 — Agenda eletrónica", post: "Organização da formação no Google Calendar", items: ["Inclui as duas capturas.", "Explica como organizaste os eventos.", "Refere a utilidade das cores e notificações.", "Distingue evento de tarefa.", "Explica a vantagem de associar um ficheiro da Drive.", "Escreve aproximadamente 100 a 150 palavras."] },
-    moodle: "Confirma que criaste o calendário, os eventos, as notificações, a tarefa e a associação à Drive. Indica a funcionalidade mais útil e acrescenta a ligação para o Padlet. Não anexes ficheiros.",
-    checklist: ["O calendário Ação 26109 foi criado.", "Existem pelo menos cinco eventos.", "Foram configuradas notificações.", "Existe um evento recorrente e uma tarefa.", "Um ficheiro da Drive está associado a um evento.", "As capturas não mostram dados privados.", "A coluna da TI 3 e o registo no Moodle estão completos."]
+    evidence: "Captura com t?tulo, subt?tulo e par?grafo formatado, com explica??o de duas op??es aplicadas.",
+    padlet: { column: "Padlet individual", post: "Formata??o do texto" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-4",
-    pdfUrl: "assets/pdfs/TI4.pdf",
+    pdfUrl: "",
     url: "atividades/tarefas-individuais.html",
-    title: "TI 4 - Comunicação profissional através do Gmail",
-    intro: "Enviar uma mensagem profissional a um/a colega do grupo, partilhar um ficheiro da Drive, receber uma mensagem e responder.",
-    context: ["O correio eletrónico é uma ferramenta de comunicação profissional. Cada formando/a envia uma mensagem a um/a colega do grupo, recebe uma mensagem de outro/a colega e responde a confirmar a receção."],
-    objective: "Criar, enviar, receber e responder a uma mensagem profissional, confirmando o destinatário, o assunto, o conteúdo e o acesso ao ficheiro partilhado.",
-    tools: ["Gmail da conta Google da formação", "Google Drive", "Ficheiro em 26109/02-0693/03-Evidências", "Padlet individual", "Moodle"],
-    preparation: ["A formadora organiza o envio em cadeia dentro de cada grupo, garantindo que todos enviam e recebem uma mensagem.", "Confirma o endereço do/a colega antes de escrever.", "Seleciona uma evidência da TI 2 ou TI 3 e verifica se não contém dados pessoais visíveis."],
+    title: "TI4 - Bem-vindo ao Word - listas, edi??o e revis?o",
+    intro: "Criar nova vers?o, organizar listas e usar ferramentas de edi??o e revis?o.",
+    objective: "Organizar os conte?dos com listas e melhorar o texto atrav?s das ferramentas de edi??o e revis?o.",
     steps: [
-      { title: "Criar a mensagem", items: ["No Gmail, escolhe Compor e introduz o endereço confirmado do/a colega.", "Usa o assunto: Ação 26109 | TI 4 — Partilha de evidência.", "Inclui saudação, enquadramento, indicação do ficheiro, pedido de confirmação, despedida e nome."] },
-      { title: "Inserir o ficheiro da Google Drive", items: ["Seleciona Inserir ficheiros com o Drive.", "Abre 26109/02-0693/03-Evidências e escolhe o ficheiro.", "Insere como ligação da Drive ou anexo, conforme a opção disponível.", "Confirma as permissões, se surgir um aviso."] },
-      { title: "Verificar e enviar", items: ["Confirma o endereço, o assunto, a clareza da mensagem, o nome do ficheiro e a presença do anexo ou ligação.", "Envia e verifica a mensagem na pasta Enviados."] },
-      { title: "Receber e responder", items: ["Abre a mensagem recebida de outro/a colega do grupo.", "Confirma se o ficheiro pode ser aberto.", "Responde a confirmar a receção e o acesso ao ficheiro."] },
-      { title: "Conhecer CC e CCO", text: "A formadora demonstra a diferença entre CC e CCO. A exploração pode ser feita numa mensagem guardada como rascunho, sem necessidade de enviar endereços adicionais." }
+        {
+            "title": "Preparar",
+            "text": "Guardar a c?pia ?2026-07_03_Bem-vindo ao Word.docx?."
+        },
+        {
+            "title": "Executar",
+            "text": "Reproduzir listas com marcas, listas numeradas e uma lista de m?ltiplos n?veis."
+        },
+        {
+            "title": "Rever",
+            "text": "Usar Localizar e Localizar e substituir."
+        },
+        {
+            "title": "Concluir",
+            "text": "Executar revis?o ortogr?fica e gramatical, consultar sin?nimos e inserir um coment?rio."
+        }
     ],
-    note: "Modelo orientador: “Olá, [nome]. No âmbito da TI 4 da ação 26109, envio uma evidência de uma atividade realizada na UFCD 0693. Agradeço que confirmes a receção e indiques se conseguiste abrir o ficheiro. Com os melhores cumprimentos, [nome].” O texto deve ser adaptado.",
-    files: ["Captura da mensagem na pasta Enviados.", "Captura da resposta recebida.", "Oculta endereços e outros dados pessoais.", "Guarda em 26109/02-0693/03-Evidências."],
-    padlet: { column: "TI 4 — Comunicação profissional", post: "Envio e receção de uma mensagem profissional", items: ["Inclui as capturas tratadas.", "Explica os cuidados aplicados antes do envio.", "Refere a diferença entre anexo e ligação da Drive.", "Indica a utilidade do assunto e da confirmação da receção.", "Regista a principal aprendizagem ou dificuldade."] },
-    moodle: "Confirma que enviaste, recebeste e respondeste a uma mensagem profissional e que partilhaste um ficheiro da Drive. Acrescenta uma breve aprendizagem e a ligação para o Padlet, sem anexos.",
-    checklist: ["O destinatário pertence ao grupo e foi confirmado.", "A mensagem tem assunto e estrutura profissional.", "O ficheiro foi inserido a partir da Drive.", "A mensagem aparece em Enviados.", "A mensagem recebida e o ficheiro foram verificados.", "Foi enviada uma resposta de confirmação.", "Os dados pessoais foram ocultados nas capturas.", "Padlet e Moodle estão atualizados."]
+    evidence: "Captura das listas e indica??o das ferramentas de revis?o utilizadas.",
+    padlet: { column: "Padlet individual", post: "Listas, edi??o e revis?o" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-5",
-    pdfUrl: "assets/pdfs/TI5.pdf",
+    pdfUrl: "",
     url: "atividades/tarefas-individuais.html",
-    title: "TI 5 - Gestão da caixa de correio no Gmail",
-    intro: "Organizar e gerir as mensagens da TI 4 com etiquetas, filtro, arquivo, reencaminhamento, eliminação e recuperação.",
-    context: ["Depois de criar, enviar e receber mensagens, é necessário organizar a caixa de correio. As mensagens da TI 4 serão utilizadas para experimentar as principais operações de gestão."],
-    objective: "Aplicar procedimentos de organização e gestão de mensagens no Gmail, utilizando exemplos produzidos durante a formação.",
-    tools: ["Gmail da conta da formação", "Mensagens da TI 4", "Google Drive", "Padlet individual", "Moodle"],
+    title: "TI5 - Preparar o documento para impress?o",
+    intro: "Configurar p?gina, margens, orienta??o, quebras e pr?-visualiza??o de impress?o.",
+    objective: "Configurar a p?gina e verificar o documento antes da impress?o ou exporta??o.",
     steps: [
-      { title: "Criar etiquetas", items: ["Cria a etiqueta principal 26109.", "Dentro dela, cria a etiqueta subordinada 02-0693.", "Aplica 02-0693 às mensagens enviadas e recebidas na TI 4."], code: ["26109", "└── 02-0693"] },
-      { title: "Destacar uma mensagem", items: ["Seleciona uma mensagem da TI 4.", "Marca-a com estrela e confirma que aparece em Com estrela."] },
-      { title: "Criar um filtro", items: ["Cria um filtro pelo assunto Ação 26109 ou TI 4, ou pelo endereço de um/a colega do grupo.", "Configura-o para aplicar automaticamente a etiqueta 02-0693.", "Seleciona Nunca marcar como spam, se a opção estiver disponível."] },
-      { title: "Arquivar e localizar", items: ["Arquiva uma mensagem da TI 4.", "Confirma que sai da caixa de entrada.", "Localiza-a através da etiqueta ou pesquisa e volta a colocá-la na caixa de entrada."] },
-      { title: "Reencaminhar", text: "Reencaminha uma mensagem da TI 4 para outro/a colega do grupo. Antes do conteúdo reencaminhado, explica que se trata de uma demonstração da TI 5 e que não é necessária ação adicional." },
-      { title: "Eliminar e recuperar", items: ["Cria ou utiliza uma mensagem de teste sem informação importante.", "Envia-a para o Lixo.", "Abre o Lixo, recupera a mensagem e confirma onde ficou disponível.", "Se adequado, elimina-a definitivamente no final."] }
+        {
+            "title": "Preparar",
+            "text": "Guardar a c?pia ?2026-07_04_Bem-vindo ao Word.docx?."
+        },
+        {
+            "title": "Executar",
+            "text": "Confirmar papel, orienta??o e margens."
+        },
+        {
+            "title": "Rever",
+            "text": "Inserir quebras de p?gina quando necess?rio e evitar p?ginas vazias."
+        },
+        {
+            "title": "Concluir",
+            "text": "Verificar a pr?-visualiza??o de impress?o, corrigir problemas e guardar."
+        }
     ],
-    note: "Não utilizes mensagens pessoais, importantes ou com informação confidencial para demonstrar eliminação e recuperação.",
-    expected: ["Etiquetas 26109 e 02-0693.", "Mensagens classificadas.", "Um filtro automático.", "Uma mensagem destacada.", "Procedimentos de arquivo, localização, reencaminhamento, eliminação e recuperação realizados."],
-    files: ["Captura das etiquetas e mensagens organizadas.", "Captura das condições e ações do filtro, sem expor endereços.", "Breve registo dos procedimentos realizados.", "Guarda em 26109/02-0693/03-Evidências."],
-    padlet: { column: "TI 5 — Gestão da caixa de correio", post: "Organização da minha caixa de correio", items: ["Inclui as capturas necessárias.", "Explica a utilidade das etiquetas e do filtro.", "Descreve como localizaste uma mensagem arquivada.", "Indica os cuidados antes de eliminar ou reencaminhar mensagens."] },
-    moodle: "Confirma que criaste etiquetas e filtro e que praticaste arquivo, reencaminhamento, eliminação e recuperação. Indica a funcionalidade mais útil e acrescenta a ligação para o Padlet, sem anexos.",
-    checklist: ["As etiquetas estão criadas e aplicadas.", "O filtro tem critérios e ações corretos.", "Uma mensagem foi marcada com estrela.", "O arquivo e a localização foram testados.", "O reencaminhamento inclui contexto.", "A eliminação foi feita apenas com mensagem de teste.", "As capturas protegem os dados pessoais.", "Padlet e Moodle estão atualizados."]
+    evidence: "Captura da pr?-visualiza??o com tamanho do papel, orienta??o e margens utilizados.",
+    padlet: { column: "Padlet individual", post: "Prepara??o para impress?o" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-6",
-    pdfUrl: "assets/pdfs/TI6.pdf",
+    pdfUrl: "",
     url: "atividades/tarefas-individuais.html",
-    title: "TI 6 - Pesquisa avançada e validação da informação",
-    intro: "Realizar pesquisas avançadas, comparar resultados, selecionar fontes e justificar a avaliação da sua fiabilidade.",
-    context: ["Pesquisar não é apenas escrever palavras num motor de pesquisa. É necessário formular expressões adequadas, usar operadores, comparar resultados e avaliar se as fontes são atuais, pertinentes e fiáveis."],
-    objective: "Realizar pesquisas avançadas, registar as estratégias utilizadas, selecionar fontes relevantes e justificar a avaliação da sua fiabilidade.",
-    tools: ["Conta Google da formação", "Motor de pesquisa Google", "Google Docs", "Google Drive", "Padlet individual", "Moodle"],
+    title: "TI6 - Organizar informa??o com tabula??es",
+    intro: "Utilizar a r?gua, marcas de formata??o e diferentes tipos de tabula??o.",
+    objective: "Utilizar diferentes tipos de tabula??o para alinhar informa??o sem recorrer a espa?os consecutivos.",
     steps: [
-      { title: "Criar o documento de trabalho", items: ["Abre 26109/02-0693/02-Atividades.", "Cria um Documento Google com o nome TI6_Pesquisa_Avancada_Nome.", "Inclui tema, expressões, fontes, avaliação da fiabilidade e conclusão."] },
-      { title: "Escolher um tema", text: "Escolhe um tema relacionado com segurança no correio eletrónico, phishing, organização digital, armazenamento na nuvem, proteção de dados ou utilização profissional da Google Drive." },
-      { title: "Realizar as pesquisas", text: "Realiza pelo menos três pesquisas, usando operadores ou estratégias diferentes, e compara uma pesquisa simples com outra mais restrita.", code: ["“identificar phishing”", "“identificar phishing” site:cncs.gov.pt", "phishing filetype:pdf"] },
-      { title: "Registar e avaliar as fontes", text: "Para cada pesquisa, regista expressão, título e ligação, entidade ou autor, data, informação relevante e motivo pelo qual a fonte parece fiável ou pouco fiável.", items: ["Autoria ou entidade responsável.", "Atualidade da informação.", "Objetivo e possível intenção da página.", "Existência de referências.", "Coerência com outras fontes credíveis.", "Pertinência para o tema."] },
-      { title: "Escrever a conclusão", text: "Escreve 100 a 150 palavras sobre a pesquisa mais útil, o operador que mais ajudou, os critérios de fiabilidade e os cuidados antes de utilizar ou partilhar informação." },
-      { title: "Guardar a evidência", items: ["Confirma que o Documento Google está em 26109/02-0693/02-Atividades.", "Transfere ou guarda uma cópia em PDF.", "Coloca o PDF em 26109/02-0693/03-Evidências com o nome TI6_Pesquisa_Avancada_Nome.pdf."] }
+        {
+            "title": "Preparar",
+            "text": "Guardar a c?pia ?2026-07_05_Bem-vindo ao Word.docx?."
+        },
+        {
+            "title": "Executar",
+            "text": "Ativar a r?gua e as marcas de formata??o."
+        },
+        {
+            "title": "Rever",
+            "text": "Acrescentar pelo menos oito atalhos do Word e a respetiva fun??o."
+        },
+        {
+            "title": "Concluir",
+            "text": "Usar tabula??es ? esquerda, ? direita, decimal e com car?ter de preenchimento."
+        }
     ],
-    padlet: { column: "TI 6 — Pesquisa avançada", post: "Pesquisa e validação da informação", items: ["Inclui uma captura do Documento Google.", "Regista as três expressões.", "Apresenta as fontes selecionadas e uma breve avaliação.", "Inclui a conclusão.", "Adiciona a ligação para o documento apenas se as permissões estiverem corretas."] },
-    moodle: "Indica o tema, as estratégias utilizadas, a principal diferença entre pesquisa simples e avançada e o critério de fiabilidade mais importante. Acrescenta a ligação para o Padlet, sem anexos.",
-    checklist: ["O Documento Google está em 02-Atividades.", "Foram realizadas pelo menos três pesquisas.", "As expressões e fontes estão registadas.", "A fiabilidade foi justificada.", "A conclusão tem 100 a 150 palavras.", "O PDF está em 03-Evidências.", "As permissões foram verificadas.", "Padlet e Moodle estão atualizados."]
+    evidence: "Captura da listagem alinhada e explica??o sobre a vantagem das tabula??es face aos espa?os.",
+    padlet: { column: "Padlet individual", post: "Tabula??es" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-7",
-    pdfUrl: "assets/pdfs/TI7.pdf",
+    pdfUrl: "",
     url: "atividades/tarefas-individuais.html",
-    title: "TI 7 - Autoavaliação, reflexão final e organização das evidências",
-    intro: "Rever o percurso, concluir o Projeto Final, realizar as avaliações finais e refletir sobre as aprendizagens.",
-    context: ["A última tarefa permite rever o percurso, avaliar as aprendizagens e concluir o Projeto Final. Antes da reflexão, é necessário confirmar que a Google Drive e o Padlet estão organizados e que as evidências podem ser consultadas."],
-    objective: "Realizar a autoavaliação, organizar as evidências finais e refletir sobre as competências desenvolvidas e a sua aplicação no dia a dia.",
-    tools: ["Google Drive", "Padlet individual", "Moodle", "Instrumento de autoavaliação final", "Avaliação da formação"],
+    title: "TI7 - Bem-vindo ao Word - tabelas",
+    intro: "Inserir, completar e formatar tabelas, melhorando legibilidade e estrutura.",
+    objective: "Inserir e formatar as tabelas do exerc?cio, respeitando a estrutura e melhorando a legibilidade.",
     steps: [
-      { title: "Rever a Google Drive", items: ["Abre 26109/02-0693.", "Confirma as subpastas Conteúdos, Atividades e Evidências.", "Verifica os nomes dos ficheiros e elimina duplicações desnecessárias.", "Confirma que os ficheiros finais abrem."] },
-      { title: "Rever o Padlet", items: ["Confirma que existe uma coluna para cada TI.", "Verifica se cada coluna contém evidência, explicação e reflexão.", "Corrige títulos, imagens ilegíveis, ligações e dados pessoais visíveis.", "Ordena as colunas pela sequência das tarefas."] },
-      { title: "Realizar as avaliações finais", items: ["Preenche a autoavaliação final indicada pela formadora.", "Preenche a avaliação da formação.", "Confirma a submissão antes de fechar cada formulário."] },
-      { title: "Escrever a reflexão final", text: "Escreve uma reflexão curta, clara e pessoal.", items: ["O que aprendeste sobre organização digital, agenda, correio eletrónico e pesquisa?", "Que tarefa foi mais útil e porquê?", "Que dificuldade sentiste e como a ultrapassaste?", "Como aplicarás estas competências?", "Que competência gostarias de continuar a desenvolver?"] },
-      { title: "Concluir e verificar a partilha", items: ["Publica a reflexão na coluna TI 7.", "Confirma que a ligação geral do Padlet funciona numa janela privada ou noutro navegador.", "Mantém o Padlet disponível para futura partilha no e-portefólio da ação."] }
+        {
+            "title": "Preparar",
+            "text": "Guardar a c?pia ?2026-07_06_Bem-vindo ao Word.docx?."
+        },
+        {
+            "title": "Executar",
+            "text": "Inserir ou completar as tabelas apresentadas no PDF de refer?ncia."
+        },
+        {
+            "title": "Rever",
+            "text": "Adicionar ou eliminar linha/coluna, unir c?lulas e ajustar larguras."
+        },
+        {
+            "title": "Concluir",
+            "text": "Aplicar estilo de tabela, limites e sombreados apenas quando ajudarem a leitura."
+        }
     ],
-    expected: ["Padlet completo e organizado.", "Reflexão final publicada.", "Autoavaliação e avaliação da formação submetidas.", "Ligação funcional registada no Moodle."],
-    padlet: { column: "TI 7 — Autoavaliação e reflexão final", post: "Reflexão final", items: ["Inclui a reflexão final.", "Confirma a organização das restantes colunas.", "Verifica imagens, textos, ligações e proteção de dados pessoais."] },
-    moodle: "Publica a reflexão final no Fórum indicado ou, se existir um espaço específico, confirma a conclusão e acrescenta a ligação para o Padlet. Não anexes novamente as evidências já organizadas no Projeto Final.",
-    checklist: ["A pasta 02-0693 está organizada.", "Todos os ficheiros finais abrem.", "Existe uma coluna do Padlet para cada TI.", "As evidências estão legíveis e sem dados pessoais.", "As reflexões estão completas.", "A autoavaliação foi submetida.", "A avaliação da formação foi submetida.", "A reflexão final foi publicada.", "A ligação para o Padlet funciona."]
+    evidence: "Captura da tabela final e indica??o de tr?s decis?es de estrutura ou formata??o.",
+    padlet: { column: "Padlet individual", post: "Tabelas" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
+  },
+  {
+    id: "tarefa-individual-8",
+    pdfUrl: "",
+    url: "atividades/tarefas-individuais.html",
+    title: "TI8 - Organizar texto em colunas",
+    intro: "Aplicar colunas e quebras a uma sec??o espec?fica, mantendo o restante documento organizado.",
+    objective: "Aplicar colunas e quebras apenas a uma parte do documento, preservando a organiza??o das restantes p?ginas.",
+    steps: [
+        {
+            "title": "Preparar",
+            "text": "Guardar a c?pia ?2026-07_07_Bem-vindo ao Word.docx?."
+        },
+        {
+            "title": "Executar",
+            "text": "Apresentar uma sec??o adequada em duas colunas."
+        },
+        {
+            "title": "Rever",
+            "text": "Usar quebras de sec??o e uma quebra de coluna."
+        },
+        {
+            "title": "Concluir",
+            "text": "Ajustar espa?o entre colunas, linha separadora se necess?rio, e confirmar a ordem de leitura."
+        }
+    ],
+    evidence: "Captura da p?gina e explica??o da fun??o da quebra de sec??o e da quebra de coluna.",
+    padlet: { column: "Padlet individual", post: "Colunas" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
+  },
+  {
+    id: "tarefa-individual-9",
+    pdfUrl: "",
+    url: "atividades/tarefas-individuais.html",
+    title: "TI9 - Bem-vindo ao Word - melhorar o aspeto visual",
+    intro: "Ajustar imagens e elementos visuais, mantendo clareza e fidelidade ao modelo.",
+    objective: "Ajustar imagens e outros elementos visuais, mantendo a fidelidade ao modelo e a clareza do documento.",
+    steps: [
+        {
+            "title": "Preparar",
+            "text": "Guardar a c?pia ?2026-07_08_Bem-vindo ao Word.docx?."
+        },
+        {
+            "title": "Executar",
+            "text": "Inserir ou ajustar imagens, redimensionando e recortando sem deformar."
+        },
+        {
+            "title": "Rever",
+            "text": "Testar op??es de disposi??o como ?Em linha com o texto? e ?Quadrado?."
+        },
+        {
+            "title": "Concluir",
+            "text": "Acrescentar caixa de texto, forma ou ?cone com fun??o informativa e verificar contraste."
+        }
+    ],
+    evidence: "Captura antes/depois da melhoria visual e identifica??o dos recursos utilizados.",
+    padlet: { column: "Padlet individual", post: "Melhoria visual" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
+  },
+  {
+    id: "tarefa-individual-10",
+    pdfUrl: "",
+    url: "atividades/tarefas-individuais.html",
+    title: "TI10 - Estruturar um documento longo",
+    intro: "Uniformizar t?tulos, quebras, cabe?alho, rodap?, pagina??o e navega??o.",
+    objective: "Preparar o documento para funcionar como um documento longo, com estrutura uniforme e elementos autom?ticos.",
+    steps: [
+        {
+            "title": "Preparar",
+            "text": "Guardar a c?pia ?2026-07_09_Bem-vindo ao Word.docx?."
+        },
+        {
+            "title": "Executar",
+            "text": "Aplicar corretamente T?tulo 1, T?tulo 2 e, quando necess?rio, T?tulo 3."
+        },
+        {
+            "title": "Rever",
+            "text": "Usar quebras de p?gina, cabe?alho, rodap? e numera??o autom?tica."
+        },
+        {
+            "title": "Concluir",
+            "text": "Configurar primeira p?gina diferente e verificar o Painel de Navega??o."
+        }
+    ],
+    evidence: "Capturas dos estilos/Painel de Navega??o e do cabe?alho, rodap? ou numera??o.",
+    padlet: { column: "Padlet individual", post: "Documento longo" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
+  },
+  {
+    id: "tarefa-individual-11",
+    pdfUrl: "",
+    url: "atividades/tarefas-individuais.html",
+    title: "TI11 - Inserir e atualizar o primeiro ?ndice",
+    intro: "Executar o tutorial do ?ndice e aplicar navega??o r?pida no documento.",
+    objective: "Executar o tutorial do ?ndice e aplicar ao documento ferramentas que permitem navegar rapidamente.",
+    steps: [
+        {
+            "title": "Preparar",
+            "text": "Realizar as experi?ncias essenciais do tutorial ?Inserir o seu primeiro ?ndice?."
+        },
+        {
+            "title": "Executar",
+            "text": "Guardar a c?pia ?2026-07_10_Bem-vindo ao Word.docx?."
+        },
+        {
+            "title": "Rever",
+            "text": "Criar uma p?gina para o ?ndice ap?s a capa e gerar ?ndice autom?tico."
+        },
+        {
+            "title": "Concluir",
+            "text": "Usar Painel de Navega??o, pesquisa, Ir para, marcador e hiperliga??o interna ou refer?ncia cruzada."
+        }
+    ],
+    evidence: "Captura do ?ndice e do Painel de Navega??o, com explica??o sobre atualizar n?meros de p?gina ou todo o ?ndice.",
+    padlet: { column: "Padlet individual", post: "?ndice autom?tico" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
+  },
+  {
+    id: "tarefa-individual-12",
+    pdfUrl: "",
+    url: "atividades/tarefas-individuais.html",
+    title: "TI12 - Concluir, partilhar e refletir",
+    intro: "Finalizar o DOCX, exportar PDF, partilhar com permiss?es de leitura e refletir sobre o percurso.",
+    objective: "Concluir o projeto, disponibilizar o PDF com permiss?es de leitura e refletir sobre a evolu??o das aprendizagens.",
+    steps: [
+        {
+            "title": "Preparar",
+            "text": "Guardar ?2026-07_11_Bem-vindo ao Word.docx? e aplicar corre??es pertinentes."
+        },
+        {
+            "title": "Executar",
+            "text": "Executar revis?o, atualizar ?ndice, confirmar pagina??o e pr?-visualiza??o de impress?o."
+        },
+        {
+            "title": "Rever",
+            "text": "Guardar o PDF ?2026-07_12_Bem-vindo ao Word.pdf? na Drive."
+        },
+        {
+            "title": "Concluir",
+            "text": "Definir permiss?o de Leitor, testar a liga??o e publicar capa, liga??o e reflex?o final de 150 a 200 palavras no Padlet."
+        }
+    ],
+    evidence: "Liga??o de leitura para o PDF final e reflex?o final no Padlet individual.",
+    padlet: { column: "Padlet individual", post: "PDF final e reflex?o" },
+    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    forumUrls: individualTaskForumUrls
   }
 ];
 
 const resources = [
-  {
-    id: "manual",
-    title: "Manual de formação",
-    intro: "Manual da UFCD 0693 para consulta e descarregamento.",
-    url: "recursos/manual.html",
-    pdfUrl: "Manual/Manual_Formacao_UFCD_0693.pdf"
-  }
+  { id: "manual", title: "Manual de formação", intro: "Estrutura preparada para o Manual de Formação da UFCD 0754. Ficheiro definitivo pendente.", url: "recursos/manual.html", pdfUrl: "" },
+  { id: "modelos", parentId: "manual", title: "Modelos de documentos", intro: "Área reservada para modelos, exemplos e ficheiros de trabalho.", url: "recursos/manual.html" }
 ];
-
 const mainMenuItems = [
   { key: "inicio", label: "Início" },
   { key: "objetivos", label: "Objetivos" },
@@ -551,8 +454,7 @@ const mainMenuItems = [
   { key: "conteudos", label: "Conteúdos" },
   { key: "atividades", label: "Atividades" },
   { key: "avaliacao", label: "Avaliação" },
-  { key: "recursos", label: "Recursos" },
-  { key: "eportfolio", label: "Site dos E-Portefólios" }
+  { key: "recursos", label: "Recursos" }
 ];
 
 const siteVisibility = {
@@ -591,8 +493,8 @@ const siteVisibilitySectionMeta = {
   tarefasIndividuais: { secao: "tarefas_individuais", chave: "secao-tarefas-individuais", titulo: "Tarefas individuais", tipo: "secao", ordem: 60 }
 };
 
-const SITE_VISIBILITY_STORAGE_KEY = "ufcd0693-site-visibility-v1";
-const SITE_LINKS_STORAGE_KEY = "ufcd0693-site-links-v1";
+const SITE_VISIBILITY_STORAGE_KEY = "ufcd0754-site-visibility-v1";
+const SITE_LINKS_STORAGE_KEY = "ufcd0754-site-links-v1";
 const APPS_SCRIPT_SPREADSHEET_GID = "1240441816";
 let siteControlItems = [];
 let siteControlItemsBuilding = false;
@@ -638,6 +540,25 @@ function isItemVisible(section, key) {
   return isSectionVisible(section) && siteVisibility[section]?.[key] !== false;
 }
 
+function renderPortfolioMenuLink() {
+  document.querySelectorAll(".side-nav").forEach((menu) => {
+    menu.querySelectorAll(".portfolio-site-link").forEach((link) => link.remove());
+
+    if (!isItemVisible("menuPrincipal", "eportfolio")) return;
+
+    const link = document.createElement("a");
+    link.className = "portfolio-site-link";
+    link.href = `${getBasePath()}atividades/identidade-visual.html`;
+    link.textContent = "";
+
+    if (window.location.pathname.endsWith("/atividades/identidade-visual.html")) {
+      link.classList.add("active");
+      link.href = "identidade-visual.html";
+    }
+
+    menu.appendChild(link);
+  });
+}
 function normalizarVisivel(value, fallback = true) {
   if (typeof value === "boolean") return value;
   if (typeof value === "number") return value !== 0;
@@ -1093,9 +1014,7 @@ function renderHomeCards() {
 
   grid.innerHTML = topics.filter((topic) => topic.showInContents !== false).map((topic) => `
     <article class="content-card ${topic.id === "pesquisa-avancada-web" ? "database-card" : "spreadsheet-card"}">
-      <a href="${topic.url}">
-        <span>${topic.area}</span>
-        <h3>${topic.cardTitle}</h3>
+      <a href="${topic.url}"><h3>${topic.cardTitle}</h3>
         <p>${topic.intro}</p>
       </a>
     </article>
@@ -1106,20 +1025,10 @@ function renderConteudosIndex() {
   const grid = document.getElementById("conteudos-index-grid");
   if (!grid) return;
 
-  grid.innerHTML = contentMenuGroups.map((group) => `
-    <article class="card group-task-card">
-      <p class="eyebrow">${group.title}</p>
-      <div class="resource-list">
-        ${group.children.map((child) => {
-          const topic = topicById(child.topicId);
-          return topic ? `
-            <article class="card">
-              <h3><a href="${topic.url}">${topic.title}</a></h3>
-              <p>${topic.intro}</p>
-            </article>
-          ` : "";
-        }).join("")}
-      </div>
+  grid.innerHTML = topics.filter((topic) => topic.showInContents !== false).map((topic) => `
+    <article class="card">
+      <h3><a href="${topic.url}">${topic.title}</a></h3>
+      <p>${topic.intro}</p>
     </article>
   `).join("");
 }
@@ -1165,14 +1074,14 @@ function setupModals() {
 
 function getControlState() {
   try {
-    return JSON.parse(localStorage.getItem("ufcd0693-control-state")) || {};
+    return JSON.parse(localStorage.getItem("ufcd0754-control-state")) || {};
   } catch {
     return {};
   }
 }
 
 function saveControlState(state) {
-  localStorage.setItem("ufcd0693-control-state", JSON.stringify(state));
+  localStorage.setItem("ufcd0754-control-state", JSON.stringify(state));
 }
 
 function carregarVisibilidadeDoSite() {
@@ -1287,6 +1196,7 @@ function aplicarItensVisibilidadeRemota(itens) {
 }
 
 function atualizarSuperficiesVisiveisDoSite() {
+  renderPortfolioMenuLink();
   renderContentMenus();
   renderActivityMenus();
   renderEvaluationMenus();
@@ -1444,12 +1354,24 @@ function obterUrlTopicoForum(valor) {
   return /^https:\/\/fad\.iefp\.pt\/mod\/forum\/discuss\.php\?d=\d+/i.test(url) ? url : "";
 }
 
+function obterForumUrls(task) {
+  const urls = [];
+  const adicionar = (url) => {
+    const normalizado = obterUrlTopicoForum(url);
+    if (normalizado && !urls.includes(normalizado)) urls.push(normalizado);
+  };
+
+  adicionar(obterLinkControlo(`tarefa-individual-${task.title}`));
+  adicionar(siteLinks.forums[task.id]);
+  adicionar(siteLinks.forums[task.title]);
+  adicionar(task.forumUrl);
+  (task.forumUrls || []).forEach(adicionar);
+
+  return urls;
+}
+
 function obterForumUrl(task) {
-  return obterUrlTopicoForum(obterLinkControlo(`tarefa-individual-${task.title}`))
-    || obterUrlTopicoForum(siteLinks.forums[task.id])
-    || obterUrlTopicoForum(siteLinks.forums[task.title])
-    || obterUrlTopicoForum(task.forumUrl)
-    || "";
+  return obterForumUrls(task)[0] || "";
 }
 
 window.addEventListener("storage", (event) => {
@@ -2106,7 +2028,7 @@ async function obterJsonAppsScript(params) {
 
 function obterJsonp(url) {
   return new Promise((resolve, reject) => {
-    const callbackName = `ufcd0693Callback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const callbackName = `ufcd0754Callback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
     const script = document.createElement("script");
     const separator = url.includes("?") ? "&" : "?";
     const timeoutId = window.setTimeout(() => {
@@ -2175,7 +2097,7 @@ function renderTopicPage() {
   const gammaUrl = obterGammaUrl(topic);
   const gammaDisponivel = Boolean(gammaUrl && isItemVisible("conteudos", topic.id));
   document.body.classList.toggle("gamma-view", gammaDisponivel);
-  document.title = `UFCD 0693 | ${topic.title}`;
+  document.title = `UFCD 0754 | ${topic.title}`;
   document.querySelectorAll("#submenu-conteudos a").forEach((link) => {
     const active = link.getAttribute("href")?.endsWith(topic.url);
     link.classList.toggle("active", Boolean(active));
@@ -2261,7 +2183,7 @@ function renderActivityPage() {
     || evaluations.find((item) => item.id === evaluationId)
     || activities[0];
   const isEvaluation = evaluations.some((item) => item.id === activity.id);
-  document.title = `UFCD 0693 | ${activity.title}`;
+  document.title = `UFCD 0754 | ${activity.title}`;
 
   const activeSubmenu = document.getElementById(isEvaluation ? "submenu-avaliacao" : "submenu-atividades");
   activeSubmenu?.querySelectorAll("a").forEach((link) => {
@@ -2282,7 +2204,7 @@ function renderActivityPage() {
       ["TI 1 — Apresentação e expetativas", "Criação do Padlet, apresentação inicial e expetativas em relação à formação."],
       ["TI 2 — Organização digital da ação", "Estrutura de pastas criada na Google Drive e reflexão sobre os critérios de organização."],
       ["TI 3 — Agenda eletrónica", "Eventos, tarefas, notificações e ligação entre o Google Calendar e a Google Drive."],
-      ["TI 4 — Comunicação profissional", "Envio, receção e resposta a uma mensagem profissional através do Gmail."],
+      ["TI 4 - Estilos e estrutura", "Aplicação de estilos, títulos, cabeçalhos, rodapés e organização do documento."],
       ["TI 5 — Gestão da caixa de correio", "Etiquetas, filtro, arquivo, reencaminhamento, eliminação e recuperação de mensagens."],
       ["TI 6 — Pesquisa avançada", "Expressões de pesquisa, fontes consultadas e avaliação da fiabilidade da informação."],
       ["TI 7 — Autoavaliação e reflexão final", "Autoavaliação, síntese das aprendizagens, dificuldades, estratégias e aplicação das competências."]
@@ -2293,8 +2215,8 @@ function renderActivityPage() {
         <div class="section-inner">
           <div class="section-heading task-page-heading">
             <p class="eyebrow">Projeto Final</p>
-            <h1>Do Click ao Guardar</h1>
-            <p class="lead">O Projeto Final consiste na construção progressiva de um Padlet individual com as evidências e reflexões das Tarefas Individuais realizadas ao longo da UFCD 0693.</p>
+            <h1>Documento Profissional</h1>
+            <p class="lead">O Projeto Final consiste na construção progressiva de um Padlet individual com as evidências e reflexões das Tarefas Individuais realizadas ao longo da UFCD 0754.</p>
           </div>
 
           <div class="activity-meta-grid">
@@ -2316,11 +2238,11 @@ function renderActivityPage() {
             <p class="eyebrow">Objetivo</p>
             <h2>Construir um registo digital organizado das atividades realizadas</h2>
             <p>Cada Tarefa Individual corresponde a uma coluna do Padlet. Nessa coluna devem ser publicadas as evidências solicitadas, uma breve explicação do trabalho e uma reflexão sobre a aprendizagem realizada.</p>
-            <p>O Padlet completo constitui o Projeto Final da UFCD 0693.</p>
+            <p>O Padlet completo constitui o Projeto Final da UFCD 0754.</p>
             <div class="presentation-strip">
               <span>Google Drive</span>
               <span>Google Calendar</span>
-              <span>Gmail</span>
+              <span>Revisão</span>
               <span>Pesquisa web</span>
               <span>Padlet</span>
               <span>Moodle</span>
@@ -2374,7 +2296,7 @@ function renderActivityPage() {
             <article class="card">
               <p class="eyebrow">Google Drive</p>
               <h3>Organização dos ficheiros</h3>
-              <p>Os ficheiros da UFCD devem ser guardados em <strong>26109/02-0693</strong>, usando as subpastas Conteúdos, Atividades e Evidências.</p>
+              <p>Os ficheiros da UFCD devem ser guardados em <strong>26109/03-0754</strong>, usando as subpastas Conteúdos, Atividades e Evidências.</p>
               <p>A Google Drive guarda os ficheiros; o Padlet apresenta as evidências selecionadas e as respetivas reflexões.</p>
             </article>
 
@@ -2398,12 +2320,6 @@ function renderActivityPage() {
               <li>O Padlet apresenta uma organização visual coerente.</li>
             </ul>
           </article>
-
-          <article class="card">
-            <p class="eyebrow">Partilha posterior</p>
-            <h3>Ligação ao e-portefólio</h3>
-            <p>Depois de concluído, o Projeto Final poderá ser partilhado no e-portefólio da ação como evidência do trabalho desenvolvido na UFCD 0693.</p>
-          </article>
         </div>
       </section>
     `;
@@ -2412,7 +2328,7 @@ function renderActivityPage() {
 
   if (activity.id === "tarefas-grupo") {
     const overviewItems = [
-      "A formação está organizada em 7 dias de trabalho.",
+      "As tarefas de grupo começam no segundo dia da UFCD.",
       "Abrir o harmónio correspondente ao tema tratado no dia.",
       "Cada sala trabalha apenas a palavra que lhe está atribuída.",
       "Explicar o significado por palavras próprias.",
@@ -2432,7 +2348,7 @@ function renderActivityPage() {
               <span class="task-module-mark" aria-hidden="true">TG</span>
             </summary>
             <div class="task-module-body">
-              <p>Nesta atividade vamos construir, ao longo dos 7 dias da UFCD 0693, um glossário colaborativo.</p>
+              <p>Nesta atividade vamos construir um glossário colaborativo ao longo da UFCD 0754, com início no segundo dia.</p>
               <ul class="moodle-like-list">
                 ${overviewItems.map((item) => `<li>${item}</li>`).join("")}
               </ul>
@@ -2452,7 +2368,9 @@ function renderActivityPage() {
 
                 <div class="task-module-body">
                   <p>Tema associado: ${task.topic}.</p>
-                  <p>Cada termo deve ser trabalhado com uma definição clara, linguagem acessível e, sempre que possível, um exemplo simples.</p>
+                  <p><strong>Instruções:</strong> cada grupo trabalha a palavra atribuída, escreve uma definição clara por palavras próprias, acrescenta um exemplo ligado ao processador de texto e revê a entrada antes da publicação.</p>
+                  <p><strong>Evidência:</strong> entrada publicada no Glossário do Moodle com palavra, definição, exemplo e identificação do grupo.</p>
+                  <p><strong>Publicação:</strong> Glossário do Moodle.</p>
 
                   <div class="task-block">
                     <strong>Palavras a trabalhar</strong>
@@ -2462,7 +2380,7 @@ function renderActivityPage() {
                   </div>
 
                   <div class="embed-fallback resource-action-row align-right">
-                    ${obterGlossarioUrl() ? `<a class="small-button orange" href="${obterGlossarioUrl()}" target="_top">Abrir glossário</a>` : ""}
+                    ${obterGlossarioUrl() ? `<a class="small-button orange" href="${obterGlossarioUrl()}" target="_top">Abrir glossário</a>` : `<span class="task-link-pending">Ligação ao Glossário a disponibilizar.</span>`}
                   </div>
                 </div>
               </details>
@@ -2507,6 +2425,12 @@ function renderActivityPage() {
           </div>
         </div>
       ` : "";
+    };
+
+    const renderForumButtons = (task) => {
+      const urls = obterForumUrls(task);
+      if (!urls.length) return `<span class="task-link-pending">Liga??o a confirmar pela formadora.</span>`;
+      return urls.map((url, index) => `<a class="small-button orange" href="${url}" target="_top">Abrir f?rum ${index + 1}</a>`).join("");
     };
 
     const renderSimplifiedTask = (task) => `
@@ -2607,7 +2531,7 @@ function renderActivityPage() {
                     </div>
                     <div class="embed-fallback resource-action-row align-right">
                       ${renderTaskPdfButton(task)}
-                      ${obterForumUrl(task) ? `<a class="small-button orange" href="${obterForumUrl(task)}" target="_top">Abrir tarefa no Moodle</a>` : ""}
+                      ${renderForumButtons(task)}
                     </div>
                     ${renderTaskPdfModal(task)}
                   ` : renderSimplifiedTask(task)}
@@ -2636,17 +2560,17 @@ function renderActivityPage() {
               <p class="eyebrow">Foco</p>
               <h3>${activity.focus}</h3>
             </article>
-            <article class="card activity-meta-card">
+            ${activity.duration ? `<article class="card activity-meta-card">
               <p class="eyebrow">Duração</p>
               <h3>${activity.duration}</h3>
-            </article>
+            </article>` : ""}
           </div>
 
           <details class="card group-task-card task-details-card">
             <summary>
               <span>
-                <h3>Etapas da atividade</h3>
-                <p>Consulta a sequência proposta para esta atividade diária.</p>
+                <h3>${activity.id === "mentimeter-inicial" ? "Pergunta" : "Etapas da atividade"}</h3>
+                <p>${activity.id === "mentimeter-inicial" ? activity.intro : "Consulta a sequência proposta para esta atividade diária."}</p>
               </span>
               <span class="accordion-icon" aria-hidden="true"></span>
             </summary>
@@ -2683,7 +2607,7 @@ function renderActivityPage() {
                   allowtransparency="true"
                   frameborder="0"
                   src="${activity.mentimeterUrl}"
-                  title="Mentimeter - Brainstorming UFCD 0693"></iframe>
+                  title="Mentimeter - Escreve 3 palavras"></iframe>
               </div>
               <div class="embed-fallback">
                 <a class="small-button" href="${activity.mentimeterUrl}">Abrir apresentação</a>
@@ -2694,7 +2618,7 @@ function renderActivityPage() {
                 <div class="modal-backdrop qr-modal-backdrop" id="mentimeter-qr-modal" hidden>
                   <div class="modal qr-modal" role="dialog" aria-modal="true" aria-labelledby="mentimeter-qr-title">
                     <button class="modal-close" type="button" data-modal-close aria-label="Fechar janela">&times;</button>
-                    <h2 id="mentimeter-qr-title">Participar no brainstorming</h2>
+                    <h2 id="mentimeter-qr-title">Participar no Mentimeter inicial</h2>
                     <p>Usa o QR Code para aceder à nuvem de palavras no telemóvel.</p>
                     <img src="${getBasePath()}${activity.qrCode}" alt="QR Code para participar no Mentimeter">
                     ${activity.participationUrl ? `<a class="small-button orange" href="${activity.participationUrl}">Abrir ligação de participação</a>` : ""}
@@ -2714,7 +2638,7 @@ function renderActivityPage() {
               <iframe
                 class="external-frame padlet-frame"
                 src="${activity.padletUrl}"
-                title="Padlet - Brainstorming UFCD 0693"
+                title="Padlet - UFCD 0754"
                 loading="lazy"></iframe>
               <div class="embed-fallback">
                 <a class="small-button" href="${activity.padletUrl}">Abrir Padlet</a>
@@ -2772,7 +2696,7 @@ function renderResourcePage() {
   if (!root) return;
 
   const resource = resources.find((item) => item.id === document.body.dataset.resource) || resources[0];
-  document.title = `UFCD 0693 | ${resource.title}`;
+  document.title = `UFCD 0754 | ${resource.title}`;
 
   if (resource.gptUrl) {
     if (!isItemVisible("assistentesGpt", resource.id)) {
@@ -2931,7 +2855,7 @@ function renderResourcePage() {
         <article class="card group-task-card">
           <p class="eyebrow">A preparar</p>
           <h3>Espaço reservado</h3>
-          <p>Este espaço ficará ligado aos materiais de apoio reais da UFCD 0693.</p>
+          <p>Este espaço ficará ligado aos materiais de apoio reais da UFCD 0754.</p>
         </article>
       </div>
     </section>
@@ -2942,7 +2866,7 @@ function renderStandaloneTeamsControlPage() {
   const root = document.getElementById("teams-control-root");
   if (!root) return;
 
-  document.title = "UFCD 0693 | Partilha de ecrã";
+  document.title = "UFCD 0754 | Partilha de ecrã";
   renderTeamsControl(root, { compact: false, publicView: false });
 }
 
@@ -2972,6 +2896,7 @@ async function inicializarSite() {
   renderActivityMenus();
   renderEvaluationMenus();
   renderResourceMenus();
+  renderPortfolioMenuLink();
   setupMenu();
   setupFloatingActions();
   renderHomeCards();
@@ -2986,3 +2911,10 @@ async function inicializarSite() {
 }
 
 inicializarSite();
+
+
+
+
+
+
+
