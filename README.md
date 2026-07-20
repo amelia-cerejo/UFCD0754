@@ -1,4 +1,4 @@
-﻿# UFCD 0754 - Processador de Texto
+# UFCD 0754 - Processador de Texto
 
 Site local de apoio à UFCD 0754 - Processador de Texto, ação 26109, com carga horária de 50 horas.
 
@@ -18,14 +18,10 @@ Versão local preparada a partir do modelo técnico da UFCD anterior, com conte�
 
 ## Pendentes
 
-- URL do Google Apps Script da UFCD 0754.
-- ID da folha de resultados da UFCD 0754.
-- Ligações definitivas do Moodle.
-- Padlet da UFCD 0754.
+- Ligações definitivas do Moodle, quando forem ajustadas pela formadora.
 - URL definitivo do Mentimeter já configurado; QR Code fornecido e guardado em `assets/img/mentimeter_qr_code_0754.png`.
-- Manual de Formação da UFCD 0754.
-- PDFs completos das tarefas individuais.
-
+- Manual de Formação da UFCD 0754 guardado em `assets/pdfs/Ufcd 0754 Manual.pdf`.
+- PDFs das tarefas individuais guardados em `assets/pdfs/TI01.pdf` a `assets/pdfs/TI12.pdf`.
 ## Utilização local
 
 Abrir `index.html` diretamente no navegador ou servir a pasta com um servidor local simples. Esta versão não foi publicada nem enviada para GitHub/Netlify.

@@ -11,7 +11,6 @@ const pendingLinks = {
   spreadsheetId: window.UFCD0754_PENDING_LINKS?.spreadsheetId || "PENDENTE_UFCD0754_SPREADSHEET_ID",
   mentimeterEmbedUrl: "https://www.mentimeter.com/app/presentation/alfbbg1d39wqoma1jbvcvpbirv9hyatr/embed",
   mentimeterParticipationUrl: "https://www.menti.com/ald495rdgkt3",
-  padletEmbedUrl: "https://padlet.com/embed/ct3l4ks1gculo1o",
   glossaryUrl: /^https?:\/\//i.test(window.UFCD0754_PENDING_LINKS?.glossaryUrl || "") ? window.UFCD0754_PENDING_LINKS.glossaryUrl : "",
   individualTaskForumUrls: Array.isArray(window.UFCD0754_PENDING_LINKS?.individualTaskForumUrls)
     ? window.UFCD0754_PENDING_LINKS.individualTaskForumUrls.filter((url) => /^https?:\/\//i.test(url))
@@ -21,16 +20,101 @@ const pendingLinks = {
 
 const topics = [
   { id: "introducao", title: "Introdução", menuTitle: "Introdução", cardTitle: "Introdução ao processador de texto", area: "Enquadramento", intro: "Organização da UFCD, objetivos, metodologia e forma de construir o documento final.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/introducao.html", showInContents: false },
-  { id: "ambiente-trabalho", title: "Ambiente de trabalho e gestão de documentos", menuTitle: "Ambiente e ficheiros", cardTitle: "Ambiente de trabalho", intro: "Abrir, guardar, organizar, recuperar e proteger documentos de texto.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/ambiente-trabalho.html", items: ["Interface", "Guardar", "Modelos", "Compatibilidade"] },
-  { id: "edicao-texto", title: "Edição e revisão de texto", menuTitle: "Edição de texto", cardTitle: "Edição e revisão", intro: "Escrever, selecionar, mover, copiar, procurar, substituir e rever texto com rigor.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/edicao-texto.html" },
-  { id: "formatacao-caracteres-paragrafos", title: "Formatação de caracteres e parágrafos", menuTitle: "Formatação", cardTitle: "Caracteres e parágrafos", intro: "Aplicar tipos de letra, espaçamento, alinhamentos, listas, avanço e destaques de forma consistente.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/formatacao-caracteres-paragrafos.html" },
-  { id: "estruturacao-documentos", title: "Estruturação de documentos longos", menuTitle: "Estrutura", cardTitle: "Documentos longos", intro: "Usar estilos, títulos, quebras, cabeçalhos, rodapés, numeração e índices para organizar documentos profissionais.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/estruturacao-documentos.html" },
-  { id: "tabelas-colunas", title: "Tabelas, colunas e organização visual", menuTitle: "Tabelas e colunas", cardTitle: "Tabelas e colunas", intro: "Criar tabelas, ajustar linhas e colunas, distribuir informação e usar colunas de texto quando adequado.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/tabelas-colunas.html" },
-  { id: "imagens-objetos", title: "Imagens, objetos e elementos gráficos", menuTitle: "Imagens e objetos", cardTitle: "Imagens e objetos", intro: "Inserir imagens, formas e caixas de texto, ajustar disposição e garantir legibilidade.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/imagens-objetos.html" },
-  { id: "ferramentas-revisao", title: "Ferramentas de revisão e colaboração", menuTitle: "Revisão", cardTitle: "Revisão e colaboração", intro: "Utilizar corretor, comentários, controlo de alterações, comparação e procedimentos de revisão final.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/ferramentas-revisao.html" },
-  { id: "impressao-exportacao", title: "Impressão, exportação e partilha", menuTitle: "Exportar e partilhar", cardTitle: "Impressão e exportação", intro: "Preparar o documento para imprimir, exportar para PDF, verificar acessibilidade e partilhar corretamente.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/impressao-exportacao.html" },
-  { id: "boas-praticas", title: "Boas práticas para documentos profissionais", menuTitle: "Boas práticas", cardTitle: "Boas práticas", intro: "Aplicar critérios de clareza, coerência visual, normalização, privacidade e revisão antes da entrega final.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/boas-praticas.html" }
+  { id: "ambiente-trabalho", title: "Introdução", menuTitle: "Introdução", cardTitle: "Introdução ao processador de texto", intro: "Primeiro contacto com o Word: compreender para que serve um processador de texto, reconhecer a janela principal, inserir texto e utilizar a visualização e a ajuda.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/ambiente-trabalho.html", items: ["Finalidade do processador de texto", "Janela principal do Word", "Inserção de texto com o teclado", "Modos de visualização básicos", "Ajuda e pesquisa de comandos"] },
+  { id: "edicao-texto", title: "Operações básicas", menuTitle: "Operações básicas", cardTitle: "Operações básicas", intro: "Criar, guardar e abrir documentos, selecionar texto, anular e repetir ações.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/edicao-texto.html", items: ["Criação, gravação e abertura de documentos", "Seleção de texto", "Anulação e repetição de ações"] },
+  { id: "formatacao-caracteres-paragrafos", title: "Formatações", menuTitle: "Formatações", cardTitle: "Formatações", intro: "Aplicar formatações ao documento, ao tipo de letra e aos parágrafos; utilizar tabelas predefinidas, listas, limites e sombreados.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/formatacao-caracteres-paragrafos.html", items: ["Formatações globais do documento", "Formatação do tipo de letra", "Formatações de parágrafo", "Utilização das tabelas pré-definidas", "Criação de listas", "Limites e sombreados"] },
+  { id: "ferramentas-revisao", title: "Edição e revisão de texto", menuTitle: "Edição e revisão", cardTitle: "Edição e revisão de texto", intro: "Trabalhar com vários documentos, copiar texto, verificar a ortografia e localizar ou substituir conteúdo.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/ferramentas-revisao.html", items: ["Múltiplos documentos abertos", "Cópia do texto", "Verificação ortográfica", "Comando «localizar e substituir»"] },
+  { id: "impressao-exportacao", title: "Impressão", menuTitle: "Impressão", cardTitle: "Impressão", intro: "Preparar e verificar o documento antes da impressão.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/impressao-exportacao.html" },
+  { id: "tabelas-colunas", title: "Tabulações, tabelas e colunas", menuTitle: "Tabulações e tabelas", cardTitle: "Tabulações, tabelas e colunas", intro: "Organizar informação através de tabulações, tabelas e colunas de texto.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/tabelas-colunas.html" },
+  { id: "imagens-objetos", title: "Melhorar o aspeto visual", menuTitle: "Aspeto visual", cardTitle: "Melhorar o aspeto visual", intro: "Integrar elementos visuais e melhorar a apresentação do documento.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/imagens-objetos.html" },
+  { id: "estruturacao-documentos", title: "Documentos longos", menuTitle: "Documentos longos", cardTitle: "Documentos longos", intro: "Estruturar e organizar documentos extensos para facilitar a consulta e atualização.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/estruturacao-documentos.html" },
+  { id: "boas-praticas", title: "Percorrer rapidamente um documento", menuTitle: "Percorrer documentos", cardTitle: "Percorrer rapidamente um documento", intro: "Utilizar formas rápidas de navegação em documentos extensos.", image: "../assets/img/ufcd0754-capa-site.png", url: "conteudos/boas-praticas.html" }
 ];
+
+const contentLessons = {
+  "ambiente-trabalho": {
+    summary: "Nesta introdução, o formando situa o processador de texto como ferramenta de criação, edição, formatação, revisão e partilha de documentos profissionais. O objetivo é ganhar orientação dentro do Word antes de avançar para operações e formatações mais específicas.",
+    sections: [
+      { title: "Para que serve um processador de texto", text: "Um processador de texto permite transformar ideias, apontamentos e informação em documentos legíveis, organizados e prontos a comunicar. No contexto profissional, é usado para cartas, relatórios, atas, currículos, formulários, procedimentos e outros documentos formais.", points: ["Criar documentos novos a partir de uma página em branco ou de um modelo.", "Editar texto sem refazer o documento de início.", "Formatar títulos, parágrafos, listas, tabelas e elementos visuais.", "Rever, guardar, exportar para PDF e partilhar o resultado final."] },
+      { title: "Reconhecer a janela principal do Word", text: "Antes de trabalhar no documento, é importante saber onde estão os comandos principais. A janela do Word organiza as ferramentas por separadores no friso, apresenta a área de escrita ao centro e mostra informação útil na barra de estado.", points: ["Barra de título: identifica o documento aberto.", "Friso: reúne separadores como Base, Inserir, Estrutura, Disposição, Referências, Rever e Ver.", "Área do documento: local onde se escreve e organiza o conteúdo.", "Barra de estado: mostra páginas, palavras, idioma, modos de visualização e zoom."] },
+      { title: "Inserir texto com o teclado", text: "O texto é inserido no ponto onde está o cursor. A escrita deve ser feita de forma contínua, deixando o Word mudar automaticamente de linha. A tecla Enter cria um novo parágrafo; não deve ser usada para forçar espaçamentos visuais.", points: ["Usar Espaço apenas entre palavras.", "Usar Enter para terminar um parágrafo.", "Usar Backspace para apagar à esquerda do cursor e Delete para apagar à direita.", "Ativar marcas de formatação quando for necessário perceber espaços, tabulações e parágrafos."] },
+      { title: "Modos de visualização e ajuda", text: "Os modos de visualização alteram a forma como o documento aparece no ecrã, sem mudar o conteúdo. A ajuda e a pesquisa de comandos permitem encontrar rapidamente uma ferramenta quando ainda não se sabe onde está.", points: ["Usar Esquema de Impressão para ver o documento como será apresentado em papel ou PDF.", "Ajustar o zoom para trabalhar com conforto, sem alterar o tamanho real do texto.", "Utilizar a caixa de pesquisa/ajuda para localizar comandos pelo nome da tarefa."] }
+    ],
+    practice: "Abrir o Word, identificar no ecrã a barra de título, o friso, a área do documento e a barra de estado; escrever dois pequenos parágrafos; testar o zoom, um modo de visualização e a pesquisa de um comando."
+  },
+  "edicao-texto": {
+    summary: "As operações básicas permitem iniciar um documento, guardá-lo corretamente, voltar a abri-lo e corrigir ações sem perder o trabalho realizado.",
+    sections: [
+      { title: "Criação, gravação e abertura de documentos", text: "Um documento pode ser criado em branco ou a partir de um modelo. Na primeira gravação é necessário escolher a localização, o nome e o formato do ficheiro.", points: ["Usar nomes claros e coerentes.", "Confirmar a pasta antes de guardar.", "Distinguir Guardar de Guardar Como."] },
+      { title: "Seleção de texto", text: "Antes de copiar, eliminar ou formatar, é necessário selecionar o texto. A seleção pode abranger um carácter, uma palavra, uma linha, um parágrafo ou todo o documento.", points: ["Arrastar o rato para selecionar uma parte específica.", "Usar duplo clique para selecionar uma palavra.", "Usar Ctrl+A para selecionar todo o documento."] },
+      { title: "Anulação e repetição de ações", text: "Anular recua nas últimas ações realizadas. Repetir volta a aplicar uma ação anulada ou repete a última operação, conforme o contexto.", points: ["Usar Ctrl+Z para anular.", "Usar Ctrl+Y para repetir ou refazer.", "Guardar regularmente, mesmo quando a gravação automática está ativa."] }
+    ],
+    practice: "Criar um documento, guardá-lo com o nome indicado, escrever e selecionar texto, testar copiar, cortar, colar, anular e repetir."
+  },
+  "formatacao-caracteres-paragrafos": {
+    summary: "A formatação melhora a legibilidade e cria uma apresentação coerente. Deve ser aplicada com critério, evitando excesso de cores, tipos de letra ou efeitos.",
+    sections: [
+      { title: "Documento, tipo de letra e parágrafo", text: "As formatações globais definem aspetos como margens, orientação e tamanho da página. A formatação do tipo de letra atua nos caracteres; a formatação de parágrafo controla alinhamento, avanços, espaçamento e entrelinha.", points: ["Definir primeiro a estrutura global do documento.", "Usar poucos tipos e tamanhos de letra.", "Aplicar espaçamento de parágrafo em vez de linhas vazias."] },
+      { title: "Tabelas predefinidas e listas", text: "As tabelas predefinidas ajudam a organizar informação em linhas e colunas. As listas com marcas ou numeração apresentam itens e sequências de forma clara.", points: ["Escolher uma tabela adequada ao tipo de informação.", "Usar marcas para itens sem ordem.", "Usar numeração para etapas ou prioridades."] },
+      { title: "Limites e sombreados", text: "Os limites criam linhas em redor de texto, parágrafos ou tabelas. Os sombreados aplicam uma cor de fundo e podem destacar informação importante.", points: ["Aplicar destaque apenas onde acrescenta significado.", "Garantir contraste suficiente entre texto e fundo.", "Manter o mesmo estilo em elementos equivalentes."] }
+    ],
+    practice: "Formatar um título e dois parágrafos, criar uma lista, aplicar limites e sombreado e comparar o resultado antes e depois."
+  },
+  "ferramentas-revisao": {
+    summary: "A edição e a revisão permitem melhorar o conteúdo, corrigir erros e trabalhar com maior rapidez em documentos simples ou extensos.",
+    sections: [
+      { title: "Múltiplos documentos abertos e cópia de texto", text: "É possível manter vários documentos abertos e alternar entre eles. O texto selecionado pode ser copiado ou movido dentro do mesmo documento ou entre documentos.", points: ["Confirmar qual é o documento ativo.", "Usar Copiar quando o original deve permanecer.", "Usar Cortar quando o conteúdo deve mudar de lugar."] },
+      { title: "Verificação ortográfica", text: "O corretor identifica possíveis erros ortográficos e gramaticais, mas as sugestões devem ser analisadas. O idioma de revisão tem de corresponder ao idioma do texto.", points: ["Definir Português (Portugal) como idioma de revisão.", "Ler a frase completa antes de aceitar uma sugestão.", "Adicionar ao dicionário apenas palavras corretas."] },
+      { title: "Localizar e substituir", text: "Localizar procura palavras ou expressões. Localizar e substituir permite trocar ocorrências de forma individual ou em todo o documento.", points: ["Rever cada ocorrência quando a substituição puder alterar o sentido.", "Usar Mais opções para controlar maiúsculas, palavras completas ou formatação.", "Guardar uma cópia antes de substituições extensas."] }
+    ],
+    practice: "Abrir dois documentos, copiar um parágrafo entre eles, executar a revisão ortográfica e substituir uma palavra repetida."
+  },
+  "impressao-exportacao": {
+    summary: "Antes de imprimir, é necessário confirmar a apresentação das páginas e escolher apenas as opções adequadas ao resultado pretendido.",
+    sections: [
+      { title: "Pré-visualização", text: "A pré-visualização mostra como o documento ficará em papel e permite detetar páginas vazias, cortes, margens inadequadas ou quebras mal colocadas.", points: ["Percorrer todas as páginas.", "Confirmar cabeçalhos, rodapés e numeração.", "Verificar tabelas e imagens junto às margens."] },
+      { title: "Definições de impressão", text: "É possível escolher a impressora, o número de cópias, as páginas, a orientação, o tamanho do papel, as margens e a impressão de um ou dos dois lados.", points: ["Imprimir apenas as páginas necessárias.", "Confirmar a orientação Retrato ou Paisagem.", "Usar frente e verso quando for adequado."] },
+      { title: "Verificação final", text: "A impressão deve ser o último passo, depois de guardar e rever o documento. Quando não é necessária uma cópia em papel, o PDF preserva melhor a apresentação para partilha.", points: ["Guardar as alterações antes de imprimir.", "Confirmar a impressora selecionada.", "Gerar primeiro um PDF quando for necessário validar o resultado."] }
+    ],
+    practice: "Abrir a pré-visualização de impressão, identificar as definições disponíveis e explicar quais utilizaria para imprimir apenas duas páginas."
+  },
+  "tabelas-colunas": {
+    summary: "Tabulações, tabelas e colunas organizam informação de formas diferentes. A escolha depende do tipo e da quantidade de conteúdo.",
+    sections: [
+      { title: "Tabulações", text: "As tabulações alinham texto em posições definidas na régua. Podem ser à esquerda, ao centro, à direita ou decimal e podem incluir carateres de preenchimento.", points: ["Mostrar a régua antes de definir tabulações.", "Escolher o alinhamento adequado aos dados.", "Não substituir tabulações por vários espaços."] },
+      { title: "Tabelas", text: "As tabelas organizam informação em linhas, colunas e células. Podem ser inseridas, redimensionadas, formatadas e alteradas através da adição, eliminação ou união de células.", points: ["Usar uma linha de cabeçalho clara.", "Ajustar larguras ao conteúdo.", "Evitar tabelas excessivamente complexas."] },
+      { title: "Colunas de texto", text: "As colunas distribuem o texto verticalmente, como num jornal ou boletim. As quebras de coluna permitem controlar onde começa a coluna seguinte.", points: ["Selecionar apenas o texto que deve ficar em colunas.", "Definir número, largura e espaçamento.", "Usar uma quebra de coluna quando necessário."] }
+    ],
+    practice: "Criar um alinhamento com tabulações, inserir uma tabela simples e formatar um pequeno texto em duas colunas."
+  },
+  "imagens-objetos": {
+    summary: "Imagens e outros elementos visuais podem tornar o documento mais claro e apelativo, desde que tenham uma função e não prejudiquem a leitura.",
+    sections: [
+      { title: "Inserir e dimensionar imagens", text: "Uma imagem deve ser inserida no local adequado e redimensionada pelas alças dos cantos para preservar as proporções.", points: ["Utilizar imagens com qualidade suficiente.", "Manter as proporções originais.", "Evitar imagens desfocadas ou decorativas em excesso."] },
+      { title: "Disposição do texto", text: "A disposição controla a relação entre a imagem e o texto. «Em linha com o texto» trata a imagem como um carácter; outras opções, como «Quadrado», permitem que o texto contorne a imagem.", points: ["Escolher a opção de acordo com o resultado pretendido.", "Confirmar a posição depois de editar o texto.", "Usar alinhamento e espaçamento consistentes."] },
+      { title: "Aspeto visual e legibilidade", text: "Formas, caixas de texto, ícones e cores devem apoiar a hierarquia da informação. Um documento profissional mantém consistência e espaço em branco suficiente.", points: ["Criar contraste entre títulos e corpo do texto.", "Alinhar elementos relacionados.", "Rever o documento a diferentes níveis de zoom."] }
+    ],
+    practice: "Inserir uma imagem, testar «Em linha com o texto» e «Quadrado», redimensioná-la e justificar qual opção melhora a página."
+  },
+  "estruturacao-documentos": {
+    summary: "Os documentos longos exigem uma estrutura consistente para poderem ser atualizados, percorridos e compreendidos com facilidade.",
+    sections: [
+      { title: "Títulos e estilos", text: "Os estilos aplicam em conjunto várias características de formatação. Os estilos Título 1, Título 2 e Título 3 criam uma hierarquia que o Word consegue reconhecer.", points: ["Usar Título 1 nas divisões principais.", "Manter níveis de título coerentes.", "Alterar o estilo em vez de formatar cada título manualmente."] },
+      { title: "Quebras, cabeçalhos e rodapés", text: "As quebras controlam a passagem para uma nova página ou secção. Cabeçalhos e rodapés apresentam informação repetida, como título, autor, data ou número de página.", points: ["Usar quebra de página em vez de vários Enter.", "Criar secções apenas quando forem necessárias definições diferentes.", "Verificar a primeira página e as páginas pares e ímpares."] },
+      { title: "Índice automático", text: "O índice automático é criado a partir dos estilos de título. Depois de alterar o documento, deve ser atualizado para apresentar os títulos e números de página corretos.", points: ["Aplicar os estilos antes de inserir o índice.", "Escolher o local adequado para o índice.", "Atualizar toda a tabela antes da entrega."] }
+    ],
+    practice: "Aplicar estilos a três níveis de títulos, inserir uma quebra de página, numerar as páginas e criar um índice automático."
+  },
+  "boas-praticas": {
+    summary: "Num documento extenso, a navegação rápida reduz o tempo de procura e ajuda a verificar a estrutura antes da entrega.",
+    sections: [
+      { title: "Painel de Navegação", text: "O Painel de Navegação apresenta os títulos do documento quando foram utilizados estilos. Um clique num título desloca diretamente para essa parte.", points: ["Ativar o painel no separador Ver.", "Confirmar a hierarquia dos títulos.", "Arrastar títulos apenas quando se pretende reorganizar o documento."] },
+      { title: "Procurar no documento", text: "A pesquisa permite localizar palavras, expressões, títulos, páginas ou outros elementos sem percorrer o documento manualmente.", points: ["Usar Ctrl+F para abrir a pesquisa.", "Escrever uma expressão suficientemente específica.", "Percorrer os resultados e confirmar o contexto."] },
+      { title: "Atalhos de deslocação", text: "O teclado e a barra de deslocamento permitem chegar rapidamente ao início, ao fim ou a diferentes páginas do documento.", points: ["Usar Ctrl+Home para ir ao início.", "Usar Ctrl+End para ir ao fim.", "Combinar pesquisa e Painel de Navegação em documentos longos."] }
+    ],
+    practice: "Abrir um documento longo, ativar o Painel de Navegação, procurar uma expressão e deslocar-se para o início e para o fim usando atalhos."
+  }
+};
 
 const contentMenuGroups = topics
   .filter((topic) => topic.showInContents !== false)
@@ -40,8 +124,8 @@ const contentMenuGroups = topics
     children: [{ topicId: topic.id }]
   }));
 
-const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "";
-const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "";
+const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwTZTbLAY7RLR8RSbX3ogc6WT1J8DJZdgDRq_FUD055ByJm2eXvJ8zYzKIGSb1RYxAjaw/exec";
+const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "14xWArQOzb-1fZ4QxZXjuoJK1dxhjWmbwWmF7lsK-a9o";
 const APPS_SCRIPT_WEB_APP_URL = window.UFCD0754_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
 const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0754_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
 
@@ -49,8 +133,8 @@ const activities = [
   { id: "controlo-teams", title: "Partilha de ecrã", menuTitle: "Partilha de ecrã", intro: "Tabela simples para acompanhar a participação prática nas sessões síncronas.", url: "atividades/controlo-teams.html" },
   { id: "mentimeter-inicial", title: "Escreve 3 palavras", menuTitle: "Brainstorming", intro: "Quando pensas num processador de texto, que três palavras te vêm à cabeça?", url: "atividades/mentimeter-inicial.html", focus: "Nuvem de palavras inicial", duration: "", product: "Resposta no Mentimeter: três palavras associadas a processador de texto.", mentimeterUrl: pendingLinks.mentimeterEmbedUrl, participationUrl: pendingLinks.mentimeterParticipationUrl, padletUrl: "", qrCode: "assets/img/mentimeter_qr_code_0754.png", steps: [{ title: "Pergunta", text: "Quando pensas num processador de texto, que três palavras te vêm à cabeça?" }], evidence: ["Nuvem de palavras inicial"] },
   { id: "tarefas-grupo", title: "Glossário - Tarefas de Grupo", menuTitle: "Tarefas de Grupo", intro: "Tarefas de grupo para construir vocabulário técnico no glossário do Moodle.", url: "atividades/tarefas-grupo.html", focus: "Glossário colaborativo", duration: "A partir do segundo dia", product: "Definição curta, exemplo prático e aplicação ao documento final.", steps: [{ title: "Distribuir funções", text: "Cada grupo recolhe, escreve, revê e publica a sua entrada." }, { title: "Definir o conceito", text: "A definição deve ser simples, correta e aplicada ao processador de texto." }, { title: "Publicar no Moodle", text: "A entrada fica registada no glossário indicado pela formadora." }], evidence: ["Entrada no glossário", "Exemplo prático", "Revisão pelos colegas"] },
-  { id: "tarefas-individuais", title: "Tarefas Individuais", intro: "Tarefas resumidas no site, com ligação ao PDF completo quando estiver disponível.", url: "atividades/tarefas-individuais.html", focus: "Trabalho individual", duration: "A partir do segundo dia", product: "Documento final melhorado progressivamente e evidências no Padlet/Moodle.", steps: [{ title: "Ler o enunciado", text: "Confirmar objetivo, evidência e local de registo." }, { title: "Melhorar o documento", text: "Acrescentar ou corrigir uma parte do projeto final." }, { title: "Registar evidência", text: "Publicar no Padlet e deixar a síntese no Moodle." }], evidence: ["Documento atualizado", "Evidência no Padlet", "Registo no Moodle"] },
-  { id: "projeto-final-apresentacao", title: "Projeto Final - Documento profissional", menuTitle: "Projeto Final", intro: "Construção progressiva de um documento profissional individual, desenvolvido e revisto ao longo da UFCD.", url: "atividades/projeto-final-apresentacao.html", focus: "Projeto individual", duration: "Ao longo da UFCD", product: "Documento final formatado, revisto, exportado e acompanhado por evidências de evolução.", steps: [{ title: "Criar o documento base", text: "Definir tema, estrutura inicial e local de trabalho na pasta 26109/03-0754." }, { title: "Acrescentar conteúdos", text: "Integrar texto, estilos, tabelas, imagens e elementos de organização." }, { title: "Rever e auditar", text: "Aplicar lista de verificação e receber auditoria de um colega." }, { title: "Finalizar", text: "Exportar para PDF e preparar a partilha final." }], evidence: ["Documento editável", "PDF final", "Evidências no Padlet", "Reflexão no Moodle"] }
+  { id: "tarefas-individuais", title: "Tarefas Individuais", intro: "Resumo das tarefas práticas; as instruções completas são disponibilizadas em PDF.", url: "atividades/tarefas-individuais.html", focus: "Trabalho individual", duration: "A partir do segundo dia", product: "Versões sucessivas do documento «Bem-vindo ao Word», guardadas na Drive.", steps: [{ title: "Ler o enunciado", text: "Confirmar o objetivo e consultar o PDF da tarefa." }, { title: "Melhorar o documento", text: "Criar uma nova versão e aplicar as operações indicadas." }, { title: "Guardar", text: "Guardar a versão na pasta partilhada da Drive." }], evidence: ["Documento atualizado", "Versão guardada na Drive"] },
+  { id: "projeto-final-apresentacao", title: "Projeto Final - Documento profissional", menuTitle: "Projeto Final", intro: "Construção progressiva do documento «Bem-vindo ao Word», desenvolvido e revisto ao longo da UFCD.", url: "atividades/projeto-final-apresentacao.html", focus: "Projeto individual", duration: "Ao longo da UFCD", product: "Documento final formatado, revisto e exportado para PDF.", steps: [{ title: "Partir do ficheiro-base", text: "Abrir o documento fornecido e criar a primeira cópia de trabalho." }, { title: "Criar versões sucessivas", text: "Aplicar em cada TI os conteúdos trabalhados e guardar uma nova versão na Drive." }, { title: "Rever e auditar", text: "Aplicar a lista de verificação e receber a auditoria de um colega." }, { title: "Finalizar", text: "Exportar o documento final para PDF e partilhar a ligação de leitura." }], evidence: ["Versões na Drive", "Documento editável", "PDF final", "Reflexão final"] }
 ];
 
 const evaluations = [
@@ -83,368 +167,225 @@ const individualTaskForumUrls = pendingLinks.individualTaskForumUrls;
 const individualTasks = [
   {
     id: "tarefa-individual-1",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI01.pdf",
     url: "atividades/tarefas-individuais.html",
     title: "TI1 - Registar as expetativas iniciais",
-    intro: "Publica??o inicial no Padlet individual sobre conhecimentos pr?vios, metas e dificuldades esperadas.",
-    objective: "Identificar as expetativas, os conhecimentos pr?vios e as metas pessoais para a aprendizagem do processador de texto.",
+    intro: "Publica\u00e7\u00e3o inicial no Padlet individual sobre conhecimentos pr\u00e9vios, metas e dificuldades esperadas.",
+    objective: "Identificar as expetativas, os conhecimentos pr\u00e9vios e as metas pessoais para a aprendizagem do processador de texto.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Criar uma publica??o na primeira coluna do Padlet individual com o t?tulo ?As minhas expetativas?."
-        },
-        {
-            "title": "Executar",
-            "text": "Escrever entre 80 e 120 palavras sobre o que j? sabe fazer no Word, o que quer aprender e onde pretende usar estas aprendizagens."
-        },
-        {
-            "title": "Rever",
-            "text": "Rever ortografia e pontua??o antes de publicar."
-        },
-        {
-            "title": "Concluir",
-            "text": "Confirmar se a publica??o ficou vis?vel no Padlet."
-        }
+      { title: "Publicar", text: "Criar uma publica\u00e7\u00e3o na primeira coluna do Padlet individual." },
+      { title: "Identificar", text: "Indicar o nome e escrever o t\u00edtulo \u00abAs minhas expetativas\u00bb." },
+      { title: "Responder", text: "Escrever entre 80 e 120 palavras sobre o que j\u00e1 sei fazer no Word, o que quero aprender, em que situa\u00e7\u00f5es pretendo utilizar estas aprendizagens e qual poder\u00e1 ser a minha principal dificuldade." },
+      { title: "Rever", text: "Rever ortografia e pontua\u00e7\u00e3o antes de publicar." },
+      { title: "Concluir", text: "Confirmar se a publica\u00e7\u00e3o ficou vis\u00edvel no Padlet." }
     ],
-    evidence: "Publica??o ?As minhas expetativas? no Padlet individual.",
+    evidence: "Publica\u00e7\u00e3o \u00abAs minhas expetativas\u00bb no Padlet individual.",
     padlet: { column: "Primeira coluna do Padlet individual", post: "As minhas expetativas" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-2",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI02.pdf",
     url: "atividades/tarefas-individuais.html",
-    title: "TI2 - Bem-vindo ao Word - opera??es b?sicas",
-    intro: "Criar a primeira c?pia do ficheiro-base e praticar opera??es b?sicas no Word.",
-    objective: "Explorar a interface do Word e executar opera??es b?sicas no ficheiro fornecido, aproximando o resultado do modelo em PDF.",
+    title: "TI2 - Bem-vindo ao Word - opera\u00e7\u00f5es b\u00e1sicas",
+    intro: "Criar a primeira c\u00f3pia do ficheiro-base e praticar opera\u00e7\u00f5es b\u00e1sicas no Word.",
+    objective: "Explorar a interface do Word e executar opera\u00e7\u00f5es b\u00e1sicas no ficheiro fornecido, aproximando o resultado do modelo em PDF.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Abrir o ficheiro-base ?Bem-vindo ao Word.docx? e guardar como ?2026-07_01_Bem-vindo ao Word.docx?."
-        },
-        {
-            "title": "Executar",
-            "text": "Identificar friso, separadores, barra de ferramentas, barra de estado e controlos de visualiza??o."
-        },
-        {
-            "title": "Rever",
-            "text": "Selecionar, copiar, cortar, colar, anular e repetir."
-        },
-        {
-            "title": "Concluir",
-            "text": "Guardar na Drive e comparar com o PDF de refer?ncia."
-        }
+      { title: "Preparar", text: "Abrir o ficheiro-base \u00abBem-vindo ao Word.docx\u00bb e guardar como \u00ab2026-07_01_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Explorar", text: "Identificar friso, separadores, barra de ferramentas, barra de estado e controlos de visualiza\u00e7\u00e3o." },
+      { title: "Praticar", text: "Selecionar, copiar, cortar, colar, anular e repetir." },
+      { title: "Concluir", text: "Guardar na Drive e comparar com o PDF de refer\u00eancia." }
     ],
-    evidence: "Captura do documento aberto no Word e frase com as opera??es utilizadas.",
-    padlet: { column: "Padlet individual", post: "Opera??es b?sicas" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    evidence: "Captura do documento aberto no Word e frase com as opera\u00e7\u00f5es utilizadas.",
+    padlet: { column: "Padlet individual", post: "Opera\u00e7\u00f5es b\u00e1sicas" },
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-3",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI03.pdf",
     url: "atividades/tarefas-individuais.html",
-    title: "TI3 - Bem-vindo ao Word - formata??o do texto",
-    intro: "Criar nova vers?o e aplicar formata??o de texto, par?grafos, realce e estilos.",
+    title: "TI3 - Bem-vindo ao Word - formata\u00e7\u00e3o do texto",
+    intro: "Criar nova vers\u00e3o e aplicar formata\u00e7\u00e3o de texto, par\u00e1grafos, realce e estilos.",
     objective: "Formatar o documento de acordo com o modelo, utilizando tipos de letra, alinhamentos, realce e estilos do Word.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Guardar a c?pia ?2026-07_02_Bem-vindo ao Word.docx? a partir da tarefa anterior."
-        },
-        {
-            "title": "Executar",
-            "text": "Ajustar letra, alinhamento, avan?os, espa?amento e entrelinha."
-        },
-        {
-            "title": "Rever",
-            "text": "Aplicar T?tulo 1 e T?tulo 2 nos t?tulos e subt?tulos."
-        },
-        {
-            "title": "Concluir",
-            "text": "Comparar com o PDF e guardar na Drive."
-        }
+      { title: "Preparar", text: "Criar a c\u00f3pia \u00ab2026-07_02_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Formatar", text: "Ajustar letra, alinhamento, avan\u00e7os, espa\u00e7amento e entrelinha." },
+      { title: "Aplicar estilos", text: "Usar T\u00edtulo 1 e T\u00edtulo 2 nos t\u00edtulos e subt\u00edtulos." },
+      { title: "Concluir", text: "Comparar com o PDF e guardar na Drive." }
     ],
-    evidence: "Captura com t?tulo, subt?tulo e par?grafo formatado, com explica??o de duas op??es aplicadas.",
-    padlet: { column: "Padlet individual", post: "Formata??o do texto" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    evidence: "Captura com t\u00edtulo, subt\u00edtulo e par\u00e1grafo formatado, com explica\u00e7\u00e3o de duas op\u00e7\u00f5es aplicadas.",
+    padlet: { column: "Padlet individual", post: "Formata\u00e7\u00e3o do texto" },
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-4",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI04.pdf",
     url: "atividades/tarefas-individuais.html",
-    title: "TI4 - Bem-vindo ao Word - listas, edi??o e revis?o",
-    intro: "Criar nova vers?o, organizar listas e usar ferramentas de edi??o e revis?o.",
-    objective: "Organizar os conte?dos com listas e melhorar o texto atrav?s das ferramentas de edi??o e revis?o.",
+    title: "TI4 - Bem-vindo ao Word - listas, edi\u00e7\u00e3o e revis\u00e3o",
+    intro: "Criar nova vers\u00e3o, organizar listas e usar ferramentas de edi\u00e7\u00e3o e revis\u00e3o.",
+    objective: "Organizar os conte\u00fados com listas e melhorar o texto atrav\u00e9s das ferramentas de edi\u00e7\u00e3o e revis\u00e3o.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Guardar a c?pia ?2026-07_03_Bem-vindo ao Word.docx?."
-        },
-        {
-            "title": "Executar",
-            "text": "Reproduzir listas com marcas, listas numeradas e uma lista de m?ltiplos n?veis."
-        },
-        {
-            "title": "Rever",
-            "text": "Usar Localizar e Localizar e substituir."
-        },
-        {
-            "title": "Concluir",
-            "text": "Executar revis?o ortogr?fica e gramatical, consultar sin?nimos e inserir um coment?rio."
-        }
+      { title: "Preparar", text: "Criar a c\u00f3pia \u00ab2026-07_03_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Listas", text: "Reproduzir listas com marcas, listas numeradas e uma lista de m\u00faltiplos n\u00edveis." },
+      { title: "Editar", text: "Usar Localizar e Localizar e substituir." },
+      { title: "Rever", text: "Executar revis\u00e3o ortogr\u00e1fica e gramatical, consultar sin\u00f3nimos e inserir um coment\u00e1rio." }
     ],
-    evidence: "Captura das listas e indica??o das ferramentas de revis?o utilizadas.",
-    padlet: { column: "Padlet individual", post: "Listas, edi??o e revis?o" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    evidence: "Captura das listas e indica\u00e7\u00e3o das ferramentas de revis\u00e3o utilizadas.",
+    padlet: { column: "Padlet individual", post: "Listas, edi\u00e7\u00e3o e revis\u00e3o" },
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-5",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI05.pdf",
     url: "atividades/tarefas-individuais.html",
-    title: "TI5 - Preparar o documento para impress?o",
-    intro: "Configurar p?gina, margens, orienta??o, quebras e pr?-visualiza??o de impress?o.",
-    objective: "Configurar a p?gina e verificar o documento antes da impress?o ou exporta??o.",
+    title: "TI5 - Preparar o documento para impress\u00e3o",
+    intro: "Configurar p\u00e1gina, margens, orienta\u00e7\u00e3o, quebras e pr\u00e9-visualiza\u00e7\u00e3o de impress\u00e3o.",
+    objective: "Configurar a p\u00e1gina e verificar o documento antes da impress\u00e3o ou exporta\u00e7\u00e3o.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Guardar a c?pia ?2026-07_04_Bem-vindo ao Word.docx?."
-        },
-        {
-            "title": "Executar",
-            "text": "Confirmar papel, orienta??o e margens."
-        },
-        {
-            "title": "Rever",
-            "text": "Inserir quebras de p?gina quando necess?rio e evitar p?ginas vazias."
-        },
-        {
-            "title": "Concluir",
-            "text": "Verificar a pr?-visualiza??o de impress?o, corrigir problemas e guardar."
-        }
+      { title: "Preparar", text: "Criar a c\u00f3pia \u00ab2026-07_04_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Configurar", text: "Confirmar papel, orienta\u00e7\u00e3o e margens." },
+      { title: "Paginar", text: "Inserir quebras de p\u00e1gina quando necess\u00e1rio e evitar p\u00e1ginas vazias." },
+      { title: "Concluir", text: "Verificar a pr\u00e9-visualiza\u00e7\u00e3o de impress\u00e3o, corrigir problemas e guardar." }
     ],
-    evidence: "Captura da pr?-visualiza??o com tamanho do papel, orienta??o e margens utilizados.",
-    padlet: { column: "Padlet individual", post: "Prepara??o para impress?o" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    evidence: "Captura da pr\u00e9-visualiza\u00e7\u00e3o com tamanho do papel, orienta\u00e7\u00e3o e margens utilizados.",
+    padlet: { column: "Padlet individual", post: "Prepara\u00e7\u00e3o para impress\u00e3o" },
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-6",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI06.pdf",
     url: "atividades/tarefas-individuais.html",
-    title: "TI6 - Organizar informa??o com tabula??es",
-    intro: "Utilizar a r?gua, marcas de formata??o e diferentes tipos de tabula??o.",
-    objective: "Utilizar diferentes tipos de tabula??o para alinhar informa??o sem recorrer a espa?os consecutivos.",
+    title: "TI6 - Organizar informa\u00e7\u00e3o com tabula\u00e7\u00f5es",
+    intro: "Utilizar a r\u00e9gua, marcas de formata\u00e7\u00e3o e diferentes tipos de tabula\u00e7\u00e3o.",
+    objective: "Utilizar diferentes tipos de tabula\u00e7\u00e3o para alinhar informa\u00e7\u00e3o sem recorrer a espa\u00e7os consecutivos.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Guardar a c?pia ?2026-07_05_Bem-vindo ao Word.docx?."
-        },
-        {
-            "title": "Executar",
-            "text": "Ativar a r?gua e as marcas de formata??o."
-        },
-        {
-            "title": "Rever",
-            "text": "Acrescentar pelo menos oito atalhos do Word e a respetiva fun??o."
-        },
-        {
-            "title": "Concluir",
-            "text": "Usar tabula??es ? esquerda, ? direita, decimal e com car?ter de preenchimento."
-        }
+      { title: "Preparar", text: "Criar a c\u00f3pia \u00ab2026-07_05_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Ativar apoios", text: "Ativar a r\u00e9gua e as marcas de formata\u00e7\u00e3o." },
+      { title: "Criar listagem", text: "Acrescentar pelo menos oito atalhos do Word e a respetiva fun\u00e7\u00e3o." },
+      { title: "Alinhar", text: "Usar tabula\u00e7\u00f5es \u00e0 esquerda, \u00e0 direita, decimal e com car\u00e1ter de preenchimento." }
     ],
-    evidence: "Captura da listagem alinhada e explica??o sobre a vantagem das tabula??es face aos espa?os.",
-    padlet: { column: "Padlet individual", post: "Tabula??es" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    evidence: "Captura da listagem alinhada e explica\u00e7\u00e3o sobre a vantagem das tabula\u00e7\u00f5es face aos espa\u00e7os.",
+    padlet: { column: "Padlet individual", post: "Tabula\u00e7\u00f5es" },
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-7",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI07.pdf",
     url: "atividades/tarefas-individuais.html",
     title: "TI7 - Bem-vindo ao Word - tabelas",
     intro: "Inserir, completar e formatar tabelas, melhorando legibilidade e estrutura.",
-    objective: "Inserir e formatar as tabelas do exerc?cio, respeitando a estrutura e melhorando a legibilidade.",
+    objective: "Inserir e formatar as tabelas do exerc\u00edcio, respeitando a estrutura e melhorando a legibilidade.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Guardar a c?pia ?2026-07_06_Bem-vindo ao Word.docx?."
-        },
-        {
-            "title": "Executar",
-            "text": "Inserir ou completar as tabelas apresentadas no PDF de refer?ncia."
-        },
-        {
-            "title": "Rever",
-            "text": "Adicionar ou eliminar linha/coluna, unir c?lulas e ajustar larguras."
-        },
-        {
-            "title": "Concluir",
-            "text": "Aplicar estilo de tabela, limites e sombreados apenas quando ajudarem a leitura."
-        }
+      { title: "Preparar", text: "Criar a c\u00f3pia \u00ab2026-07_06_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Inserir tabelas", text: "Inserir ou completar as tabelas apresentadas no PDF de refer\u00eancia." },
+      { title: "Ajustar", text: "Adicionar ou eliminar linha/coluna, unir c\u00e9lulas e ajustar larguras." },
+      { title: "Formatar", text: "Aplicar estilo de tabela, limites e sombreados apenas quando ajudarem a leitura." }
     ],
-    evidence: "Captura da tabela final e indica??o de tr?s decis?es de estrutura ou formata??o.",
+    evidence: "Captura da tabela final e indica\u00e7\u00e3o de tr\u00eas decis\u00f5es de estrutura ou formata\u00e7\u00e3o.",
     padlet: { column: "Padlet individual", post: "Tabelas" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-8",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI08.pdf",
     url: "atividades/tarefas-individuais.html",
     title: "TI8 - Organizar texto em colunas",
-    intro: "Aplicar colunas e quebras a uma sec??o espec?fica, mantendo o restante documento organizado.",
-    objective: "Aplicar colunas e quebras apenas a uma parte do documento, preservando a organiza??o das restantes p?ginas.",
+    intro: "Aplicar colunas e quebras a uma sec\u00e7\u00e3o espec\u00edfica, mantendo o restante documento organizado.",
+    objective: "Aplicar colunas e quebras apenas a uma parte do documento, preservando a organiza\u00e7\u00e3o das restantes p\u00e1ginas.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Guardar a c?pia ?2026-07_07_Bem-vindo ao Word.docx?."
-        },
-        {
-            "title": "Executar",
-            "text": "Apresentar uma sec??o adequada em duas colunas."
-        },
-        {
-            "title": "Rever",
-            "text": "Usar quebras de sec??o e uma quebra de coluna."
-        },
-        {
-            "title": "Concluir",
-            "text": "Ajustar espa?o entre colunas, linha separadora se necess?rio, e confirmar a ordem de leitura."
-        }
+      { title: "Preparar", text: "Criar a c\u00f3pia \u00ab2026-07_07_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Selecionar", text: "Apresentar uma sec\u00e7\u00e3o adequada em duas colunas." },
+      { title: "Controlar quebras", text: "Usar quebras de sec\u00e7\u00e3o e uma quebra de coluna." },
+      { title: "Concluir", text: "Ajustar espa\u00e7o entre colunas, linha separadora se necess\u00e1rio, e confirmar a ordem de leitura." }
     ],
-    evidence: "Captura da p?gina e explica??o da fun??o da quebra de sec??o e da quebra de coluna.",
+    evidence: "Captura da p\u00e1gina e explica\u00e7\u00e3o da fun\u00e7\u00e3o da quebra de sec\u00e7\u00e3o e da quebra de coluna.",
     padlet: { column: "Padlet individual", post: "Colunas" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-9",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI09.pdf",
     url: "atividades/tarefas-individuais.html",
     title: "TI9 - Bem-vindo ao Word - melhorar o aspeto visual",
     intro: "Ajustar imagens e elementos visuais, mantendo clareza e fidelidade ao modelo.",
     objective: "Ajustar imagens e outros elementos visuais, mantendo a fidelidade ao modelo e a clareza do documento.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Guardar a c?pia ?2026-07_08_Bem-vindo ao Word.docx?."
-        },
-        {
-            "title": "Executar",
-            "text": "Inserir ou ajustar imagens, redimensionando e recortando sem deformar."
-        },
-        {
-            "title": "Rever",
-            "text": "Testar op??es de disposi??o como ?Em linha com o texto? e ?Quadrado?."
-        },
-        {
-            "title": "Concluir",
-            "text": "Acrescentar caixa de texto, forma ou ?cone com fun??o informativa e verificar contraste."
-        }
+      { title: "Preparar", text: "Criar a c\u00f3pia \u00ab2026-07_08_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Ajustar imagens", text: "Inserir ou ajustar imagens, redimensionando e recortando sem deformar." },
+      { title: "Moldar texto", text: "Testar op\u00e7\u00f5es de disposi\u00e7\u00e3o como \u00abEm linha com o texto\u00bb e \u00abQuadrado\u00bb." },
+      { title: "Melhorar", text: "Acrescentar caixa de texto, forma ou \u00edcone com fun\u00e7\u00e3o informativa e verificar contraste." }
     ],
-    evidence: "Captura antes/depois da melhoria visual e identifica??o dos recursos utilizados.",
+    evidence: "Captura antes/depois da melhoria visual e identifica\u00e7\u00e3o dos recursos utilizados.",
     padlet: { column: "Padlet individual", post: "Melhoria visual" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-10",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI10.pdf",
     url: "atividades/tarefas-individuais.html",
     title: "TI10 - Estruturar um documento longo",
-    intro: "Uniformizar t?tulos, quebras, cabe?alho, rodap?, pagina??o e navega??o.",
-    objective: "Preparar o documento para funcionar como um documento longo, com estrutura uniforme e elementos autom?ticos.",
+    intro: "Uniformizar t\u00edtulos, quebras, cabe\u00e7alho, rodap\u00e9, pagina\u00e7\u00e3o e navega\u00e7\u00e3o.",
+    objective: "Preparar o documento para funcionar como um documento longo, com estrutura uniforme e elementos autom\u00e1ticos.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Guardar a c?pia ?2026-07_09_Bem-vindo ao Word.docx?."
-        },
-        {
-            "title": "Executar",
-            "text": "Aplicar corretamente T?tulo 1, T?tulo 2 e, quando necess?rio, T?tulo 3."
-        },
-        {
-            "title": "Rever",
-            "text": "Usar quebras de p?gina, cabe?alho, rodap? e numera??o autom?tica."
-        },
-        {
-            "title": "Concluir",
-            "text": "Configurar primeira p?gina diferente e verificar o Painel de Navega??o."
-        }
+      { title: "Preparar", text: "Criar a c\u00f3pia \u00ab2026-07_09_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Rever estilos", text: "Aplicar corretamente T\u00edtulo 1, T\u00edtulo 2 e, quando necess\u00e1rio, T\u00edtulo 3." },
+      { title: "Organizar p\u00e1ginas", text: "Usar quebras de p\u00e1gina, cabe\u00e7alho, rodap\u00e9 e numera\u00e7\u00e3o autom\u00e1tica." },
+      { title: "Confirmar", text: "Configurar primeira p\u00e1gina diferente e verificar o Painel de Navega\u00e7\u00e3o." }
     ],
-    evidence: "Capturas dos estilos/Painel de Navega??o e do cabe?alho, rodap? ou numera??o.",
+    evidence: "Capturas dos estilos/Painel de Navega\u00e7\u00e3o e do cabe\u00e7alho, rodap\u00e9 ou numera\u00e7\u00e3o.",
     padlet: { column: "Padlet individual", post: "Documento longo" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-11",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI11.pdf",
     url: "atividades/tarefas-individuais.html",
-    title: "TI11 - Inserir e atualizar o primeiro ?ndice",
-    intro: "Executar o tutorial do ?ndice e aplicar navega??o r?pida no documento.",
-    objective: "Executar o tutorial do ?ndice e aplicar ao documento ferramentas que permitem navegar rapidamente.",
+    title: "TI11 - Inserir e atualizar o primeiro \u00cdndice",
+    intro: "Executar o tutorial do \u00cdndice e aplicar navega\u00e7\u00e3o r\u00e1pida no documento.",
+    objective: "Executar o tutorial do \u00cdndice e aplicar ao documento ferramentas que permitem navegar rapidamente.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Realizar as experi?ncias essenciais do tutorial ?Inserir o seu primeiro ?ndice?."
-        },
-        {
-            "title": "Executar",
-            "text": "Guardar a c?pia ?2026-07_10_Bem-vindo ao Word.docx?."
-        },
-        {
-            "title": "Rever",
-            "text": "Criar uma p?gina para o ?ndice ap?s a capa e gerar ?ndice autom?tico."
-        },
-        {
-            "title": "Concluir",
-            "text": "Usar Painel de Navega??o, pesquisa, Ir para, marcador e hiperliga??o interna ou refer?ncia cruzada."
-        }
+      { title: "Realizar tutorial", text: "Inserir \u00cdndice, atualizar n\u00fameros de p\u00e1gina, aplicar t\u00edtulos, atualizar tudo e personalizar preenchimento." },
+      { title: "Preparar", text: "Criar a c\u00f3pia \u00ab2026-07_10_Bem-vindo ao Word.docx\u00bb." },
+      { title: "Inserir \u00cdndice", text: "Criar uma p\u00e1gina para o \u00cdndice ap\u00f3s a capa e gerar \u00cdndice autom\u00e1tico." },
+      { title: "Testar navega\u00e7\u00e3o", text: "Usar Painel de Navega\u00e7\u00e3o, pesquisa, Ir para, marcador e hiperliga\u00e7\u00e3o interna ou refer\u00eancia cruzada." }
     ],
-    evidence: "Captura do ?ndice e do Painel de Navega??o, com explica??o sobre atualizar n?meros de p?gina ou todo o ?ndice.",
-    padlet: { column: "Padlet individual", post: "?ndice autom?tico" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    evidence: "Captura do \u00cdndice e do Painel de Navega\u00e7\u00e3o, com explica\u00e7\u00e3o sobre atualizar n\u00fameros de p\u00e1gina ou todo o \u00cdndice.",
+    padlet: { column: "Padlet individual", post: "\u00cdndice autom\u00e1tico" },
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   },
   {
     id: "tarefa-individual-12",
-    pdfUrl: "",
+    pdfUrl: "assets/pdfs/TI12.pdf",
     url: "atividades/tarefas-individuais.html",
     title: "TI12 - Concluir, partilhar e refletir",
-    intro: "Finalizar o DOCX, exportar PDF, partilhar com permiss?es de leitura e refletir sobre o percurso.",
-    objective: "Concluir o projeto, disponibilizar o PDF com permiss?es de leitura e refletir sobre a evolu??o das aprendizagens.",
+    intro: "Finalizar o DOCX, exportar PDF, partilhar com permiss\u00f5es de leitura e refletir sobre o percurso.",
+    objective: "Concluir o projeto, disponibilizar o PDF com permiss\u00f5es de leitura e refletir sobre a evolu\u00e7\u00e3o das aprendizagens.",
     steps: [
-        {
-            "title": "Preparar",
-            "text": "Guardar ?2026-07_11_Bem-vindo ao Word.docx? e aplicar corre??es pertinentes."
-        },
-        {
-            "title": "Executar",
-            "text": "Executar revis?o, atualizar ?ndice, confirmar pagina??o e pr?-visualiza??o de impress?o."
-        },
-        {
-            "title": "Rever",
-            "text": "Guardar o PDF ?2026-07_12_Bem-vindo ao Word.pdf? na Drive."
-        },
-        {
-            "title": "Concluir",
-            "text": "Definir permiss?o de Leitor, testar a liga??o e publicar capa, liga??o e reflex?o final de 150 a 200 palavras no Padlet."
-        }
+      { title: "Preparar", text: "Guardar \u00ab2026-07_11_Bem-vindo ao Word.docx\u00bb e aplicar corre\u00e7\u00f5es pertinentes." },
+      { title: "Verificar", text: "Executar revis\u00e3o, atualizar \u00cdndice, confirmar pagina\u00e7\u00e3o e pr\u00e9-visualiza\u00e7\u00e3o de impress\u00e3o." },
+      { title: "Exportar", text: "Guardar o PDF \u00ab2026-07_12_Bem-vindo ao Word.pdf\u00bb na Drive." },
+      { title: "Partilhar e refletir", text: "Definir permiss\u00e3o de Leitor, testar a liga\u00e7\u00e3o e escrever a reflex\u00e3o final de 150 a 200 palavras." }
     ],
-    evidence: "Liga??o de leitura para o PDF final e reflex?o final no Padlet individual.",
-    padlet: { column: "Padlet individual", post: "PDF final e reflex?o" },
-    moodle: "Usar uma das liga??es das TIs no Moodle indicadas pela formadora para confirmar ou acompanhar a tarefa.",
+    evidence: "Liga\u00e7\u00e3o de leitura para o PDF final e reflex\u00e3o final.",
+    padlet: { column: "Padlet individual", post: "PDF final e reflex\u00e3o" },
+    moodle: "Usar a liga\u00e7\u00e3o da TI no Moodle indicada pela formadora para confirmar ou acompanhar a tarefa.",
     forumUrls: individualTaskForumUrls
   }
 ];
 
 const resources = [
-  { id: "manual", title: "Manual de formação", intro: "Estrutura preparada para o Manual de Formação da UFCD 0754. Ficheiro definitivo pendente.", url: "recursos/manual.html", pdfUrl: "" },
+  { id: "manual", title: "Manual de formação", intro: "Manual de Formação da UFCD 0754 em PDF.", url: "recursos/manual.html", pdfUrl: "assets/pdfs/Ufcd 0754 Manual.pdf" },
   { id: "modelos", parentId: "manual", title: "Modelos de documentos", intro: "Área reservada para modelos, exemplos e ficheiros de trabalho.", url: "recursos/manual.html" }
 ];
 const mainMenuItems = [
@@ -454,7 +395,8 @@ const mainMenuItems = [
   { key: "conteudos", label: "Conteúdos" },
   { key: "atividades", label: "Atividades" },
   { key: "avaliacao", label: "Avaliação" },
-  { key: "recursos", label: "Recursos" }
+  { key: "recursos", label: "Recursos" },
+  { key: "eportfolio", label: "Site dos E-Portefólios" }
 ];
 
 const siteVisibility = {
@@ -498,7 +440,6 @@ const SITE_LINKS_STORAGE_KEY = "ufcd0754-site-links-v1";
 const APPS_SCRIPT_SPREADSHEET_GID = "1240441816";
 let siteControlItems = [];
 let siteControlItemsBuilding = false;
-let siteVisibilityRemoteLoaded = false;
 let siteVisibilityRemoteLoading = null;
 
 const siteLinks = {
@@ -548,12 +489,13 @@ function renderPortfolioMenuLink() {
 
     const link = document.createElement("a");
     link.className = "portfolio-site-link";
-    link.href = `${getBasePath()}atividades/identidade-visual.html`;
-    link.textContent = "";
+    link.href = "https://26109-e-portfolio.netlify.app/";
+    link.textContent = "Site dos E-Portefólios";
+    link.target = "_top";
 
     if (window.location.pathname.endsWith("/atividades/identidade-visual.html")) {
       link.classList.add("active");
-      link.href = "identidade-visual.html";
+      link.href = "https://26109-e-portfolio.netlify.app/";
     }
 
     menu.appendChild(link);
@@ -600,7 +542,7 @@ function obterConstituicaoVisibilidadeSite() {
 
   adicionarSecao("menuPrincipal");
   mainMenuItems.forEach((item, index) => {
-    const url = item.key === "inicio" ? "index.html#inicio" : item.key === "eportfolio" ? "atividades/identidade-visual.html" : `index.html#${item.key}`;
+    const url = item.key === "inicio" ? "index.html#inicio" : item.key === "eportfolio" ? "https://26109-e-portfolio.netlify.app/" : `index.html#${item.key}`;
     adicionarItem("menuPrincipal", `menu-${item.key}`, item.label, url, "menu", 2 + index);
   });
 
@@ -1084,6 +1026,14 @@ function saveControlState(state) {
   localStorage.setItem("ufcd0754-control-state", JSON.stringify(state));
 }
 
+function limparEstadoLocalDoSite() {
+  try {
+    localStorage.removeItem(SITE_VISIBILITY_STORAGE_KEY);
+    localStorage.removeItem(SITE_LINKS_STORAGE_KEY);
+  } catch {
+    // A Sheet continua a ser a fonte principal mesmo sem acesso ao localStorage.
+  }
+}
 function carregarVisibilidadeDoSite() {
   try {
     aplicarVisibilidadeDoSite(JSON.parse(localStorage.getItem(SITE_VISIBILITY_STORAGE_KEY) || "{}"));
@@ -1192,7 +1142,7 @@ function aplicarItensVisibilidadeRemota(itens) {
     linksAlterados = aplicarLinkItemControlo(item) || linksAlterados;
     aplicarItemVisibilidadeRemota(item);
   });
-  if (linksAlterados) guardarLinksDoSite();
+  void linksAlterados;
 }
 
 function atualizarSuperficiesVisiveisDoSite() {
@@ -1375,6 +1325,7 @@ function obterForumUrl(task) {
 }
 
 window.addEventListener("storage", (event) => {
+  if (APPS_SCRIPT_WEB_APP_URL && (event.key === SITE_VISIBILITY_STORAGE_KEY || event.key === SITE_LINKS_STORAGE_KEY)) return;
   if (!event.newValue) return;
 
   try {
@@ -1391,24 +1342,21 @@ window.addEventListener("storage", (event) => {
   }
 });
 
-async function carregarVisibilidadeRemotaDoSite() {
+async function carregarVisibilidadeRemotaDoSite(options = {}) {
   if (!APPS_SCRIPT_WEB_APP_URL) return false;
-  if (siteVisibilityRemoteLoaded) return true;
-  if (siteVisibilityRemoteLoading) return siteVisibilityRemoteLoading;
+  if (siteVisibilityRemoteLoading && !options.force) return siteVisibilityRemoteLoading;
 
   siteVisibilityRemoteLoading = obterJsonAppsScript({ acao: "visibilidade_site" })
     .then((dados) => {
       if (dados?.sucesso && Array.isArray(dados.itens)) {
         aplicarItensVisibilidadeRemota(dados.itens);
-        guardarVisibilidadeDoSite();
-        siteVisibilityRemoteLoaded = true;
+        limparEstadoLocalDoSite();
         return true;
       }
 
       if (dados?.sucesso && dados.visibilidade) {
         aplicarVisibilidadeDoSite(dados.visibilidade);
-        guardarVisibilidadeDoSite();
-        siteVisibilityRemoteLoaded = true;
+        limparEstadoLocalDoSite();
         return true;
       }
       return false;
@@ -1563,7 +1511,7 @@ function renderSiteVisibilityControls() {
         </div>
         <div>
           <p>Ativa conteúdos/tarefas e associa os links externos usados durante a formação.</p>
-          <button class="small-button" type="button" data-action="save-site-visibility">Guardar na Apps Script</button>
+        <button class="small-button" type="button" data-action="save-site-visibility">Guardar na Apps Script</button>
         </div>
       </div>
       <div class="site-control-grid">
@@ -1578,7 +1526,7 @@ function renderSiteVisibilityControls() {
         ${renderGroup("Tarefas Individuais", "tarefasIndividuais", individualItems)}
       </div>
       <div class="site-control-actions">
-        <button class="small-button" type="button" data-action="save-site-visibility">Guardar na Apps Script</button>
+          <button class="small-button" type="button" data-action="save-site-visibility">Guardar na Apps Script</button>
       </div>
       <p class="teams-control-status" data-site-control-status>Alterações guardadas neste browser.</p>
     </div>
@@ -1742,11 +1690,14 @@ async function setupTeamsControl(root) {
     if (saveVisibilityButton) {
       const controlStatus = root.querySelector("[data-site-control-status]");
       if (controlStatus) controlStatus.textContent = "A enviar constituição e ligações do site para a Apps Script...";
-      guardarVisibilidadeDoSite();
-      guardarLinksDoSite();
       await guardarVisibilidadeRemotaDoSite();
+      limparEstadoLocalDoSite();
+      await aguardar(900);
+      await carregarVisibilidadeRemotaDoSite({ force: true });
+      atualizarSuperficiesVisiveisDoSite();
+      atualizarControlosVisibilidadeDoSite(root);
       if (controlStatus) {
-        controlStatus.textContent = `Pedido enviado para a Apps Script: ${obterConstituicaoVisibilidadeSite().length} itens e ligações do site. Confirma as folhas de controlo.`;
+        controlStatus.textContent = `Configuração recarregada da Sheet: ${obterConstituicaoVisibilidadeSite().length} itens e ligações do site.`;
       }
       return;
     }
@@ -1768,9 +1719,8 @@ async function setupTeamsControl(root) {
       const key = event.target.dataset.key;
       if (siteVisibility[section] && key in siteVisibility[section]) {
         siteVisibility[section][key] = event.target.checked;
-        guardarVisibilidadeDoSite();
         const controlStatus = root.querySelector("[data-site-control-status]");
-        if (controlStatus) controlStatus.textContent = "Visibilidade alterada neste ecrã. Usa Guardar na Apps Script para atualizar a configuração central.";
+        if (controlStatus) controlStatus.textContent = "Visibilidade alterada neste ecrã. Usa Guardar para enviar para a Sheet.";
       }
     }
 
@@ -1798,9 +1748,8 @@ async function setupTeamsControl(root) {
         controlItem.gammaUrl = value;
       }
 
-      guardarLinksDoSite();
       const controlStatus = root.querySelector("[data-site-control-status]");
-      if (controlStatus) controlStatus.textContent = "Ligação guardada neste browser. Usa o botão Guardar para enviar para a Apps Script.";
+      if (controlStatus) controlStatus.textContent = "Ligação alterada neste ecrã. Usa Guardar para enviar para a Sheet.";
     }
   });
 }
@@ -2023,6 +1972,7 @@ async function obterJsonAppsScript(params) {
     url.searchParams.set("spreadsheet_id", APPS_SCRIPT_SPREADSHEET_ID);
   }
   Object.entries(params).forEach(([key, value]) => url.searchParams.set(key, value));
+  url.searchParams.set("_", String(Date.now()));
   return obterJsonp(url.toString());
 }
 
@@ -2118,43 +2068,62 @@ function renderTopicPage() {
           </article>
     `
     : "";
+  const lesson = contentLessons[topic.id];
+  const lessonSections = lesson?.sections?.map((section, index) => `
+          <article class="card">
+            <p class="eyebrow">${String(index + 1).padStart(2, "0")}</p>
+            <h2>${escapeHtml(section.title)}</h2>
+            <p>${escapeHtml(section.text)}</p>
+            ${section.points?.length ? `
+              <ul class="clean-list">
+                ${section.points.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}
+              </ul>
+            ` : ""}
+          </article>
+  `).join("") || "";
 
   root.innerHTML = `
-    <section class="hero content-hero no-image-hero">
+    <section class="hero content-hero no-image-hero compact-content-hero">
       <div class="hero-content">
         <h1>${topic.cardTitle}</h1>
         <p>${topic.intro}</p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section content-page-section">
       <div class="lesson-layout">
         <div class="lesson-stack">
-          <article class="card placeholder-note">
-            <h2>Conteúdo para disponibilização</h2>
-            <p>Esta página está integrada na estrutura do site e será disponibilizada de acordo com o controlo definido pelo formador.</p>
-          </article>
           ${topicItems}
-          <article class="card">
-            <h2>1. Enquadramento</h2>
-            <p>Espaço reservado para explicar o tema com linguagem simples e exemplos ligados à utilização prática de correio eletrónico, documentos digitais e pesquisa na web.</p>
-          </article>
-          <article class="card">
-            <h2>2. Exemplo orientado</h2>
-            <p>Espaço reservado para uma demonstração passo a passo, adequada ao nível introdutório da UFCD.</p>
-          </article>
+          ${lesson ? `
+            <article class="card">
+              <p class="eyebrow">Enquadramento</p>
+              <h2>O essencial</h2>
+              <p>${escapeHtml(lesson.summary)}</p>
+            </article>
+            ${lessonSections}
+          ` : `
+            <article class="card">
+              <h2>Enquadramento</h2>
+              <p>${escapeHtml(topic.intro)}</p>
+            </article>
+          `}
           <article class="card activity-card">
             <p class="eyebrow">Atividade</p>
             <h2>Experimenta</h2>
-            <p>Espaço reservado para uma tarefa curta que permita aplicar este conteúdo.</p>
+            <p>${escapeHtml(lesson?.practice || "Aplica este conteúdo no documento de trabalho e confirma o resultado.")}</p>
+          </article>
+          <article class="card">
+            <p class="eyebrow">Síntese</p>
+            <h2>Antes de avançar</h2>
+            <p>Confirma se consegues identificar os comandos utilizados, explicar a sua finalidade e repetir o procedimento no teu documento sem depender do exemplo.</p>
           </article>
         </div>
         <aside class="card aside-box">
           <h3>Nesta página</h3>
           <ul class="clean-list">
             ${topic.items?.length ? "<li>Subconteúdos</li>" : ""}
-            <li>Enquadramento</li>
-            <li>Exemplo orientado</li>
+            <li>O essencial</li>
+            ${lesson?.sections?.map((section) => `<li>${escapeHtml(section.title)}</li>`).join("") || ""}
             <li>Atividade</li>
             <li>Síntese</li>
           </ul>
@@ -2201,13 +2170,10 @@ function renderActivityPage() {
 
   if (activity.id === "projeto-final-apresentacao") {
     const projectColumns = [
-      ["TI 1 — Apresentação e expetativas", "Criação do Padlet, apresentação inicial e expetativas em relação à formação."],
-      ["TI 2 — Organização digital da ação", "Estrutura de pastas criada na Google Drive e reflexão sobre os critérios de organização."],
-      ["TI 3 — Agenda eletrónica", "Eventos, tarefas, notificações e ligação entre o Google Calendar e a Google Drive."],
-      ["TI 4 - Estilos e estrutura", "Aplicação de estilos, títulos, cabeçalhos, rodapés e organização do documento."],
-      ["TI 5 — Gestão da caixa de correio", "Etiquetas, filtro, arquivo, reencaminhamento, eliminação e recuperação de mensagens."],
-      ["TI 6 — Pesquisa avançada", "Expressões de pesquisa, fontes consultadas e avaliação da fiabilidade da informação."],
-      ["TI 7 — Autoavaliação e reflexão final", "Autoavaliação, síntese das aprendizagens, dificuldades, estratégias e aplicação das competências."]
+      ["Ficheiro-base", "Documento «Bem-vindo ao Word» fornecido pela formadora."],
+      ["Versões de trabalho", "Nova cópia do documento em cada tarefa, identificada com a nomenclatura indicada."],
+      ["Revisão e auditoria", "Verificação final e auditoria de qualidade realizada por um colega."],
+      ["Entrega final", "Documento editável e versão final em PDF, com ligação de leitura."]
     ];
 
     root.innerHTML = `
@@ -2216,13 +2182,13 @@ function renderActivityPage() {
           <div class="section-heading task-page-heading">
             <p class="eyebrow">Projeto Final</p>
             <h1>Documento Profissional</h1>
-            <p class="lead">O Projeto Final consiste na construção progressiva de um Padlet individual com as evidências e reflexões das Tarefas Individuais realizadas ao longo da UFCD 0754.</p>
+            <p class="lead">O Projeto Final consiste na construção progressiva do documento «Bem-vindo ao Word», melhorado através das Tarefas Individuais realizadas ao longo da UFCD 0754.</p>
           </div>
 
           <div class="activity-meta-grid">
             <article class="card activity-meta-card">
               <p class="eyebrow">Formato</p>
-              <h3>Padlet em Colunas</h3>
+              <h3>Documento Word e PDF</h3>
             </article>
             <article class="card activity-meta-card">
               <p class="eyebrow">Desenvolvimento</p>
@@ -2230,35 +2196,35 @@ function renderActivityPage() {
             </article>
             <article class="card activity-meta-card">
               <p class="eyebrow">Registo</p>
-              <h3>Ligação no Moodle</h3>
+              <h3>Ficheiros na Drive</h3>
             </article>
           </div>
 
           <article class="card activity-card">
             <p class="eyebrow">Objetivo</p>
-            <h2>Construir um registo digital organizado das atividades realizadas</h2>
-            <p>Cada Tarefa Individual corresponde a uma coluna do Padlet. Nessa coluna devem ser publicadas as evidências solicitadas, uma breve explicação do trabalho e uma reflexão sobre a aprendizagem realizada.</p>
-            <p>O Padlet completo constitui o Projeto Final da UFCD 0754.</p>
+            <h2>Construir progressivamente um documento profissional</h2>
+            <p>A partir da TI2, cada tarefa parte do ficheiro anterior e origina uma nova versão do documento «Bem-vindo ao Word».</p>
+            <p>A versão final editável e o respetivo PDF constituem o Projeto Final da UFCD 0754.</p>
             <div class="presentation-strip">
               <span>Google Drive</span>
-              <span>Google Calendar</span>
+              <span>Microsoft Word</span>
               <span>Revisão</span>
-              <span>Pesquisa web</span>
-              <span>Padlet</span>
-              <span>Moodle</span>
+              <span>Formatação</span>
+              <span>PDF</span>
+              <span>Partilha</span>
             </div>
           </article>
 
           <details class="task-overview-card" open>
             <summary>
               <span class="task-module-copy">
-                <strong>Estrutura do Padlet</strong>
-                <small>Uma coluna própria para cada Tarefa Individual.</small>
+                <strong>Estrutura do trabalho</strong>
+                <small>Uma versão identificada para cada etapa do documento.</small>
               </span>
-              <span class="task-module-mark" aria-hidden="true">PADLET</span>
+              <span class="task-module-mark" aria-hidden="true">DOCX</span>
             </summary>
             <div class="task-module-body">
-              <p>O Padlet deve ter uma coluna identificada para cada Tarefa Individual, da TI 1 à TI 7. A primeira coluna reúne a apresentação inicial e as expetativas; a última reúne a autoavaliação e a reflexão final.</p>
+              <p>As versões devem ser guardadas na pasta partilhada da Drive, mantendo o ficheiro anterior e usando a nomenclatura indicada em cada tarefa.</p>
             </div>
           </details>
 
@@ -2297,13 +2263,13 @@ function renderActivityPage() {
               <p class="eyebrow">Google Drive</p>
               <h3>Organização dos ficheiros</h3>
               <p>Os ficheiros da UFCD devem ser guardados em <strong>26109/03-0754</strong>, usando as subpastas Conteúdos, Atividades e Evidências.</p>
-              <p>A Google Drive guarda os ficheiros; o Padlet apresenta as evidências selecionadas e as respetivas reflexões.</p>
+              <p>A Google Drive guarda as versões sucessivas, o documento editável final e o PDF de leitura.</p>
             </article>
 
             <article class="card">
               <p class="eyebrow">Moodle</p>
-              <h3>Registo de cada tarefa</h3>
-              <p>Depois de cada TI, publicar no Fórum correspondente uma confirmação da realização, uma breve síntese, a principal aprendizagem e a ligação para o Padlet, sem anexos.</p>
+              <h3>Orientações das tarefas</h3>
+              <p>Consultar no Moodle o PDF com as instruções completas de cada TI e realizar o trabalho no ficheiro indicado.</p>
             </article>
           </div>
 
@@ -2311,13 +2277,12 @@ function renderActivityPage() {
             <p class="eyebrow">Verificação final</p>
             <h2>Confirmar antes de concluir</h2>
             <ul class="clean-list task-prompt-list">
-              <li>Todas as colunas previstas estão criadas.</li>
-              <li>As evidências estão organizadas na coluna correta.</li>
-              <li>As imagens e os textos são legíveis.</li>
-              <li>Não existem dados pessoais visíveis.</li>
-              <li>As reflexões estão completas.</li>
-              <li>A ligação publicada no Moodle funciona.</li>
-              <li>O Padlet apresenta uma organização visual coerente.</li>
+              <li>Todas as versões previstas estão guardadas.</li>
+              <li>Os nomes dos ficheiros respeitam a nomenclatura indicada.</li>
+              <li>O texto, as tabelas e as imagens são legíveis.</li>
+              <li>A ortografia e a formatação foram revistas.</li>
+              <li>O documento editável final abre corretamente.</li>
+              <li>O PDF final está atualizado e a ligação de leitura funciona.</li>
             </ul>
           </article>
         </div>
@@ -2429,8 +2394,8 @@ function renderActivityPage() {
 
     const renderForumButtons = (task) => {
       const urls = obterForumUrls(task);
-      if (!urls.length) return `<span class="task-link-pending">Liga??o a confirmar pela formadora.</span>`;
-      return urls.map((url, index) => `<a class="small-button orange" href="${url}" target="_top">Abrir f?rum ${index + 1}</a>`).join("");
+      if (!urls.length) return `<span class="task-link-pending">Liga\u00e7\u00e3o a confirmar pela formadora.</span>`;
+      return urls.map((url, index) => `<a class="small-button orange" href="${url}" target="_top">Abrir f\u00f3rum ${index + 1}</a>`).join("");
     };
 
     const renderSimplifiedTask = (task) => `
@@ -2445,17 +2410,7 @@ function renderActivityPage() {
           ${renderList(getEssentialSteps(task))}
         </div>
 
-        ${task.padlet ? `
-          <div class="task-block">
-            <strong>Padlet — ${task.padlet.column}</strong>
-            <p>Cria o post <strong>“${task.padlet.post}”</strong> e publica as evidências e a breve reflexão solicitadas no PDF da tarefa.</p>
-          </div>
-        ` : ""}
 
-        <div class="task-block">
-          <strong>Moodle</strong>
-          <p>${task.moodle}</p>
-        </div>
 
         <aside class="task-note-box">
           <strong>Instruções completas</strong>
@@ -2464,7 +2419,6 @@ function renderActivityPage() {
 
         <div class="embed-fallback resource-action-row align-right">
           ${renderTaskPdfButton(task)}
-          ${obterForumUrl(task) ? `<a class="small-button orange" href="${obterForumUrl(task)}" target="_top">Abrir tarefa no Moodle</a>` : `<span class="task-link-pending">Ligação a confirmar pela formadora.</span>`}
         </div>
 
         ${renderTaskPdfModal(task)}
@@ -2475,8 +2429,8 @@ function renderActivityPage() {
     const overviewItems = [
       "Utilizar a conta Google criada para a formação.",
       "Guardar os ficheiros nas pastas adequadas da Google Drive.",
-      "Criar uma coluna própria no Padlet para cada Tarefa Individual.",
-      "Publicar no Moodle uma breve síntese e a ligação para o Padlet, sem anexos.",
+      "Criar uma nova versão do documento em cada Tarefa Individual.",
+      "Usar a nomenclatura indicada e manter as versões anteriores.",
       "Ocultar dados pessoais antes de publicar capturas de ecrã."
     ];
 
@@ -2486,14 +2440,14 @@ function renderActivityPage() {
           <div class="section-heading task-page-heading">
             <p class="eyebrow">Atividades</p>
             <h1>Tarefas Individuais</h1>
-            <p class="lead">Atividades práticas desenvolvidas com a conta Google, organizadas na Google Drive e registadas no Padlet e no Moodle.</p>
+            <p class="lead">Atividades práticas realizadas no Word e organizadas na pasta partilhada da Google Drive.</p>
           </div>
 
           <details class="task-overview-card" open>
             <summary>
               <span class="task-module-copy">
                 <strong>Como realizar as Tarefas Individuais</strong>
-                <small>Cada tarefa produz evidências para uma coluna própria do Projeto Final em Padlet.</small>
+                <small>O site apresenta um resumo; as instruções completas de cada tarefa são disponibilizadas em PDF.</small>
               </span>
               <span class="task-module-mark" aria-hidden="true">TI</span>
             </summary>
@@ -2531,7 +2485,6 @@ function renderActivityPage() {
                     </div>
                     <div class="embed-fallback resource-action-row align-right">
                       ${renderTaskPdfButton(task)}
-                      ${renderForumButtons(task)}
                     </div>
                     ${renderTaskPdfModal(task)}
                   ` : renderSimplifiedTask(task)}
