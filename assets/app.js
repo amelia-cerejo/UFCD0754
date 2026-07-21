@@ -424,6 +424,7 @@ const siteVisibilitySectionMeta = {
 const SITE_VISIBILITY_STORAGE_KEY = "ufcd0754-site-visibility-v1";
 const SITE_LINKS_STORAGE_KEY = "ufcd0754-site-links-v1";
 const APPS_SCRIPT_SPREADSHEET_GID = "1240441816";
+const SITE_CONTROL_KEY_PREFIX = `ufcd-${UFCD.code}-`;
 let siteControlItems = [];
 let siteControlItemsBuilding = false;
 let siteVisibilityRemoteLoading = null;
@@ -437,14 +438,11 @@ const siteLinks = {
 function obterTarefaIndividualPorChave(chave, titulo = "") {
   const valores = [chave, titulo].map((valor) => String(valor || ""));
   const limpos = valores.map((valor) => valor.replace(/^tarefa-individual-/, ""));
-  const numero = limpos.map((valor) => valor.match(/\bTI\s*(\d+)\b/i)?.[1] || valor.match(/^(\d+)$/)?.[1]).find(Boolean);
-  return individualTasks.find((task, index) =>
+  return individualTasks.find((task) =>
     valores.includes(task.id)
     || limpos.includes(task.id)
     || valores.includes(task.title)
     || limpos.includes(task.title)
-    || (numero && String(index + 1) === numero)
-    || (numero && task.title.match(/\bTI\s*(\d+)\b/i)?.[1] === numero)
   );
 }
 
@@ -522,6 +520,18 @@ function normalizarVisivel(value, fallback = true) {
   if (["true", "sim", "s", "1", "yes", "visivel", "visível"].includes(text)) return true;
   if (["false", "nao", "não", "n", "0", "no", "oculto"].includes(text)) return false;
   return fallback;
+}
+
+function obterChaveRemotaSite(chave) {
+  const texto = String(chave || "");
+  return texto.startsWith(SITE_CONTROL_KEY_PREFIX) ? texto : `${SITE_CONTROL_KEY_PREFIX}${texto}`;
+}
+
+function normalizarChaveRemotaSite(chave) {
+  const texto = String(chave || "");
+  if (texto.startsWith(SITE_CONTROL_KEY_PREFIX)) return texto.slice(SITE_CONTROL_KEY_PREFIX.length);
+  if (/^ufcd-\d{4}-/i.test(texto)) return "";
+  return texto;
 }
 
 function criarItemVisibilidade(secao, chave, titulo, url, tipo, nivel, visivel, ordem, options = {}) {
@@ -613,7 +623,8 @@ function obterItemControloPadrao() {
 
 function normalizarItemControlo(item) {
   if (!item || typeof item !== "object") return null;
-  const chave = item.chave || item.key || "";
+  const chaveOriginal = item.chave || item.key || "";
+  const chave = normalizarChaveRemotaSite(chaveOriginal);
   if (!chave) return null;
   const linkValue = item.linkValue || item.gammaUrl || item.moodleUrl || item.urlMoodle || item.moodle || item.link || "";
   return {
@@ -684,7 +695,8 @@ function obterItensControloSite() {
 }
 
 function obterItemControlo(chave) {
-  return obterItensControloSite().find((item) => item.chave === chave);
+  const chaveLocal = normalizarChaveRemotaSite(chave);
+  return obterItensControloSite().find((item) => normalizarChaveRemotaSite(item.chave) === chaveLocal);
 }
 
 function obterLinkControlo(chave) {
@@ -1405,8 +1417,10 @@ async function guardarVisibilidadeRemotaDoSite() {
 
   try {
     const constituicao = obterConstituicaoVisibilidadeSite().map((item) => ({
+      codigoUfcd: UFCD.code,
+      ufcd: UFCD.code,
       secao: item.secao,
-      chave: item.chave,
+      chave: obterChaveRemotaSite(item.chave),
       titulo: item.titulo,
       url: item.url || "",
       gammaUrl: item.gammaUrl || item.linkValue || "",
@@ -1419,7 +1433,7 @@ async function guardarVisibilidadeRemotaDoSite() {
     dados.set("acao", "guardar_visibilidade_site");
     dados.set("spreadsheet_id", APPS_SCRIPT_SPREADSHEET_ID);
     dados.set("constituicao", JSON.stringify(constituicao));
-    dados.set("visibilidade", JSON.stringify(criarMapaVisibilidadePlano()));
+    dados.set("visibilidade", JSON.stringify(Object.fromEntries(obterConstituicaoVisibilidadeSite().map((item) => [obterChaveRemotaSite(item.chave), item.visivel !== false]))));
 
     await fetch(APPS_SCRIPT_WEB_APP_URL, {
       method: "POST",
