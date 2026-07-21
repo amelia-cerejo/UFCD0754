@@ -2962,23 +2962,8 @@ body.menu-open .sidebar {
   overflow: hidden;
 }
 
-.padlet-embed-block {
-  max-width: var(--content-max);
-  margin-top: 28px;
-}
-
 .embedded-tool-heading {
   margin-bottom: 16px;
-}
-
-.padlet-frame {
-  display: block;
-  width: 100%;
-  min-height: min(760px, 78vh);
-  border: 1px solid var(--cor-linha);
-  border-radius: 8px;
-  background: var(--cor-branco);
-  box-shadow: 0 10px 24px rgba(0, 120, 212, 0.07);
 }
 
 .evaluation-embed-section {
@@ -4291,10 +4276,6 @@ body.menu-open .menu-toggle {
 
 .task-platform-card {
   border-top: 4px solid #0078d4;
-}
-
-.padlet-task-card {
-  border-top-color: #e86a17;
 }
 
 .task-link-pending {
