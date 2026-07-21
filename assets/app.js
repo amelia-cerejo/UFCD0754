@@ -372,6 +372,7 @@ const individualTasks = [
 ];
 const resources = [
   { id: "manual", title: "Manual de formação", intro: "Manual de Formação da UFCD 0754 em PDF.", url: "recursos/manual.html", pdfUrl: "assets/pdfs/Ufcd 0754 Manual.pdf" },
+  { id: "suporte-word", title: "Suporte Microsoft Word", menuTitle: "Suporte Word", intro: "Página oficial de ajuda e suporte da Microsoft para o Word.", url: "recursos/suporte-word.html", externalUrl: "https://support.microsoft.com/pt-pt/word/" },
   { id: "modelos", parentId: "manual", title: "Modelos de documentos", intro: "Área reservada para modelos, exemplos e ficheiros de trabalho.", url: "recursos/manual.html" }
 ];
 const mainMenuItems = [
@@ -746,13 +747,17 @@ function obterSecaoIndexPorSubmenu() {
   };
 }
 
-function abrirSubmenuPrincipal(submenuId) {
+function abrirSubmenuPrincipal(submenuId, options = {}) {
+  const currentSubmenu = document.getElementById(submenuId);
+  const shouldClose = options.toggle && currentSubmenu?.classList.contains("open");
+
   document.querySelectorAll(".nav-parent").forEach((button) => {
-    button.setAttribute("aria-expanded", String(button.getAttribute("aria-controls") === submenuId));
+    const isTarget = button.getAttribute("aria-controls") === submenuId;
+    button.setAttribute("aria-expanded", String(isTarget && !shouldClose));
   });
 
   document.querySelectorAll(".submenu").forEach((submenu) => {
-    submenu.classList.toggle("open", submenu.id === submenuId);
+    submenu.classList.toggle("open", submenu.id === submenuId && !shouldClose);
   });
 }
 
@@ -769,8 +774,6 @@ function abrirMenuPeloHashDoIndex() {
 }
 
 function setupMenu() {
-  const homeSectionBySubmenu = obterSecaoIndexPorSubmenu();
-
   document.querySelectorAll(".nav-parent").forEach((button) => {
     button.setAttribute("aria-expanded", "false");
   });
@@ -781,20 +784,7 @@ function setupMenu() {
   document.querySelectorAll(".nav-parent").forEach((button) => {
     button.addEventListener("click", () => {
       const submenuId = button.getAttribute("aria-controls");
-      const sectionId = homeSectionBySubmenu[submenuId];
-
-      if (submenuId) abrirSubmenuPrincipal(submenuId);
-
-      if (!sectionId) return;
-
-      if (document.body.dataset.page !== "home") {
-        window.location.href = `${getBasePath()}index.html#${sectionId}`;
-        return;
-      }
-
-      const section = document.getElementById(sectionId);
-      section?.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.replaceState(null, "", `#${sectionId}`);
+      if (submenuId) abrirSubmenuPrincipal(submenuId, { toggle: true });
     });
   });
 
@@ -2887,6 +2877,23 @@ function renderResourcePage() {
 
   if (resource.externalUrl) {
     root.innerHTML = `
+      <section class="section task-page-section">
+        <div class="section-inner">
+          <div class="section-heading task-page-heading">
+            <p class="eyebrow">Recursos</p>
+            <h1>${resource.title}</h1>
+            <p class="lead">${resource.intro}</p>
+          </div>
+          <article class="card group-task-card external-resource-card">
+            <p class="eyebrow">Recurso incorporado</p>
+            <h3>Ajuda oficial do Word</h3>
+            <p>A Microsoft pode bloquear a visualização dentro da página por política de segurança. Se a área abaixo não carregar, abre o recurso diretamente.</p>
+            <div class="embed-fallback resource-action-row align-right">
+              <a class="small-button" href="${resource.externalUrl}" target="_blank" rel="noopener">Abrir suporte Microsoft Word</a>
+            </div>
+          </article>
+        </div>
+      </section>
       <section class="embedded-page-shell resource-full-page-shell" aria-label="${resource.title}">
         <iframe class="external-frame full-page-frame resource-full-page-frame" src="${resource.externalUrl}" title="${resource.title}" loading="lazy"></iframe>
       </section>
