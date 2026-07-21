@@ -435,6 +435,27 @@ const siteLinks = {
   forums: {}
 };
 
+function obterTarefaGrupoPorChave(chave, titulo = "") {
+  const valores = [chave, titulo].map((valor) => String(valor || ""));
+  const limpos = valores.map((valor) => valor.replace(/^tarefa-grupo-/, ""));
+  return groupTasks.find((task) =>
+    valores.includes(task.title)
+    || limpos.includes(task.title)
+  );
+}
+
+function definirVisibilidadeTarefaGrupo(task, visivel) {
+  if (!task) return false;
+  siteVisibility.tarefasGrupo[task.title] = visivel;
+  return true;
+}
+
+function tarefaGrupoVisivel(task) {
+  if (!task) return false;
+  return siteVisibilitySections.tarefasGrupo !== false
+    && siteVisibility.tarefasGrupo[task.title] !== false;
+}
+
 function obterTarefaIndividualPorChave(chave, titulo = "") {
   const valores = [chave, titulo].map((valor) => String(valor || ""));
   const limpos = valores.map((valor) => valor.replace(/^tarefa-individual-/, ""));
@@ -643,6 +664,13 @@ function normalizarItemControlo(item) {
   };
 }
 
+function filtrarItensControloDaUfcdAtual(remoteItems = []) {
+  const itens = Array.isArray(remoteItems) ? remoteItems : [];
+  const temItensDaUfcdAtual = itens.some((item) => String(item?.chave || item?.key || "").startsWith(SITE_CONTROL_KEY_PREFIX));
+  if (!temItensDaUfcdAtual) return itens;
+  return itens.filter((item) => String(item?.chave || item?.key || "").startsWith(SITE_CONTROL_KEY_PREFIX));
+}
+
 function obterLinkItemControloRemoto(saved, fallback) {
   const explicitLink = saved?.linkValue || saved?.gammaUrl || saved?.moodleUrl || saved?.urlMoodle || saved?.moodle || saved?.link || "";
   if (/^https?:\/\//i.test(String(explicitLink))) return String(explicitLink);
@@ -657,11 +685,17 @@ function obterLinkItemControloRemoto(saved, fallback) {
 
 function atualizarItensControloSite(remoteItems = []) {
   const savedByKey = new Map();
-  (remoteItems || [])
+  filtrarItensControloDaUfcdAtual(remoteItems)
     .map(normalizarItemControlo)
     .filter(Boolean)
     .forEach((item) => {
       savedByKey.set(item.chave, item);
+      if (item.tipo === "tarefa_grupo" || String(item.chave).startsWith("tarefa-grupo-")) {
+        const task = obterTarefaGrupoPorChave(item.chave, item.titulo);
+        if (task) {
+          savedByKey.set(`tarefa-grupo-${task.title}`, item);
+        }
+      }
       if (item.tipo === "tarefa_individual" || String(item.chave).startsWith("tarefa-individual-")) {
         const task = obterTarefaIndividualPorChave(item.chave, item.titulo);
         if (task) {
@@ -1116,6 +1150,9 @@ function aplicarLinkItemControlo(item) {
   }
 
   if (tipo === "tarefa_grupo" || chave.startsWith("tarefa-grupo-") || chave === "secao-tarefas-grupo") {
+    const isGroupSection = chave === "secao-tarefas-grupo";
+    const task = isGroupSection ? null : obterTarefaGrupoPorChave(chave, titulo);
+    if (!isGroupSection && !task) return alterou;
     if (siteLinks.glossaryUrl !== urlExterno) {
       siteLinks.glossaryUrl = urlExterno;
       alterou = true;
@@ -1164,6 +1201,11 @@ function aplicarItemVisibilidadeRemota(item) {
   if (!mapping) return;
 
   const key = chave.slice(mapping.prefix.length);
+  if (mapping.section === "tarefasGrupo") {
+    definirVisibilidadeTarefaGrupo(obterTarefaGrupoPorChave(key, item.titulo || item.title), item.visivel);
+    return;
+  }
+
   if (mapping.section === "tarefasIndividuais") {
     definirVisibilidadeTarefaIndividual(obterTarefaIndividualPorChave(key, item.titulo || item.title), item.visivel);
     return;
@@ -1176,9 +1218,12 @@ function aplicarItemVisibilidadeRemota(item) {
 
 function aplicarItensVisibilidadeRemota(itens) {
   if (!Array.isArray(itens)) return;
-  atualizarItensControloSite(itens);
+  const itensDaUfcdAtual = filtrarItensControloDaUfcdAtual(itens)
+    .map(normalizarItemControlo)
+    .filter(Boolean);
+  atualizarItensControloSite(itensDaUfcdAtual);
   let linksAlterados = false;
-  itens.forEach((item) => {
+  itensDaUfcdAtual.forEach((item) => {
     linksAlterados = aplicarLinkItemControlo(item) || linksAlterados;
     aplicarItemVisibilidadeRemota(item);
   });
@@ -1580,6 +1625,12 @@ function atualizarControlosVisibilidadeDoSite(root) {
   root.querySelectorAll("[data-visibility-control]").forEach((input) => {
     const section = input.dataset.section;
     const key = input.dataset.key;
+    if (section === "tarefasGrupo") {
+      const task = obterTarefaGrupoPorChave(key);
+      input.checked = task ? tarefaGrupoVisivel(task) : siteVisibility[section]?.[key] !== false;
+      return;
+    }
+
     if (section === "tarefasIndividuais") {
       const task = obterTarefaIndividualPorChave(key);
       input.checked = task ? tarefaIndividualVisivel(task) : siteVisibility[section]?.[key] !== false;
@@ -1766,7 +1817,11 @@ async function setupTeamsControl(root) {
     if (event.target.matches("[data-visibility-control]")) {
       const section = event.target.dataset.section;
       const key = event.target.dataset.key;
-      if (section === "tarefasIndividuais") {
+      if (section === "tarefasGrupo") {
+        definirVisibilidadeTarefaGrupo(obterTarefaGrupoPorChave(key), event.target.checked);
+        const controlStatus = root.querySelector("[data-site-control-status]");
+        if (controlStatus) controlStatus.textContent = "Visibilidade alterada neste ecrã. Usa Guardar para enviar para a Sheet.";
+      } else if (section === "tarefasIndividuais") {
         definirVisibilidadeTarefaIndividual(obterTarefaIndividualPorChave(key), event.target.checked);
         const controlStatus = root.querySelector("[data-site-control-status]");
         if (controlStatus) controlStatus.textContent = "Visibilidade alterada neste ecrã. Usa Guardar para enviar para a Sheet.";
@@ -2038,7 +2093,7 @@ function obterJsonp(url) {
       delete window[callbackName];
       script.remove();
       reject(new Error("Tempo excedido ao carregar dados do Apps Script."));
-    }, 3500);
+    }, 12000);
 
     window[callbackName] = (dados) => {
       window.clearTimeout(timeoutId);
@@ -2370,11 +2425,12 @@ function renderActivityPage() {
               <ul class="moodle-like-list">
                 ${overviewItems.map((item) => `<li>${item}</li>`).join("")}
               </ul>
+
             </div>
           </details>
 
           <div class="task-module-list">
-            ${groupTasks.filter((task) => isItemVisible("tarefasGrupo", task.title)).map((task, index) => `
+            ${groupTasks.filter((task) => tarefaGrupoVisivel(task)).map((task, index) => `
               <details class="task-module-card">
                 <summary>
                   <span class="task-module-copy">
@@ -2419,6 +2475,7 @@ function renderActivityPage() {
       return `<strong>${part.title}:</strong> ${instruction}`;
     });
     const getTaskPdfUrl = (task) => task.pdfUrl ? `${getBasePath()}${task.pdfUrl}` : "";
+    const individualTasksPdfUrl = `${getBasePath()}assets/pdfs/TIs.pdf`;
 
     const renderTaskPdfButton = (task) => task.pdfUrl
       ? `<button class="small-button" type="button" data-modal-open="pdf-${task.id}">Abrir PDF da TI</button>`
@@ -2446,9 +2503,9 @@ function renderActivityPage() {
     };
 
     const renderForumButtons = (task) => {
-      const urls = obterForumUrls(task);
-      if (!urls.length) return `<span class="task-link-pending">Liga\u00e7\u00e3o a confirmar pela formadora.</span>`;
-      return urls.map((url, index) => `<a class="small-button orange" href="${url}" target="_top">Abrir f\u00f3rum ${index + 1}</a>`).join("");
+      const url = obterForumUrl(task);
+      if (!url) return `<span class="task-link-pending">Liga\u00e7\u00e3o a confirmar pela formadora.</span>`;
+      return `<a class="small-button orange" href="${url}" target="_top">Abrir tarefa no Moodle</a>`;
     };
 
     const renderSimplifiedTask = (task) => `
@@ -2472,6 +2529,7 @@ function renderActivityPage() {
 
         <div class="embed-fallback resource-action-row align-right">
           ${renderTaskPdfButton(task)}
+          ${renderForumButtons(task)}
         </div>
 
         ${renderTaskPdfModal(task)}
@@ -2508,6 +2566,9 @@ function renderActivityPage() {
               <ul class="moodle-like-list">
                 ${overviewItems.map((item) => `<li>${item}</li>`).join("")}
               </ul>
+                      <div class="embed-fallback resource-action-row align-right">
+                <a class="small-button" href="${individualTasksPdfUrl}" target="_top">Abrir PDF das TIs</a>
+              </div>
             </div>
           </details>
 
@@ -2538,6 +2599,7 @@ function renderActivityPage() {
                     </div>
                     <div class="embed-fallback resource-action-row align-right">
                       ${renderTaskPdfButton(task)}
+                      ${renderForumButtons(task)}
                     </div>
                     ${renderTaskPdfModal(task)}
                   ` : renderSimplifiedTask(task)}
