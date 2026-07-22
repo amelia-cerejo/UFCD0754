@@ -373,7 +373,6 @@ const individualTasks = [
 const resources = [
   { id: "manual", title: "Manual de formação", intro: "Manual de Formação da UFCD 0754 em PDF.", url: "recursos/manual.html", pdfUrl: "assets/pdfs/Ufcd 0754 Manual.pdf" },
   { id: "suporte-word", title: "Suporte Microsoft Word", menuTitle: "Suporte Word", intro: "Página oficial de ajuda e suporte da Microsoft para o Word.", url: "recursos/suporte-word.html", externalUrl: "https://support.microsoft.com/pt-pt/word/" },
-  { id: "modelos", parentId: "manual", title: "Modelos de documentos", intro: "Área reservada para modelos, exemplos e ficheiros de trabalho.", url: "recursos/manual.html" }
 ];
 const mainMenuItems = [
   { key: "inicio", label: "Início" },
@@ -2805,9 +2804,9 @@ function renderResourcePage() {
     const pdfUrl = `${getBasePath()}${resource.pdfUrl}`;
     root.innerHTML = `
       <section class="pdf-reader-shell" aria-label="Leitor do manual em PDF">
-        <div class="pdf-open-card"><strong>Manual em PDF</strong><p>Se o leitor PDF for bloqueado pelo browser, abre o ficheiro diretamente na mesma janela.</p></div>
+        <div class="pdf-open-card"><strong>Manual de Formação</strong><p>Consulta o manual completo da UFCD 0754 em formato PDF.</p></div>
         <div class="pdf-fallback">
-          <a class="small-button" href="${pdfUrl}" target="_top">Abrir PDF</a>
+          <a class="small-button" href="${pdfUrl}" target="_top">Abrir manual</a>
           <a class="small-button orange" href="${pdfUrl}" download>Descarregar PDF</a>
         </div>
       </section>
@@ -2941,10 +2940,8 @@ async function inicializarVisibilidadeRemotaDoSite(options = {}) {
   }
 }
 
-async function inicializarSite() {
-  const visibilidadeRemotaOk = await carregarVisibilidadeRemotaDoSite();
-
-  if (!visibilidadeRemotaOk) {
+function inicializarSite() {
+  if (!APPS_SCRIPT_WEB_APP_URL) {
     carregarVisibilidadeDoSite();
     carregarLinksDoSite();
   }
@@ -2965,8 +2962,11 @@ async function inicializarSite() {
   setupModals();
   manterMenuAtivoAberto();
   abrirMenuPeloHashDoIndex();
-}
 
+  if (APPS_SCRIPT_WEB_APP_URL) {
+    void inicializarVisibilidadeRemotaDoSite();
+  }
+}
 inicializarSite();
 
 

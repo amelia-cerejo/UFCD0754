@@ -3117,8 +3117,13 @@ body.gamma-view .content-gamma-full {
 }
 
 .pdf-reader-shell {
-  min-height: 100vh;
-  background: #E5E7EB;
+  width: min(920px, calc(100% - 32px));
+  margin: clamp(72px, 10vh, 110px) auto 40px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: var(--card-shadow);
 }
 
 .pdf-frame {
@@ -3136,7 +3141,8 @@ body.gamma-view .content-gamma-full {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  padding: 12px;
+  justify-content: flex-end;
+  padding: 18px 24px 24px;
   background: var(--cor-fundo);
 }
 
