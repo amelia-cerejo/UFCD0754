@@ -166,208 +166,718 @@ const individualTaskForumUrls = pendingLinks.individualTaskForumUrls;
 
 const individualTasks = [
   {
-    id: "tarefa-individual-1",
-    pdfUrl: "assets/pdfs/TI01.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI1 - Registar as expetativas iniciais",
-    intro: "Criar um documento para registar as expetativas iniciais e guardá-lo na pasta individual da Drive partilhada com a formadora.",
-    objective: "Identificar as expetativas, os conhecimentos prévios e as metas pessoais para a aprendizagem do processador de texto.",
-    steps: [
-      { title: "Criar", text: "Criar um documento para registar as expetativas iniciais e guardá-lo na pasta individual da Drive partilhada com a formadora." },
-      { title: "Identificar", text: "Indicar o nome e escrever o título «As minhas expetativas»." },
-      { title: "Responder", text: "Escrever entre 80 e 120 palavras sobre o que já sei fazer no Word, o que quero aprender, em que situações pretendo utilizar estas aprendizagens e qual poderá ser a minha principal dificuldade." },
-      { title: "Rever", text: "Rever o texto antes de guardar, corrigindo a ortografia e a pontuação." },
-      { title: "Concluir", text: "Confirmar que o documento está visível na pasta partilhada com a formadora." }
+    "id": "tarefa-individual-1",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI1 - Registar as expetativas iniciais",
+    "intro": "Identificar as expetativas, os conhecimentos prévios e as metas pessoais para a aprendizagem do processador de texto.",
+    "objective": "Identificar as expetativas, os conhecimentos prévios e as metas pessoais para a aprendizagem do processador de texto.",
+    "steps": [
+      {
+        "title": "Criar",
+        "text": "Criar um documento para registar as expetativas iniciais e guardá-lo na pasta individual da Drive partilhada com a formadora."
+      },
+      {
+        "title": "Indicar",
+        "text": "Indicar o nome e escrever o título «As minhas expetativas»."
+      },
+      {
+        "title": "Responder",
+        "text": "Responder, num texto entre 80 e 120 palavras: o que já sei fazer no Word; o que quero aprender; em que situações pretendo utilizar estas aprendizagens; e qual poderá ser a minha principal dificuldade."
+      },
+      {
+        "title": "Rever",
+        "text": "Rever o texto antes de guardar, corrigindo a ortografia e a pontuação."
+      },
+      {
+        "title": "Confirmar",
+        "text": "Confirmar que o documento está visível na pasta partilhada com a formadora."
+      }
     ],
-    evidence: "O documento com as expetativas iniciais, guardado na pasta partilhada da Drive, constitui o registo desta tarefa.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "",
+    "evidence": "O documento com as expetativas iniciais, guardado na pasta partilhada da Drive, constitui o registo desta tarefa.",
+    "checklist": [
+      "Texto entre 80 e 120 palavras.",
+      "Conhecimentos prévios identificados.",
+      "Metas de aprendizagem indicadas.",
+      "Documento revisto e guardado na pasta partilhada da Drive."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "assets/pdfs/TI01.pdf",
+    "workFiles": [
+      {
+        "title": "Documento de expetativas iniciais",
+        "expectedName": "Criado pelo/a formando/a",
+        "available": false,
+        "note": "Criado diretamente pelo/a formando/a; não há ficheiro interativo para descarregar."
+      }
+    ]
   },
   {
-    id: "tarefa-individual-2",
-    pdfUrl: "assets/pdfs/TI02.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI2 - Bem-vindo ao Word - operações básicas",
-    intro: "Explorar a interface do Word e executar as operações básicas no ficheiro fornecido, aproximando o resultado do modelo em PDF.",
-    objective: "Explorar a interface do Word e executar as operações básicas no ficheiro fornecido, aproximando o resultado do modelo em PDF.",
-    steps: [
-      { title: "Abrir", text: "Abrir na Drive o ficheiro-base «Bem-vindo ao Word.docx» e consultar o PDF com o mesmo nome." },
-      { title: "Guardar como", text: "Usar «Guardar como» para criar uma cópia com o nome «2026-07_01_Bem-vindo ao Word.docx»." },
-      { title: "Identificar", text: "Identificar o friso, os separadores, a barra de ferramentas de acesso rápido, a barra de estado e os controlos de visualização." },
-      { title: "Praticar", text: "Selecionar e copiar texto; cortar e colar uma parte do texto; testar «Anular» (Ctrl+Z) e «Repetir» (Ctrl+Y)." },
-      { title: "Concluir", text: "Guardar as alterações, confirmar que o ficheiro abre corretamente a partir da Drive e comparar o resultado com o PDF de referência." }
+    "id": "tarefa-individual-2",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI2 - Conhecer o Word",
+    "intro": "Explorar o ambiente do Word e executar corretamente as operações fundamentais.",
+    "objective": "Explorar o ambiente do Word e executar corretamente as operações fundamentais.",
+    "steps": [
+      {
+        "title": "Abrir",
+        "text": "Abrir «Bem-vindo ao Word.docx» e guardar uma cópia como «2026-07_01_Bem-vindo_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Realizar",
+        "text": "Realizar todas as experiências propostas no próprio documento."
+      },
+      {
+        "title": "Realizar",
+        "text": "Identificar o friso, os separadores, os grupos de comandos, a Barra de Ferramentas de Acesso Rápido, a barra de estado, o zoom e os modos de visualização."
+      },
+      {
+        "title": "Executar",
+        "text": "Executar operações de seleção, copiar, cortar, colar, anular e repetir, utilizando pelo menos quatro atalhos de teclado."
+      },
+      {
+        "title": "Realizar",
+        "text": "Comparar o resultado com o modelo de referência e corrigir omissões."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar o ficheiro na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Indicar quatro atalhos utilizados e explicar, em 2 a 4 frases, a diferença entre «Guardar» e «Guardar como».",
+    "evidence": "Ficheiro 01 concluído nos dois locais e registo da aprendizagem no Moodle.",
+    "checklist": [
+      "Tutorial integralmente realizado.",
+      "Pelo menos quatro atalhos utilizados.",
+      "Resultado comparado com o modelo.",
+      "Nome e localização do ficheiro corretos."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "assets/pdfs/TI02.pdf",
+    "workFiles": [
+      {
+        "number": "01",
+        "title": "Bem-vindo ao Word",
+        "expectedName": "01_Bem-vindo_ao_Word.docx",
+        "wordUrl": "assets/ficheiros/Word/01_Bem-vindo_ao_Word.docx",
+        "available": true
+      }
+    ]
   },
   {
-    id: "tarefa-individual-3",
-    pdfUrl: "assets/pdfs/TI03.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI3 - Bem-vindo ao Word - formatação do texto",
-    intro: "Formatar o documento de acordo com o modelo, utilizando tipos de letra, alinhamentos, realce e estilos do Word.",
-    objective: "Formatar o documento de acordo com o modelo, utilizando tipos de letra, alinhamentos, realce e estilos do Word.",
-    steps: [
-      { title: "Preparar", text: "Abrir o ficheiro da tarefa anterior e criar uma nova cópia com o nome «2026-07_02_Bem-vindo ao Word.docx»." },
-      { title: "Formatar", text: "Formatar o corpo do texto com tipo e tamanho de letra, alinhamento, avanços, espaçamento e entrelinha adequados." },
-      { title: "Destacar", text: "Aplicar negrito, itálico, sublinhado e realce nos locais correspondentes ao PDF de referência." },
-      { title: "Aplicar estilos", text: "Aplicar os estilos Título 1 e Título 2 aos títulos e subtítulos, evitando formatá-los apenas manualmente." },
-      { title: "Concluir", text: "Usar o Pincel de Formatação quando existirem elementos com formatação igual, comparar com o PDF e guardar na Drive." }
+    "id": "tarefa-individual-3",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI3 - Formatar e organizar o texto",
+    "intro": "Aplicar uma hierarquia visual coerente e organizar informação através de listas.",
+    "objective": "Aplicar uma hierarquia visual coerente e organizar informação através de listas.",
+    "steps": [
+      {
+        "title": "Realizar",
+        "text": "Realizar «Formatação» e guardar como «2026-07_02_Formatacao_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Realizar",
+        "text": "Aplicar formatação de caracteres, alinhamentos, espaçamento, entrelinha, avanços, limites, sombreado, Pincel de Formatação e estilos."
+      },
+      {
+        "title": "Realizar",
+        "text": "Realizar «Listas» e guardar como «2026-07_03_Listas_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar uma lista com marcas, uma lista numerada e uma lista multinível com, pelo menos, dois níveis."
+      },
+      {
+        "title": "Realizar",
+        "text": "Personalizar a numeração ou as marcas e corrigir níveis incoerentes."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar os dois ficheiros no computador e na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Identificar três decisões de formatação e explicar quando deve ser utilizada uma lista multinível.",
+    "evidence": "Ficheiros 02 e 03 concluídos nos dois locais e registo no Moodle.",
+    "checklist": [
+      "Formatação de caracteres e parágrafos completa.",
+      "Hierarquia visual coerente.",
+      "Três tipos de lista corretamente construídos.",
+      "Dois ficheiros guardados com os nomes corretos."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "assets/pdfs/TI03.pdf",
+    "workFiles": [
+      {
+        "number": "02",
+        "title": "Formatação",
+        "expectedName": "02_Formatação.docx",
+        "wordUrl": "assets/ficheiros/Word/02_Formatação.docx",
+        "available": true
+      },
+      {
+        "number": "03",
+        "title": "Listas",
+        "expectedName": "03_Listas.docx",
+        "wordUrl": "assets/ficheiros/Word/03_Listas.docx",
+        "available": true
+      }
+    ]
   },
   {
-    id: "tarefa-individual-4",
-    pdfUrl: "assets/pdfs/TI04.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI4 - Bem-vindo ao Word - listas, edição e revisão",
-    intro: "Organizar os conteúdos com listas e melhorar o texto através das ferramentas de edição e revisão.",
-    objective: "Organizar os conteúdos com listas e melhorar o texto através das ferramentas de edição e revisão.",
-    steps: [
-      { title: "Preparar", text: "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_03_Bem-vindo ao Word.docx»." },
-      { title: "Criar listas", text: "Criar uma lista com marcas e uma lista numerada, cada uma com pelo menos quatro elementos." },
-      { title: "Hierarquizar", text: "Criar uma lista numerada hierárquica ou de múltiplos níveis numa parte adequada do documento." },
-      { title: "Editar", text: "Usar «Localizar» e «Localizar e substituir» para efetuar uma alteração pertinente." },
-      { title: "Rever", text: "Executar a verificação ortográfica e gramatical, consultar sinónimos, inserir um comentário e guardar o novo ficheiro na Drive." }
+    "id": "tarefa-individual-4",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI4 - Rever e corrigir um documento",
+    "intro": "Rever um texto de forma crítica, utilizando ferramentas de edição e correção.",
+    "objective": "Rever um texto de forma crítica, utilizando ferramentas de edição e correção.",
+    "steps": [
+      {
+        "title": "Realizar",
+        "text": "Realizar «Revisão» e guardar como «2026-07_04_Revisao_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Utilizar",
+        "text": "Utilizar «Localizar» e efetuar pelo menos três substituições, verificando cada ocorrência."
+      },
+      {
+        "title": "Executar",
+        "text": "Executar a revisão ortográfica e gramatical sem aceitar automaticamente todas as sugestões."
+      },
+      {
+        "title": "Melhorar",
+        "text": "Melhorar três expressões com sinónimos e reorganizar dois excertos através de cortar, copiar e colar."
+      },
+      {
+        "title": "Inserir",
+        "text": "Inserir três comentários com propostas concretas de melhoria."
+      },
+      {
+        "title": "Ativar",
+        "text": "Ativar o Controlo de Alterações, corrigir o excerto indicado e analisar cada alteração antes de a aceitar ou rejeitar."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar o ficheiro no computador e na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Indicar uma sugestão aceite, uma sugestão rejeitada e justificar ambas as decisões.",
+    "evidence": "Ficheiro 04 revisto nos dois locais e decisões fundamentadas no Moodle.",
+    "checklist": [
+      "Três substituições verificadas.",
+      "Ortografia e gramática analisadas criticamente.",
+      "Três comentários inseridos.",
+      "Controlo de Alterações utilizado."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "assets/pdfs/TI04.pdf",
+    "workFiles": [
+      {
+        "number": "04",
+        "title": "Revisão",
+        "expectedName": "04_Revisao.docx",
+        "wordUrl": "assets/ficheiros/Word/04_Revisao.docx",
+        "available": true
+      }
+    ]
   },
   {
-    id: "tarefa-individual-5",
-    pdfUrl: "assets/pdfs/TI05.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI5 - Preparar o documento para impressão",
-    intro: "Configurar a página e verificar o documento antes da impressão ou exportação.",
-    objective: "Configurar a página e verificar o documento antes da impressão ou exportação.",
-    steps: [
-      { title: "Preparar", text: "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_04_Bem-vindo ao Word.docx»." },
-      { title: "Configurar", text: "Confirmar o tamanho do papel, a orientação e as margens." },
-      { title: "Paginar", text: "Inserir quebras de página onde forem necessárias, evitando linhas isoladas e páginas com espaços vazios injustificados." },
-      { title: "Pré-visualizar", text: "Abrir a pré-visualização de impressão e verificar elementos cortados, páginas em branco ou alterações de paginação." },
-      { title: "Concluir", text: "Explorar opções de impressão, corrigir os problemas encontrados e guardar o ficheiro na Drive." }
+    "id": "tarefa-individual-5",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI5 - Alinhar e preparar para impressão",
+    "intro": "Alinhar informação com precisão e preparar um documento para diferentes condições de impressão.",
+    "objective": "Alinhar informação com precisão e preparar um documento para diferentes condições de impressão.",
+    "steps": [
+      {
+        "title": "Realizar",
+        "text": "Realizar «Tabulações» e guardar como «2026-07_05_Tabulacoes_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Realizar",
+        "text": "Demonstrar tabulações à esquerda, centrada, à direita e decimal; criar também preenchimento por pontos, sem recorrer a espaços consecutivos."
+      },
+      {
+        "title": "Realizar",
+        "text": "Realizar «Impressão» e guardar como «2026-07_06_Impressao_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar secções A4 vertical e horizontal, aplicar margens diferentes e controlar quebras de página e de secção."
+      },
+      {
+        "title": "Realizar",
+        "text": "Explorar a pré-visualização, páginas selecionadas, frente e verso e várias páginas por folha."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar um envelope e uma folha de etiquetas com dados fictícios."
+      },
+      {
+        "title": "Realizar",
+        "text": "Corrigir páginas vazias, elementos cortados e quebras inadequadas."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar os dois ficheiros no computador e na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Explicar por que não se devem usar espaços para alinhar informação e descrever dois problemas corrigidos na pré-visualização.",
+    "evidence": "Ficheiros 05 e 06 concluídos nos dois locais e diagnóstico registado no Moodle.",
+    "checklist": [
+      "Quatro tipos de tabulação demonstrados.",
+      "Nenhum alinhamento feito com espaços consecutivos.",
+      "Secções vertical e horizontal corretas.",
+      "Paginação verificada e corrigida."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "assets/pdfs/TI05.pdf",
+    "workFiles": [
+      {
+        "number": "05",
+        "title": "Tabulações",
+        "expectedName": "05_Tabulacoes.docx",
+        "wordUrl": "assets/ficheiros/Word/05_Tabulacoes.docx",
+        "available": true
+      },
+      {
+        "number": "06",
+        "title": "Impressão",
+        "expectedName": "06_Impressao.docx",
+        "wordUrl": "assets/ficheiros/Word/06_Impressao.docx",
+        "available": true
+      }
+    ]
   },
   {
-    id: "tarefa-individual-6",
-    pdfUrl: "assets/pdfs/TI06.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI6 - Organizar informação com tabulações",
-    intro: "Utilizar diferentes tipos de tabulação para alinhar informação sem recorrer a espaços consecutivos.",
-    objective: "Utilizar diferentes tipos de tabulação para alinhar informação sem recorrer a espaços consecutivos.",
-    steps: [
-      { title: "Preparar", text: "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_05_Bem-vindo ao Word.docx»." },
-      { title: "Ativar apoios", text: "Ativar a régua e as marcas de formatação." },
-      { title: "Criar secção", text: "Acrescentar ao documento uma pequena secção com, pelo menos, oito atalhos do Word e a respetiva função." },
-      { title: "Alinhar", text: "Usar tabulações à esquerda e à direita e criar pelo menos um exemplo com tabulação decimal e outro com caráter de preenchimento." },
-      { title: "Concluir", text: "Confirmar que não foram usados espaços consecutivos, ocultar as marcas de formatação e guardar o ficheiro na Drive." }
+    "id": "tarefa-individual-6",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI6 - Criar e formatar tabelas",
+    "intro": "Construir e transformar uma tabela complexa, garantindo organização e legibilidade.",
+    "objective": "Construir e transformar uma tabela complexa, garantindo organização e legibilidade.",
+    "steps": [
+      {
+        "title": "Realizar",
+        "text": "Realizar «Tabelas» e guardar como «2026-07_07_Tabelas_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar uma tabela com, pelo menos, cinco colunas e oito linhas."
+      },
+      {
+        "title": "Inserir",
+        "text": "Inserir e eliminar linhas e colunas; unir e dividir células; dividir e voltar a unir a tabela."
+      },
+      {
+        "title": "Realizar",
+        "text": "Ordenar registos e aplicar uma fórmula simples numa célula."
+      },
+      {
+        "title": "Realizar",
+        "text": "Definir larguras, alturas, margens internas e alinhamento vertical."
+      },
+      {
+        "title": "Realizar",
+        "text": "Aplicar limites e sombreados coerentes; repetir o cabeçalho nas páginas seguintes e impedir a divisão inadequada de linhas."
+      },
+      {
+        "title": "Realizar",
+        "text": "Adicionar uma legenda e confirmar que nenhum conteúdo fica cortado."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar o ficheiro no computador e na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Indicar três alterações estruturais e justificar uma decisão de formatação.",
+    "evidence": "Ficheiro 07 funcional nos dois locais e decisões registadas no Moodle.",
+    "checklist": [
+      "Dimensão mínima cumprida.",
+      "Operações estruturais realizadas.",
+      "Ordenação e fórmula verificadas.",
+      "Tabela legível, legendada e sem texto cortado."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "assets/pdfs/TI06.pdf",
+    "workFiles": [
+      {
+        "number": "07",
+        "title": "Tabelas",
+        "expectedName": "07_Tabelas.docx",
+        "wordUrl": "assets/ficheiros/Word/07_Tabelas.docx",
+        "available": true
+      }
+    ]
   },
   {
-    id: "tarefa-individual-7",
-    pdfUrl: "assets/pdfs/TI07.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI7 - Criar e formatar uma tabela",
-    intro: "Criar, modificar e formatar uma tabela clara, estruturada e adequada à informação apresentada.",
-    objective: "Criar, modificar e formatar uma tabela clara, estruturada e adequada à informação apresentada.",
-    steps: [
-      { title: "Preparar", text: "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_06_Bem-vindo ao Word.docx»." },
-      { title: "Criar tabela", text: "Criar uma tabela com, pelo menos, quatro colunas e seis linhas para comparar funcionalidades do Word Web e do Word Desktop." },
-      { title: "Alterar estrutura", text: "Adicionar e eliminar uma linha ou coluna para praticar a alteração da estrutura." },
-      { title: "Ajustar", text: "Unir células quando necessário e ajustar as larguras, os alinhamentos e as margens internas." },
-      { title: "Formatar", text: "Aplicar um estilo de tabela adequado, usar limites e sombreados apenas quando contribuírem para a leitura, confirmar que o texto não fica cortado e guardar na Drive." }
+    "id": "tarefa-individual-7",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI7 - Criar uma composição editorial",
+    "intro": "Criar uma página editorial em colunas e integrar elementos gráficos com função comunicativa.",
+    "objective": "Criar uma página editorial em colunas e integrar elementos gráficos com função comunicativa.",
+    "steps": [
+      {
+        "title": "Realizar",
+        "text": "Realizar «Colunas» e guardar como «2026-07_08_Colunas_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar áreas de uma, duas e três colunas, usando quebras de secção contínuas e uma quebra de coluna."
+      },
+      {
+        "title": "Realizar",
+        "text": "Realizar «Elementos visuais» e guardar como «2026-07_09_Elementos_Visuais_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Inserir",
+        "text": "Inserir duas imagens com fonte, recorte, legenda, texto alternativo e dois tipos de moldagem."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar uma composição com uma forma, um ícone e uma caixa de texto; alinhar, distribuir e agrupar os elementos relacionados."
+      },
+      {
+        "title": "Verificar",
+        "text": "Verificar a ordem de leitura, o contraste, a legibilidade e a estabilidade dos elementos."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar os dois ficheiros no computador e na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Explicar a diferença entre quebra de coluna e quebra de secção e justificar duas decisões de acessibilidade ou legibilidade.",
+    "evidence": "Ficheiros 08 e 09 concluídos nos dois locais e decisões registadas no Moodle.",
+    "checklist": [
+      "Áreas de uma, duas e três colunas presentes.",
+      "Quebras utilizadas corretamente.",
+      "Imagens com fonte, legenda e texto alternativo.",
+      "Composição alinhada e agrupada."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "",
+    "workFiles": [
+      {
+        "number": "08",
+        "title": "Colunas",
+        "expectedName": "08_Colunas.docx",
+        "wordUrl": "assets/ficheiros/Word/08_Colunas.docx",
+        "available": true
+      },
+      {
+        "number": "09",
+        "title": "Elementos visuais",
+        "expectedName": "09_Elementos_visuais.docx",
+        "wordUrl": "assets/ficheiros/Word/09_Elementos_visuais.docx",
+        "available": false
+      }
+    ]
   },
   {
-    id: "tarefa-individual-8",
-    pdfUrl: "assets/pdfs/TI08.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI8 - Organizar texto em colunas",
-    intro: "Aplicar colunas e quebras apenas a uma parte do documento, preservando a organização das restantes páginas.",
-    objective: "Aplicar colunas e quebras apenas a uma parte do documento, preservando a organização das restantes páginas.",
-    steps: [
-      { title: "Preparar", text: "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_07_Bem-vindo ao Word.docx»." },
-      { title: "Selecionar", text: "Selecionar uma secção adequada do documento e apresentá-la em duas colunas." },
-      { title: "Separar secções", text: "Usar uma quebra de secção antes e depois do texto para impedir que todo o documento passe a ter colunas." },
-      { title: "Controlar texto", text: "Inserir uma quebra de coluna para controlar a passagem do texto." },
-      { title: "Concluir", text: "Ajustar o espaço entre as colunas, inserir linha separadora se melhorar a leitura, confirmar a ordem de leitura e guardar na Drive." }
+    "id": "tarefa-individual-8",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI8 - Configurar páginas, cabeçalhos e rodapés",
+    "intro": "Controlar a identidade e a paginação de diferentes secções de um documento.",
+    "objective": "Controlar a identidade e a paginação de diferentes secções de um documento.",
+    "steps": [
+      {
+        "title": "Realizar",
+        "text": "Realizar «Cabeçalhos e rodapés» e guardar como «2026-07_10_Cabecalhos_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Configurar",
+        "text": "Configurar primeira página diferente e páginas pares e ímpares diferentes; inserir numeração automática."
+      },
+      {
+        "title": "Realizar",
+        "text": "Realizar «Configuração de página» e guardar como «2026-07_11_Configuracao_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar pelo menos três secções e aplicar cabeçalhos diferentes, controlando «Ligar ao anterior»."
+      },
+      {
+        "title": "Alterar",
+        "text": "Alterar a orientação ou as margens apenas numa secção e iniciar a numeração do corpo no número indicado."
+      },
+      {
+        "title": "Verificar",
+        "text": "Verificar a pré-visualização e guardar os dois ficheiros no computador e na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Descrever uma situação em que desligou «Ligar ao anterior» e explicar o resultado.",
+    "evidence": "Ficheiros 10 e 11 concluídos nos dois locais e gestão de secções explicada no Moodle.",
+    "checklist": [
+      "Primeira página e pares/ímpares configurados.",
+      "Três secções funcionais.",
+      "Cabeçalhos independentes.",
+      "Paginação automática correta."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "",
+    "workFiles": [
+      {
+        "number": "10",
+        "title": "Cabeçalhos e rodapés",
+        "expectedName": "10_Cabecalhos_e_rodapes.docx",
+        "wordUrl": "assets/ficheiros/Word/10_Cabecalhos_e_rodapes.docx",
+        "available": false
+      },
+      {
+        "number": "11",
+        "title": "Configuração de página",
+        "expectedName": "11_Configuracao_de_pagina.docx",
+        "wordUrl": "assets/ficheiros/Word/11_Configuracao_de_pagina.docx",
+        "available": false
+      }
+    ]
   },
   {
-    id: "tarefa-individual-9",
-    pdfUrl: "assets/pdfs/TI09.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI9 - Bem-vindo ao Word - melhorar o aspeto visual",
-    intro: "Ajustar imagens e outros elementos visuais, mantendo a fidelidade ao modelo e a clareza do documento.",
-    objective: "Ajustar imagens e outros elementos visuais, mantendo a fidelidade ao modelo e a clareza do documento.",
-    steps: [
-      { title: "Preparar", text: "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_08_Bem-vindo ao Word.docx»." },
-      { title: "Ajustar imagens", text: "Inserir ou ajustar as imagens existentes de acordo com o modelo em PDF." },
-      { title: "Redimensionar", text: "Redimensionar e recortar as imagens, preservando as proporções." },
-      { title: "Moldar texto", text: "Testar «Em linha com o texto» e «Moldar texto — Quadrado», escolhendo a opção mais adequada em cada caso." },
-      { title: "Concluir", text: "Acrescentar uma caixa de texto, forma ou ícone com função informativa, alinhar elementos relacionados, verificar contraste e guardar na Drive." }
+    "id": "tarefa-individual-9",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI9 - Estruturar um documento longo",
+    "intro": "Estruturar um documento longo com estilos, capítulos e secções consistentes.",
+    "objective": "Estruturar um documento longo com estilos, capítulos e secções consistentes.",
+    "steps": [
+      {
+        "title": "Realizar",
+        "text": "Realizar «Estilos e documentos longos» e guardar como «2026-07_12_Documento_Longo_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Realizar",
+        "text": "Organizar pelo menos três capítulos e seis subsecções com Título 1, Título 2 e, quando necessário, Título 3."
+      },
+      {
+        "title": "Realizar",
+        "text": "Modificar um estilo e verificar a propagação da alteração."
+      },
+      {
+        "title": "Realizar",
+        "text": "Associar uma lista multinível à hierarquia dos títulos."
+      },
+      {
+        "title": "Realizar",
+        "text": "Usar quebras de página e de secção adequadas; criar cabeçalhos independentes e paginação automática."
+      },
+      {
+        "title": "Verificar",
+        "text": "Verificar toda a hierarquia no Painel de Navegação e corrigir títulos fora de nível."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar o ficheiro no computador e na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Explicar como os estilos facilitaram a alteração global e a navegação no documento.",
+    "evidence": "Ficheiro 12 estruturado nos dois locais e reflexão registada no Moodle.",
+    "checklist": [
+      "Estrutura mínima cumprida.",
+      "Estilos e lista multinível coerentes.",
+      "Secções e paginação corretas.",
+      "Hierarquia validada no Painel de Navegação."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "",
+    "workFiles": [
+      {
+        "number": "12",
+        "title": "Estilos e documentos longos",
+        "expectedName": "12_Estilos_e_documentos_longos.docx",
+        "wordUrl": "assets/ficheiros/Word/12_Estilos_e_documentos_longos.docx",
+        "available": false
+      }
+    ]
   },
   {
-    id: "tarefa-individual-10",
-    pdfUrl: "assets/pdfs/TI10.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI10 - Estruturar um documento longo",
-    intro: "Preparar o documento para funcionar como um documento longo, com estrutura uniforme e elementos automáticos.",
-    objective: "Preparar o documento para funcionar como um documento longo, com estrutura uniforme e elementos automáticos.",
-    steps: [
-      { title: "Preparar", text: "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_09_Bem-vindo ao Word.docx»." },
-      { title: "Rever estilos", text: "Rever todos os títulos e aplicar corretamente os estilos Título 1, Título 2 e, quando necessário, Título 3." },
-      { title: "Hierarquizar", text: "Criar ou ajustar uma lista numerada hierárquica associada aos níveis de título." },
-      { title: "Estruturar", text: "Usar quebras de página para iniciar as secções principais." },
-      { title: "Concluir", text: "Inserir cabeçalho e rodapé com paginação, configurar primeira página diferente, verificar o Painel de Navegação e guardar na Drive." }
+    "id": "tarefa-individual-10",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI10 - Criar índices e navegar rapidamente",
+    "intro": "Construir e testar um sistema completo de navegação e referências internas.",
+    "objective": "Construir e testar um sistema completo de navegação e referências internas.",
+    "steps": [
+      {
+        "title": "Realizar",
+        "text": "Realizar «Inserir o seu primeiro índice.docx» e guardar como «2026-07_13_Indice_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Inserir",
+        "text": "Inserir e personalizar um índice automático; demonstrar as duas opções de atualização sem editar manualmente o índice."
+      },
+      {
+        "title": "Realizar",
+        "text": "Realizar «Navegação e referências» e guardar como «2026-07_14_Navegacao_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar dois marcadores, duas hiperligações internas e duas referências cruzadas: uma para um título e outra para uma figura ou tabela."
+      },
+      {
+        "title": "Inserir",
+        "text": "Inserir legendas, uma nota de rodapé e testar Painel de Navegação, Localizar e Ir para."
+      },
+      {
+        "title": "Realizar",
+        "text": "Atualizar todos os campos e testar todas as ligações."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar os dois ficheiros no computador e na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Explicar a diferença entre as opções de atualização do índice e confirmar o teste das ligações e referências.",
+    "evidence": "Ficheiros 13 e 14 navegáveis nos dois locais e testes registados no Moodle.",
+    "checklist": [
+      "Índice automático atualizado.",
+      "Dois marcadores e duas hiperligações funcionais.",
+      "Duas referências cruzadas e uma nota de rodapé.",
+      "Todos os campos e ligações testados."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "",
+    "workFiles": [
+      {
+        "number": "13",
+        "title": "Inserir o seu primeiro índice",
+        "expectedName": "13_Inserir_o_seu_primeiro_indice.docx",
+        "wordUrl": "assets/ficheiros/Word/Inserir o seu primeiro índice.docx",
+        "available": true
+      },
+      {
+        "number": "14",
+        "title": "Navegação e referências",
+        "expectedName": "14_Navegacao_e_referencias.docx",
+        "wordUrl": "assets/ficheiros/Word/14_Navegacao_e_referencias.docx",
+        "available": false
+      }
+    ]
   },
   {
-    id: "tarefa-individual-11",
-    pdfUrl: "assets/pdfs/TI11.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI11 - Inserir e atualizar o primeiro índice",
-    intro: "Executar o tutorial do índice e aplicar ao documento ferramentas que permitem navegar rapidamente.",
-    objective: "Executar o tutorial do índice e aplicar ao documento ferramentas que permitem navegar rapidamente.",
-    steps: [
-      { title: "Tutorial", text: "Abrir o tutorial «Inserir o seu primeiro índice» e realizar as experiências propostas." },
-      { title: "Preparar", text: "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_10_Bem-vindo ao Word.docx»." },
-      { title: "Inserir índice", text: "Inserir uma página para o índice após a capa e criar um índice automático baseado nos estilos." },
-      { title: "Atualizar", text: "Atualizar todo o índice e confirmar os títulos, os níveis e os números de página." },
-      { title: "Concluir", text: "Usar o Painel de Navegação, a pesquisa e o comando «Ir para», criar pelo menos um marcador e uma hiperligação interna ou referência cruzada, testar as ligações e guardar na Drive." }
+    "id": "tarefa-individual-11",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI11 - Reunir documentos e realizar a revisão entre pares",
+    "intro": "Reunir conteúdos e melhorar um documento através de revisão colaborativa fundamentada.",
+    "objective": "Reunir conteúdos e melhorar um documento através de revisão colaborativa fundamentada.",
+    "steps": [
+      {
+        "title": "Realizar",
+        "text": "Realizar «Reunir documentos» e guardar como «2026-07_15_Reunir_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Inserir",
+        "text": "Inserir ou combinar os conteúdos indicados, remover repetições e uniformizar estilos, cabeçalhos, paginação e formatação."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar uma cópia para revisão com o nome «2026-07_16_Revisao_Entre_Pares_PrimeiroNome.docx»."
+      },
+      {
+        "title": "Realizar",
+        "text": "Trocar a cópia com um colega da sala, sem trabalhar simultaneamente no mesmo ficheiro."
+      },
+      {
+        "title": "Realizar",
+        "text": "O colega deve ativar o Controlo de Alterações e efetuar pelo menos cinco propostas de alteração pertinentes."
+      },
+      {
+        "title": "Realizar",
+        "text": "O colega deve inserir pelo menos três comentários: um aspeto positivo, uma melhoria de conteúdo e uma melhoria de apresentação ou legibilidade."
+      },
+      {
+        "title": "Realizar",
+        "text": "No final do documento, o colega deve escrever um feedback entre 80 e 120 palavras, identificando pontos fortes e prioridades de melhoria."
+      },
+      {
+        "title": "Realizar",
+        "text": "Depois de receber o ficheiro revisto, analisar cada alteração e comentário; aceitar ou rejeitar de forma fundamentada, sem apagar o registo antes da análise."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar os ficheiros 15 e 16 no computador e na Drive."
+      }
     ],
-    evidence: "O próprio ficheiro desta tarefa, guardado na pasta da Drive partilhada com a formadora, constitui a evidência do trabalho realizado.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Identificar o colega revisor, resumir o feedback recebido e indicar duas sugestões que serão aplicadas e uma que não será aplicada, justificando as decisões.",
+    "evidence": "Ficheiros 15 e 16 nos dois locais, com alterações registadas, comentários, feedback do colega e decisões do autor.",
+    "checklist": [
+      "Conteúdos reunidos e estilos uniformizados.",
+      "Pelo menos cinco alterações registadas.",
+      "Pelo menos três comentários inseridos.",
+      "Feedback entre 80 e 120 palavras.",
+      "Decisões do autor justificadas no Moodle."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "",
+    "workFiles": [
+      {
+        "number": "15",
+        "title": "Reunir documentos",
+        "expectedName": "15_Reunir_documentos.docx",
+        "wordUrl": "assets/ficheiros/Word/15_Reunir_documentos.docx",
+        "available": false
+      },
+      {
+        "number": "16",
+        "title": "Revisão entre pares",
+        "expectedName": "16_Revisao_entre_pares.docx",
+        "wordUrl": "assets/ficheiros/Word/16_Revisao_entre_pares.docx",
+        "available": false
+      }
+    ]
   },
   {
-    id: "tarefa-individual-12",
-    pdfUrl: "assets/pdfs/TI12.pdf",
-    url: "atividades/tarefas-individuais.html",
-    title: "TI12 - Concluir, partilhar e refletir",
-    intro: "Concluir o projeto, disponibilizar o PDF com permissões de leitura e refletir sobre a evolução das aprendizagens.",
-    objective: "Concluir o projeto, disponibilizar o PDF com permissões de leitura e refletir sobre a evolução das aprendizagens.",
-    steps: [
-      { title: "Preparar", text: "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_11_Bem-vindo ao Word.docx»." },
-      { title: "Corrigir", text: "Ler o feedback recebido na avaliação entre pares e aplicar as correções pertinentes." },
-      { title: "Rever", text: "Executar a revisão ortográfica e gramatical, atualizar todo o índice e verificar a paginação e a pré-visualização de impressão." },
-      { title: "Refletir", text: "Acrescentar ao final do documento uma reflexão entre 150 e 200 palavras sobre aprendizagens, dificuldades, evolução, tarefa preferida e utilização futura." },
-      { title: "Publicar", text: "Exportar a versão final para PDF, guardar na Drive, definir a permissão «Qualquer pessoa com a ligação — Leitor», testar a ligação e publicar no Moodle a ligação de leitura para o PDF final." }
+    "id": "tarefa-individual-12",
+    "url": "atividades/tarefas-individuais.html",
+    "title": "TI12 - Concluir, partilhar e refletir",
+    "intro": "Concluir o projeto, disponibilizar o PDF com permissões de leitura e refletir sobre a evolução das aprendizagens.",
+    "objective": "Concluir o projeto, disponibilizar o PDF com permissões de leitura e refletir sobre a evolução das aprendizagens.",
+    "steps": [
+      {
+        "title": "Criar",
+        "text": "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_11_Projeto_Final_Ana.docx»."
+      },
+      {
+        "title": "Ler",
+        "text": "Ler o feedback recebido na avaliação entre pares e aplicar as correções pertinentes."
+      },
+      {
+        "title": "Executar",
+        "text": "Executar a revisão ortográfica e gramatical, atualizar todo o índice e verificar a paginação e a pré-visualização de impressão."
+      },
+      {
+        "title": "Acrescentar",
+        "text": "Acrescentar ao final do documento uma reflexão entre 150 e 200 palavras: aprendizagens mais importantes; principais dificuldades; evolução relativamente às expetativas iniciais; tarefa de que mais gostou; e utilização futura destas competências."
+      },
+      {
+        "title": "Configurar",
+        "text": "Configurar o documento em «Dobra de livro» (Esquema → Margens → Margens Personalizadas → Várias páginas → Dobra de livro). Exportar a versão final para PDF, mantendo a disposição das páginas, e guardar o ficheiro na pasta partilhada da Drive com o nome «2026-07_11_Projeto_Final_Ana.pdf»."
+      },
+      {
+        "title": "Nas definições",
+        "text": "Nas definições de partilha do PDF, selecionar «Qualquer pessoa com a ligação» e a função «Leitor»."
+      },
+      {
+        "title": "Testar",
+        "text": "Testar a ligação, preferencialmente numa janela privada, e confirmar que o PDF abre sem permitir alterações."
+      },
+      {
+        "title": "Publicar",
+        "text": "Publicar no Moodle a ligação de leitura para o PDF final, que deverá ficar pronto para ser partilhado no e-Portfólio."
+      }
     ],
-    evidence: "O DOCX e o PDF ficam na pasta partilhada da Drive. No Moodle é publicada apenas a ligação de leitura para o PDF final.",
-    forumUrls: individualTaskForumUrls
+    "moodleRecord": "Publicar a ligação de leitura para o PDF final e confirmar que foi testada sem sessão iniciada.",
+    "evidence": "DOCX final e PDF em Dobra de livro guardados na Drive; ligação de leitura publicada no Moodle.",
+    "checklist": [
+      "Feedback entre pares analisado e correções pertinentes aplicadas.",
+      "Índice, paginação e pré-visualização atualizados.",
+      "Reflexão entre 150 e 200 palavras.",
+      "PDF exportado mantendo a Dobra de livro.",
+      "Ligação configurada como Leitor e testada."
+    ],
+    "forumUrls": individualTaskForumUrls,
+    "pdfUrl": "",
+    "workFiles": [
+      {
+        "title": "Projeto final",
+        "expectedName": "Criado a partir do ficheiro anterior",
+        "available": false,
+        "note": "Não há ficheiro interativo novo; parte da versão anterior do/a formando/a."
+      }
+    ]
   }
 ];
 const resources = [
@@ -1578,6 +2088,19 @@ function renderSiteVisibilityControls() {
     linkValue: obterForumUrl(task),
     linkPlaceholder: "https://fad.iefp.pt/mod/forum/discuss.php?d=..."
   }));
+  const renderTiMaterialsStatus = () => `
+    <div class="site-control-materials-status">
+      <h3>Estado dos ficheiros das TIs</h3>
+      ${individualTasks.map((task) => {
+        const pdfStatus = task.pdfUrl ? "PDF OK" : "PDF em falta";
+        const wordFiles = task.workFiles || [];
+        const wordStatus = wordFiles.length
+          ? wordFiles.map((file) => `${file.title}: ${file.available && file.wordUrl ? "Word OK" : "Word em falta"}`).join(" · ")
+          : "Sem ficheiro Word associado";
+        return `<p><strong>${task.title}</strong><br><span>${pdfStatus}</span><span>${wordStatus}</span></p>`;
+      }).join("")}
+    </div>
+  `;
 
   return `
     <div class="card site-control-card">
@@ -1600,7 +2123,7 @@ function renderSiteVisibilityControls() {
         ${renderGroup("Ficheiros Excel", "ficheirosExcel", excelFileItems)}
         ${renderGroup("Assistentes GPT", "assistentesGpt", gptItems)}
         ${renderGroup("Tarefas de Grupo", "tarefasGrupo", groupItems, { before: glossaryField })}
-        ${renderGroup("Tarefas Individuais", "tarefasIndividuais", individualItems)}
+        ${renderGroup("Tarefas Individuais", "tarefasIndividuais", individualItems, { before: renderTiMaterialsStatus() })}
       </div>
       <div class="site-control-actions">
           <button class="small-button" type="button" data-action="save-site-visibility">Guardar na Apps Script</button>
@@ -2390,12 +2913,11 @@ function renderActivityPage() {
 
   if (activity.id === "tarefas-grupo") {
     const overviewItems = [
-      "As tarefas de grupo começam no segundo dia da UFCD.",
-      "Abrir o harmónio correspondente ao tema tratado no dia.",
-      "Cada sala trabalha apenas a palavra que lhe está atribuída.",
-      "Explicar o significado por palavras próprias.",
-      "Acrescentar um exemplo simples quando fizer sentido.",
-      "Registar o contributo no glossário colaborativo."
+          "Criar uma nova cópia em cada tarefa e manter as versões anteriores.",
+          "Respeitar rigorosamente o nome indicado em cada enunciado e utilizar apenas o primeiro nome.",
+          "Guardar cada ficheiro na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Google Drive.",
+          "Efetuar no Moodle o registo específico solicitado em cada tarefa.",
+          "Confirmar, antes de concluir, se o ficheiro está completo, legível e funcional."
     ];
 
     root.innerHTML = `
@@ -2466,9 +2988,9 @@ function renderActivityPage() {
     const getTaskPdfUrl = (task) => task.pdfUrl ? `${getBasePath()}${task.pdfUrl}` : "";
     const individualTasksPdfUrl = `${getBasePath()}assets/pdfs/TIs.pdf`;
 
-    const renderTaskPdfButton = (task) => task.pdfUrl
-      ? `<button class="small-button" type="button" data-modal-open="pdf-${task.id}">Abrir PDF da TI</button>`
-      : "";
+    const renderTaskPdfButton = (task, label = "Ver instruções — PDF") => task.pdfUrl
+      ? `<button class="small-button" type="button" data-modal-open="pdf-${task.id}">${label}</button>`
+      : `<span class="task-link-pending">PDF brevemente disponível</span>`;
 
     const renderTaskPdfModal = (task) => {
       const pdfUrl = getTaskPdfUrl(task);
@@ -2494,7 +3016,20 @@ function renderActivityPage() {
     const renderForumButtons = (task) => {
       const url = obterForumUrl(task);
       if (!url) return `<span class="task-link-pending">Liga\u00e7\u00e3o a confirmar pela formadora.</span>`;
-      return `<a class="small-button orange" href="${url}" target="_top">Abrir tarefa no Moodle</a>`;
+      return `<a class="small-button moodle-button" href="${url}" target="_top">Abrir tarefa no Moodle</a>`;
+    };
+
+
+
+
+    const renderTaskFiles = (task) => {
+      const files = (task.workFiles || []).filter((file) => file.wordUrl || file.available !== false);
+      return files.map((file) => {
+        const label = `${file.number ? `${file.number} — ` : ""}${file.title}`;
+        return file.available && file.wordUrl
+          ? `<a class="small-button" href="${getBasePath()}${file.wordUrl}" target="_top" download>Descarregar ${label}</a>`
+          : `<span class="task-link-pending">${label}: ficheiro brevemente disponível</span>`;
+      }).join("");
     };
 
     const renderSimplifiedTask = (task) => `
@@ -2509,15 +3044,14 @@ function renderActivityPage() {
           ${renderList(getEssentialSteps(task))}
         </div>
 
-
-
         <aside class="task-note-box">
           <strong>Instruções completas</strong>
           <p>Consulta o PDF da tarefa para veres todos os passos, exemplos, ficheiros e critérios de verificação.</p>
         </aside>
 
         <div class="embed-fallback resource-action-row align-right">
-          ${renderTaskPdfButton(task)}
+          ${renderTaskPdfButton(task, "Abrir PDF da TI")}
+          ${renderTaskFiles(task)}
           ${renderForumButtons(task)}
         </div>
 
@@ -2527,11 +3061,11 @@ function renderActivityPage() {
     `;
 
     const overviewItems = [
-      "Utilizar a conta Google criada para a formação.",
-      "Guardar os ficheiros nas pastas adequadas da Google Drive.",
-      "Criar uma nova versão do documento em cada Tarefa Individual.",
-      "Usar a nomenclatura indicada e manter as versões anteriores.",
-      "Ocultar dados pessoais antes de publicar capturas de ecrã."
+          "Criar uma nova cópia em cada tarefa e manter as versões anteriores.",
+          "Respeitar rigorosamente o nome indicado em cada enunciado e utilizar apenas o primeiro nome.",
+          "Guardar cada ficheiro na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Google Drive.",
+          "Efetuar no Moodle o registo específico solicitado em cada tarefa.",
+          "Confirmar, antes de concluir, se o ficheiro está completo, legível e funcional."
     ];
 
     root.innerHTML = `
