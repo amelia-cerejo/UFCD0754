@@ -133,8 +133,8 @@ const activities = [
   { id: "controlo-teams", title: "Partilha de ecrã", menuTitle: "Partilha de ecrã", intro: "Tabela simples para acompanhar a participação prática nas sessões síncronas.", url: "atividades/controlo-teams.html" },
   { id: "mentimeter-inicial", title: "Escreve 3 palavras", menuTitle: "Brainstorming", intro: "Quando pensas num processador de texto, que três palavras te vêm à cabeça?", url: "atividades/mentimeter-inicial.html", focus: "Nuvem de palavras inicial", duration: "", product: "Resposta no Mentimeter: três palavras associadas a processador de texto.", mentimeterUrl: pendingLinks.mentimeterEmbedUrl, participationUrl: pendingLinks.mentimeterParticipationUrl, qrCode: "assets/img/mentimeter_qr_code_0754.png", steps: [{ title: "Pergunta", text: "Quando pensas num processador de texto, que três palavras te vêm à cabeça?" }], evidence: ["Nuvem de palavras inicial"] },
   { id: "tarefas-grupo", title: "Glossário - Tarefas de Grupo", menuTitle: "Tarefas de Grupo", intro: "Tarefas de grupo para construir vocabulário técnico no glossário do Moodle.", url: "atividades/tarefas-grupo.html", focus: "Glossário colaborativo", duration: "A partir do segundo dia", product: "Definição curta, exemplo prático e aplicação ao documento final.", steps: [{ title: "Distribuir funções", text: "Cada grupo recolhe, escreve, revê e publica a sua entrada." }, { title: "Definir o conceito", text: "A definição deve ser simples, correta e aplicada ao processador de texto." }, { title: "Publicar no Moodle", text: "A entrada fica registada no glossário indicado pela formadora." }], evidence: ["Entrada no glossário", "Exemplo prático", "Revisão pelos colegas"] },
-  { id: "tarefas-individuais", title: "Tarefas Individuais", intro: "Resumo das tarefas práticas; as instruções completas são disponibilizadas em PDF.", url: "atividades/tarefas-individuais.html", focus: "Trabalho individual", duration: "A partir do segundo dia", product: "Versões sucessivas do documento «Bem-vindo ao Word», guardadas na Drive.", steps: [{ title: "Ler o enunciado", text: "Confirmar o objetivo e consultar o PDF da tarefa." }, { title: "Melhorar o documento", text: "Criar uma nova versão e aplicar as operações indicadas." }, { title: "Guardar", text: "Guardar a versão na pasta partilhada da Drive." }], evidence: ["Documento atualizado", "Versão guardada na Drive"] },
-  { id: "projeto-final-apresentacao", title: "Projeto Final - Documento profissional", menuTitle: "Projeto Final", intro: "Construção progressiva do documento «Bem-vindo ao Word», desenvolvido e revisto ao longo da UFCD.", url: "atividades/projeto-final-apresentacao.html", focus: "Projeto individual", duration: "Ao longo da UFCD", product: "Documento final formatado, revisto e exportado para PDF.", steps: [{ title: "Partir do ficheiro-base", text: "Abrir o documento fornecido e criar a primeira cópia de trabalho." }, { title: "Criar versões sucessivas", text: "Aplicar em cada TI os conteúdos trabalhados e guardar uma nova versão na Drive." }, { title: "Rever e auditar", text: "Aplicar a lista de verificação e receber a auditoria de um colega." }, { title: "Finalizar", text: "Exportar o documento final para PDF e partilhar a ligação de leitura." }], evidence: ["Versões na Drive", "Documento editável", "PDF final", "Reflexão final"] }
+  { id: "tarefas-individuais", title: "Tarefas Individuais", intro: "Resumo das tarefas práticas; as instruções completas são disponibilizadas em PDF.", url: "atividades/tarefas-individuais.html", focus: "Trabalho individual", duration: "A partir do segundo dia", product: "Ficheiros práticos guardados na Drive e reunidos apenas na fase final.", steps: [{ title: "Ler o enunciado", text: "Confirmar o objetivo e consultar o PDF da tarefa." }, { title: "Usar o ficheiro indicado", text: "Abrir o ficheiro prático da tarefa e aplicar as operações indicadas." }, { title: "Guardar", text: "Guardar o ficheiro na estrutura definida pela formadora." }], evidence: ["Documento atualizado", "Versão guardada na Drive"] },
+  { id: "projeto-final-apresentacao", title: "Projeto Final - Documento profissional", menuTitle: "Projeto Final", intro: "Documento final construído a partir da reunião, uniformização e revisão dos ficheiros práticos trabalhados ao longo da UFCD.", url: "atividades/projeto-final-apresentacao.html", focus: "Projeto individual", duration: "Ao longo da UFCD", product: "Documento editável final, PDF, reflexão final e ligação de leitura testada.", steps: [{ title: "Reunir", text: "Selecionar os conteúdos relevantes dos ficheiros práticos trabalhados." }, { title: "Uniformizar", text: "Aplicar estilos, cabeçalhos, paginação, elementos visuais e revisão ao documento reunido." }, { title: "Rever entre pares", text: "Receber feedback de um colega e decidir que sugestões integrar." }, { title: "Finalizar", text: "Exportar para PDF, testar a ligação de leitura e publicar a reflexão final." }], evidence: ["Documento editável", "PDF final", "Reflexão final", "Ligação de leitura testada"] }
 ];
 
 const evaluations = [
@@ -158,7 +158,7 @@ const groupTasks = [
   { title: "TG09 - Exportação", topic: "Exportação", url: "atividades/tarefas-grupo.html", intro: "Clarificar formatos e cuidados antes da partilha.", words: [["PDF", "Grupo 1"], ["Impressão", "Grupo 2"], ["Compatibilidade", "Grupo 3"], ["Partilha", "Grupo 4"]] },
   { title: "TG10 - Qualidade visual", topic: "Qualidade", url: "atividades/tarefas-grupo.html", intro: "Identificar critérios de clareza e coerência visual.", words: [["Consistência", "Grupo 1"], ["Legibilidade", "Grupo 2"], ["Hierarquia visual", "Grupo 3"], ["Alinhamento", "Grupo 4"]] },
   { title: "TG11 - Preparação da apresentação final", topic: "Apresentação", url: "atividades/tarefas-grupo.html", intro: "Preparar a explicação do processo seguido no projeto final.", words: [["Síntese", "Grupo 1"], ["Evidência", "Grupo 2"], ["Versão final", "Grupo 3"], ["Reflexão", "Grupo 4"]] },
-  { title: "TG12 - Auditoria de qualidade ao projeto", topic: "Auditoria", url: "atividades/tarefas-grupo.html", intro: "Cada elemento avalia o projeto de um colega, verificando organização, correção, qualidade visual, funcionamento, conteúdo e cumprimento dos requisitos.", words: [["Organização", "Grupo 1"], ["Correção", "Grupo 2"], ["Qualidade visual", "Grupo 3"], ["Cumprimento dos requisitos", "Grupo 4"]] }
+  { title: "TG12 - Revisão entre pares do projeto", topic: "Revisão entre pares", url: "atividades/tarefas-grupo.html", intro: "Cada elemento revê o projeto de um colega, verificando organização, correção, qualidade visual, funcionamento, conteúdo e cumprimento dos requisitos.", words: [["Organização", "Grupo 1"], ["Correção", "Grupo 2"], ["Qualidade visual", "Grupo 3"], ["Cumprimento dos requisitos", "Grupo 4"]] }
 ];
 
 const glossaryUrl = pendingLinks.glossaryUrl;
@@ -233,7 +233,7 @@ const individualTasks = [
       },
       {
         "title": "Executar",
-        "text": "Executar operações de seleção, copiar, cortar, colar, anular e repetir, utilizando pelo menos quatro atalhos de teclado."
+        "text": "Executar operações de seleção, copiar, cortar, colar, anular e repetir, aplicando comandos adequados ao contexto."
       },
       {
         "title": "Realizar",
@@ -241,14 +241,13 @@ const individualTasks = [
       },
       {
         "title": "Guardar",
-        "text": "Guardar o ficheiro na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Drive."
+        "text": "Guardar o ficheiro na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
-    "moodleRecord": "Indicar quatro atalhos utilizados e explicar, em 2 a 4 frases, a diferença entre «Guardar» e «Guardar como».",
+    "moodleRecord": "Explicar, em 2 a 4 frases, a diferença entre «Guardar» e «Guardar como» e indicar uma decisão tomada durante a tarefa.",
     "evidence": "Ficheiro 01 concluído nos dois locais e registo da aprendizagem no Moodle.",
     "checklist": [
       "Tutorial integralmente realizado.",
-      "Pelo menos quatro atalhos utilizados.",
       "Resultado comparado com o modelo.",
       "Nome e localização do ficheiro corretos."
     ],
@@ -293,7 +292,7 @@ const individualTasks = [
       },
       {
         "title": "Guardar",
-        "text": "Guardar os dois ficheiros no computador e na Drive."
+        "text": "Guardar os dois ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
     "moodleRecord": "Identificar três decisões de formatação e explicar quando deve ser utilizada uma lista multinível.",
@@ -356,7 +355,7 @@ const individualTasks = [
       },
       {
         "title": "Guardar",
-        "text": "Guardar o ficheiro no computador e na Drive."
+        "text": "Guardar o ficheiro na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
     "moodleRecord": "Indicar uma sugestão aceite, uma sugestão rejeitada e justificar ambas as decisões.",
@@ -416,7 +415,7 @@ const individualTasks = [
       },
       {
         "title": "Guardar",
-        "text": "Guardar os dois ficheiros no computador e na Drive."
+        "text": "Guardar os dois ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
     "moodleRecord": "Explicar por que não se devem usar espaços para alinhar informação e descrever dois problemas corrigidos na pré-visualização.",
@@ -483,7 +482,7 @@ const individualTasks = [
       },
       {
         "title": "Guardar",
-        "text": "Guardar o ficheiro no computador e na Drive."
+        "text": "Guardar o ficheiro na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
     "moodleRecord": "Indicar três alterações estruturais e justificar uma decisão de formatação.",
@@ -539,7 +538,7 @@ const individualTasks = [
       },
       {
         "title": "Guardar",
-        "text": "Guardar os dois ficheiros no computador e na Drive."
+        "text": "Guardar os dois ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
     "moodleRecord": "Explicar a diferença entre quebra de coluna e quebra de secção e justificar duas decisões de acessibilidade ou legibilidade.",
@@ -598,7 +597,7 @@ const individualTasks = [
       },
       {
         "title": "Verificar",
-        "text": "Verificar a pré-visualização e guardar os dois ficheiros no computador e na Drive."
+        "text": "Verificar a pré-visualização e guardar os dois ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
     "moodleRecord": "Descrever uma situação em que desligou «Ligar ao anterior» e explicar o resultado.",
@@ -661,7 +660,7 @@ const individualTasks = [
       },
       {
         "title": "Guardar",
-        "text": "Guardar o ficheiro no computador e na Drive."
+        "text": "Guardar o ficheiro na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
     "moodleRecord": "Explicar como os estilos facilitaram a alteração global e a navegação no documento.",
@@ -693,7 +692,7 @@ const individualTasks = [
     "steps": [
       {
         "title": "Realizar",
-        "text": "Realizar «Inserir o seu primeiro índice.docx» e guardar como «2026-07_13_Indice_PrimeiroNome.docx»."
+        "text": "Realizar «13_Inserir_indice.docx» e guardar como «2026-07_13_Indice_PrimeiroNome.docx»."
       },
       {
         "title": "Inserir",
@@ -717,7 +716,7 @@ const individualTasks = [
       },
       {
         "title": "Guardar",
-        "text": "Guardar os dois ficheiros no computador e na Drive."
+        "text": "Guardar os dois ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
     "moodleRecord": "Explicar a diferença entre as opções de atualização do índice e confirmar o teste das ligações e referências.",
@@ -735,7 +734,7 @@ const individualTasks = [
         "number": "13",
         "title": "Inserir o seu primeiro índice",
         "expectedName": "13_Inserir_o_seu_primeiro_indice.docx",
-        "wordUrl": "assets/ficheiros/Word/Inserir o seu primeiro índice.docx",
+        "wordUrl": "assets/ficheiros/Word/13_Inserir_indice.docx",
         "available": true
       },
       {
@@ -788,7 +787,7 @@ const individualTasks = [
       },
       {
         "title": "Guardar",
-        "text": "Guardar os ficheiros 15 e 16 no computador e na Drive."
+        "text": "Guardar os ficheiros 15 e 16 na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
       }
     ],
     "moodleRecord": "Identificar o colega revisor, resumir o feedback recebido e indicar duas sugestões que serão aplicadas e uma que não será aplicada, justificando as decisões.",
@@ -815,7 +814,7 @@ const individualTasks = [
         "title": "Revisão entre pares",
         "expectedName": "16_Revisao_entre_pares.docx",
         "wordUrl": "assets/ficheiros/Word/16_Revisao_entre_pares.docx",
-        "available": false
+        "available": true
       }
     ]
   },
@@ -828,7 +827,7 @@ const individualTasks = [
     "steps": [
       {
         "title": "Criar",
-        "text": "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_11_Projeto_Final_Ana.docx»."
+        "text": "Criar o documento final a partir do conjunto de ficheiros práticos já trabalhados e guardar como «2026-07_Projeto_Final_PrimeiroNome.docx»."
       },
       {
         "title": "Ler",
@@ -844,7 +843,7 @@ const individualTasks = [
       },
       {
         "title": "Configurar",
-        "text": "Configurar o documento em «Dobra de livro» (Esquema → Margens → Margens Personalizadas → Várias páginas → Dobra de livro). Exportar a versão final para PDF, mantendo a disposição das páginas, e guardar o ficheiro na pasta partilhada da Drive com o nome «2026-07_11_Projeto_Final_Ana.pdf»."
+        "text": "Exportar a versão final para PDF, verificar a leitura e guardar o ficheiro na pasta partilhada da Drive com o nome «2026-07_Projeto_Final_PrimeiroNome.pdf». A opção «Dobra de livro» fica como recurso complementar, apenas se for indicada pela formadora."
       },
       {
         "title": "Nas definições",
@@ -860,12 +859,11 @@ const individualTasks = [
       }
     ],
     "moodleRecord": "Publicar a ligação de leitura para o PDF final e confirmar que foi testada sem sessão iniciada.",
-    "evidence": "DOCX final e PDF em Dobra de livro guardados na Drive; ligação de leitura publicada no Moodle.",
+    "evidence": "DOCX final, PDF, reflexão final e ligação de leitura testada e publicada no Moodle.",
     "checklist": [
       "Feedback entre pares analisado e correções pertinentes aplicadas.",
       "Índice, paginação e pré-visualização atualizados.",
       "Reflexão entre 150 e 200 palavras.",
-      "PDF exportado mantendo a Dobra de livro.",
       "Ligação configurada como Leitor e testada."
     ],
     "forumUrls": individualTaskForumUrls,
@@ -873,12 +871,16 @@ const individualTasks = [
     "workFiles": [
       {
         "title": "Projeto final",
-        "expectedName": "Criado a partir do ficheiro anterior",
+        "expectedName": "Documento reunido, uniformizado e revisto pelo/a formando/a",
         "available": false,
-        "note": "Não há ficheiro interativo novo; parte da versão anterior do/a formando/a."
+        "note": "Não há ficheiro interativo novo; o projeto final resulta da reunião, revisão e uniformização dos ficheiros práticos trabalhados."
       }
     ]
   }
+];
+const optionalWordMaterials = [
+  { number: "17", title: "Tour pelo Word", description: "Material complementar opcional. Não é necessário para concluir as TI, não integra os requisitos do Projeto Final e não entra nos critérios de avaliação.", wordUrl: "assets/ficheiros/Word/17_Tour.docx", available: true },
+  { number: "18", title: "Pedidos do Copilot para o Word", description: "Material complementar opcional. Não é necessário para concluir as TI, não integra os requisitos do Projeto Final e não entra nos critérios de avaliação.", wordUrl: "assets/ficheiros/Word/18_Pedidos do Copilot para o Word.docx", available: true }
 ];
 const resources = [
   { id: "manual", title: "Manual de formação", intro: "Manual de Formação da UFCD 0754 em PDF.", url: "recursos/manual.html", pdfUrl: "assets/pdfs/Ufcd 0754 Manual.pdf" },
@@ -2802,7 +2804,7 @@ function renderActivityPage() {
           <div class="section-heading task-page-heading">
             <p class="eyebrow">Projeto Final</p>
             <h1>Documento Profissional</h1>
-            <p class="lead">O Projeto Final consiste na construção progressiva do documento «Bem-vindo ao Word», melhorado através das Tarefas Individuais realizadas ao longo da UFCD 0754.</p>
+            <p class="lead">O Projeto Final resulta da reunião, uniformização e revisão dos ficheiros práticos trabalhados ao longo da UFCD 0754.</p>
           </div>
 
           <div class="activity-meta-grid">
@@ -2823,7 +2825,7 @@ function renderActivityPage() {
           <article class="card activity-card">
             <p class="eyebrow">Objetivo</p>
             <h2>Construir progressivamente um documento profissional</h2>
-            <p>A partir da TI2, cada tarefa parte do ficheiro anterior e origina uma nova versão do documento «Bem-vindo ao Word».</p>
+            <p>As TI utilizam ficheiros práticos diferentes; os conteúdos relevantes são reunidos e uniformizados na fase final.</p>
             <p>A versão final editável e o respetivo PDF constituem o Projeto Final da UFCD 0754.</p>
             <div class="presentation-strip">
               <span>Google Drive</span>
@@ -2844,7 +2846,7 @@ function renderActivityPage() {
               <span class="task-module-mark" aria-hidden="true">DOCX</span>
             </summary>
             <div class="task-module-body">
-              <p>As versões devem ser guardadas na pasta partilhada da Drive, mantendo o ficheiro anterior e usando a nomenclatura indicada em cada tarefa.</p>
+              <p>Os ficheiros práticos devem ser guardados na Drive e usados como base para selecionar, reunir e rever o documento final.</p>
             </div>
           </details>
 
@@ -2883,7 +2885,7 @@ function renderActivityPage() {
               <p class="eyebrow">Google Drive</p>
               <h3>Organização dos ficheiros</h3>
               <p>Os ficheiros da UFCD devem ser guardados em <strong>26109/03-0754</strong>, usando as subpastas Conteúdos, Atividades e Evidências.</p>
-              <p>A Google Drive guarda as versões sucessivas, o documento editável final e o PDF de leitura.</p>
+              <p>A Google Drive reúne os ficheiros práticos, o documento editável final e o PDF de leitura.</p>
             </article>
 
             <article class="card">
@@ -2913,9 +2915,9 @@ function renderActivityPage() {
 
   if (activity.id === "tarefas-grupo") {
     const overviewItems = [
-          "Criar uma nova cópia em cada tarefa e manter as versões anteriores.",
+          "Usar o ficheiro prático indicado em cada tarefa e guardar o resultado na pasta definida.",
           "Respeitar rigorosamente o nome indicado em cada enunciado e utilizar apenas o primeiro nome.",
-          "Guardar cada ficheiro na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Google Drive.",
+          "Guardar os ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Google Drive.",
           "Efetuar no Moodle o registo específico solicitado em cada tarefa.",
           "Confirmar, antes de concluir, se o ficheiro está completo, legível e funcional."
     ];
@@ -3061,9 +3063,9 @@ function renderActivityPage() {
     `;
 
     const overviewItems = [
-          "Criar uma nova cópia em cada tarefa e manter as versões anteriores.",
+          "Usar o ficheiro prático indicado em cada tarefa e guardar o resultado na pasta definida.",
           "Respeitar rigorosamente o nome indicado em cada enunciado e utilizar apenas o primeiro nome.",
-          "Guardar cada ficheiro na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Google Drive.",
+          "Guardar os ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Google Drive.",
           "Efetuar no Moodle o registo específico solicitado em cada tarefa.",
           "Confirmar, antes de concluir, se o ficheiro está completo, legível e funcional."
     ];
@@ -3091,6 +3093,29 @@ function renderActivityPage() {
               </ul>
                       <div class="embed-fallback resource-action-row align-right">
                 <a class="small-button" href="${individualTasksPdfUrl}" target="_top">Abrir PDF das TIs</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="task-overview-card optional-materials-card">
+            <summary>
+              <span class="task-module-copy">
+                <strong>Materiais opcionais</strong>
+                <small>Complementos para exploração autónoma; não são necessários para concluir as TI nem entram nos critérios de avaliação.</small>
+              </span>
+              <span class="task-module-mark" aria-hidden="true">+</span>
+            </summary>
+            <div class="task-module-body">
+              <ul class="moodle-like-list">
+                <li>Os materiais 17 e 18 são opcionais.</li>
+                <li>Não fazem parte dos requisitos do Projeto Final.</li>
+                <li>Não substituem nenhuma tarefa obrigatória.</li>
+              </ul>
+              <div class="embed-fallback resource-action-row align-right">
+                ${optionalWordMaterials.map((file) => file.available && file.wordUrl
+                  ? `<a class="small-button secondary-link" href="${getBasePath()}${file.wordUrl}" target="_top" download>Descarregar ${file.number} — ${file.title}</a>`
+                  : `<span class="task-link-pending">${file.number} — ${file.title}: ficheiro brevemente disponível</span>`
+                ).join("")}
               </div>
             </div>
           </details>

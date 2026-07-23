@@ -115,9 +115,8 @@ WORK_FILES = {
         {
             "number": "13",
             "title": "Inserir o seu primeiro índice",
-            "expectedName": "13_Inserir_o_seu_primeiro_indice.docx",
-            "wordUrl": "assets/ficheiros/Word/13_Inserir_o_seu_primeiro_indice.docx",
-            "fallbackWordUrl": "assets/ficheiros/Word/Inserir o seu primeiro índice.docx",
+            "expectedName": "13_Inserir_indice.docx",
+            "wordUrl": "assets/ficheiros/Word/13_Inserir_indice.docx",
         },
         {
             "number": "14",
@@ -143,9 +142,9 @@ WORK_FILES = {
     12: [
         {
             "title": "Projeto final",
-            "expectedName": "Criado a partir do ficheiro anterior",
+            "expectedName": "Documento reunido, uniformizado e revisto pelo/a formando/a",
             "available": False,
-            "note": "Não há ficheiro interativo novo; parte da versão anterior do/a formando/a.",
+            "note": "Não há ficheiro interativo novo; o projeto final resulta da reunião, revisão e uniformização dos ficheiros práticos trabalhados.",
         }
     ],
 }
@@ -222,6 +221,37 @@ def parse_tasks():
 
     for task in tasks:
         number = task["number"]
+        if number == 2:
+            for step in task.get("steps", []):
+                step["text"] = step["text"].replace(
+                    "Executar operações de seleção, copiar, cortar, colar, anular e repetir, utilizando pelo menos quatro atalhos de teclado.",
+                    "Executar operações de seleção, copiar, cortar, colar, anular e repetir, aplicando comandos adequados ao contexto.",
+                )
+            task["moodleRecord"] = task.get("moodleRecord", "").replace(
+                "Indicar quatro atalhos utilizados e explicar, em 2 a 4 frases, a diferença entre «Guardar» e «Guardar como».",
+                "Explicar, em 2 a 4 frases, a diferença entre «Guardar» e «Guardar como» e indicar uma decisão tomada durante a tarefa.",
+            )
+            task["checklist"] = [item for item in task.get("checklist", []) if item != "Pelo menos quatro atalhos utilizados."]
+        if number == 10:
+            for step in task.get("steps", []):
+                step["text"] = step["text"].replace(
+                    "Realizar «Inserir o seu primeiro índice.docx» e guardar como «2026-07_13_Indice_PrimeiroNome.docx».",
+                    "Realizar «13_Inserir_indice.docx» e guardar como «2026-07_13_Indice_PrimeiroNome.docx».",
+                )
+        if number == 12:
+            for step in task.get("steps", []):
+                step["text"] = step["text"].replace(
+                    "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_11_Projeto_Final_Ana.docx».",
+                    "Criar o documento final a partir do conjunto de ficheiros práticos já trabalhados e guardar como «2026-07_Projeto_Final_PrimeiroNome.docx».",
+                ).replace(
+                    "Configurar o documento em «Dobra de livro» (Esquema → Margens → Margens Personalizadas → Várias páginas → Dobra de livro). Exportar a versão final para PDF, mantendo a disposição das páginas, e guardar o ficheiro na pasta partilhada da Drive com o nome «2026-07_11_Projeto_Final_Ana.pdf».",
+                    "Exportar a versão final para PDF, verificar a leitura e guardar o ficheiro na pasta partilhada da Drive com o nome «2026-07_Projeto_Final_PrimeiroNome.pdf». A opção «Dobra de livro» fica como recurso complementar, apenas se for indicada pela formadora.",
+                )
+            task["evidence"] = task.get("evidence", "").replace(
+                "DOCX final e PDF em Dobra de livro guardados na Drive; ligação de leitura publicada no Moodle.",
+                "DOCX final, PDF, reflexão final e ligação de leitura testada e publicada no Moodle.",
+            )
+            task["checklist"] = [item for item in task.get("checklist", []) if item != "PDF exportado mantendo a Dobra de livro."]
         pdf_rel = f"assets/pdfs/TI{number:02d}.pdf"
         task["pdfUrl"] = pdf_rel if (ROOT / pdf_rel).exists() else ""
         task["workFiles"] = resolve_work_files(number)
@@ -317,9 +347,9 @@ def update_app(tasks):
     )
 
     overview = [
-        "Criar uma nova cópia em cada tarefa e manter as versões anteriores.",
+        "Usar o ficheiro prático indicado em cada tarefa e guardar o resultado na pasta definida.",
         "Respeitar rigorosamente o nome indicado em cada enunciado e utilizar apenas o primeiro nome.",
-        "Guardar cada ficheiro na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Google Drive.",
+        "Guardar os ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Google Drive.",
         "Efetuar no Moodle o registo específico solicitado em cada tarefa.",
         "Confirmar, antes de concluir, se o ficheiro está completo, legível e funcional.",
     ]
