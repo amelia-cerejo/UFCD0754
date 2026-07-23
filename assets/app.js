@@ -565,7 +565,7 @@ const individualTasks = [
         "title": "Elementos visuais",
         "expectedName": "09_Elementos_visuais.docx",
         "wordUrl": "assets/ficheiros/Word/09_Elementos_visuais.docx",
-        "available": false
+        "available": true
       }
     ]
   },
@@ -616,15 +616,15 @@ const individualTasks = [
         "number": "10",
         "title": "Cabeçalhos e rodapés",
         "expectedName": "10_Cabecalhos_e_rodapes.docx",
-        "wordUrl": "assets/ficheiros/Word/10_Cabecalhos_e_rodapes.docx",
-        "available": false
+        "wordUrl": "assets/ficheiros/Word/10_Cabeçalhos_e_rodapes.docx",
+        "available": true
       },
       {
         "number": "11",
         "title": "Configuração de página",
         "expectedName": "11_Configuracao_de_pagina.docx",
-        "wordUrl": "assets/ficheiros/Word/11_Configuracao_de_pagina.docx",
-        "available": false
+        "wordUrl": "assets/ficheiros/Word/11_Configuração_de_pagina.docx",
+        "available": true
       }
     ]
   },
@@ -680,7 +680,7 @@ const individualTasks = [
         "title": "Estilos e documentos longos",
         "expectedName": "12_Estilos_e_documentos_longos.docx",
         "wordUrl": "assets/ficheiros/Word/12_Estilos_e_documentos_longos.docx",
-        "available": false
+        "available": true
       }
     ]
   },
@@ -742,8 +742,8 @@ const individualTasks = [
         "number": "14",
         "title": "Navegação e referências",
         "expectedName": "14_Navegacao_e_referencias.docx",
-        "wordUrl": "assets/ficheiros/Word/14_Navegacao_e_referencias.docx",
-        "available": false
+        "wordUrl": "assets/ficheiros/Word/14_Navegação_e_referencias.docx",
+        "available": true
       }
     ]
   },
@@ -808,7 +808,7 @@ const individualTasks = [
         "title": "Reunir documentos",
         "expectedName": "15_Reunir_documentos.docx",
         "wordUrl": "assets/ficheiros/Word/15_Reunir_documentos.docx",
-        "available": false
+        "available": true
       },
       {
         "number": "16",

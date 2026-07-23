@@ -253,6 +253,11 @@ def resolve_work_files(number: int):
             if not primary_exists and fallback and (ROOT / fallback).exists():
                 item["wordUrl"] = fallback
                 primary_exists = True
+            if not primary_exists and item.get("number"):
+                matches = sorted((ROOT / "assets" / "ficheiros" / "Word").glob(f"{item['number']}_*.docx"))
+                if matches:
+                    item["wordUrl"] = matches[0].relative_to(ROOT).as_posix()
+                    primary_exists = True
             item["available"] = primary_exists
             item.pop("fallbackWordUrl", None)
         if "referencePdfUrl" in item and not (ROOT / item["referencePdfUrl"]).exists():
