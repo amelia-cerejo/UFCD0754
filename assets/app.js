@@ -940,6 +940,7 @@ const SITE_CONTROL_KEY_PREFIX = `ufcd-${UFCD.code}-`;
 let siteControlItems = [];
 let siteControlItemsBuilding = false;
 let siteVisibilityRemoteLoading = null;
+let siteVisibilityRemoteReady = !APPS_SCRIPT_WEB_APP_URL;
 
 const siteLinks = {
   gammas: Object.fromEntries(topics.map((topic) => [topic.id, topic.gammaUrl || ""])),
@@ -1018,10 +1019,12 @@ function topicById(id) {
 }
 
 function isSectionVisible(section) {
+  if (!siteVisibilityRemoteReady) return false;
   return siteVisibilitySections[section] !== false;
 }
 
 function isItemVisible(section, key) {
+  if (!siteVisibilityRemoteReady) return false;
   return isSectionVisible(section) && siteVisibility[section]?.[key] !== false;
 }
 
@@ -1952,6 +1955,7 @@ async function carregarVisibilidadeRemotaDoSite(options = {}) {
       return false;
     })
     .finally(() => {
+      siteVisibilityRemoteReady = true;
       siteVisibilityRemoteLoading = null;
     });
 
