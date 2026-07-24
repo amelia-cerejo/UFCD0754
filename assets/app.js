@@ -964,7 +964,7 @@ function definirVisibilidadeTarefaGrupo(task, visivel) {
 }
 
 function tarefaGrupoVisivel(task) {
-  if (!task) return false;
+  if (!task || !siteVisibilityRemoteReady) return false;
   return siteVisibilitySections.tarefasGrupo !== false
     && siteVisibility.tarefasGrupo[task.title] !== false;
 }
@@ -988,7 +988,7 @@ function definirVisibilidadeTarefaIndividual(task, visivel) {
 }
 
 function tarefaIndividualVisivel(task) {
-  if (!task) return false;
+  if (!task || !siteVisibilityRemoteReady) return false;
   return siteVisibilitySections.tarefasIndividuais !== false
     && siteVisibility.tarefasIndividuais[task.id] !== false
     && siteVisibility.tarefasIndividuais[task.title] !== false;
@@ -1019,12 +1019,10 @@ function topicById(id) {
 }
 
 function isSectionVisible(section) {
-  if (!siteVisibilityRemoteReady) return false;
   return siteVisibilitySections[section] !== false;
 }
 
 function isItemVisible(section, key) {
-  if (!siteVisibilityRemoteReady) return false;
   return isSectionVisible(section) && siteVisibility[section]?.[key] !== false;
 }
 
