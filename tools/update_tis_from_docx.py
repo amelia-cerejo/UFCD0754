@@ -14,6 +14,9 @@ MOODLE = ROOT / "moodle.html"
 STYLES = ROOT / "assets" / "styles.css"
 
 
+OPTIONAL_WORD_MATERIALS_JS = 'const optionalWordMaterials = [\n  { number: "17", title: "Tour pelo Word", description: "Material complementar opcional. Não é necessário para concluir as TI, não integra os requisitos do Projeto Final e não entra nos critérios de avaliação.", wordUrl: "assets/ficheiros/Word/17_Tour.docx", available: true },\n  { number: "18", title: "Pedidos do Copilot para o Word", description: "Material complementar opcional. Não é necessário para concluir as TI, não integra os requisitos do Projeto Final e não entra nos critérios de avaliação.", wordUrl: "assets/ficheiros/Word/18_Pedidos do Copilot para o Word.docx", available: true }\n];\n'
+
+
 WORK_FILES = {
     1: [
         {
@@ -115,8 +118,8 @@ WORK_FILES = {
         {
             "number": "13",
             "title": "Inserir o seu primeiro índice",
-            "expectedName": "13_Inserir_indice.docx",
-            "wordUrl": "assets/ficheiros/Word/13_Inserir_indice.docx",
+            "expectedName": "13_Inserir_o_seu_primeiro_indice.docx",
+            "wordUrl": "assets/ficheiros/Word/13_Inserir_o_seu_primeiro_indice.docx",
         },
         {
             "number": "14",
@@ -127,27 +130,32 @@ WORK_FILES = {
     ],
     11: [
         {
-            "number": "15",
-            "title": "Reunir documentos",
-            "expectedName": "15_Reunir_documentos.docx",
-            "wordUrl": "assets/ficheiros/Word/15_Reunir_documentos.docx",
+            "title": "Enunciado do Projeto Final",
+            "expectedName": "Projeto_Final_Enunciado.docx",
+            "wordUrl": "assets/ficheiros/Word/Projeto_Final_Enunciado.docx",
         },
         {
-            "number": "16",
-            "title": "Revisão entre pares",
-            "expectedName": "16_Revisao_entre_pares.docx",
-            "wordUrl": "assets/ficheiros/Word/16_Revisao_entre_pares.docx",
+            "title": "Resolução demonstrativa",
+            "expectedName": "Projeto_Final_Resolucao_Exemplo_Demonstrativo.docx",
+            "wordUrl": "assets/ficheiros/Word/Projeto_Final_Resolucao_Exemplo_Demonstrativo.docx",
         },
     ],
     12: [
         {
-            "title": "Projeto final",
-            "expectedName": "Documento reunido, uniformizado e revisto pelo/a formando/a",
-            "available": False,
-            "note": "Não há ficheiro interativo novo; o projeto final resulta da reunião, revisão e uniformização dos ficheiros práticos trabalhados.",
-        }
+            "title": "Enunciado do Projeto Final",
+            "expectedName": "Projeto_Final_Enunciado.docx",
+            "wordUrl": "assets/ficheiros/Word/Projeto_Final_Enunciado.docx",
+        },
+        {
+            "title": "Resolução demonstrativa",
+            "expectedName": "Projeto_Final_Resolucao_Exemplo_Demonstrativo.docx",
+            "wordUrl": "assets/ficheiros/Word/Projeto_Final_Resolucao_Exemplo_Demonstrativo.docx",
+        },
     ],
 }
+
+
+PRESERVE_TASK_NUMBERS = set(range(1, 8))
 
 
 SECTION_TO_FIELD = {
@@ -221,37 +229,13 @@ def parse_tasks():
 
     for task in tasks:
         number = task["number"]
-        if number == 2:
-            for step in task.get("steps", []):
-                step["text"] = step["text"].replace(
-                    "Executar operações de seleção, copiar, cortar, colar, anular e repetir, utilizando pelo menos quatro atalhos de teclado.",
-                    "Executar operações de seleção, copiar, cortar, colar, anular e repetir, aplicando comandos adequados ao contexto.",
-                )
-            task["moodleRecord"] = task.get("moodleRecord", "").replace(
-                "Indicar quatro atalhos utilizados e explicar, em 2 a 4 frases, a diferença entre «Guardar» e «Guardar como».",
-                "Explicar, em 2 a 4 frases, a diferença entre «Guardar» e «Guardar como» e indicar uma decisão tomada durante a tarefa.",
-            )
-            task["checklist"] = [item for item in task.get("checklist", []) if item != "Pelo menos quatro atalhos utilizados."]
         if number == 10:
             for step in task.get("steps", []):
                 step["text"] = step["text"].replace(
-                    "Realizar «Inserir o seu primeiro índice.docx» e guardar como «2026-07_13_Indice_PrimeiroNome.docx».",
-                    "Realizar «13_Inserir_indice.docx» e guardar como «2026-07_13_Indice_PrimeiroNome.docx».",
+                    "Realizar «Inserir o seu primeiro índice.docx» e guardar como 2026-07_13_Indice_PrimeiroNome.docx.",
+                    "Realizar «13_Inserir_o_seu_primeiro_indice.docx» e guardar como 2026-07_13_Indice_PrimeiroNome.docx.",
                 )
-        if number == 12:
-            for step in task.get("steps", []):
-                step["text"] = step["text"].replace(
-                    "Criar uma nova cópia do ficheiro anterior com o nome «2026-07_11_Projeto_Final_Ana.docx».",
-                    "Criar o documento final a partir do conjunto de ficheiros práticos já trabalhados e guardar como «2026-07_Projeto_Final_PrimeiroNome.docx».",
-                ).replace(
-                    "Configurar o documento em «Dobra de livro» (Esquema → Margens → Margens Personalizadas → Várias páginas → Dobra de livro). Exportar a versão final para PDF, mantendo a disposição das páginas, e guardar o ficheiro na pasta partilhada da Drive com o nome «2026-07_11_Projeto_Final_Ana.pdf».",
-                    "Exportar a versão final para PDF, verificar a leitura e guardar o ficheiro na pasta partilhada da Drive com o nome «2026-07_Projeto_Final_PrimeiroNome.pdf». A opção «Dobra de livro» fica como recurso complementar, apenas se for indicada pela formadora.",
-                )
-            task["evidence"] = task.get("evidence", "").replace(
-                "DOCX final e PDF em Dobra de livro guardados na Drive; ligação de leitura publicada no Moodle.",
-                "DOCX final, PDF, reflexão final e ligação de leitura testada e publicada no Moodle.",
-            )
-            task["checklist"] = [item for item in task.get("checklist", []) if item != "PDF exportado mantendo a Dobra de livro."]
+        validate_task_content(task)
         pdf_rel = f"assets/pdfs/TI{number:02d}.pdf"
         task["pdfUrl"] = pdf_rel if (ROOT / pdf_rel).exists() else ""
         task["workFiles"] = resolve_work_files(number)
@@ -271,6 +255,40 @@ def infer_step_title(text: str) -> str:
 
 def join_sentence(existing: str, text: str) -> str:
     return f"{existing} {text}".strip() if existing else text
+
+
+FORBIDDEN_GLOBAL = [
+    "2026-07_11_Projeto_Final_Ana.docx",
+]
+
+FORBIDDEN_TI12 = [
+    "Dobra de livro",
+    "Livro dobrado",
+    "conjunto de ficheiros práticos já trabalhados",
+    "reunir os exercícios",
+    "reunir ficheiros",
+]
+
+
+def validate_task_content(task: dict):
+    number = task["number"]
+    title = task.get("title", "")
+    content_parts = [title, task.get("objective", ""), task.get("moodleRecord", ""), task.get("evidence", "")]
+    content_parts.extend(step.get("text", "") for step in task.get("steps", []))
+    content_parts.extend(task.get("checklist", []))
+    content = "\n".join(content_parts)
+    for term in FORBIDDEN_GLOBAL:
+        if term in content:
+            raise RuntimeError(f"Conteúdo antigo proibido encontrado na TI{number}: {term}")
+    if number == 11:
+        if title != "TI11 - Desenvolver e realizar a revisão entre pares do Projeto Final":
+            raise RuntimeError(f"Título da TI11 inválido: {title}")
+        if "TI11 - Reunir documentos" in content or "Realizar «Reunir documentos»" in content:
+            raise RuntimeError("Conteúdo antigo da TI11 encontrado.")
+    if number == 12:
+        for term in FORBIDDEN_TI12:
+            if term in content:
+                raise RuntimeError(f"Conteúdo proibido na TI12: {term}")
 
 
 def resolve_work_files(number: int):
@@ -307,13 +325,38 @@ def replace_between(text: str, start_marker: str, end_marker: str, replacement: 
     return text[:start] + replacement + "\n" + text[end:]
 
 
+def load_existing_app_tasks():
+    app = APP_JS.read_text(encoding="utf-8")
+    start = app.index("const individualTasks = ") + len("const individualTasks = ")
+    end = app.index(";\nconst optionalWordMaterials", start) if ";\nconst optionalWordMaterials" in app[start:] else app.index(";\nconst resources", start)
+    data = app[start:end]
+    data = re.sub(r":\s*individualTaskForumUrls", ": \"__FORUM_URLS__\"", data)
+    return json.loads(data)
+
+
+def preserve_existing_tasks(tasks):
+    existing_by_id = {task.get("id"): task for task in load_existing_app_tasks()}
+    preserved = []
+    for task in tasks:
+        match = re.search(r"(\d+)$", task.get("id", ""))
+        number = int(match.group(1)) if match else 0
+        if number in PRESERVE_TASK_NUMBERS and task.get("id") in existing_by_id:
+            current = dict(existing_by_id[task.get("id")])
+            if task.get("pdfUrl") and not current.get("pdfUrl"):
+                current["pdfUrl"] = task["pdfUrl"]
+            preserved.append(current)
+        else:
+            preserved.append(task)
+    return preserved
+
+
 def update_app(tasks):
     app = APP_JS.read_text(encoding="utf-8")
     app = replace_between(
         app,
         "const individualTasks = [",
         "const resources = [",
-        "const individualTasks = " + js_array(tasks) + ";",
+        "const individualTasks = " + js_array(tasks) + ";\n" + OPTIONAL_WORD_MATERIALS_JS.rstrip("\n"),
     )
 
     app = re.sub(
@@ -471,7 +514,7 @@ def update_moodle(tasks):
     MOODLE.write_text(moodle, encoding="utf-8")
 
 
-MOODLE_RENDER = r'''      function renderTiHtml(task,index){const accent=index<6?colors.lightBlue:colors.darkBlue;return cardStart(accent)+'<h3 style="margin:0 0 12px;color:'+colors.blue+';font-size:24px;line-height:1.2;font-weight:900;">'+task.title+'</h3><p style="margin:0 0 14px;line-height:1.6;"><strong>Objetivo:</strong> '+task.objective+'</p><p style="margin:0 0 8px;font-weight:900;color:'+colors.darkBlue+';">O que fazer:</p><ul style="margin:0;padding-left:22px;line-height:1.7;">'+task.steps.map(step=>'<li>'+step+'</li>').join('')+'</ul>'+cardEnd()}'''
+MOODLE_RENDER = r'''      function renderTiHtml(task,index){const accent=index<6?colors.lightBlue:colors.darkBlue;const isProjetoFinal=task.title.indexOf('TI11 -')===0||task.title.indexOf('TI12 -')===0;const detailHtml=isProjetoFinal?'<div style="margin:16px 0;padding:14px 16px;border:1px solid '+colors.line+';border-left:4px solid '+colors.blue+';border-radius:8px;background:'+colors.softBlue+';"><p style="margin:0 0 8px;line-height:1.55;"><strong>Produto esperado:</strong> '+task.delivery+'</p><p style="margin:0 0 8px;line-height:1.55;"><strong>Local de realização:</strong> pasta «Tarefas individuais» no computador e na Google Drive.</p><p style="margin:0;line-height:1.55;"><strong>Registo no Moodle:</strong> '+task.moodleRecord+'</p></div>':'';const filesHtml=isProjetoFinal&&task.workFiles&&task.workFiles.length?'<p style="margin:14px 0 8px;font-weight:900;color:'+colors.darkBlue+';">Materiais de apoio:</p><div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:2px;">'+task.workFiles.map(file=>file.wordUrl?'<a href="'+moodleLinks.site+file.wordUrl+'" target="_blank" style="display:inline-block;background:'+colors.blue+';color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:900;">'+file.title+'</a>':'').join('')+'</div>':'';return cardStart(accent)+'<h3 style="margin:0 0 12px;color:'+colors.blue+';font-size:24px;line-height:1.2;font-weight:900;">'+task.title+'</h3><p style="margin:0 0 14px;line-height:1.6;"><strong>Objetivo:</strong> '+task.objective+'</p><p style="margin:0 0 8px;font-weight:900;color:'+colors.darkBlue+';">O que fazer:</p><ul style="margin:0;padding-left:22px;line-height:1.7;">'+task.steps.map(step=>'<li>'+step+'</li>').join('')+'</ul>'+detailHtml+filesHtml+cardEnd()}'''
 
 
 def update_styles():
@@ -568,7 +611,7 @@ CSS_ADDITION = r'''
 
 
 def main():
-    tasks = parse_tasks()
+    tasks = preserve_existing_tasks(parse_tasks())
     update_app(tasks)
     update_moodle(tasks)
     update_styles()

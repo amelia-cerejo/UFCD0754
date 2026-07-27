@@ -63,7 +63,7 @@ const contentLessons = {
   "ferramentas-revisao": {
     summary: "A edição e a revisão permitem melhorar o conteúdo, corrigir erros e trabalhar com maior rapidez em documentos simples ou extensos.",
     sections: [
-      { title: "Múltiplos documentos abertos e cópia de texto", text: "É possível manter vários documentos abertos e alternar entre eles. O texto selecionado pode ser copiado ou movido dentro do mesmo documento ou entre documentos.", points: ["Confirmar qual é o documento ativo.", "Usar Copiar quando o original deve permanecer.", "Usar Cortar quando o conteúdo deve mudar de lugar."] },
+      { title: "Múltiplos documentos abertos e cópia de texto", text: " possível manter vários documentos abertos e alternar entre eles. O texto selecionado pode ser copiado ou movido dentro do mesmo documento ou entre documentos.", points: ["Confirmar qual é o documento ativo.", "Usar Copiar quando o original deve permanecer.", "Usar Cortar quando o conteúdo deve mudar de lugar."] },
       { title: "Verificação ortográfica", text: "O corretor identifica possíveis erros ortográficos e gramaticais, mas as sugestões devem ser analisadas. O idioma de revisão tem de corresponder ao idioma do texto.", points: ["Definir Português (Portugal) como idioma de revisão.", "Ler a frase completa antes de aceitar uma sugestão.", "Adicionar ao dicionário apenas palavras corretas."] },
       { title: "Localizar e substituir", text: "Localizar procura palavras ou expressões. Localizar e substituir permite trocar ocorrências de forma individual ou em todo o documento.", points: ["Rever cada ocorrência quando a substituição puder alterar o sentido.", "Usar Mais opções para controlar maiúsculas, palavras completas ou formatação.", "Guardar uma cópia antes de substituições extensas."] }
     ],
@@ -73,7 +73,7 @@ const contentLessons = {
     summary: "Antes de imprimir, é necessário confirmar a apresentação das páginas e escolher apenas as opções adequadas ao resultado pretendido.",
     sections: [
       { title: "Pré-visualização", text: "A pré-visualização mostra como o documento ficará em papel e permite detetar páginas vazias, cortes, margens inadequadas ou quebras mal colocadas.", points: ["Percorrer todas as páginas.", "Confirmar cabeçalhos, rodapés e numeração.", "Verificar tabelas e imagens junto às margens."] },
-      { title: "Definições de impressão", text: "É possível escolher a impressora, o número de cópias, as páginas, a orientação, o tamanho do papel, as margens e a impressão de um ou dos dois lados.", points: ["Imprimir apenas as páginas necessárias.", "Confirmar a orientação Retrato ou Paisagem.", "Usar frente e verso quando for adequado."] },
+      { title: "Definições de impressão", text: " possível escolher a impressora, o número de cópias, as páginas, a orientação, o tamanho do papel, as margens e a impressão de um ou dos dois lados.", points: ["Imprimir apenas as páginas necessárias.", "Confirmar a orientação Retrato ou Paisagem.", "Usar frente e verso quando for adequado."] },
       { title: "Verificação final", text: "A impressão deve ser o último passo, depois de guardar e rever o documento. Quando não é necessária uma cópia em papel, o PDF preserva melhor a apresentação para partilha.", points: ["Guardar as alterações antes de imprimir.", "Confirmar a impressora selecionada.", "Gerar primeiro um PDF quando for necessário validar o resultado."] }
     ],
     practice: "Abrir a pré-visualização de impressão, identificar as definições disponíveis e explicar quais utilizaria para imprimir apenas duas páginas."
@@ -133,8 +133,8 @@ const activities = [
   { id: "controlo-teams", title: "Partilha de ecrã", menuTitle: "Partilha de ecrã", intro: "Tabela simples para acompanhar a participação prática nas sessões síncronas.", url: "atividades/controlo-teams.html" },
   { id: "mentimeter-inicial", title: "Escreve 3 palavras", menuTitle: "Brainstorming", intro: "Quando pensas num processador de texto, que três palavras te vêm à cabeça?", url: "atividades/mentimeter-inicial.html", focus: "Nuvem de palavras inicial", duration: "", product: "Resposta no Mentimeter: três palavras associadas a processador de texto.", mentimeterUrl: pendingLinks.mentimeterEmbedUrl, participationUrl: pendingLinks.mentimeterParticipationUrl, qrCode: "assets/img/mentimeter_qr_code_0754.png", steps: [{ title: "Pergunta", text: "Quando pensas num processador de texto, que três palavras te vêm à cabeça?" }], evidence: ["Nuvem de palavras inicial"] },
   { id: "tarefas-grupo", title: "Glossário - Tarefas de Grupo", menuTitle: "Tarefas de Grupo", intro: "Tarefas de grupo para construir vocabulário técnico no glossário do Moodle.", url: "atividades/tarefas-grupo.html", focus: "Glossário colaborativo", duration: "A partir do segundo dia", product: "Definição curta, exemplo prático e aplicação ao documento final.", steps: [{ title: "Distribuir funções", text: "Cada grupo recolhe, escreve, revê e publica a sua entrada." }, { title: "Definir o conceito", text: "A definição deve ser simples, correta e aplicada ao processador de texto." }, { title: "Publicar no Moodle", text: "A entrada fica registada no glossário indicado pela formadora." }], evidence: ["Entrada no glossário", "Exemplo prático", "Revisão pelos colegas"] },
-  { id: "tarefas-individuais", title: "Tarefas Individuais", intro: "Resumo das tarefas práticas; as instruções completas são disponibilizadas em PDF.", url: "atividades/tarefas-individuais.html", focus: "Trabalho individual", duration: "A partir do segundo dia", product: "Ficheiros práticos guardados na Drive e reunidos apenas na fase final.", steps: [{ title: "Ler o enunciado", text: "Confirmar o objetivo e consultar o PDF da tarefa." }, { title: "Usar o ficheiro indicado", text: "Abrir o ficheiro prático da tarefa e aplicar as operações indicadas." }, { title: "Guardar", text: "Guardar o ficheiro na estrutura definida pela formadora." }], evidence: ["Documento atualizado", "Versão guardada na Drive"] },
-  { id: "projeto-final-apresentacao", title: "Projeto Final - Documento profissional", menuTitle: "Projeto Final", intro: "Documento final construído a partir da reunião, uniformização e revisão dos ficheiros práticos trabalhados ao longo da UFCD.", url: "atividades/projeto-final-apresentacao.html", focus: "Projeto individual", duration: "Ao longo da UFCD", product: "Documento editável final, PDF, reflexão final e ligação de leitura testada.", steps: [{ title: "Reunir", text: "Selecionar os conteúdos relevantes dos ficheiros práticos trabalhados." }, { title: "Uniformizar", text: "Aplicar estilos, cabeçalhos, paginação, elementos visuais e revisão ao documento reunido." }, { title: "Rever entre pares", text: "Receber feedback de um colega e decidir que sugestões integrar." }, { title: "Finalizar", text: "Exportar para PDF, testar a ligação de leitura e publicar a reflexão final." }], evidence: ["Documento editável", "PDF final", "Reflexão final", "Ligação de leitura testada"] }
+  { id: "tarefas-individuais", title: "Tarefas Individuais", intro: "Resumo das tarefas práticas; as instruções completas são disponibilizadas em PDF.", url: "atividades/tarefas-individuais.html", focus: "Trabalho individual", duration: "A partir do segundo dia", product: "Ficheiros práticos guardados na Drive e registos específicos no Moodle.", steps: [{ title: "Ler o enunciado", text: "Confirmar o objetivo e consultar o PDF da tarefa." }, { title: "Usar o ficheiro indicado", text: "Abrir o ficheiro prático da tarefa e aplicar as operações indicadas." }, { title: "Guardar", text: "Guardar o ficheiro na estrutura definida pela formadora." }], evidence: ["Documento atualizado", "Versão guardada na Drive"] },
+  { id: "projeto-final-apresentacao", title: "Projeto Final - Documento Profissional", menuTitle: "Projeto Final", intro: "Documento profissional único, desenvolvido, revisto entre pares, finalizado em DOCX/PDF e apresentado individualmente.", url: "atividades/projeto-final-apresentacao.html", focus: "Projeto individual", duration: "TI11 e TI12", product: "Documento editável final, PDF, reflexão final, ligação de leitura testada e apresentação até 5 minutos.", steps: [{ title: "Desenvolver", text: "Construir o documento profissional com a estrutura e os requisitos técnicos definidos no enunciado." }, { title: "Rever entre pares", text: "Receber feedback de um colega e decidir que sugestões integrar." }, { title: "Finalizar", text: "Aplicar melhorias, atualizar campos, verificar acessibilidade e exportar para PDF." }, { title: "Apresentar", text: "Preparar uma apresentação individual até 5 minutos." }], evidence: ["DOCX final", "PDF final", "Reflexão final", "Ligação de leitura testada", "Apresentação individual"] }
 ];
 
 const evaluations = [
@@ -550,7 +550,7 @@ const individualTasks = [
       "Composição alinhada e agrupada."
     ],
     "forumUrls": individualTaskForumUrls,
-    "pdfUrl": "",
+    "pdfUrl": "assets/pdfs/TI07.pdf",
     "workFiles": [
       {
         "number": "08",
@@ -572,44 +572,60 @@ const individualTasks = [
     "id": "tarefa-individual-8",
     "url": "atividades/tarefas-individuais.html",
     "title": "TI8 - Configurar páginas, cabeçalhos e rodapés",
-    "intro": "Controlar a identidade e a paginação de diferentes secções de um documento.",
-    "objective": "Controlar a identidade e a paginação de diferentes secções de um documento.",
+    "intro": "Controlar a configuração, a identidade e a paginação de diferentes secções e preparar uma cópia em Livro dobrado.",
+    "objective": "Controlar a configuração, a identidade e a paginação de diferentes secções e preparar uma cópia em Livro dobrado.",
     "steps": [
       {
         "title": "Realizar",
-        "text": "Realizar «Cabeçalhos e rodapés» e guardar como «2026-07_10_Cabecalhos_PrimeiroNome.docx»."
+        "text": "Realizar «Cabeçalhos e rodapés» e guardar como 2026-07_10_Cabecalhos_PrimeiroNome.docx."
       },
       {
         "title": "Configurar",
-        "text": "Configurar primeira página diferente e páginas pares e ímpares diferentes; inserir numeração automática."
-      },
-      {
-        "title": "Realizar",
-        "text": "Realizar «Configuração de página» e guardar como «2026-07_11_Configuracao_PrimeiroNome.docx»."
+        "text": "Configurar a primeira página diferente, páginas pares e ímpares diferentes, numeração automática e a opção «Ligar ao anterior»."
       },
       {
         "title": "Criar",
-        "text": "Criar pelo menos três secções e aplicar cabeçalhos diferentes, controlando «Ligar ao anterior»."
+        "text": "Criar três secções funcionais e configurar cabeçalhos e rodapés independentes."
       },
       {
-        "title": "Alterar",
-        "text": "Alterar a orientação ou as margens apenas numa secção e iniciar a numeração do corpo no número indicado."
+        "title": "Realizar",
+        "text": "Realizar «Configuração de página», guardar como 2026-07_11_Configuracao_PrimeiroNome.docx e concluir as experiências de tamanho e orientação, margens, quebras, marca de água e pré-visualização."
       },
       {
-        "title": "Verificar",
-        "text": "Verificar a pré-visualização e guardar os dois ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
+        "title": "Criar",
+        "text": "Criar uma nova cópia com quatro páginas e guardá-la como 2026-07_11_Configuracao_Livro_PrimeiroNome.docx."
+      },
+      {
+        "title": "Confirmar",
+        "text": "Confirmar que o número total de páginas da nova cópia é múltiplo de quatro."
+      },
+      {
+        "title": "Realizar",
+        "text": "Aplicar «Livro dobrado», definir uma margem de encadernação adequada e verificar a disposição em Ficheiro → Imprimir."
+      },
+      {
+        "title": "Realizar",
+        "text": "Se estiver disponível, observar também a opção de impressão frente e verso pelo lado mais curto. Não é necessário imprimir."
+      },
+      {
+        "title": "Realizar",
+        "text": "Se a versão utilizada não disponibilizar «Livro dobrado», identificar a versão, explicar a limitação e indicar como a configuração seria realizada no Word para computador."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar os três ficheiros na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Drive."
       }
     ],
-    "moodleRecord": "Descrever uma situação em que desligou «Ligar ao anterior» e explicar o resultado.",
-    "evidence": "Ficheiros 10 e 11 concluídos nos dois locais e gestão de secções explicada no Moodle.",
+    "moodleRecord": "Explicar a finalidade de «Livro dobrado», indicar o que observou na pré-visualização e registar qualquer limitação da versão utilizada.",
+    "evidence": "Ficheiros 10 e 11 concluídos, incluindo a cópia em Livro dobrado, nos dois locais; resultado ou limitação da versão registado no Moodle.",
     "checklist": [
-      "Primeira página e pares/ímpares configurados.",
-      "Três secções funcionais.",
-      "Cabeçalhos independentes.",
-      "Paginação automática correta."
+      "Ficheiro 10 — Cabeçalhos, rodapés e secções",
+      "Primeira página e páginas pares/ímpares configuradas.  Três secções funcionais.  Cabeçalhos e rodapés independentes.  Paginação automática e sequencial correta.",
+      "Ficheiro 11 — Configuração de página",
+      "Experiências propostas no ficheiro 11 concluídas.  Cópia com quatro páginas configurada em Livro dobrado.  Pré-visualização da impressão verificada.  Eventual limitação da versão utilizada identificada e registada."
     ],
     "forumUrls": individualTaskForumUrls,
-    "pdfUrl": "",
+    "pdfUrl": "assets/pdfs/TI08.pdf",
     "workFiles": [
       {
         "number": "10",
@@ -622,7 +638,7 @@ const individualTasks = [
         "number": "11",
         "title": "Configuração de página",
         "expectedName": "11_Configuracao_de_pagina.docx",
-        "wordUrl": "assets/ficheiros/Word/11_Configuração_de_pagina.docx",
+        "wordUrl": "assets/ficheiros/Word/11_Configuracao_de_pagina.docx",
         "available": true
       }
     ]
@@ -636,43 +652,45 @@ const individualTasks = [
     "steps": [
       {
         "title": "Realizar",
-        "text": "Realizar «Estilos e documentos longos» e guardar como «2026-07_12_Documento_Longo_PrimeiroNome.docx»."
+        "text": "Realizar «Estilos e documentos longos» e guardar como 2026-07_12_Documento_Longo_PrimeiroNome.docx."
       },
       {
         "title": "Realizar",
-        "text": "Organizar pelo menos três capítulos e seis subsecções com Título 1, Título 2 e, quando necessário, Título 3."
+        "text": "Organizar pelo menos três capítulos e seis subsecções, aplicando os estilos Título 1, Título 2 e, quando necessário, Título 3."
       },
       {
         "title": "Realizar",
-        "text": "Modificar um estilo e verificar a propagação da alteração."
+        "text": "Modificar um dos estilos utilizados e verificar a propagação automática da alteração ao longo do documento."
       },
       {
         "title": "Realizar",
         "text": "Associar uma lista multinível à hierarquia dos títulos."
       },
       {
-        "title": "Realizar",
-        "text": "Usar quebras de página e de secção adequadas; criar cabeçalhos independentes e paginação automática."
+        "title": "Utilizar",
+        "text": "Utilizar quebras de página e de secção adequadas."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar cabeçalhos independentes e aplicar paginação automática."
       },
       {
         "title": "Verificar",
-        "text": "Verificar toda a hierarquia no Painel de Navegação e corrigir títulos fora de nível."
+        "text": "Verificar toda a hierarquia no Painel de Navegação e corrigir eventuais títulos fora de nível."
       },
       {
         "title": "Guardar",
-        "text": "Guardar o ficheiro na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
+        "text": "Guardar o ficheiro na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Drive."
       }
     ],
     "moodleRecord": "Explicar como os estilos facilitaram a alteração global e a navegação no documento.",
     "evidence": "Ficheiro 12 estruturado nos dois locais e reflexão registada no Moodle.",
     "checklist": [
-      "Estrutura mínima cumprida.",
-      "Estilos e lista multinível coerentes.",
-      "Secções e paginação corretas.",
-      "Hierarquia validada no Painel de Navegação."
+      "Estrutura mínima cumprida.  Estilos e lista multinível coerentes.  Secções, cabeçalhos e paginação corretos.  Alteração global de um estilo verificada.  Hierarquia validada no Painel de Navegação.",
+      "As funcionalidades experimentadas nesta tarefa deverão ser aplicadas posteriormente no Projeto Final — Documento Profissional, sempre que forem adequadas ao conteúdo desenvolvido."
     ],
     "forumUrls": individualTaskForumUrls,
-    "pdfUrl": "",
+    "pdfUrl": "assets/pdfs/TI09.pdf",
     "workFiles": [
       {
         "number": "12",
@@ -692,49 +710,63 @@ const individualTasks = [
     "steps": [
       {
         "title": "Realizar",
-        "text": "Realizar «13_Inserir_indice.docx» e guardar como «2026-07_13_Indice_PrimeiroNome.docx»."
+        "text": "Realizar «13_Inserir_o_seu_primeiro_indice.docx» e guardar como 2026-07_13_Indice_PrimeiroNome.docx."
       },
       {
         "title": "Inserir",
-        "text": "Inserir e personalizar um índice automático; demonstrar as duas opções de atualização sem editar manualmente o índice."
+        "text": "Inserir e personalizar um índice automático."
       },
       {
         "title": "Realizar",
-        "text": "Realizar «Navegação e referências» e guardar como «2026-07_14_Navegacao_PrimeiroNome.docx»."
+        "text": "Demonstrar as duas opções de atualização — apenas os números de página e o índice inteiro — sem editar manualmente o índice."
+      },
+      {
+        "title": "Realizar",
+        "text": "Realizar «Navegação e referências» e guardar como 2026-07_14_Navegacao_PrimeiroNome.docx."
       },
       {
         "title": "Criar",
-        "text": "Criar dois marcadores, duas hiperligações internas e duas referências cruzadas: uma para um título e outra para uma figura ou tabela."
+        "text": "Criar dois marcadores e duas hiperligações internas."
       },
       {
         "title": "Inserir",
-        "text": "Inserir legendas, uma nota de rodapé e testar Painel de Navegação, Localizar e Ir para."
+        "text": "Inserir duas referências cruzadas: uma para um título e outra para uma figura ou tabela."
+      },
+      {
+        "title": "Inserir",
+        "text": "Inserir legendas nas figuras ou tabelas utilizadas."
+      },
+      {
+        "title": "Inserir",
+        "text": "Inserir pelo menos uma nota de rodapé."
+      },
+      {
+        "title": "Testar",
+        "text": "Testar o Painel de Navegação e os comandos Localizar e Ir para."
       },
       {
         "title": "Realizar",
-        "text": "Atualizar todos os campos e testar todas as ligações."
+        "text": "Atualizar todos os campos e testar as hiperligações e referências."
       },
       {
         "title": "Guardar",
-        "text": "Guardar os dois ficheiros na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
+        "text": "Guardar os dois ficheiros na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Drive."
       }
     ],
     "moodleRecord": "Explicar a diferença entre as opções de atualização do índice e confirmar o teste das ligações e referências.",
     "evidence": "Ficheiros 13 e 14 navegáveis nos dois locais e testes registados no Moodle.",
     "checklist": [
-      "Índice automático atualizado.",
-      "Dois marcadores e duas hiperligações funcionais.",
-      "Duas referências cruzadas e uma nota de rodapé.",
-      "Todos os campos e ligações testados."
+      "Índice automático inserido e atualizado.  Duas opções de atualização do índice testadas.  Dois marcadores e duas hiperligações internas funcionais.  Duas referências cruzadas funcionais.  Legendas e uma nota de rodapé inseridas.  Todos os campos, hiperligações e referências testados.",
+      "Os elementos trabalhados nesta tarefa deverão ser utilizados posteriormente no Projeto Final — Documento Profissional, de acordo com os requisitos do respetivo enunciado."
     ],
     "forumUrls": individualTaskForumUrls,
-    "pdfUrl": "",
+    "pdfUrl": "assets/pdfs/TI10.pdf",
     "workFiles": [
       {
         "number": "13",
         "title": "Inserir o seu primeiro índice",
         "expectedName": "13_Inserir_o_seu_primeiro_indice.docx",
-        "wordUrl": "assets/ficheiros/Word/13_Inserir_indice.docx",
+        "wordUrl": "assets/ficheiros/Word/13_Inserir_o_seu_primeiro_indice.docx",
         "available": true
       },
       {
@@ -749,71 +781,137 @@ const individualTasks = [
   {
     "id": "tarefa-individual-11",
     "url": "atividades/tarefas-individuais.html",
-    "title": "TI11 - Reunir documentos e realizar a revisão entre pares",
-    "intro": "Reunir conteúdos e melhorar um documento através de revisão colaborativa fundamentada.",
-    "objective": "Reunir conteúdos e melhorar um documento através de revisão colaborativa fundamentada.",
+    "title": "TI11 - Desenvolver e realizar a revisão entre pares do Projeto Final",
+    "intro": "Desenvolver o Projeto Final — Documento Profissional e melhorar o documento através de uma revisão entre pares fundamentada.",
+    "objective": "Desenvolver o Projeto Final — Documento Profissional e melhorar o documento através de uma revisão entre pares fundamentada.",
     "steps": [
       {
-        "title": "Realizar",
-        "text": "Realizar «Reunir documentos» e guardar como «2026-07_15_Reunir_PrimeiroNome.docx»."
-      },
-      {
-        "title": "Inserir",
-        "text": "Inserir ou combinar os conteúdos indicados, remover repetições e uniformizar estilos, cabeçalhos, paginação e formatação."
-      },
-      {
-        "title": "Criar",
-        "text": "Criar uma cópia para revisão com o nome «2026-07_16_Revisao_Entre_Pares_PrimeiroNome.docx»."
+        "title": "Abrir",
+        "text": "Abrir a versão em desenvolvimento do Projeto Final — Documento Profissional."
       },
       {
         "title": "Realizar",
-        "text": "Trocar a cópia com um colega da sala, sem trabalhar simultaneamente no mesmo ficheiro."
+        "text": "Desenvolver e organizar os conteúdos obrigatórios indicados no respetivo enunciado."
+      },
+      {
+        "title": "Confirmar",
+        "text": "Confirmar que o documento contém:"
       },
       {
         "title": "Realizar",
-        "text": "O colega deve ativar o Controlo de Alterações e efetuar pelo menos cinco propostas de alteração pertinentes."
+        "text": "capa;"
       },
       {
         "title": "Realizar",
-        "text": "O colega deve inserir pelo menos três comentários: um aspeto positivo, uma melhoria de conteúdo e uma melhoria de apresentação ou legibilidade."
+        "text": "índice;"
       },
       {
         "title": "Realizar",
-        "text": "No final do documento, o colega deve escrever um feedback entre 80 e 120 palavras, identificando pontos fortes e prioridades de melhoria."
+        "text": "introdução;"
       },
       {
         "title": "Realizar",
-        "text": "Depois de receber o ficheiro revisto, analisar cada alteração e comentário; aceitar ou rejeitar de forma fundamentada, sem apagar o registo antes da análise."
+        "text": "desenvolvimento;"
+      },
+      {
+        "title": "Realizar",
+        "text": "conclusão;"
+      },
+      {
+        "title": "Realizar",
+        "text": "referências;"
+      },
+      {
+        "title": "Realizar",
+        "text": "anexos, quando necessários."
+      },
+      {
+        "title": "Realizar",
+        "text": "Aplicar uma hierarquia coerente com os estilos Título 1, Título 2 e Título 3."
+      },
+      {
+        "title": "Realizar",
+        "text": "Integrar os elementos técnicos obrigatórios indicados no enunciado do Projeto Final."
+      },
+      {
+        "title": "Realizar",
+        "text": "Explicar e demonstrar a impressão em série, de acordo com o enunciado."
+      },
+      {
+        "title": "Realizar",
+        "text": "Identificar e explicar eventuais funcionalidades que não estejam disponíveis na versão do Word utilizada."
+      },
+      {
+        "title": "Confirmar",
+        "text": "Confirmar que o documento apresenta entre 8 e 12 páginas de conteúdo e não ultrapassa 20 páginas no total, incluindo os anexos."
       },
       {
         "title": "Guardar",
-        "text": "Guardar os ficheiros 15 e 16 na estrutura definida pela formadora, mantendo a organização entre computador e Drive."
+        "text": "Guardar a versão em desenvolvimento como 2026-07_15_Projeto_Final_Desenvolvimento_PrimeiroNome.docx."
+      },
+      {
+        "title": "Criar",
+        "text": "Criar uma cópia para revisão com o nome 2026-07_16_Revisao_Entre_Pares_PrimeiroNome.docx."
+      },
+      {
+        "title": "Realizar",
+        "text": "Trocar a cópia com um/a colega da sala, sem trabalhar simultaneamente no mesmo ficheiro."
+      },
+      {
+        "title": "Realizar",
+        "text": "O/A colega deve ativar o Controlo de Alterações e efetuar pelo menos cinco propostas de alteração pertinentes."
+      },
+      {
+        "title": "Realizar",
+        "text": "O/A colega deve inserir pelo menos três comentários:"
+      },
+      {
+        "title": "Realizar",
+        "text": "um aspeto positivo;"
+      },
+      {
+        "title": "Realizar",
+        "text": "uma melhoria de conteúdo;"
+      },
+      {
+        "title": "Realizar",
+        "text": "uma melhoria de apresentação ou legibilidade."
+      },
+      {
+        "title": "Realizar",
+        "text": "No final do documento, o/a colega deve escrever um feedback entre 80 e 120 palavras, identificando os pontos fortes e as prioridades de melhoria."
+      },
+      {
+        "title": "Realizar",
+        "text": "Depois de receber o ficheiro revisto, analisar cada alteração e comentário, sem apagar ou aceitar todas as alterações antes de concluir a análise."
+      },
+      {
+        "title": "Realizar",
+        "text": "Preparar as decisões sobre as sugestões que serão aplicadas na TI12."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar os dois ficheiros na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Drive."
       }
     ],
     "moodleRecord": "Identificar o colega revisor, resumir o feedback recebido e indicar duas sugestões que serão aplicadas e uma que não será aplicada, justificando as decisões.",
-    "evidence": "Ficheiros 15 e 16 nos dois locais, com alterações registadas, comentários, feedback do colega e decisões do autor.",
+    "evidence": "Projeto Final desenvolvido; ficheiros 15 e 16 guardados nos dois locais; revisão entre pares concluída com alterações, comentários e feedback do/a colega; decisões do/a autor/a registadas no Moodle.",
     "checklist": [
-      "Conteúdos reunidos e estilos uniformizados.",
-      "Pelo menos cinco alterações registadas.",
-      "Pelo menos três comentários inseridos.",
-      "Feedback entre 80 e 120 palavras.",
-      "Decisões do autor justificadas no Moodle."
+      "Estrutura obrigatória do Projeto Final completa.  Conteúdos do Projeto Final desenvolvidos.  Três níveis de títulos aplicados corretamente.  Elementos técnicos obrigatórios integrados.  Impressão em série explicada e demonstrada.  Limitações da versão identificadas, quando aplicável.  Limites de páginas verificados.  Pelo menos cinco alterações registadas.  Pelo menos três comentários inseridos.  Feedback entre 80 e 120 palavras.  Feedback recebido analisado.  Decisões do/a autor/a justificadas no Moodle."
     ],
     "forumUrls": individualTaskForumUrls,
-    "pdfUrl": "",
+    "pdfUrl": "assets/pdfs/TI11.pdf",
     "workFiles": [
       {
-        "number": "15",
-        "title": "Reunir documentos",
-        "expectedName": "15_Reunir_documentos.docx",
-        "wordUrl": "assets/ficheiros/Word/15_Reunir_documentos.docx",
+        "title": "Enunciado do Projeto Final",
+        "expectedName": "Projeto_Final_Enunciado.docx",
+        "wordUrl": "assets/ficheiros/Word/Projeto_Final_Enunciado.docx",
         "available": true
       },
       {
-        "number": "16",
-        "title": "Revisão entre pares",
-        "expectedName": "16_Revisao_entre_pares.docx",
-        "wordUrl": "assets/ficheiros/Word/16_Revisao_entre_pares.docx",
+        "title": "Resolução demonstrativa",
+        "expectedName": "Projeto_Final_Resolucao_Exemplo_Demonstrativo.docx",
+        "wordUrl": "assets/ficheiros/Word/Projeto_Final_Resolucao_Exemplo_Demonstrativo.docx",
         "available": true
       }
     ]
@@ -822,32 +920,116 @@ const individualTasks = [
     "id": "tarefa-individual-12",
     "url": "atividades/tarefas-individuais.html",
     "title": "TI12 - Concluir, partilhar e refletir",
-    "intro": "Concluir o projeto, disponibilizar o PDF com permissões de leitura e refletir sobre a evolução das aprendizagens.",
-    "objective": "Concluir o projeto, disponibilizar o PDF com permissões de leitura e refletir sobre a evolução das aprendizagens.",
+    "intro": "Concluir o Projeto Final — Documento Profissional, aplicar o feedback recebido, verificar o funcionamento do documento e preparar as versões finais em DOCX e PDF.",
+    "objective": "Concluir o Projeto Final — Documento Profissional, aplicar o feedback recebido, verificar o funcionamento do documento e preparar as versões finais em DOCX e PDF.",
     "steps": [
       {
         "title": "Criar",
-        "text": "Criar o documento final a partir do conjunto de ficheiros práticos já trabalhados e guardar como «2026-07_Projeto_Final_PrimeiroNome.docx»."
+        "text": "Criar uma nova cópia da versão do Projeto Final revista na TI11."
       },
       {
-        "title": "Ler",
-        "text": "Ler o feedback recebido na avaliação entre pares e aplicar as correções pertinentes."
+        "title": "Guardar",
+        "text": "Guardar a cópia com o nome 2026-07_Projeto_Final_PrimeiroNome.docx."
+      },
+      {
+        "title": "Realizar",
+        "text": "Analisar o feedback recebido durante a revisão entre pares e aplicar as melhorias pertinentes."
+      },
+      {
+        "title": "Realizar",
+        "text": "Registar as principais alterações realizadas e justificar qualquer sugestão que não seja aplicada."
       },
       {
         "title": "Executar",
-        "text": "Executar a revisão ortográfica e gramatical, atualizar todo o índice e verificar a paginação e a pré-visualização de impressão."
+        "text": "Executar a revisão ortográfica e gramatical e confirmar que o idioma de revisão está definido como Português de Portugal."
       },
       {
-        "title": "Acrescentar",
-        "text": "Acrescentar ao final do documento uma reflexão entre 150 e 200 palavras: aprendizagens mais importantes; principais dificuldades; evolução relativamente às expetativas iniciais; tarefa de que mais gostou; e utilização futura destas competências."
+        "title": "Verificar",
+        "text": "Verificar os estilos, listas, tabelas, imagens, cabeçalhos, rodapés, numeração e quebras."
+      },
+      {
+        "title": "Realizar",
+        "text": "Atualizar:"
+      },
+      {
+        "title": "Realizar",
+        "text": "o índice;"
+      },
+      {
+        "title": "Realizar",
+        "text": "os índices de figuras e tabelas;"
+      },
+      {
+        "title": "Realizar",
+        "text": "as legendas;"
+      },
+      {
+        "title": "Realizar",
+        "text": "as referências cruzadas;"
+      },
+      {
+        "title": "Realizar",
+        "text": "as hiperligações;"
+      },
+      {
+        "title": "Realizar",
+        "text": "os restantes campos automáticos."
+      },
+      {
+        "title": "Testar",
+        "text": "Testar as hiperligações, referências e a navegação interna."
+      },
+      {
+        "title": "Executar",
+        "text": "Executar a verificação de acessibilidade e analisar os problemas identificados."
+      },
+      {
+        "title": "Realizar",
+        "text": "Em Ficheiro → Imprimir, confirmar a paginação, as margens, a orientação e a disposição de todas as páginas."
+      },
+      {
+        "title": "Confirmar",
+        "text": "Confirmar que o documento apresenta entre 8 e 12 páginas de conteúdo e não ultrapassa 20 páginas no total, incluindo os anexos."
+      },
+      {
+        "title": "Realizar",
+        "text": "Escrever uma reflexão individual final com 5 a 8 frases e entre 150 e 200 palavras, considerando:"
+      },
+      {
+        "title": "Realizar",
+        "text": "os conhecimentos aplicados;"
+      },
+      {
+        "title": "Realizar",
+        "text": "a funcionalidade considerada mais útil;"
+      },
+      {
+        "title": "Realizar",
+        "text": "uma dificuldade e a respetiva solução;"
+      },
+      {
+        "title": "Realizar",
+        "text": "uma melhoria resultante da revisão entre pares;"
+      },
+      {
+        "title": "Realizar",
+        "text": "o que faria de forma diferente."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar o DOCX final e exportar o documento como 2026-07_Projeto_Final_PrimeiroNome.pdf."
+      },
+      {
+        "title": "Abrir",
+        "text": "Abrir e verificar os dois ficheiros, confirmando que o conteúdo e a paginação estão corretos."
+      },
+      {
+        "title": "Guardar",
+        "text": "Guardar o DOCX e o PDF na pasta «Tarefas individuais» do computador e na pasta com o mesmo nome na Drive."
       },
       {
         "title": "Configurar",
-        "text": "Exportar a versão final para PDF, verificar a leitura e guardar o ficheiro na pasta partilhada da Drive com o nome «2026-07_Projeto_Final_PrimeiroNome.pdf». A opção «Dobra de livro» fica como recurso complementar, apenas se for indicada pela formadora."
-      },
-      {
-        "title": "Nas definições",
-        "text": "Nas definições de partilha do PDF, selecionar «Qualquer pessoa com a ligação» e a função «Leitor»."
+        "text": "Configurar a partilha do PDF como «Qualquer pessoa com a ligação» e «Leitor»."
       },
       {
         "title": "Testar",
@@ -855,25 +1037,28 @@ const individualTasks = [
       },
       {
         "title": "Publicar",
-        "text": "Publicar no Moodle a ligação de leitura para o PDF final, que deverá ficar pronto para ser partilhado no e-Portfólio."
+        "text": "Publicar a ligação de leitura no Moodle."
       }
     ],
-    "moodleRecord": "Publicar a ligação de leitura para o PDF final e confirmar que foi testada sem sessão iniciada.",
-    "evidence": "DOCX final, PDF, reflexão final e ligação de leitura testada e publicada no Moodle.",
+    "moodleRecord": "Publicar a ligação de leitura para o PDF final, confirmar que foi testada sem sessão iniciada e registar as principais decisões relativas ao feedback recebido.",
+    "evidence": "Projeto Final concluído; DOCX e PDF finais guardados nos dois locais; feedback tratado; reflexão concluída; ligação de leitura configurada, testada e publicada no Moodle.",
     "checklist": [
-      "Feedback entre pares analisado e correções pertinentes aplicadas.",
-      "Índice, paginação e pré-visualização atualizados.",
-      "Reflexão entre 150 e 200 palavras.",
-      "Ligação configurada como Leitor e testada."
+      "Feedback entre pares analisado e correções pertinentes aplicadas.  Sugestões não aplicadas identificadas e justificadas.  Revisão linguística e verificação de acessibilidade realizadas.  Índices, campos, legendas, referências cruzadas, hiperligações e paginação atualizados.  Navegação interna e ligações testadas.  Pré-visualização da impressão verificada.  Limites de páginas confirmados.  Reflexão final com 5 a 8 frases e entre 150 e 200 palavras.  Ficheiros DOCX e PDF abertos e verificados.  Ligação de partilha configurada como Leitor e testada.  Ligação publicada no Moodle."
     ],
     "forumUrls": individualTaskForumUrls,
-    "pdfUrl": "",
+    "pdfUrl": "assets/pdfs/TI12.pdf",
     "workFiles": [
       {
-        "title": "Projeto final",
-        "expectedName": "Documento reunido, uniformizado e revisto pelo/a formando/a",
-        "available": false,
-        "note": "Não há ficheiro interativo novo; o projeto final resulta da reunião, revisão e uniformização dos ficheiros práticos trabalhados."
+        "title": "Enunciado do Projeto Final",
+        "expectedName": "Projeto_Final_Enunciado.docx",
+        "wordUrl": "assets/ficheiros/Word/Projeto_Final_Enunciado.docx",
+        "available": true
+      },
+      {
+        "title": "Resolução demonstrativa",
+        "expectedName": "Projeto_Final_Resolucao_Exemplo_Demonstrativo.docx",
+        "wordUrl": "assets/ficheiros/Word/Projeto_Final_Resolucao_Exemplo_Demonstrativo.docx",
+        "available": true
       }
     ]
   }
@@ -1415,7 +1600,7 @@ function renderContentMenus() {
       return `
       <button class="submenu-heading submenu-heading-${group.theme}" type="button" aria-expanded="false">
         <span>${group.title}</span>
-        <b aria-hidden="true">▾</b>
+        <b aria-hidden="true"></b>
       </button>
       <div class="submenu-group-children" hidden>
         ${visibleChildren.map((topic) => `<a href="${getBasePath()}${topic.url}">${topic.menuTitle || topic.title}</a>`).join("")}
@@ -2219,7 +2404,7 @@ function renderTeamsControl(root, options = {}) {
                     <tr>
                       <th>Nome do formando</th>
                       <th>N.º de partilhas</th>
-                      <th>Último registo</th>
+                      <th>ltimo registo</th>
                       ${publicView ? "" : "<th>Estado</th>"}
                       ${publicView ? "" : "<th>Partilhas</th>"}
                     </tr>
@@ -2794,10 +2979,10 @@ function renderActivityPage() {
 
   if (activity.id === "projeto-final-apresentacao") {
     const projectColumns = [
-      ["Ficheiro-base", "Documento «Bem-vindo ao Word» fornecido pela formadora."],
-      ["Versões de trabalho", "Nova cópia do documento em cada tarefa, identificada com a nomenclatura indicada."],
-      ["Revisão e auditoria", "Verificação final e auditoria de qualidade realizada por um colega."],
-      ["Entrega final", "Documento editável e versão final em PDF, com ligação de leitura."]
+      ["Estrutura", "Capa, índice automático, introdução, desenvolvimento, conclusão, referências e anexos quando necessários."],
+      ["Formatação", "Hierarquia com Título 1, Título 2 e Título 3, estilos coerentes, cabeçalhos, rodapés e paginação."],
+      ["Elementos técnicos", "Tabelas, imagens, legendas, índices de figuras/tabelas quando aplicáveis, referências cruzadas, hiperligações, nota de rodapé e impressão em série explicada e demonstrada."],
+      ["Revisão e entrega", "Revisão entre pares, reflexão individual final, apresentação até 5 minutos, entrega em DOCX e PDF e ligação de leitura testada."]
     ];
 
     root.innerHTML = `
@@ -2806,49 +2991,60 @@ function renderActivityPage() {
           <div class="section-heading task-page-heading">
             <p class="eyebrow">Projeto Final</p>
             <h1>Documento Profissional</h1>
-            <p class="lead">O Projeto Final resulta da reunião, uniformização e revisão dos ficheiros práticos trabalhados ao longo da UFCD 0754.</p>
+            <p class="lead">Construir um documento profissional único, claro e tecnicamente consistente, desenvolvido na TI11 e concluído na TI12.</p>
           </div>
 
           <div class="activity-meta-grid">
             <article class="card activity-meta-card">
-              <p class="eyebrow">Formato</p>
-              <h3>Documento Word e PDF</h3>
+              <p class="eyebrow">Tema</p>
+              <h3>Documento Profissional</h3>
             </article>
             <article class="card activity-meta-card">
-              <p class="eyebrow">Desenvolvimento</p>
-              <h3>Ao longo da UFCD</h3>
+              <p class="eyebrow">Extensão</p>
+              <h3>8 a 12 páginas de conteúdo</h3>
             </article>
             <article class="card activity-meta-card">
-              <p class="eyebrow">Registo</p>
-              <h3>Ficheiros na Drive</h3>
+              <p class="eyebrow">Limite total</p>
+              <h3>Máximo 20 páginas</h3>
             </article>
           </div>
 
           <article class="card activity-card">
             <p class="eyebrow">Objetivo</p>
-            <h2>Construir progressivamente um documento profissional</h2>
-            <p>As TI utilizam ficheiros práticos diferentes; os conteúdos relevantes são reunidos e uniformizados na fase final.</p>
-            <p>A versão final editável e o respetivo PDF constituem o Projeto Final da UFCD 0754.</p>
+            <h2>Finalizar e apresentar um documento profissional</h2>
+            <p>O projeto final aplica as competências trabalhadas na UFCD: estruturação, formatação, revisão, navegação, referências, elementos visuais, impressão em série e exportação para PDF.</p>
+            <p>A versão final deve existir em DOCX e PDF, com nomenclatura correta e ligação de leitura testada antes da publicação no Moodle.</p>
             <div class="presentation-strip">
-              <span>Google Drive</span>
-              <span>Microsoft Word</span>
+              <span>Word</span>
+              <span>Documento longo</span>
               <span>Revisão</span>
-              <span>Formatação</span>
+              <span>Referências</span>
               <span>PDF</span>
-              <span>Partilha</span>
+              <span>Apresentação</span>
             </div>
           </article>
 
           <details class="task-overview-card" open>
             <summary>
               <span class="task-module-copy">
-                <strong>Estrutura do trabalho</strong>
-                <small>Uma versão identificada para cada etapa do documento.</small>
+                <strong>Enunciado final</strong>
+                <small>Requisitos que devem orientar o desenvolvimento na TI11 e a conclusão na TI12.</small>
               </span>
-              <span class="task-module-mark" aria-hidden="true">DOCX</span>
+              <span class="task-module-mark" aria-hidden="true">PF</span>
             </summary>
             <div class="task-module-body">
-              <p>Os ficheiros práticos devem ser guardados na Drive e usados como base para selecionar, reunir e rever o documento final.</p>
+              <ul class="moodle-like-list">
+                <li>Documento com capa, índice automático, introdução, desenvolvimento, conclusão, referências e anexos quando necessários.</li>
+                <li>Hierarquia com Título 1, Título 2 e Título 3.</li>
+                <li>8 a 12 páginas de conteúdo e máximo de 20 páginas no total, incluindo anexos.</li>
+                <li>Estilos, cabeçalhos, rodapés, paginação, tabelas, imagens, legendas, referências cruzadas, hiperligações e nota de rodapé.</li>
+                <li>Impressão em série explicada e demonstrada, com identificação das limitações da versão do Word quando aplicável.</li>
+                <li>Revisão entre pares, reflexão individual final e apresentação individual até 5 minutos.</li>
+              </ul>
+              <div class="embed-fallback resource-action-row align-right">
+                <a class="small-button" href="${getBasePath()}assets/ficheiros/Word/Projeto_Final_Enunciado.docx" target="_top" download>Descarregar enunciado  DOCX</a>
+                <a class="small-button secondary-link" href="${getBasePath()}assets/ficheiros/Word/Projeto_Final_Resolucao_Exemplo_Demonstrativo.docx" target="_top" download>Descarregar resolução demonstrativa  DOCX</a>
+              </div>
             </div>
           </details>
 
@@ -2871,29 +3067,20 @@ function renderActivityPage() {
 
           <div class="activity-output-grid">
             <article class="card">
-              <p class="eyebrow">Em cada coluna</p>
-              <h3>Evidência, explicação e reflexão</h3>
+              <p class="eyebrow">Entrega</p>
+              <h3>Ficheiros finais</h3>
               <ul class="clean-list task-prompt-list">
-                <li>Título da tarefa.</li>
-                <li>Breve explicação do trabalho realizado.</li>
-                <li>Capturas de ecrã ou outras evidências solicitadas.</li>
-                <li>Ferramentas utilizadas.</li>
-                <li>Principal aprendizagem e dificuldade sentida, quando aplicável.</li>
-                <li>Proteção dos dados pessoais antes da publicação.</li>
+                <li><strong>DOCX:</strong> 2026-07_Projeto_Final_PrimeiroNome.docx</li>
+                <li><strong>PDF:</strong> 2026-07_Projeto_Final_PrimeiroNome.pdf</li>
+                <li>Ambos guardados na pasta «Tarefas individuais» do computador e na Drive.</li>
+                <li>PDF partilhado como «Qualquer pessoa com a ligação» e «Leitor».</li>
               </ul>
             </article>
 
             <article class="card">
-              <p class="eyebrow">Google Drive</p>
-              <h3>Organização dos ficheiros</h3>
-              <p>Os ficheiros da UFCD devem ser guardados em <strong>26109/03-0754</strong>, usando as subpastas Conteúdos, Atividades e Evidências.</p>
-              <p>A Google Drive reúne os ficheiros práticos, o documento editável final e o PDF de leitura.</p>
-            </article>
-
-            <article class="card">
               <p class="eyebrow">Moodle</p>
-              <h3>Orientações das tarefas</h3>
-              <p>Consultar no Moodle o PDF com as instruções completas de cada TI e realizar o trabalho no ficheiro indicado.</p>
+              <h3>Publicação final</h3>
+              <p>Publicar a ligação de leitura para o PDF final, confirmar que foi testada sem sessão iniciada e registar as principais decisões relativas ao feedback recebido.</p>
             </article>
           </div>
 
@@ -2901,12 +3088,12 @@ function renderActivityPage() {
             <p class="eyebrow">Verificação final</p>
             <h2>Confirmar antes de concluir</h2>
             <ul class="clean-list task-prompt-list">
-              <li>Todas as versões previstas estão guardadas.</li>
-              <li>Os nomes dos ficheiros respeitam a nomenclatura indicada.</li>
-              <li>O texto, as tabelas e as imagens são legíveis.</li>
-              <li>A ortografia e a formatação foram revistas.</li>
-              <li>O documento editável final abre corretamente.</li>
-              <li>O PDF final está atualizado e a ligação de leitura funciona.</li>
+              <li>Feedback entre pares analisado e correções pertinentes aplicadas.</li>
+              <li>Índices, campos, legendas, referências cruzadas, hiperligações e paginação atualizados.</li>
+              <li>Revisão linguística e verificação de acessibilidade realizadas.</li>
+              <li>Limites de páginas confirmados.</li>
+              <li>Reflexão final concluída e apresentação até 5 minutos preparada.</li>
+              <li>DOCX e PDF abertos, verificados e guardados com a nomenclatura correta.</li>
             </ul>
           </article>
         </div>
@@ -2992,7 +3179,7 @@ function renderActivityPage() {
     const getTaskPdfUrl = (task) => task.pdfUrl ? `${getBasePath()}${task.pdfUrl}` : "";
     const individualTasksPdfUrl = `${getBasePath()}assets/pdfs/TIs.pdf`;
 
-    const renderTaskPdfButton = (task, label = "Ver instruções — PDF") => task.pdfUrl
+    const renderTaskPdfButton = (task, label = "Ver instruções  PDF") => task.pdfUrl
       ? `<button class="small-button" type="button" data-modal-open="pdf-${task.id}">${label}</button>`
       : `<span class="task-link-pending">PDF brevemente disponível</span>`;
 
@@ -3029,7 +3216,7 @@ function renderActivityPage() {
     const renderTaskFiles = (task) => {
       const files = (task.workFiles || []).filter((file) => file.wordUrl || file.available !== false);
       return files.map((file) => {
-        const label = `${file.number ? `${file.number} — ` : ""}${file.title}`;
+        const label = `${file.number ? `${file.number}  ` : ""}${file.title}`;
         return file.available && file.wordUrl
           ? `<a class="small-button" href="${getBasePath()}${file.wordUrl}" target="_top" download>Descarregar ${label}</a>`
           : `<span class="task-link-pending">${label}: ficheiro brevemente disponível</span>`;
@@ -3115,8 +3302,8 @@ function renderActivityPage() {
               </ul>
               <div class="embed-fallback resource-action-row align-right">
                 ${optionalWordMaterials.map((file) => file.available && file.wordUrl
-                  ? `<a class="small-button secondary-link" href="${getBasePath()}${file.wordUrl}" target="_top" download>Descarregar ${file.number} — ${file.title}</a>`
-                  : `<span class="task-link-pending">${file.number} — ${file.title}: ficheiro brevemente disponível</span>`
+                  ? `<a class="small-button secondary-link" href="${getBasePath()}${file.wordUrl}" target="_top" download>Descarregar ${file.number}  ${file.title}</a>`
+                  : `<span class="task-link-pending">${file.number}  ${file.title}: ficheiro brevemente disponível</span>`
                 ).join("")}
               </div>
             </div>
@@ -3529,10 +3716,3 @@ function inicializarSite() {
   }
 }
 inicializarSite();
-
-
-
-
-
-
-
