@@ -492,10 +492,6 @@ def update_moodle(tasks):
             "title": task["title"],
             "objective": task["objective"],
             "steps": [step["text"] for step in task["steps"]],
-            "moodleRecord": task["moodleRecord"],
-            "delivery": task["evidence"],
-            "pdfUrl": task.get("pdfUrl", ""),
-            "workFiles": task.get("workFiles", []),
         }
         for task in tasks
     ]
@@ -506,7 +502,7 @@ def update_moodle(tasks):
         "      const tiTasks=" + json.dumps(moodle_tasks, ensure_ascii=False, indent=8) + ";",
     )
     moodle = re.sub(
-        r"      function renderMoodleFileLinks\(task\)\{.*?\}\n      function renderTiHtml\(task,index\)\{.*?\}\n      function escapeHtml",
+        r"      function renderTiHtml\(task,index\)\{.*?\}\n      function escapeHtml",
         MOODLE_RENDER + "\n      function escapeHtml",
         moodle,
         flags=re.S,
@@ -514,7 +510,7 @@ def update_moodle(tasks):
     MOODLE.write_text(moodle, encoding="utf-8")
 
 
-MOODLE_RENDER = r'''      function renderTiHtml(task,index){const accent=index<6?colors.lightBlue:colors.darkBlue;const isProjetoFinal=task.title.indexOf('TI11 -')===0||task.title.indexOf('TI12 -')===0;const detailHtml=isProjetoFinal?'<div style="margin:16px 0;padding:14px 16px;border:1px solid '+colors.line+';border-left:4px solid '+colors.blue+';border-radius:8px;background:'+colors.softBlue+';"><p style="margin:0 0 8px;line-height:1.55;"><strong>Produto esperado:</strong> '+task.delivery+'</p><p style="margin:0 0 8px;line-height:1.55;"><strong>Local de realização:</strong> pasta «Tarefas individuais» no computador e na Google Drive.</p><p style="margin:0;line-height:1.55;"><strong>Registo no Moodle:</strong> '+task.moodleRecord+'</p></div>':'';const filesHtml=isProjetoFinal&&task.workFiles&&task.workFiles.length?'<p style="margin:14px 0 8px;font-weight:900;color:'+colors.darkBlue+';">Materiais de apoio:</p><div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:2px;">'+task.workFiles.map(file=>file.wordUrl?'<a href="'+moodleLinks.site+file.wordUrl+'" target="_blank" style="display:inline-block;background:'+colors.blue+';color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:900;">'+file.title+'</a>':'').join('')+'</div>':'';return cardStart(accent)+'<h3 style="margin:0 0 12px;color:'+colors.blue+';font-size:24px;line-height:1.2;font-weight:900;">'+task.title+'</h3><p style="margin:0 0 14px;line-height:1.6;"><strong>Objetivo:</strong> '+task.objective+'</p><p style="margin:0 0 8px;font-weight:900;color:'+colors.darkBlue+';">O que fazer:</p><ul style="margin:0;padding-left:22px;line-height:1.7;">'+task.steps.map(step=>'<li>'+step+'</li>').join('')+'</ul>'+detailHtml+filesHtml+cardEnd()}'''
+MOODLE_RENDER = r'''      function renderTiHtml(task,index){const accent=index<6?colors.lightBlue:colors.darkBlue;const isProjetoFinal=task.title.indexOf('TI11 -')===0||task.title.indexOf('TI12 -')===0;const bodyHtml=isProjetoFinal?'<p style="margin:0;line-height:1.7;"><strong>O que fazer:</strong> Seguir o enunciado completo da tarefa, realizar o trabalho indicado e publicar no Moodle o registo solicitado pela formadora.</p>':'<p style="margin:0 0 8px;font-weight:900;color:'+colors.darkBlue+';">O que fazer:</p><ul style="margin:0;padding-left:22px;line-height:1.7;">'+task.steps.map(step=>'<li>'+step+'</li>').join('')+'</ul>';return cardStart(accent)+'<h3 style="margin:0 0 12px;color:'+colors.blue+';font-size:24px;line-height:1.2;font-weight:900;">'+task.title+'</h3><p style="margin:0 0 14px;line-height:1.6;"><strong>Objetivo:</strong> '+task.objective+'</p>'+bodyHtml+cardEnd()}'''
 
 
 def update_styles():
