@@ -2794,7 +2794,7 @@ function obterJsonp(url) {
       delete window[callbackName];
       script.remove();
       reject(new Error("Tempo excedido ao carregar dados do Apps Script."));
-    }, 12000);
+    }, 30000);
 
     window[callbackName] = (dados) => {
       window.clearTimeout(timeoutId);
