@@ -124,7 +124,7 @@ const contentMenuGroups = topics
     children: [{ topicId: topic.id }]
   }));
 
-const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwTZTbLAY7RLR8RSbX3ogc6WT1J8DJZdgDRq_FUD055ByJm2eXvJ8zYzKIGSb1RYxAjaw/exec";
+const DEFAULT_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzRu_6tZGkRsVmeIZVUTBN9S3j6o79krvKbHfQiHoz7wXXznhrehNedBRRldq-WtfD3/exec";
 const DEFAULT_APPS_SCRIPT_SPREADSHEET_ID = "14xWArQOzb-1fZ4QxZXjuoJK1dxhjWmbwWmF7lsK-a9o";
 const APPS_SCRIPT_WEB_APP_URL = window.UFCD0754_APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_WEB_APP_URL;
 const APPS_SCRIPT_SPREADSHEET_ID = window.UFCD0754_SPREADSHEET_ID || DEFAULT_APPS_SCRIPT_SPREADSHEET_ID;
@@ -1119,6 +1119,7 @@ const siteVisibilitySectionMeta = {
 };
 
 const SITE_VISIBILITY_STORAGE_KEY = "ufcd0754-site-visibility-v1";
+const SITE_VISIBILITY_REMOTE_CACHE_KEY = "ufcd0754-site-visibility-remote-cache-v1";
 const SITE_LINKS_STORAGE_KEY = "ufcd0754-site-links-v1";
 const APPS_SCRIPT_SPREADSHEET_GID = "1240441816";
 const SITE_CONTROL_KEY_PREFIX = `ufcd-${UFCD.code}-`;
@@ -1798,6 +1799,33 @@ function carregarVisibilidadeDoSite() {
   }
 }
 
+function guardarUltimaVisibilidadeRemotaDoSite(itens) {
+  if (!Array.isArray(itens)) return;
+  try {
+    const itensDaUfcdAtual = filtrarItensControloDaUfcdAtual(itens)
+      .map(normalizarItemControlo)
+      .filter(Boolean);
+    localStorage.setItem(SITE_VISIBILITY_REMOTE_CACHE_KEY, JSON.stringify({
+      savedAt: new Date().toISOString(),
+      itens: itensDaUfcdAtual
+    }));
+  } catch {
+    // A página continua funcional mesmo sem cache local.
+  }
+}
+
+function carregarUltimaVisibilidadeRemotaDoSite() {
+  try {
+    const cached = JSON.parse(localStorage.getItem(SITE_VISIBILITY_REMOTE_CACHE_KEY) || "{}");
+    if (!Array.isArray(cached.itens) || !cached.itens.length) return false;
+    aplicarItensVisibilidadeRemota(cached.itens);
+    siteVisibilityRemoteReady = true;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function aplicarVisibilidadeDoSite(saved) {
   Object.entries(saved || {}).forEach(([section, values]) => {
     if (section === "secoes" && values) {
@@ -2119,10 +2147,16 @@ async function carregarVisibilidadeRemotaDoSite(options = {}) {
   if (!APPS_SCRIPT_WEB_APP_URL) return false;
   if (siteVisibilityRemoteLoading && !options.force) return siteVisibilityRemoteLoading;
 
-  siteVisibilityRemoteLoading = obterJsonAppsScript({ acao: "visibilidade_site" })
+  siteVisibilityRemoteLoading = obterJsonAppsScript({
+    acao: "visibilidade_site",
+    ufcd: UFCD.code,
+    prefixo: SITE_CONTROL_KEY_PREFIX,
+    campos: "essenciais"
+  })
     .then((dados) => {
       if (dados?.sucesso && Array.isArray(dados.itens)) {
         aplicarItensVisibilidadeRemota(dados.itens);
+        guardarUltimaVisibilidadeRemotaDoSite(dados.itens);
         limparEstadoLocalDoSite();
         return true;
       }
@@ -2780,7 +2814,11 @@ async function obterJsonAppsScript(params) {
   if (APPS_SCRIPT_SPREADSHEET_ID) {
     url.searchParams.set("spreadsheet_id", APPS_SCRIPT_SPREADSHEET_ID);
   }
-  Object.entries(params).forEach(([key, value]) => url.searchParams.set(key, value));
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== "") {
+      url.searchParams.set(key, value);
+    }
+  });
   url.searchParams.set("_", String(Date.now()));
   return obterJsonp(url.toString());
 }
@@ -3692,6 +3730,8 @@ function inicializarSite() {
   if (!APPS_SCRIPT_WEB_APP_URL) {
     carregarVisibilidadeDoSite();
     carregarLinksDoSite();
+  } else {
+    carregarUltimaVisibilidadeRemotaDoSite();
   }
 
   renderContentMenus();
